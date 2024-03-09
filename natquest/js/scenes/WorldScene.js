@@ -8,7 +8,7 @@ class WorldScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('map', 'assets/json/map.json');
   }
 
-create() {
+  create() {
     // Load tilemap
     const map = this.make.tilemap({ key: 'map' });
 
