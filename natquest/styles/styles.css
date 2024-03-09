@@ -8,7 +8,7 @@
         padding: 0;
       }
 
-       body {
+        body, #background {
     background-color: #ffd7d7;
       }
 
