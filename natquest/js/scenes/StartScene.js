@@ -14,7 +14,7 @@ class StartScene extends Phaser.Scene {
     background.setOrigin(0.5);
 
     // Add a title
-    const title = this.add.text(400, 200, 'Your Game Title', {
+    const title = this.add.text(400, 200, 'NAT QUEST', {
       font: '48px Arial',
       fill: '#ffffff',
       backgroundColor: '#000000',
