@@ -22,11 +22,11 @@
 
 @font-face {
     font-family: 'Knewave' system-ui;
-    src: url('styles/fonts/Knewave-Regular.ttf'); 
+    src: url('https://fonts.googleapis.com/css2?family=Knewave&display=swap'); 
 }
 
  body {
-    background-image: url('assets/backgrounds/indexBodyBackground.jpg');
+    background-image: url('assets/backgrounds/bodyBackground.jpg');
     background-size: cover; 
     background-position: center; 
       }
