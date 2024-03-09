@@ -1,3 +1,4 @@
+
 const config = {
   type: Phaser.AUTO,
   width: 800,
@@ -5,11 +6,10 @@ const config = {
   parent: "game-container",
   pixelArt: true,
   scene: {
-    mapScene: { // Existing map scene definition
-      preload: preload,
-      create: create,
-      update: update,
-    },
+    preload: preload,
+    create: create,
+    update: update,
+  },
 };
 
 const game = new Phaser.Game(config);
@@ -27,11 +27,10 @@ function create() {
   // Phaser's cache (i.e. the name you used in preload)
   const tileset = map.addTilesetImage("tilemap1", "tiles");
 
-  //these are the simple ways to do it, the function is just so it will accomadate a map of any size and can just cycle through as many layers as it has
   // Parameters: layer name (or index) from Tiled, tileset, x, y
  // const belowLayer = map.createLayer("Below Player", tileset, 0, 0); 
   const worldLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
-  const worldObjectsLayer = map.createLayer("Tile Layer 2", tileset, 0, 0);
+//  const aboveLayer = map.createLayer("Above Player", tileset, 0, 0);
 
   // Phaser supports multiple cameras, but you can access the default camera like this:
   const camera = this.cameras.main;
