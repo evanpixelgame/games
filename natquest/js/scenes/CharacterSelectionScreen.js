@@ -51,4 +51,4 @@ class CharacterSelectionScreen extends Phaser.Scene {
   }
 }
 
-window.StartScene = StartScene;
+window.StartScene = CharacterSelectionScene;
