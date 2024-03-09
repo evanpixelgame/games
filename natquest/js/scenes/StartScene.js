@@ -37,7 +37,7 @@ class StartScene extends Phaser.Scene {
     // Add a start button
     const startButton = this.add.text(400, 400, 'Start', {
       fontSize: '32px', 
-      fontFamily: 'Lato',
+      fontFamily: 'Lucinda',
       fill: '#ffffff',
       backgroundColor: '#000000',
       padding: { x: 20, y: 10 },
