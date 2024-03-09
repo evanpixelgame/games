@@ -1,22 +1,29 @@
-export const startScene = { // Export the scene object
+export const startScene = {
   preload: preloadStart,
   create: createStart,
 };
 
 function preloadStart() {
-  // Load any assets needed for the start screen
-  this.load.image('startBackground', 'path/to/start_background.png');
-  this.load.spritesheet('startButton', 'path/to/start_button.png', { frameWidth: 128, frameHeight: 64 });
+  // No need to load images for this setup
 }
 
 function createStart() {
-  // Add background image
-  const background = this.add.image(0, 0, 'startBackground').setOrigin(0, 0);
+  // Create a red background
+  const background = this.add.rectangle(0, 0, this.game.config.width, this.game.config.height, 0xff0000);
 
-  // ... rest of your start scene logic here ...
+  // Create a yellow circle with black text
+  const circle = this.add.circle(400, 300, 150, 0xffff00);
+  const text = this.add.text(400, 300, "START", {
+    fontSize: 48,
+    color: 0x000000,
+  });
+  text.setOrigin(0.5); // Center the text within the circle
 
-  // Button click event handler
-  button.on('pointerdown', () => {
-    this.scene.start('mapScene'); // Transition to the map scene
+  // Make the circle interactive
+  circle.setInteractive();
+
+  // Handle circle click to start the map scene
+  circle.on('pointerdown', () => {
+    this.scene.start('mapScene');
   });
 }
