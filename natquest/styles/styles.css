@@ -27,7 +27,10 @@
 
  body {
     background-color: pink;
-      background-image: url('assets/backgrounds/bodyBackground2.jpg');
+      }
+
+#background {
+background-image: url('assets/backgrounds/bodyBackground2.jpg');
     background-size: cover; 
     background-position: center; 
-      }
+}
