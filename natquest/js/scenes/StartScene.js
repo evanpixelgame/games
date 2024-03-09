@@ -15,7 +15,7 @@ class StartScene extends Phaser.Scene {
 
     // Add a title
     const title = this.add.text(400, 200, 'NAT QUEST', {
-      fontSize: '48px', 
+      fontSize: '72px', 
       fontFamily: 'Knewave',
       fill: '#ba76d2',
       padding: { x: 20, y: 10 },
