@@ -51,4 +51,4 @@ class CharSelect extends Phaser.Scene {
   }
 }
 
-window.StartScene = CharacterSelectionScene;
+window.CharSelect = CharSelect;
