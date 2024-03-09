@@ -6,11 +6,6 @@ class StartScene extends Phaser.Scene {
   preload() {
     // Load background image
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
-    this.load.rexWebFont({
-      key: 'KneWave',
-      urls: ['styles/fonts/Knewave-Regular.ttf'],
-      fontFamily: 'KneWave',
-    });
   }
 
   create() {
