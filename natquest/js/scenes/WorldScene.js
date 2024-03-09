@@ -9,15 +9,23 @@ class WorldScene extends Phaser.Scene {
   }
 
   create() {
-  const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
-  const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
-  const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+    // Load tilemap
+    const map = this.make.tilemap({ key: 'map' });
 
-   const camera = this.cameras.main;
+    // Load tileset
+    const tileset = map.addTilesetImage('tilemap1', 'tiles');
+
+    // Create layers
+    const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
+    const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
+    const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+
+    // Phaser supports multiple cameras, but you can access the default camera like this:
+    const camera = this.cameras.main;
 
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
-    controls = new Phaser.Cameras.Controls.FixedKeyControl({
+    const controls = new Phaser.Cameras.Controls.FixedKeyControl({
       camera: this.cameras.main,
       left: cursors.left,
       right: cursors.right,
@@ -45,4 +53,5 @@ class WorldScene extends Phaser.Scene {
     controls.update(delta);
   }
 }
+
 window.WorldScene = WorldScene;
