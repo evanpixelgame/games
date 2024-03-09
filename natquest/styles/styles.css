@@ -10,6 +10,7 @@
 
         body, #background {
     background-color: #ffd7d7;
+      overflow: hidden;
       }
 
       #game-container {
