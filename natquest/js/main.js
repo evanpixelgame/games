@@ -1,4 +1,4 @@
-
+import StartScene from 'js/startScene.js';
 const config = {
   type: Phaser.AUTO,
   width: 800,
