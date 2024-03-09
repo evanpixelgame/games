@@ -62,6 +62,8 @@ fetch('path/to/your/layers.json')
     console.error('Error loading layers JSON:', error);
   });
 
+  createLayerFromJSON(layerData);
+
 
   // Phaser supports multiple cameras, but you can access the default camera like this:
   const camera = this.cameras.main;
