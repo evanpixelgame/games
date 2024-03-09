@@ -25,7 +25,7 @@ class WorldScene extends Phaser.Scene {
 
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
-    controls = new Phaser.Cameras.Controls.FixedKeyControl({
+    const controls = new Phaser.Cameras.Controls.FixedKeyControl({
       camera: this.cameras.main,
       left: cursors.left,
       right: cursors.right,
@@ -50,6 +50,7 @@ class WorldScene extends Phaser.Scene {
 
   update(time, delta) {
     // Apply the controls to the camera each update tick of the game
+    // Ensure that controls is defined before calling update
     if (controls) {
       controls.update(delta);
     }
