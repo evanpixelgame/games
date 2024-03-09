@@ -23,7 +23,8 @@ class StartScene extends Phaser.Scene {
 
     // Add a title
     const title = this.add.text(400, 200, 'NAT QUEST', {
-      font: '48px Arial',
+      fontFamily: 'KneWave',
+      fontSize: '48px',
       fill: '#ffffff',
       backgroundColor: '#000000',
       padding: { x: 20, y: 10 },
@@ -42,7 +43,7 @@ class StartScene extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(400, 400, 'Start', {
+    const startButton = this.add.text(400, 200, 'Start', {
       font: '32px',
       fontFamily: 'KneWave',
       fill: '#ffffff',
