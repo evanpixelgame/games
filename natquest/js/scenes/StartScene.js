@@ -10,7 +10,7 @@ class StartScene extends Phaser.Scene {
 
   create() {
     // Add background image
-    const background = this.add.image(350, 300, 'background');
+    const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
 
     // Add a title
@@ -34,7 +34,7 @@ class StartScene extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(400, 550, 'Start', {
+    const startButton = this.add.text(350, 550, 'Start', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
