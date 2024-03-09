@@ -5,7 +5,7 @@ class StartScene extends Phaser.Scene {
 
   preload() {
     // Load background image
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+    //this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
   }
 
   create() {
@@ -35,10 +35,10 @@ class StartScene extends Phaser.Scene {
 
     // Add a start button
     const startButton = this.add.text(400, 400, 'Start', {
-      fontSize: '32px', 
+      fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
-      padding: { x: 20, y: 10 },
+      padding: { x: 20, y: 30 },
     })
       .setOrigin(0.5)
       .setInteractive();
