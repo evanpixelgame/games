@@ -54,16 +54,4 @@ class CharSelect extends Phaser.Scene {
   }
 }
 
-export default CharacterSelectScene;
 window.CharSelect = CharSelect;
-
-
-/* USE THIS AS REFERENCE FOR HOW TO TRANSITION TO WORLDSCENE
-    // Set a callback function for the button click event
-    startButton.on('pointerdown', function () {
-      // Transition to the main scene when the button is clicked
-      this.scene.start('WorldScene');
-    }, this);
-  }
-} */
-
