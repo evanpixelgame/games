@@ -4,7 +4,7 @@ const config = {
   height: 600,
   parent: 'game-container',
   pixelArt: true,
-  scene: [StartScene, MainScene], // Reference the scene classes directly
+  scene: [StartScene, WorldScene], // Reference the scene classes directly
 };
 
 const game = new Phaser.Game(config);
