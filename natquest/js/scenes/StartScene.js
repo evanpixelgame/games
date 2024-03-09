@@ -10,8 +10,8 @@ class StartScene extends Phaser.Scene {
 
   create() {
     // Add background image
-    const background = this.add.image(400, 300, 'background');
-    background.setOrigin(0.5);
+  //  const background = this.add.image(400, 300, 'background');
+  //  background.setOrigin(0.5);
 
     // Add a title
     const title = this.add.text(400, 200, 'NAT QUEST', {
