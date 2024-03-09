@@ -28,9 +28,10 @@ function create() {
   const tileset = map.addTilesetImage("tilemap1", "tiles");
 
   // Parameters: layer name (or index) from Tiled, tileset, x, y
- // const belowLayer = map.createLayer("Below Player", tileset, 0, 0); 
   const worldLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
-//  const aboveLayer = map.createLayer("Above Player", tileset, 0, 0);
+  const worldObjectLayer = map.createLayer("Tile Layer 2", tileset, 0, 0);
+  const worldCollisionObjectLayer = map.createLayer("Tile Layer 3", tileset, 0, 0);
+
 
   // Phaser supports multiple cameras, but you can access the default camera like this:
   const camera = this.cameras.main;
