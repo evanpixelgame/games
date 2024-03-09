@@ -20,11 +20,6 @@
         border-radius: 5px;
       }
 
-@font-face {
-    font-family: 'Knewave' system-ui;
-    src: url('styles/fonts/Knewave-Regular.ttf') format('ttf'); 
-}
-
  body {
     background-color: pink;
       }
