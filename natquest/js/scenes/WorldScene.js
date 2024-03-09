@@ -9,8 +9,9 @@ class WorldScene extends Phaser.Scene {
   }
 
   create() {
-    // Your existing create code here
-    // ...
+  const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
+  const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
+  const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
