@@ -6,7 +6,8 @@
       }
 
      body {
-    background-image: rgba(255, 255, 255, 0.5) url('assets/backgrounds/indexBodyBackground.jpg');
+    background-image: url('assets/backgrounds/indexBodyBackground.jpg');
+      opacity: .5;
     background-size: cover; 
     background-position: center; 
 
