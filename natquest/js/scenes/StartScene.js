@@ -6,6 +6,11 @@ class StartScene extends Phaser.Scene {
   preload() {
     // Load background image
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+    this.load.rexWebFont({
+      key: 'KneWave',
+      urls: ['styles/fonts/Knewave-Regular.ttf'],
+      fontFamily: 'KneWave',
+    });
   }
 
   create() {
@@ -16,7 +21,7 @@ class StartScene extends Phaser.Scene {
     // Add a title
     const title = this.add.text(400, 200, 'NAT QUEST', {
       fontSize: '48px', 
-      fontFamily: 'Arial',
+      fontFamily: 'KneWave',
       fill: '#ffffff',
       backgroundColor: '#000000',
       padding: { x: 20, y: 10 },
@@ -37,7 +42,7 @@ class StartScene extends Phaser.Scene {
     // Add a start button
     const startButton = this.add.text(400, 400, 'Start', {
       fontSize: '32px', 
-      fontFamily: 'Arial',
+      fontFamily: 'KneWave',
       fill: '#ffffff',
       backgroundColor: '#000000',
       padding: { x: 20, y: 10 },
