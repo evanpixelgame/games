@@ -5,6 +5,13 @@
         padding: 0;
       }
 
+     body {
+    background-image: url('assets/backgrounds/indexBodyBackground.jpg');
+    background-size: cover; 
+    background-position: center; 
+
+}
+
       #game-container {
         min-width: 100vw;
         min-height: 100vh;
