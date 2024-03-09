@@ -1,4 +1,4 @@
-class MainScene extends Phaser.Scene {
+class WorldScene extends Phaser.Scene {
   constructor() {
     super({ key: 'WorldScene' });
   }
