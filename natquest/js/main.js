@@ -89,16 +89,5 @@ const config = {
 const game = new Phaser.Game(config);
 let controls;
 
-// Your existing functions (preload, create, update) go here
-
-// Instead of directly calling create, use the StartScene
-// Remove the line: game.scene.start('StartScene');
-
-// After creating the game instance, Phaser automatically starts the first scene in the scene list,
-// which is 'StartScene' in this case.
-
-
-
-
 
 
