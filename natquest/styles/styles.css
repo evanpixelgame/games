@@ -6,7 +6,7 @@
       }
 
      body {
-    background-image: url('assets/backgrounds/indexBodyBackground.jpg');
+    background-image: rgba(255, 255, 255, 0.5) url('assets/backgrounds/indexBodyBackground.jpg');
     background-size: cover; 
     background-position: center; 
 
