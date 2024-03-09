@@ -42,3 +42,4 @@ class MainScene extends Phaser.Scene {
     controls.update(delta);
   }
 }
+window.WorldScene = WorldScene;
