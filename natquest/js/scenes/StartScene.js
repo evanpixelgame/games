@@ -5,13 +5,13 @@ class StartScene extends Phaser.Scene {
 
   preload() {
     // Load background image
-    //this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
   }
 
   create() {
     // Add background image
-  //  const background = this.add.image(400, 300, 'background');
-  //  background.setOrigin(0.5);
+    const background = this.add.image(400, 300, 'background');
+    background.setOrigin(0.5);
 
     // Add a title
     const title = this.add.text(400, 200, 'NAT QUEST', {
