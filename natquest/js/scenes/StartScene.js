@@ -6,6 +6,14 @@ class StartScene extends Phaser.Scene {
   preload() {
     // Load background image
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+      preload() {
+    // Load the TTF font
+    this.load.rexWebFont({
+      key: 'KneWave',
+      urls: ['styles/fonts/Knewave-Regular.ttf'],
+      // Specify other font properties if needed
+    });
+  }
   }
 
   create() {
@@ -35,7 +43,8 @@ class StartScene extends Phaser.Scene {
 
     // Add a start button
     const startButton = this.add.text(400, 400, 'Start', {
-      font: '32px Arial',
+      font: '32px',
+      fontFamily: 'KneWave',
       fill: '#ffffff',
       backgroundColor: '#000000',
       padding: { x: 20, y: 10 },
