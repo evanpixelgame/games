@@ -1,4 +1,3 @@
-import { startScene } from 'js/scenes/startScene.js';
 const config = {
   type: Phaser.AUTO,
   width: 800,
@@ -6,7 +5,6 @@ const config = {
   parent: "game-container",
   pixelArt: true,
   scene: {
-    startScene,
     mapScene: { // Existing map scene definition
       preload: preload,
       create: create,
