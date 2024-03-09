@@ -1,6 +1,9 @@
 class WorldScene extends Phaser.Scene {
   constructor() {
     super({ key: 'WorldScene' });
+    
+    // Declare controls as a property of the class
+    this.controls = null;
   }
 
   preload() {
@@ -25,7 +28,7 @@ class WorldScene extends Phaser.Scene {
 
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
-    const controls = new Phaser.Cameras.Controls.FixedKeyControl({
+    this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
       camera: this.cameras.main,
       left: cursors.left,
       right: cursors.right,
@@ -50,9 +53,8 @@ class WorldScene extends Phaser.Scene {
 
   update(time, delta) {
     // Apply the controls to the camera each update tick of the game
-    // Ensure that controls is defined before calling update
-    if (controls) {
-      controls.update(delta);
+    if (this.controls) {
+      this.controls.update(delta);
     }
   }
 }
