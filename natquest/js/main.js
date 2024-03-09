@@ -13,6 +13,21 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
+
+///////////
+// Access the scene manager from the game object
+const sceneManager = game.scene;
+
+// Create the StartScene instance
+const startScene = new StartScene();
+
+// Add the StartScene to the scene manager
+sceneManager.add('startScene', startScene);
+
+// Set the initial scene to start
+sceneManager.start('startScene');
+////////////
+
 let controls;
 
 function preload() {
