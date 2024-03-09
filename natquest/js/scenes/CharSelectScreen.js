@@ -1,4 +1,4 @@
-class CharacterSelectionScreen extends Phaser.Scene {
+class CharSelect extends Phaser.Scene {
   constructor() {
     super({ key: 'StartScene' });
   }
