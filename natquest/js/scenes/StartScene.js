@@ -5,13 +5,33 @@ class StartScene extends Phaser.Scene {
 
   preload() {
     // Load background image
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+    this.load.image('background', 'path/to/your/background/image.jpg');
   }
 
   create() {
     // Add background image
     const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
+
+    // Add a title
+    const title = this.add.text(400, 200, 'Your Game Title', {
+      font: '48px Arial',
+      fill: '#ffffff',
+      backgroundColor: '#000000',
+      padding: { x: 20, y: 10 },
+    })
+      .setOrigin(0.5);
+
+    // Set up a scaling animation for the title
+    this.tweens.add({
+      targets: title,
+      scaleX: 1.2,  // Scale up by 20%
+      scaleY: 1.2,
+      ease: 'Sine.easeInOut',
+      duration: 1000,
+      yoyo: true,  // Scale back to the original size
+      repeat: -1,  // Infinite loop
+    });
 
     // Add a start button
     const startButton = this.add.text(400, 400, 'Start', {
@@ -28,16 +48,6 @@ class StartScene extends Phaser.Scene {
       // Transition to the main scene when the button is clicked
       this.scene.start('WorldScene');
     }, this);
-
-    // Add dynamic text effect (e.g., bouncing animation)
-    this.tweens.add({
-      targets: startButton,
-      y: 380,  // Bounce up by 20 pixels
-      ease: 'Bounce.easeInOut',
-      duration: 1000,
-      repeat: -1,  // Infinite loop
-      yoyo: true  // Bounce back to the original position
-    });
   }
 }
 
