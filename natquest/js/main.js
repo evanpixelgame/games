@@ -27,10 +27,41 @@ function create() {
   // Phaser's cache (i.e. the name you used in preload)
   const tileset = map.addTilesetImage("tilemap1", "tiles");
 
+  //these are the simple ways to do it, the function is just so it will accomadate a map of any size and can just cycle through as many layers as it has
   // Parameters: layer name (or index) from Tiled, tileset, x, y
  // const belowLayer = map.createLayer("Below Player", tileset, 0, 0); 
-  const worldLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
-  const aboveLayer = map.createLayer("Tile Layer 2", tileset, 0, 0);
+  //const worldLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
+  //const aboveLayer = map.createLayer("Tile Layer 2", tileset, 0, 0);
+
+// Function to create a map from all the layers in JSON data
+function createLayerFromJSON(layerData) {
+  const name = layerData.name; // Get the layer name from JSON
+  const tileset = map.addTilesetImage(layerData.tileset, layerData.tileset); // Add tileset
+
+  // Handle potential errors (e.g., missing data)
+  if (!tileset) {
+    console.error(`Tileset "${layerData.tileset}" not found in JSON!`);
+    return; // Skip creating the layer if tileset is missing
+  }
+
+  const layer = map.createLayer(name, tileset, layerData.x || 0, layerData.y || 0); // Create layer with optional x and y offsets
+  return layer; // Return the created layer (optional)
+}
+
+// Load and parse your JSON file (replace with your actual loading method)
+fetch('path/to/your/layers.json')
+  .then(response => response.json())
+  .then(data => {
+    const layers = data.layers || []; // Assuming your JSON has an array named "layers"
+
+    for (const layerData of layers) {
+      createLayerFromJSON(layerData);
+    }
+  })
+  .catch(error => {
+    console.error('Error loading layers JSON:', error);
+  });
+
 
   // Phaser supports multiple cameras, but you can access the default camera like this:
   const camera = this.cameras.main;
