@@ -6,9 +6,13 @@ const config = {
   parent: "game-container",
   pixelArt: true,
   scene: {
-    preload: preload,
-    create: create,
-    update: update,
+    startScene: preloadStart, // Add the start scene
+    createStart,
+    mapScene: { // Existing map scene definition
+      preload: preload,
+      create: create,
+      update: update,
+    },
   },
 };
 
