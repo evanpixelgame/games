@@ -1,4 +1,4 @@
-export default class StartScene extends Phaser.Scene {
+aexport default class StartScene extends Phaser.Scene {
   constructor() {
     super('startScene'); // Set the scene key
   }
