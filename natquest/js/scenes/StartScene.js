@@ -6,8 +6,8 @@ class StartScene extends Phaser.Scene {
   preload() {
     // Load background image
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
-    this.load.css('knewave-font', 'styles/fonts/styles.css');
-    this.load.image('kneWaveFont', 'styles/fonts/Knewave-Regular.ttf');
+    //this.load.css('knewave-font', 'styles/fonts/styles.css');
+    this.load.css('knewave', 'styles/styles.css');
   }
 
   create() {
