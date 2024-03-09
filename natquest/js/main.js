@@ -1,4 +1,3 @@
-//import StartScene from 'js/startScene.js';
 const startSceneConfig = {
   key: 'StartScene',
   create: function() {
@@ -23,44 +22,12 @@ const startSceneConfig = {
 const mainSceneConfig = {
   key: 'MainScene',
   // Your existing create, preload, and update functions go here
-  preload: preload,
-  create: create,
-  update: update,
-};
-
-const config = {
-  type: Phaser.AUTO,
-  width: 800,
-  height: 600,
-  parent: 'game-container',
-  pixelArt: true,
-  scene: [startSceneConfig, mainSceneConfig], // Add both scenes to the game
-};
-
-const game = new Phaser.Game(config);
-
-///////////
-// Access the scene manager from the game object
-const sceneManager = game.scene;
-
-// Create the StartScene instance
-const startScene = new StartScene();
-
-// Add the StartScene to the scene manager
-sceneManager.add('startScene', startScene);
-
-// Set the initial scene to start
-sceneManager.start('startScene');
-////////////
-
-let controls;
-
-function preload() {
+  preload: 
+    function preload() {
   this.load.image("tiles", "assets/tilesets/tilemap1.png");
   this.load.tilemapTiledJSON("map", "assets/json/map.json"); //"../assets/tilemaps/ use the ../???
-}
-
-function create() {
+},
+  create: function create() {
   const map = this.make.tilemap({ key: "map" });
 
   // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
@@ -101,9 +68,37 @@ function create() {
       backgroundColor: "#000000",
     })
     .setScrollFactor(0);
-}
+},
+  update:
 
 function update(time, delta) {
   // Apply the controls to the camera each update tick of the game
   controls.update(delta);
-}
+},
+};
+
+const config = {
+  type: Phaser.AUTO,
+  width: 800,
+  height: 600,
+  parent: 'game-container',
+  pixelArt: true,
+  scene: [startSceneConfig, mainSceneConfig], // Add both scenes to the game
+};
+
+const game = new Phaser.Game(config);
+let controls;
+
+// Your existing functions (preload, create, update) go here
+
+// Instead of directly calling create, use the StartScene
+// Remove the line: game.scene.start('StartScene');
+
+// After creating the game instance, Phaser automatically starts the first scene in the scene list,
+// which is 'StartScene' in this case.
+
+
+
+
+
+
