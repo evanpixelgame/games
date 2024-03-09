@@ -13,6 +13,8 @@ class WorldScene extends Phaser.Scene {
   const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
+   const camera = this.cameras.main;
+
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
     controls = new Phaser.Cameras.Controls.FixedKeyControl({
