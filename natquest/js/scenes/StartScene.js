@@ -5,7 +5,7 @@ class StartScene extends Phaser.Scene {
 
   preload() {
     // Load the TTF font
-    this.load.bitmapFont('KneWave', 'path/to/KneWave/font.png', 'path/to/KneWave/font.xml');
+    this.load.bitmapFont('KneWave', 'styles/fonts/Knewave-Regular.ttf';
   }
 
   create() {
@@ -14,7 +14,7 @@ class StartScene extends Phaser.Scene {
     background.setOrigin(0.5);
 
     // Create text with the custom font
-    const title = this.add.bitmapText(400, 200, 'KneWave', 'Your Game Title', {
+    const title = this.add.bitmapText(400, 200, 'KneWave', 'NAT QUEST', {
       fontSize: '48px',
       fill: '#ffffff',
       backgroundColor: '#000000',
