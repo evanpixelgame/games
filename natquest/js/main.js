@@ -43,22 +43,13 @@ const aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
 const sKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 const dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
-// Combine corresponding keys for each direction
-const combinedKeys = {
-    up: [cursors.up, wKey],
-    down: [cursors.down, sKey],
-    left: [cursors.left, aKey],
-    right: [cursors.right, dKey],
-};
-
-// Use the combined keys in the control configuration
 controls = new Phaser.Cameras.Controls.FixedKeyControl({
-    camera: camera,
-    up: combinedKeys.up,
-    down: combinedKeys.down,
-    left: combinedKeys.left,
-    right: combinedKeys.right,
-    speed: 0.5, // Adjust speed as needed
+  camera: camera,
+  left: cursors.left, // Keep left arrow key
+  right: cursors.right, // Keep right arrow key
+  up: wKey, // Use W key for up
+  down: sKey, // Use S key for down
+  speed: 0.5, // Adjust speed as needed
 });
 
 
