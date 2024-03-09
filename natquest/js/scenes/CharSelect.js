@@ -1,6 +1,6 @@
 class CharSelect extends Phaser.Scene {
   constructor() {
-    super({ key: 'StartScene' });
+    super({ key: 'CharSelect' });
   }
 
   preload() {
