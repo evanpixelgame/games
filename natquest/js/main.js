@@ -37,20 +37,15 @@ function create() {
   const camera = this.cameras.main;
 
   // Set up the arrows to control the camera
-const cursors = this.input.keyboard.createCursorKeys();
-const wKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-const aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-const sKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-const dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-
-controls = new Phaser.Cameras.Controls.FixedKeyControl({
-  camera: camera,
-  left: cursors.left, // Keep left arrow key
-  right: cursors.right, // Keep right arrow key
-  up: wKey, // Use W key for up
-  down: sKey, // Use S key for down
-  speed: 0.5, // Adjust speed as needed
-});
+  const cursors = this.input.keyboard.createCursorKeys();
+  controls = new Phaser.Cameras.Controls.FixedKeyControl({
+    camera: camera,
+    left: cursors.left,
+    right: cursors.right,
+    up: cursors.up,
+    down: cursors.down,
+    speed: 0.5,
+  });
 
 
 
