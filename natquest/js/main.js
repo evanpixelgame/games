@@ -10,7 +10,6 @@ const config = {
       create: create,
       update: update,
     },
-  },
 };
 
 const game = new Phaser.Game(config);
