@@ -16,3 +16,8 @@
       #game-container > canvas {
         border-radius: 5px;
       }
+
+@font-face {
+    font-family: 'KneWave-Regular' system-ui; /* Replace with the actual font name */
+    src: url('styles/fonts/Knewave-Regular.ttf'); 
+}
