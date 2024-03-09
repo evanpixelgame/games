@@ -37,7 +37,6 @@ function create() {
   const camera = this.cameras.main;
 
   // Set up the arrows to control the camera
-// Still need to create the cursor keys and individual WASD keys
 const cursors = this.input.keyboard.createCursorKeys();
 const wKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 const aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
