@@ -37,20 +37,31 @@ function create() {
   const camera = this.cameras.main;
 
   // Set up the arrows to control the camera
+// Still need to create the cursor keys and individual WASD keys
 const cursors = this.input.keyboard.createCursorKeys();
 const wKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 const aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
 const sKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 const dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
+// Combine corresponding keys for each direction
+const combinedKeys = {
+    up: [cursors.up, wKey],
+    down: [cursors.down, sKey],
+    left: [cursors.left, aKey],
+    right: [cursors.right, dKey],
+};
+
+// Use the combined keys in the control configuration
 controls = new Phaser.Cameras.Controls.FixedKeyControl({
-  camera: camera,
-  left: cursors.left, // Keep left arrow key
-  right: cursors.right, // Keep right arrow key
-  up: wKey, // Use W key for up
-  down: sKey, // Use S key for down
-  speed: 0.5, // Adjust speed as needed
+    camera: camera,
+    up: combinedKeys.up,
+    down: combinedKeys.down,
+    left: combinedKeys.left,
+    right: combinedKeys.right,
+    speed: 0.5, // Adjust speed as needed
 });
+
 
 
   // Constrain the camera so that it isn't allowed to move outside the width/height of tilemap
