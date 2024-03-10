@@ -1,6 +1,6 @@
-class WorldScene extends Phaser.Scene {
+class OpenWorld extends Phaser.Scene {
   constructor() {
-    super({ key: 'WorldScene' });
+    super({ key: 'OpenWorld' });
     
     // Declare controls as a property of the class
     this.controls = null;
@@ -59,4 +59,4 @@ class WorldScene extends Phaser.Scene {
   }
 }
 
-window.WorldScene = WorldScene;
+window.OpenWorld = OpenWorld;
