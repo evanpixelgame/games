@@ -28,12 +28,18 @@ class CharSelect extends Phaser.Scene {
     character2.on('pointerdown', () => this.selectCharacter('character2', character2));
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
-    // Set up input events for the confirm button
-    const confirmButton = document.getElementById('confirmButton');
-    confirmButton.addEventListener('click', () => this.confirmSelection());
+    // Create an input element
+    this.inputElement = document.createElement('input');
+    this.inputElement.type = 'text';
+    this.inputElement.style = 'position: absolute; top: 60px; left: 20px; font-size: 24px; border: none; background: none; color: #ffffff;';
 
-    // Set up input events for the input field
-    this.inputElement = document.getElementById('nameInput');
+    // Append the input element to the document body
+    document.body.appendChild(this.inputElement);
+
+    // Set focus on the input element
+    this.inputElement.focus();
+
+    // Handle input change event
     this.inputElement.addEventListener('input', () => this.handleInputChange());
   }
 
@@ -60,15 +66,6 @@ class CharSelect extends Phaser.Scene {
     // Update the Phaser Text object with the input value
     this.inputText = this.inputElement.value;
     console.log(`Input Text: ${this.inputText}`);
-  }
-
-  confirmSelection() {
-    // Handle confirm button logic
-    this.playerName = this.inputText;
-    console.log(`Player Name: ${this.playerName}`);
-
-    // Store player name and selected character, and transition to the next scene
-    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
   }
 }
 
