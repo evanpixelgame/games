@@ -8,6 +8,7 @@ class StartMenu extends Phaser.Scene {
   }
 
   create() {
+    if (this.scale.width < 600) {
     // Add background image
     const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
@@ -47,6 +48,9 @@ class StartMenu extends Phaser.Scene {
       // Transition to the main scene when the button is clicked
       this.scene.start('CharSelect');
     }, this);
+  } 
+  } else if ((this.scale.width > 600) ) {
+    
   }
 }
 
