@@ -8,7 +8,8 @@ class StartMenu extends Phaser.Scene {
   }
 
   create() {
-    if (this.scale.width < 600) {
+    const smallScreenSize = (this.scale.width < 600);
+    if (smallScreenSize) {
     // Add background image
     const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
@@ -49,7 +50,7 @@ class StartMenu extends Phaser.Scene {
       this.scene.start('CharSelect');
     }, this);
   } 
-  } else if ((this.scale.width > 600) ) {
+  } else if (!screenSizeSmall) {
    const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
 
