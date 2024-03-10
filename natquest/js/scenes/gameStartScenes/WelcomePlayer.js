@@ -3,11 +3,10 @@ class WelcomePlayer extends Phaser.Scene {
     super({ key: 'WelcomePlayer' });
   }
       
-preload() {}
+  preload() {}
 
-create() {
-  
-const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
+  create() {
+    const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -20,9 +19,9 @@ const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
       // Transition to the main scene when the button is clicked
       this.scene.start('OpenWorld');
     }, this);
-}
 
-      const welcomeTextBlock = this.add.text(400, 300, `Welcome to the Nat Quest, ${gameManager.playerName}!
+    // Declaration and initialization of welcomeTextBlock
+    const welcomeTextBlock = this.add.text(400, 300, `Welcome to the Nat Quest, ${gameManager.playerName}!
       \nYou have chosen the ${gameManager.selectedCharacter} as your character. \nIt's time to start your adventure!`, {
       fontSize: '24px',
       fontFamily: 'Arial',
@@ -32,7 +31,7 @@ const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
       .setOrigin(0.5);
 
     // Additional styling for the text block
-    textBlock.setShadow(2, 2, '#000000', 2, false, true);
+    welcomeTextBlock.setShadow(2, 2, '#000000', 2, false, true);
   }
 }
 
