@@ -12,6 +12,9 @@ class CharSelect extends Phaser.Scene {
   }
 
    create() {
+    
+    const background = this.add.image(400, 300, 'background');
+    background.setOrigin(0.5);
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
     const character2 = this.add.image(400, 200, 'character2').setInteractive();
