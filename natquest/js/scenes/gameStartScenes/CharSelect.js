@@ -77,7 +77,8 @@ selectCharacter(characterKey, characterImage) {
     this.inputElement.style = 'display: none;';
     
 
-    
+    // if (validName) {start the OpenWorld scene} else {give alert that they need to either make a
+ // new characater selection or pick valid name} (once both are valid, the continue button will work)
     
     // Transition to the main scene when the button is clicked
     this.scene.start('OpenWorld');
