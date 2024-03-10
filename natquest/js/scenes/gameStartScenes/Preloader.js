@@ -1,6 +1,6 @@
-class Preload extends Phaser.Scene {
+class Preloader extends Phaser.Scene {
   constructor() {
-    super({ key: 'Preload' });
+    super({ key: 'Preloader' });
   }
 
   preload() {
@@ -20,4 +20,4 @@ class Preload extends Phaser.Scene {
     });
   }
 }
-window.Preload = Preload;
+window.Preloader = Preloader;
