@@ -12,7 +12,7 @@ preload() {}
 
 create() {
   
-const beginButton = this.add.text(385, 550, gameManager.playerName, {
+const beginButton = this.add.text(385, 550, 'Click Here to Begin Game!', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -26,6 +26,19 @@ const beginButton = this.add.text(385, 550, gameManager.playerName, {
       this.scene.start('OpenWorld');
     }, this);
 }
+
+      const textBlock = this.add.text(400, 300, `Welcome to the Nat Quest, ${gameManager.playerName}!
+      \nYou have chosen the ${gameManager.selectedCharacter} as your character. \nIt's time to start your adventure!`, {
+      fontSize: '24px',
+      fontFamily: 'Arial',
+      fill: '#ffffff',
+      align: 'center',
+    })
+      .setOrigin(0.5);
+
+    // Additional styling for the text block
+    textBlock.setShadow(2, 2, '#000000', 2, false, true);
+  }
 }
 
 window.WelcomePlayer = WelcomePlayer;
