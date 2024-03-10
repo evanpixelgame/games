@@ -54,3 +54,11 @@ background-color: #3498db; /* Set to the desired shade of blue */
 color: #fff;
 }
 
+@media only screen and (max-width: 767px) {
+    body {
+       width: 100%;
+          height: 100%;
+    }
+
+    /* Other styles specific to small screens */
+}
