@@ -22,7 +22,7 @@ const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
     }, this);
 }
 
-      const textBlock = this.add.text(400, 300, `Welcome to the Nat Quest, ${gameManager.playerName}!
+      const welcomeTextBlock = this.add.text(400, 300, `Welcome to the Nat Quest, ${gameManager.playerName}!
       \nYou have chosen the ${gameManager.selectedCharacter} as your character. \nIt's time to start your adventure!`, {
       fontSize: '24px',
       fontFamily: 'Arial',
