@@ -48,15 +48,6 @@ class CharSelect extends Phaser.Scene {
 
     console.log(`Selected character: ${this.selectedCharacter}`);
   }
-
- /* confirmSelection() {
-    // Handle confirm button logic
-    this.playerName = document.querySelector('input').value;
-    console.log(`Player Name: ${this.playerName}`);
-
-    // Store player name and selected character, and transition to the next scene
-    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
-  } */
 }
 
 window.CharSelect = CharSelect;
