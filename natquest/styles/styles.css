@@ -37,8 +37,20 @@
   font-style: normal;
 }
 
-#nameInput, #confirmButton {
+#inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; 
+}
+
+#nameInput {
 background-color: #3498db; /* Set to the desired shade of blue */
-  color: #fff;
+color: #fff;
+}
+
+#confirmButton {
+background-color: #3498db; /* Set to the desired shade of blue */
+color: #fff;
 }
 
