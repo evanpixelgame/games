@@ -68,6 +68,22 @@ class CharSelect extends Phaser.Scene {
     this.inputText = this.inputElement.value;
     console.log(`Input Text: ${this.inputText}`);
   }
+
+      const continueButton = this.add.text(385, 550, 'Start', {
+      fontSize: '48px', 
+      fontFamily: 'knewave',
+      fill: '#c92b23',
+      padding: { x: 20, y: 20 },
+    })
+      .setOrigin(0.5)
+      .setInteractive();
+
+    // Set a callback function for the button click event
+    startButton.on('pointerdown', function () {
+      // Transition to the main scene when the button is clicked
+      this.scene.start('OpenWorld');
+    }, this);
+  }
 }
 
 window.CharSelect = CharSelect;
