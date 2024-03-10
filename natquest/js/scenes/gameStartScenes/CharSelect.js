@@ -14,7 +14,7 @@ class CharSelect extends Phaser.Scene {
     this.load.image('character3', 'assets/sprites/charSelect/sprite3.png');
   }
 
-  create() {
+create() {
     // Display background
     const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
@@ -33,7 +33,7 @@ class CharSelect extends Phaser.Scene {
 
     // Create a rectangle as a background for the input field
     const inputBackground = this.add.graphics();
-    inputBackground.fillStyle(0x000000, 1);
+    inputBackground.fillStyle(0xadd8e6, 1); // Light blue color
     inputBackground.fillRect(10, 50, 300, 40);
 
     // Create a text object to display the input
@@ -44,79 +44,24 @@ class CharSelect extends Phaser.Scene {
     inputBackground.on('pointerdown', () => this.handleInputClick());
 
     // Set up input events for the confirm button
-    const confirmButton = this.add.text(500, 500, 'Confirm', {
-      fontSize: '24px',
-      fill: '#ffffff',
-      backgroundColor: '#000000',
-      padding: { x: 20, y: 10 },
+    const confirmButton = this.add.text(400, 150, 'Confirm', {
+        fontSize: '24px',
+        fill: '#ffffff',
+        backgroundColor: '#add8e6', // Light blue color
+        padding: { x: 20, y: 10 },
     }).setOrigin(0.5).setInteractive();
     confirmButton.on('pointerdown', () => this.confirmSelection());
-  }
 
-  selectCharacter(characterKey, characterImage) {
-    // Remove highlight from the previous selected character
-    if (this.characterHighlight) {
-      this.characterHighlight.destroy();
-    }
+    // Centered container for input field and confirm button
+    const container = this.add.container(400, 300);
+    container.add(inputBackground);
+    container.add(this.inputElement);
+    container.add(confirmButton);
 
-    // Handle character selection logic
-    this.selectedCharacter = characterKey;
+    // Center the container
+    Phaser.Display.Align.In.Center(container, this.add.zone(400, 300, 800, 600));
+}
 
-    // Add a highlight effect to the selected character
-    this.characterHighlight = this.add.image(
-      characterImage.x,
-      characterImage.y,
-      'characterHighlight'
-    ).setOrigin(0.5);
-
-    console.log(`Selected character: ${this.selectedCharacter}`);
-  }
-
-  handleInputClick() {
-    // Trigger the browser's native input when the user clicks the Phaser input area
-    this.inputElement.visible = false;
-
-    // Create a standard HTML input element
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.style = 'position: absolute; top: 60px; left: 20px; font-size: 24px; border: none; background: none; color: #ffffff;';
-
-    // Append the input element to the document body
-    document.body.appendChild(input);
-
-    // Set focus on the input element
-    input.focus();
-
-    // Handle input change event
-    input.addEventListener('input', () => this.handleInputChange(input));
-  }
-
-  handleInputChange(input) {
-    // Update the Phaser text element with the input value
-    this.inputText = input.value;
-    this.inputElement.text = this.inputText;
-  }
-
-  handleKeyDown(event) {
-    // Close the native input when Enter is pressed
-    if (event.key === 'Enter') {
-      this.inputElement.visible = true;
-      const input = document.querySelector('input');
-      if (input) {
-        input.blur();
-        input.remove();
-      }
-    }
-  }
-
-  confirmSelection() {
-    // Handle confirm button logic
-    this.playerName = this.inputText;
-    console.log(`Player Name: ${this.playerName}`);
-
-    // Store player name and selected character, and transition to the next scene
-    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
-  }
 }
 
 window.CharSelect = CharSelect;
