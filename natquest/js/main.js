@@ -8,7 +8,7 @@ const config = {
     Preloader,
     StartMenu,
     CharSelect,
-    WorldScene,
+    OpenWorld,
   ],
 };
 
