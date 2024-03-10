@@ -4,20 +4,18 @@ class CharSelect extends Phaser.Scene {
     this.selectedCharacter = null;
     this.playerName = '';
     this.characterHighlight = null;
-    this.inputText = '';
-    this.inputElement = null;
   }
 
   preload() {
     this.load.image('character1', 'assets/sprites/charSelect/sprite1.png');
     this.load.image('character2', 'assets/sprites/charSelect/sprite2.png');
     this.load.image('character3', 'assets/sprites/charSelect/sprite3.png');
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
   }
 
   create() {
-    const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
+   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+    
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
     const character2 = this.add.image(400, 200, 'character2').setInteractive();
@@ -29,12 +27,7 @@ class CharSelect extends Phaser.Scene {
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
     // Set up input events for the confirm button
-    const confirmButton = document.getElementById('confirmButton');
-    confirmButton.addEventListener('click', () => this.confirmSelection());
-
-    // Set up input events for the input field
-    this.inputElement = document.getElementById('nameInput');
-    this.inputElement.addEventListener('input', () => this.handleInputChange());
+    confirmButton.on('pointerdown', () => this.confirmSelection());
   }
 
   selectCharacter(characterKey, characterImage) {
@@ -54,21 +47,6 @@ class CharSelect extends Phaser.Scene {
     );
 
     console.log(`Selected character: ${this.selectedCharacter}`);
-  }
-
-  handleInputChange() {
-    // Update the Phaser Text object with the input value
-    this.inputText = this.inputElement.value;
-    console.log(`Input Text: ${this.inputText}`);
-  }
-
-  confirmSelection() {
-    // Handle confirm button logic
-    this.playerName = this.inputText;
-    console.log(`Player Name: ${this.playerName}`);
-
-    // Store player name and selected character, and transition to the next scene
-    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
   }
 }
 
