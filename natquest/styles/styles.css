@@ -38,7 +38,8 @@
 }
 
 #nameInput, #confirmButton {
-      display: none;
+background-color: #3498db; /* Set to the desired shade of blue */
+  color: #fff;
 }
 
 
