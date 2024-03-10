@@ -5,8 +5,8 @@ class Preloader extends Phaser.Scene {
 
   preload() {
     //USE TO LOAD ALL GAME ASSETS SO THEYRE ALL READY AND REST OF GAME IS FAST AFTER LOADING 
+      //Maybe load sprites separately so only have to load the one they pick instead of all of them
     // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
-    // this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
 
         this.load.image('character1', 'assets/sprites/charSelect/sprite1.png');
