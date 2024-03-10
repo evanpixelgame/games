@@ -50,7 +50,7 @@ class CharSelect extends Phaser.Scene {
     console.log(`Player Name: ${this.playerName}`);
 
     // Store player name and selected character, and transition to the next scene
-    this.scene.start('WorldScene', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
+    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
   }
 }
 
