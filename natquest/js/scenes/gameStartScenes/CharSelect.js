@@ -4,20 +4,18 @@ class CharSelect extends Phaser.Scene {
     this.selectedCharacter = null;
     this.playerName = '';
     this.characterHighlight = null;
-    this.inputText = '';
-    this.inputElement = null;
   }
 
   preload() {
     this.load.image('character1', 'assets/sprites/charSelect/sprite1.png');
     this.load.image('character2', 'assets/sprites/charSelect/sprite2.png');
     this.load.image('character3', 'assets/sprites/charSelect/sprite3.png');
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
   }
 
   create() {
-    const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
+   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+    
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
     const character2 = this.add.image(400, 200, 'character2').setInteractive();
@@ -28,19 +26,8 @@ class CharSelect extends Phaser.Scene {
     character2.on('pointerdown', () => this.selectCharacter('character2', character2));
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
-    // Create an input element
-    this.inputElement = document.createElement('input');
-    this.inputElement.type = 'text';
-    this.inputElement.style = 'position: absolute; top: 60px; left: 20px; font-size: 24px; border: none; background: none; color: #ffffff;';
-
-    // Append the input element to the document body
-    document.body.appendChild(this.inputElement);
-
-    // Set focus on the input element
-    this.inputElement.focus();
-
-    // Handle input change event
-    this.inputElement.addEventListener('input', () => this.handleInputChange());
+    // Set up input events for the confirm button
+    confirmButton.on('pointerdown', () => this.confirmSelection());
   }
 
   selectCharacter(characterKey, characterImage) {
@@ -61,12 +48,32 @@ class CharSelect extends Phaser.Scene {
 
     console.log(`Selected character: ${this.selectedCharacter}`);
   }
+   
+  
+  
+  
+  const inputElement = document.createElement('input');
+  inputElement.type = 'text';
+  inputElement.style = 'position: absolute; top: 60px; left: 20px; font-size: 24px; border: none; background: none; color: #ffffff;';
 
-  handleInputChange() {
-    // Update the Phaser Text object with the input value
-    this.inputText = this.inputElement.value;
-    console.log(`Input Text: ${this.inputText}`);
-  }
+  // Append the input element to the document body
+  document.body.appendChild(inputElement);
+
+  // Set focus on the input element
+  inputElement.focus();
+
+  // Handle input change event
+  inputElement.addEventListener('input', () => this.handleInputChange(inputElement));
+}
+
+handleInputChange(inputElement) {
+  // Update the Phaser Text object with the input value
+  this.inputText = inputElement.value;
+  this.inputElement.text = this.inputText;
+}
+
+
+
 }
 
 window.CharSelect = CharSelect;
