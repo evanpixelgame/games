@@ -21,8 +21,10 @@ class CharSelect extends Phaser.Scene {
   confirmButton.on('pointerdown', () => this.confirmSelection());
 
   // Show the input elements
-  document.getElementById('nameInput').style.display = 'block';
-  document.getElementById('confirmButton').style.display = 'block';
+  const nameInput = document.getElementById('nameInput');
+  const confirmButton = document.getElementById('confirmButton');
+     nameInput.style.display = 'block';
+    confirmButton.style.display = 'block';
 
     
     
