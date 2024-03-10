@@ -5,7 +5,7 @@ const config = {
   parent: 'game-container',
   pixelArt: true,
   scene: [
-    Preload,
+    Preloader,
     StartMenu,
     CharSelect,
     WorldScene,
