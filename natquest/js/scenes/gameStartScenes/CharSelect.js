@@ -44,20 +44,45 @@ class CharSelect extends Phaser.Scene {
 
     // Create continue button
     const continueButton = this.add.text(385, 550, 'Start', {
-        fontSize: '48px',
-        fontFamily: 'knewave',
-        fill: '#c92b23',
-        padding: { x: 20, y: 20 },
+      fontSize: '48px',
+      fontFamily: 'knewave',
+      fill: '#c92b23',
+      padding: { x: 20, y: 20 },
     })
-        .setOrigin(0.5)
-        .setInteractive();
+      .setOrigin(0.5)
+      .setInteractive();
 
     // Set a callback function for the button click event
     continueButton.on('pointerdown', function () {
-        // Transition to the main scene when the button is clicked
-        this.scene.start('OpenWorld');
+      // Transition to the main scene when the button is clicked
+      this.scene.start('OpenWorld');
     }, this);
-}
+  }
+
+  selectCharacter(characterKey, characterImage) {
+    // Remove highlight from the previous selected character
+    if (this.characterHighlight) {
+      this.characterHighlight.destroy();
+    }
+
+    // Handle character selection logic
+    this.selectedCharacter = characterKey;
+
+    // Add a highlight effect to the selected character
+    this.characterHighlight = this.add.image(
+      characterImage.x,
+      characterImage.y,
+      'characterHighlight'
+    );
+
+    console.log(`Selected character: ${this.selectedCharacter}`);
+  }
+
+  handleInputChange() {
+    // Update the Phaser Text object with the input value
+    this.inputText = this.inputElement.value;
+    console.log(`Input Text: ${this.inputText}`);
+  }
 }
 
 window.CharSelect = CharSelect;
