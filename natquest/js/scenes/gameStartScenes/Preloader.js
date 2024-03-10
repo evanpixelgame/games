@@ -1,56 +1,57 @@
-class Preloader extends Phaser.Scene {
+class CharSelect extends Phaser.Scene {
   constructor() {
-    super({ key: 'Preloader' });
+    super({ key: 'CharSelect' });
+    this.selectedCharacter = null;
+    this.playerName = '';
+    this.characterHighlight = null;
   }
 
   preload() {
-    // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
-    // this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
-
-    
-    //maybe just add a pink background that matches the background color set in StartMenu
- //also sometimes it still seems to glitch a little bit, i bet more stuff just needs to be loaded onto this screen for it to work properly
-    
-    const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
-    const desiredFontFamily = 'Knewave';
-  const progressText = this.add.text(200, 220, 'Loading...', {
-      fontFamily: 'Knewave',
-      color: 'black',
-      fontSize: '32px'
-});
-progressText.setOrigin(0.5, 0.5);
-
-this.load.on('complete', () => {
-  if (progressText.style.fontFamily === desiredFontFamily) { // Check stored font family
-    this.scene.start('StartMenu');
-  } else {
-    console.warn('Font might not be loaded yet, delaying scene transition...');
+    this.load.image('character1', 'assets/sprites/charSelect/sprite1.png');
+    this.load.image('character2', 'assets/sprites/charSelect/sprite2.png');
+    this.load.image('character3', 'assets/sprites/charSelect/sprite3.png');
   }
-});
 
-/*    const progressText = this.add.text(200, 220, 'Loading...', {
-      fontFamily: 'Knewave',
-      color: 'black',
-      fontSize: '32px'
-});
-      progressText.setOrigin(0.5, 0.5); /* Center the text (optional) */
+  create() {
 
+   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+    const inputElement = document.getElementById('nameInput');
+    const confirmButton = document.getElementById('confirmButton');
+    inputElement.style.display = 'block';
+    confirmButton.style.display = 'block';
+    
+    // Display character options
+    const character1 = this.add.image(200, 200, 'character1').setInteractive();
+    const character2 = this.add.image(400, 200, 'character2').setInteractive();
+    const character3 = this.add.image(600, 200, 'character3').setInteractive();
 
-    this.load.on('progress', (percent) => {
-      progressBar.setScale(percent, 1);
-      progressText.setText(`Loading: ${Math.floor(percent * 100)}%`);
-    });
+    // Set up input events for character selection
+    character1.on('pointerdown', () => this.selectCharacter('character1', character1));
+    character2.on('pointerdown', () => this.selectCharacter('character2', character2));
+    character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
-    this.load.on('complete', () => {
-      this.scene.start('StartMenu');
-    });
-
+    // Set up input events for the confirm button
+    confirmButton.on('pointerdown', () => this.confirmSelection());
   }
-   create() {
-         const background = this.add.image(400, 300, 'background');
-    background.setOrigin(0.5);
-}
+
+  selectCharacter(characterKey, characterImage) {
+    // Remove highlight from the previous selected character
+    if (this.characterHighlight) {
+      this.characterHighlight.destroy();
+    }
+
+    // Handle character selection logic
+    this.selectedCharacter = characterKey;
+
+    // Add a highlight effect to the selected character
+    this.characterHighlight = this.add.image(
+      characterImage.x,
+      characterImage.y,
+      'characterHighlight'
+    );
+
+    console.log(`Selected character: ${this.selectedCharacter}`);
+  }
 }
 
-window.Preloader = Preloader;
+window.CharSelect = CharSelect;
