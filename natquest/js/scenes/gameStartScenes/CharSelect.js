@@ -9,7 +9,6 @@ class CharSelect extends Phaser.Scene {
   }
 
   preload() {
-this.game.config.width * 0.5, this.game.config.height * 0.7.5
   }
 
   create() {
