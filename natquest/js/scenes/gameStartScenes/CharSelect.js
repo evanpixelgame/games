@@ -9,10 +9,7 @@ class CharSelect extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('character1', 'assets/sprites/charSelect/sprite1.png');
-    this.load.image('character2', 'assets/sprites/charSelect/sprite2.png');
-    this.load.image('character3', 'assets/sprites/charSelect/sprite3.png');
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+
   }
 
   create() {
