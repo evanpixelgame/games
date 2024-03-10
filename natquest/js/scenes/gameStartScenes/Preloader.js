@@ -7,12 +7,7 @@ class Preloader extends Phaser.Scene {
     // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
     this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
 
-    // Load your web font
-    this.load.rexWebFont({
-      key: 'KneWave',
-      urls: ['styles/fonts/Knewave-Regular.ttf'],
-      fontFamily: 'KneWave',
-    });
+
 
     // Additional assets loading if needed...
 
