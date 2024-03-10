@@ -6,7 +6,7 @@ const config = {
   pixelArt: true,
   scene: [
     Preload,
-    StartScene,
+    StartMenu,
     CharSelect,
     WorldScene,
   ],
