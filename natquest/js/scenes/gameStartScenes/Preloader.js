@@ -1,6 +1,7 @@
 class Preloader extends Phaser.Scene {
   constructor() {
     super({ key: 'Preloader' });
+    this.fontsLoaded = false; // Initialize the fontsLoaded flag
   }
 
   preload() {
@@ -32,7 +33,7 @@ class Preloader extends Phaser.Scene {
         this.scene.start('StartMenu');
       } else {
         console.warn('Fonts not fully loaded yet, waiting...'); // Handle potential delays
-      })}
+      }
     });
   }
 }
