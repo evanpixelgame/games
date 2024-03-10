@@ -77,7 +77,7 @@ selectCharacter(characterKey, characterImage) {
   // Check if both character and name are selected
   if (this.selectedCharacter && this.inputText.trim() !== '') {
     // Transition to the main scene when the conditions are met
-    this.scene.start('OpenWorld');
+    this.scene.start('WelcomePlayer');
     this.inputElement.style = 'display: none;';
     gameManager.playerName = this.inputText.trim();
     gameManager.selectedCharacter = this.selectedCharacter;
