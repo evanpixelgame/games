@@ -7,8 +7,7 @@ class OpenWorld extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('tiles', 'assets/tilesets/tilemap1.png');
-    this.load.tilemapTiledJSON('map', 'assets/json/map.json');
+  
   }
 
   create() {
