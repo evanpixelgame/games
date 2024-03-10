@@ -1,4 +1,13 @@
-
+class CharSelect extends Phaser.Scene {
+  constructor() {
+    super({ key: 'CharSelect' });
+    this.selectedCharacter = gameManager.selectedCharacter;
+    this.playerName = gameManager.playerName;
+ /*   this.characterHighlight = null;
+    this.inputText = '';
+    this.inputElement = null; */
+  }
+      
 preload() {}
 
 create() {
@@ -10,4 +19,5 @@ const heartButton = this.add.text(385, 550, gameManager.playerName, {
     })
       .setOrigin(0.5)
       .setInteractive();
+}
 }
