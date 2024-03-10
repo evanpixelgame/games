@@ -22,7 +22,7 @@ class Preloader extends Phaser.Scene {
     
     const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
     const desiredFontFamily = 'Knewave';
-  const progressText = this.add.text(200, 220, 'Loading...', {
+  const progressText = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.8, 'Loading...', {
       fontFamily: 'Knewave',
       color: 'black',
       fontSize: '32px'
@@ -37,14 +37,6 @@ this.load.on('complete', () => {
   }
 });
 
-/*    const progressText = this.add.text(200, 220, 'Loading...', {
-      fontFamily: 'Knewave',
-      color: 'black',
-      fontSize: '32px'
-});
-      progressText.setOrigin(0.5, 0.5); /* Center the text (optional) */
-
-
     this.load.on('progress', (percent) => {
       progressBar.setScale(percent, 1);
       progressText.setText(`Loading: ${Math.floor(percent * 100)}%`);
@@ -56,7 +48,7 @@ this.load.on('complete', () => {
 
   }
    create() {
-         const background = this.add.image(400, 300, 'background');
+         const background = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.8, 'background');
     background.setOrigin(0.5);
 }
 }
