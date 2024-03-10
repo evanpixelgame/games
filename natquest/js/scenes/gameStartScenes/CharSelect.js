@@ -79,6 +79,8 @@ selectCharacter(characterKey, characterImage) {
     // Transition to the main scene when the conditions are met
     this.scene.start('OpenWorld');
     this.inputElement.style = 'display: none;';
+    gameManager.playerName = this.inputText.trim();
+    gameManager.selectedCharacter = this.selectedCharacter;
   } else {
     // Display alert for incomplete conditions
     let alertMessage = '';
