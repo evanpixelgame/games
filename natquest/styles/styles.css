@@ -37,4 +37,12 @@
   font-style: normal;
 }
 
+.name-input {
+  background-color: green; /* Set the background color to green */
+  color: black; /* Set the text color to black (optional) */
+  border: 1px solid #ccc; /* Add a border (optional) */
+  padding: 5px; /* Add padding (optional) */
+}
+
+
 
