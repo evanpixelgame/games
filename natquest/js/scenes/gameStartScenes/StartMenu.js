@@ -4,92 +4,75 @@ class StartMenu extends Phaser.Scene {
   }
 
   preload() {
-
+    // Preload assets if needed
   }
 
   create() {
     const smallScreenSize = (this.scale.width < 600);
+
     if (smallScreenSize) {
-    // Add background image
-    const background = this.add.image(400, 300, 'background');
-    background.setOrigin(0.5);
+      // Add elements for small screens
+      const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
-    // Add a title
-    const title = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.8, 'NAT QUEST', {
-      fontSize: '72px', 
-      fontFamily: 'Knewave',
-      fill: '#ba76d2',
-      padding: { x: 20, y: 10 },
-    })
-      .setOrigin(0.5);
+      const title = this.add.text(400, 200, 'NAT QUEST', {
+        fontSize: '72px',
+        fontFamily: 'Knewave',
+        fill: '#ba76d2',
+        padding: { x: 20, y: 10 },
+      }).setOrigin(0.5);
 
-    // Set up a scaling animation for the title
-    this.tweens.add({
-      targets: title,
-      scaleX: 1.2,  // Scale up by 20%
-      scaleY: 1.2,
-      ease: 'Sine.easeInOut',
-      duration: 1000,
-      yoyo: true,  // Scale back to the original size
-      repeat: -1,  // Infinite loop
-    });
+      this.tweens.add({
+        targets: title,
+        scaleX: 1.2,
+        scaleY: 1.2,
+        ease: 'Sine.easeInOut',
+        duration: 1000,
+        yoyo: true,
+        repeat: -1,
+      });
 
-    // Add a start button
-    const startButton = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Start', {
-      fontSize: '48px', 
-      fontFamily: 'knewave',
-      fill: '#c92b23',
-      padding: { x: 20, y: 20 },
-    })
-      .setOrigin(0.5)
-      .setInteractive();
+      const startButton = this.add.text(400, 300, 'Start', {
+        fontSize: '48px',
+        fontFamily: 'knewave',
+        fill: '#c92b23',
+        padding: { x: 20, y: 20 },
+      }).setOrigin(0.5).setInteractive();
 
-    // Set a callback function for the button click event
-    startButton.on('pointerdown', function () {
-      // Transition to the main scene when the button is clicked
-      this.scene.start('CharSelect');
-    }, this);
-  } 
-  } else if (!screenSizeSmall) {
-   const background = this.add.image(400, 300, 'background');
-    background.setOrigin(0.5);
+      startButton.on('pointerdown', function () {
+        this.scene.start('CharSelect');
+      }, this);
+    } else {
+      // Add elements for larger screens
+      const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
-    // Add a title
-    const title = this.add.text(400, 200, 'NAT QUEST', {
-      fontSize: '72px', 
-      fontFamily: 'Knewave',
-      fill: '#ba76d2',
-      padding: { x: 20, y: 10 },
-    })
-      .setOrigin(0.5);
+      const title = this.add.text(400, 200, 'NAT QUEST', {
+        fontSize: '72px',
+        fontFamily: 'Knewave',
+        fill: '#ba76d2',
+        padding: { x: 20, y: 10 },
+      }).setOrigin(0.5);
 
-    // Set up a scaling animation for the title
-    this.tweens.add({
-      targets: title,
-      scaleX: 1.2,  // Scale up by 20%
-      scaleY: 1.2,
-      ease: 'Sine.easeInOut',
-      duration: 1000,
-      yoyo: true,  // Scale back to the original size
-      repeat: -1,  // Infinite loop
-    });
+      this.tweens.add({
+        targets: title,
+        scaleX: 1.2,
+        scaleY: 1.2,
+        ease: 'Sine.easeInOut',
+        duration: 1000,
+        yoyo: true,
+        repeat: -1,
+      });
 
-    // Add a start button
-    const startButton = this.add.text(385, 550, 'Start', {
-      fontSize: '48px', 
-      fontFamily: 'knewave',
-      fill: '#c92b23',
-      padding: { x: 20, y: 20 },
-    })
-      .setOrigin(0.5)
-      .setInteractive();
+      const startButton = this.add.text(400, 300, 'Start', {
+        fontSize: '48px',
+        fontFamily: 'knewave',
+        fill: '#c92b23',
+        padding: { x: 20, y: 20 },
+      }).setOrigin(0.5).setInteractive();
 
-    // Set a callback function for the button click event
-    startButton.on('pointerdown', function () {
-      // Transition to the main scene when the button is clicked
-      this.scene.start('CharSelect');
-    }, this);
-  } 
+      startButton.on('pointerdown', function () {
+        this.scene.start('CharSelect');
+      }, this);
+    }
   }
 }
 
