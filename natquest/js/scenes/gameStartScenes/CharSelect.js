@@ -43,7 +43,7 @@ class CharSelect extends Phaser.Scene {
     this.inputElement.addEventListener('input', () => this.handleInputChange());
 
     // Create continue button
-    const continueButton = this.add.text(385, 550, 'Start', {
+    const continueButton = this.add.text(385, 550, 'Continue', {
       fontSize: '48px',
       fontFamily: 'knewave',
       fill: '#c92b23',
