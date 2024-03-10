@@ -1,8 +1,8 @@
 class WelcomePlayer extends Phaser.Scene {
   constructor() {
     super({ key: 'WelcomePlayer' });
-    this.selectedCharacter = gameManager.selectedCharacter;
-    this.playerName = gameManager.playerName;
+    this.selectedCharacter = this.selectedCharacter;
+    this.playerName = this.playerName;
  /*   this.characterHighlight = null;
     this.inputText = '';
     this.inputElement = null; */
