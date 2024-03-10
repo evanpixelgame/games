@@ -25,37 +25,48 @@ class OpenWorld extends Phaser.Scene {
     // Phaser supports multiple cameras, but you can access the default camera like this:
     const camera = this.cameras.main;
 
-    // Create controls
-    const cursors = this.input.keyboard.createCursorKeys();
-    this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
-      camera: this.cameras.main,
-      left: cursors.left,
-      right: cursors.right,
-      up: cursors.up,
-      down: cursors.down,
-      speed: 0.5,
-    });
+    this.input.addPointer(3); // Add up to 3 pointers for multi-touch support
 
-    // Constrain the camera
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+  // Create controls for both keyboard and mobile
+  const cursors = this.input.keyboard.createCursorKeys();
+  this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
+    camera: this.cameras.main,
+    left: cursors.left,
+    right: cursors.right,
+    up: cursors.up,
+    down: cursors.down,
+    speed: 0.5,
+  });
 
-    // Help text
-    this.add
-      .text(16, 16, 'Arrow keys to scroll', {
-        font: '18px monospace',
-        fill: '#ffffff',
-        padding: { x: 20, y: 10 },
-        backgroundColor: '#000000',
-      })
-      .setScrollFactor(0);
-  }
+  // Handle mobile input
+  this.input.on('pointermove', (pointer) => {
+    if (pointer.isDown) {
+      // Use the distance moved by the pointer to control camera movement
+      const deltaX = pointer.x - pointer.prevPosition.x;
+      const deltaY = pointer.y - pointer.prevPosition.y;
 
-  update(time, delta) {
-    // Apply the controls to the camera each update tick of the game
-    if (this.controls) {
-      this.controls.update(delta);
+      // Adjust the camera position based on pointer movement
+      this.cameras.main.scrollX += deltaX;
+      this.cameras.main.scrollY += deltaY;
+    }
+  });
+
+  // ... (existing code)
+}
+
+update(time, delta) {
+  // Apply the controls to the camera each update tick of the game
+  if (this.controls) {
+    this.controls.update(delta);
+
+    // Adjust the camera position for mobile controls
+    if (this.input.activePointer.isDown) {
+      const deltaX = this.input.activePointer.x - this.input.activePointer.prevPosition.x;
+      const deltaY = this.input.activePointer.y - this.input.activePointer.prevPosition.y;
+
+      this.cameras.main.scrollX += deltaX;
+      this.cameras.main.scrollY += deltaY;
     }
   }
-}
 
 window.OpenWorld = OpenWorld;
