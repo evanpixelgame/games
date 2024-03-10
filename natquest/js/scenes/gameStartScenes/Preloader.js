@@ -20,4 +20,9 @@ class Preloader extends Phaser.Scene {
     });
   }
 }
+
+create() {
+  this.cameras.main.setBackgroundColor(null);
+}
+
 window.Preloader = Preloader;
