@@ -31,7 +31,7 @@ class CharSelect extends Phaser.Scene {
     // Create an input element
     this.inputElement = document.createElement('input');
     this.inputElement.type = 'text';
-    this.inputElement.style = 'position: absolute; top: 75vh; left: 50%; transform: translateX(-50%); font-size: 24px; border: none; background: cerulean; color: black;';
+    this.inputElement.style = 'position: absolute; top: 75vh; left: 50%; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
 
     // Append the input element to the document body
     document.body.appendChild(this.inputElement);
