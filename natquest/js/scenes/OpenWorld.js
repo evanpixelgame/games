@@ -59,7 +59,7 @@ class OpenWorld extends Phaser.Scene {
     this.player.setVelocity(0);
   }
 }
-window.OpenWorld = OpenWorld;
+window.OpenWorld = OpenWorld; */
 
 class OpenWorld extends Phaser.Scene {
   constructor() {
