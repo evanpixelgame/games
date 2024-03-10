@@ -15,6 +15,10 @@ class CharSelect extends Phaser.Scene {
   create() {
 
    const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+    const inputElement = document.getElementById('nameInput');
+    const confirmButton = document.getElementById('confirmButton');
+    inputElement.style.display = 'block';
+    confirmButton.style.display = 'block';
     
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
@@ -48,32 +52,6 @@ class CharSelect extends Phaser.Scene {
 
     console.log(`Selected character: ${this.selectedCharacter}`);
   }
-   
-  
-  
-  
-  const inputElement = document.createElement('input');
-  inputElement.type = 'text';
-  inputElement.style = 'position: absolute; top: 60px; left: 20px; font-size: 24px; border: none; background: none; color: #ffffff;';
-
-  // Append the input element to the document body
-  document.body.appendChild(inputElement);
-
-  // Set focus on the input element
-  inputElement.focus();
-
-  // Handle input change event
-  inputElement.addEventListener('input', () => this.handleInputChange(inputElement));
-}
-
-handleInputChange(inputElement) {
-  // Update the Phaser Text object with the input value
-  this.inputText = inputElement.value;
-  this.inputElement.text = this.inputText;
-}
-
-
-
 }
 
 window.CharSelect = CharSelect;
