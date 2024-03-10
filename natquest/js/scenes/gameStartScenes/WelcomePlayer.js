@@ -12,7 +12,7 @@ preload() {}
 
 create() {
   
-const beginButton = this.add.text(385, 550, 'Click Here to Begin Game!', {
+const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
