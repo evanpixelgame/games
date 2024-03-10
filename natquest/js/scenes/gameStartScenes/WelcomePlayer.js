@@ -21,7 +21,7 @@ class WelcomePlayer extends Phaser.Scene {
     }, this);
 
     // Declaration and initialization of welcomeTextBlock
-    const welcomeTextBlock = this.add.text(400, 300, `Welcome to the Nat Quest, ${gameManager.playerName}!
+    const welcomeTextBlock = this.add.text(400, 300, `Welcome to Nat Quest, ${gameManager.playerName}!
       \nYou have chosen the ${gameManager.selectedCharacter} as your character. \nIt's time to start your adventure!`, {
       fontSize: '24px',
       fontFamily: 'Arial',
