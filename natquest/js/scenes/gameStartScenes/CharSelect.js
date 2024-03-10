@@ -1,19 +1,3 @@
-class CharSelect extends Phaser.Scene {
-  constructor() {
-    super({ key: 'CharSelect' });
-    this.selectedCharacter = null;
-    this.playerName = '';
-    this.characterHighlight = null;
-    this.inputText = '';
-  }
-
-  preload() {
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
-    this.load.image('character1', 'assets/sprites/charSelect/sprite1.png');
-    this.load.image('character2', 'assets/sprites/charSelect/sprite2.png');
-    this.load.image('character3', 'assets/sprites/charSelect/sprite3.png');
-  }
-
 create() {
     // Display background
     const background = this.add.image(400, 300, 'background').setOrigin(0.5);
@@ -54,14 +38,8 @@ create() {
 
     // Centered container for input field and confirm button
     const container = this.add.container(400, 300);
-    container.add(inputBackground);
-    container.add(this.inputElement);
-    container.add(confirmButton);
+    container.add([background, character1, character2, character3, inputBackground, this.inputElement, confirmButton]);
 
     // Center the container
     Phaser.Display.Align.In.Center(container, this.add.zone(400, 300, 800, 600));
 }
-
-}
-
-window.CharSelect = CharSelect;
