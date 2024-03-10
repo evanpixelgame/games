@@ -7,15 +7,15 @@ class Preloader extends Phaser.Scene {
     // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
     this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
 
-const webfontConfig = {
-  families: ['Knewave', 'Protest Riot'], // Specify your font families
-  active: () => {
-    // This function will be called when fonts are loaded
-    this.fontsLoaded = true; // Set a flag to track font loading completion
-  }
-};
+    const webfontConfig = {
+      families: ['Knewave', 'Protest Riot'], // Specify your font families
+      active: () => {
+        // This function will be called when fonts are loaded
+        this.fontsLoaded = true; // Set a flag to track font loading completion
+      }
+    };
 
-WebFont.load(webfontConfig);
+    WebFont.load(webfontConfig);
 
     // Additional assets loading if needed...
 
@@ -28,12 +28,11 @@ WebFont.load(webfontConfig);
     });
 
     this.load.on('complete', () => {
-  if (this.fontsLoaded) {
-    this.scene.start('StartMenu');
-  } else {
-    console.warn('Fonts not fully loaded yet, waiting...'); // Handle potential delays
-  }
-});
+      if (this.fontsLoaded) {
+        this.scene.start('StartMenu');
+      } else {
+        console.warn('Fonts not fully loaded yet, waiting...'); // Handle potential delays
+      }
     });
   }
 }
