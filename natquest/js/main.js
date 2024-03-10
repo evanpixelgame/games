@@ -1,4 +1,4 @@
-
+let isLandscapeMode = (window.innerWidth < window.innerHeight);
 const config = {
   type: Phaser.AUTO,
   width: 800,
@@ -8,8 +8,8 @@ const config = {
   scale: {
     //mode: Phaser.Scale.RESIZE,
     //autoCenter: Phaser.Scale.CENTER_BOTH
-    mode: Phaser.Scale.LANDSCAPE,
-    autoCenter: Phaser.Scale.CENTER_BOTH
+    mode: phoneScreen ? Phaser.Scale.LANDSCAPE : Phaser.Scale.PORTAIT,
+    autoCenter: phoneScreen ? Phaser.Scale.CENTER_BOTH : Phaser.Scale.CENTER_NONE,
   },
   scene: [
     Preloader,
