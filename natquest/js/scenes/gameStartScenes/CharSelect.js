@@ -23,6 +23,22 @@ class CharSelect extends Phaser.Scene {
     character2.on('pointerdown', () => this.selectCharacter('character2', character2));
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
+    // Display name input field
+    const nameLabel = this.add.text(300, 400, 'Enter your name:', { fontSize: '24px', fill: '#ffffff' });
+    const nameInput = this.add.dom(500, 400, 'input', 'width: 200px; height: 40px; font-size: 24px;', { class: 'name-input' }).focus();
+
+    // Display confirm button
+    const confirmButton = this.add.text(500, 500, 'Confirm', {
+      fontSize: '24px',
+      fill: '#ffffff',
+      backgroundColor: '#000000',
+      padding: { x: 20, y: 10 },
+    }).setOrigin(0.5).setInteractive();
+
+    // Set up input events for the confirm button
+    confirmButton.on('pointerdown', () => this.confirmSelection());
+  }
+
   selectCharacter(characterKey, characterImage) {
     // Remove highlight from the previous selected character
     if (this.characterHighlight) {
