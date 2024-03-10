@@ -13,9 +13,6 @@ class CharSelect extends Phaser.Scene {
   }
 
   create() {
-    
-     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
-    
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
     const character2 = this.add.image(400, 200, 'character2').setInteractive();
@@ -26,34 +23,21 @@ class CharSelect extends Phaser.Scene {
     character2.on('pointerdown', () => this.selectCharacter('character2', character2));
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
-   // Create an input element
-const inputElement = document.createElement('input');
-inputElement.type = 'text'; // Set the input type to text
-inputElement.id = 'nameInput'; // Set an ID for the input (optional)
-inputElement.placeholder = 'Your name'; // Set a placeholder (optional)
+    // Display name input field
+    const nameLabel = this.add.text(300, 400, 'Enter your name:', { fontSize: '24px', fill: '#ffffff' });
+    const nameInput = this.add.dom(500, 400, 'input', 'width: 200px; height: 40px; font-size: 24px;', { class: 'name-input' }).focus();
 
-// Create a label element
-const labelElement = document.createElement('label');
-labelElement.textContent = 'Enter your name: '; // Set the label text
-labelElement.htmlFor = 'nameInput'; // Associate the label with the input using the "for" attribute
+    // Display confirm button
+    const confirmButton = this.add.text(500, 500, 'Confirm', {
+      fontSize: '24px',
+      fill: '#ffffff',
+      backgroundColor: '#000000',
+      padding: { x: 20, y: 10 },
+    }).setOrigin(0.5).setInteractive();
 
-// Create a button element
-const buttonElement = document.createElement('button');
-buttonElement.textContent = 'Get Value';
-buttonElement.onclick = getValue; // Set the button click event handler
-
-// Append the elements to the body of the document
-document.body.appendChild(labelElement);
-document.body.appendChild(inputElement);
-document.body.appendChild(buttonElement);
-
-// Function to handle button click
-function getValue() {
-  const enteredName = document.getElementById('nameInput').value;
-  console.log(`Entered Name: ${enteredName}`);
-}
-
-
+    // Set up input events for the confirm button
+    confirmButton.on('pointerdown', () => this.confirmSelection());
+  }
 
   selectCharacter(characterKey, characterImage) {
     // Remove highlight from the previous selected character
