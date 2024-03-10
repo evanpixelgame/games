@@ -32,8 +32,8 @@ class Preloader extends Phaser.Scene {
         this.scene.start('StartMenu');
       } else {
         console.warn('Fonts not fully loaded yet, waiting...'); // Handle potential delays
-      }
-    };
+      }}
+    });
   }
 }
 
