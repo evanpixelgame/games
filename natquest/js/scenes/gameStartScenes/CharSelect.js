@@ -37,14 +37,14 @@ create() {
     inputBackground.fillRect(10, 50, 300, 40);
 
     // Create a text object to display the input
-    this.inputElement = this.add.text(20, 60, this.inputText, { fontSize: '24px', fill: '#ffffff' });
+    this.inputElement = this.add.text(20, 60, '', { fontSize: '24px', fill: '#000000' });
 
     // Enable input events on the background rectangle
     inputBackground.setInteractive({ useHandCursor: true });
     inputBackground.on('pointerdown', () => this.handleInputClick());
 
     // Set up input events for the confirm button
-    const confirmButton = this.add.text(400, 150, 'Confirm', {
+    const confirmButton = this.add.text(400, 300, 'Confirm', {
         fontSize: '24px',
         fill: '#ffffff',
         backgroundColor: '#add8e6', // Light blue color
