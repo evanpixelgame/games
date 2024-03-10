@@ -8,7 +8,7 @@ class Preloader extends Phaser.Scene {
     // this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
     
     //maybe just add a pink background that matches the background color set in StartMenu
-
+    //also sometimes it still seems to glitch a little bit, i bet more stuff just needs to be loaded onto this screen for it to work properly
     const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
     const desiredFontFamily = 'Knewave';
   const progressText = this.add.text(200, 220, 'Loading...', {
