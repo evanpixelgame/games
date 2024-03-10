@@ -6,6 +6,7 @@ class Preloader extends Phaser.Scene {
   preload() {
     // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
     // this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
+    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
     
     //maybe just add a pink background that matches the background color set in StartMenu
  //also sometimes it still seems to glitch a little bit, i bet more stuff just needs to be loaded onto this screen for it to work properly
