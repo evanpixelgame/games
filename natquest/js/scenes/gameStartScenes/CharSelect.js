@@ -25,7 +25,7 @@ class CharSelect extends Phaser.Scene {
 
     // Display name input field
     const nameLabel = this.add.text(300, 400, 'Enter your name:', { fontSize: '24px', fill: '#ffffff' });
-    const nameInput = this.add.dom(500, 400, 'input', 'width: 200px; height: 40px; font-size: 24px;');
+    const nameInput = this.add.dom(500, 400, 'input', 'width: 200px; height: 40px; font-size: 24px;', { class: 'name-input' }).focus();
 
     // Display confirm button
     const confirmButton = this.add.text(500, 500, 'Confirm', {
