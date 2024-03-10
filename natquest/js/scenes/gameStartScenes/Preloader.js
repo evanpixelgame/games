@@ -33,7 +33,7 @@ class Preloader extends Phaser.Scene {
       } else {
         console.warn('Fonts not fully loaded yet, waiting...'); // Handle potential delays
       }
-    });
+    };
   }
 }
 
