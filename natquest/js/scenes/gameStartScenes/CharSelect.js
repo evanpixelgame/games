@@ -13,6 +13,9 @@ class CharSelect extends Phaser.Scene {
   }
 
   create() {
+
+    const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+    
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
     const character2 = this.add.image(400, 200, 'character2').setInteractive();
@@ -45,15 +48,5 @@ class CharSelect extends Phaser.Scene {
 
     console.log(`Selected character: ${this.selectedCharacter}`);
   }
-
- /* confirmSelection() {
-    // Handle confirm button logic
-    this.playerName = document.querySelector('input').value;
-    console.log(`Player Name: ${this.playerName}`);
-
-    // Store player name and selected character, and transition to the next scene
-    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
-  } */
-}
 
 window.CharSelect = CharSelect;
