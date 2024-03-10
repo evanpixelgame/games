@@ -46,11 +46,11 @@ this.load.on('complete', () => {
       this.scene.start('StartMenu');
     });
 
-    create() {
+  }
+   create() {
          const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
 }
-  }
 }
 
 window.Preloader = Preloader;
