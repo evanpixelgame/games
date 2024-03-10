@@ -45,78 +45,16 @@ class CharSelect extends Phaser.Scene {
 
     // Set up input events for the confirm button
     const confirmButton = this.add.text(500, 500, 'Confirm', {
-      fontSize: '24px',
-      fill: '#ffffff',
-      backgroundColor: '#000000',
-      padding: { x: 20, y: 10 },
+        fontSize: '24px',
+        fill: '#ffffff',
+        backgroundColor: '#000000',
+        padding: { x: 20, y: 10 },
     }).setOrigin(0.5).setInteractive();
+    
+    // Set up pointerdown event for the confirm button
     confirmButton.on('pointerdown', () => this.confirmSelection());
-  }
+}
 
-  selectCharacter(characterKey, characterImage) {
-    // Remove highlight from the previous selected character
-    if (this.characterHighlight) {
-      this.characterHighlight.destroy();
-    }
-
-    // Handle character selection logic
-    this.selectedCharacter = characterKey;
-
-    // Add a highlight effect to the selected character
-    this.characterHighlight = this.add.image(
-      characterImage.x,
-      characterImage.y,
-      'characterHighlight'
-    ).setOrigin(0.5);
-
-    console.log(`Selected character: ${this.selectedCharacter}`);
-  }
-
-  handleInputClick() {
-    // Trigger the browser's native input when the user clicks the Phaser input area
-    this.inputElement.visible = false;
-
-    // Create a standard HTML input element
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.style = 'position: absolute; top: 60px; left: 20px; font-size: 24px; border: none; background: none; color: #ffffff;';
-
-    // Append the input element to the document body
-    document.body.appendChild(input);
-
-    // Set focus on the input element
-    input.focus();
-
-    // Handle input change event
-    input.addEventListener('input', () => this.handleInputChange(input));
-  }
-
-  handleInputChange(input) {
-    // Update the Phaser text element with the input value
-    this.inputText = input.value;
-    this.inputElement.text = this.inputText;
-  }
-
-  handleKeyDown(event) {
-    // Close the native input when Enter is pressed
-    if (event.key === 'Enter') {
-      this.inputElement.visible = true;
-      const input = document.querySelector('input');
-      if (input) {
-        input.blur();
-        input.remove();
-      }
-    }
-  }
-
-  confirmSelection() {
-    // Handle confirm button logic
-    this.playerName = this.inputText;
-    console.log(`Player Name: ${this.playerName}`);
-
-    // Store player name and selected character, and transition to the next scene
-    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
-  }
 }
 
 window.CharSelect = CharSelect;
