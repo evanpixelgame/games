@@ -78,6 +78,7 @@ selectCharacter(characterKey, characterImage) {
   if (this.selectedCharacter && this.inputText.trim() !== '') {
     // Transition to the main scene when the conditions are met
     this.scene.start('OpenWorld');
+    this.inputElement.style = 'display: none;';
   } else {
     // Display alert for incomplete conditions
     let alertMessage = '';
