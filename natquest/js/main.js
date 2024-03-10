@@ -7,8 +7,8 @@ const config = {
   pixelArt: true,
   scale: {
     //mode: Phaser.Scale.RESIZE,
-    autoCenter: Phaser.Scale.CENTER_BOTH
-   // mode: Phaser.Scale.LANDSCAPE,
+    //autoCenter: Phaser.Scale.CENTER_BOTH
+   mode: Phaser.Scale.LANDSCAPE,
    // autoCenter: Phaser.Scale.CENTER_BOTH
   },
   scene: [
