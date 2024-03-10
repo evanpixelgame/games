@@ -23,6 +23,8 @@ class CharSelect extends Phaser.Scene {
     character2.on('pointerdown', () => this.selectCharacter('character2', character2));
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
+    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+
     // Display name input field
     const nameLabel = this.add.text(300, 400, 'Enter your name:', { fontSize: '24px', fill: '#ffffff' });
     const nameInput = this.add.dom(500, 400, 'input', 'width: 200px; height: 40px; font-size: 24px;', { class: 'name-input' }).focus();
