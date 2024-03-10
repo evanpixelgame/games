@@ -74,15 +74,29 @@ selectCharacter(characterKey, characterImage) {
 
   // Set a callback function for the button click event
   continueButton.on('pointerdown', function () {
-    this.inputElement.style = 'display: none;';
-    
-
-    // if (validName) {start the OpenWorld scene} else {give alert that they need to either make a
- // new characater selection or pick valid name} (once both are valid, the continue button will work)
-    
-    // Transition to the main scene when the button is clicked
+  // Check if both character and name are selected
+  if (this.selectedCharacter && this.inputText.trim() !== '') {
+    // Transition to the main scene when the conditions are met
     this.scene.start('OpenWorld');
-  }, this);
+  } else {
+    // Display alert for incomplete conditions
+    let alertMessage = '';
+
+    if (!this.selectedCharacter) {
+      alertMessage += 'Please select a character.\n';
+    }
+
+    if (this.inputText.trim() === '') {
+      alertMessage += 'Please enter a valid name.';
+    }
+
+    if (!this.selectedCharacter && this.inputText.trim() === '') {
+      alertMessage = 'Please select a character and enter a valid name.';
+    }
+
+    alert(alertMessage);
+  }
+}, this);
 }
 
 handleInputChange() {
