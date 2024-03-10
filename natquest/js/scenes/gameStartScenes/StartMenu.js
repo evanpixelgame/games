@@ -4,8 +4,7 @@ class StartMenu extends Phaser.Scene {
   }
 
   preload() {
-    // Load background image
-//    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+
   }
 
   create() {
@@ -14,7 +13,7 @@ class StartMenu extends Phaser.Scene {
     background.setOrigin(0.5);
 
     // Add a title
-    const title = this.add.text(400, 200, 'NAT QUEST', {
+    const title = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.8, 'NAT QUEST', {
       fontSize: '72px', 
       fontFamily: 'Knewave',
       fill: '#ba76d2',
@@ -34,7 +33,7 @@ class StartMenu extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(385, 550, 'Start', {
+    const startButton = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Start', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
