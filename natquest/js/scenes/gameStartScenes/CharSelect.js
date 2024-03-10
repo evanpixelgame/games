@@ -9,15 +9,16 @@ class CharSelect extends Phaser.Scene {
   }
 
   preload() {
+
   }
 
   create() {
-  const background = this.add.image(this.game.config.width * 0.5, this.game.config.height, 'background').setOrigin(0.5);
+  const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
   // Display character options
-  const character1 = this.add.image(this.game.config.width * 0.25, this.game.config.height * 0.6, 'character1').setInteractive();
-  const character2 = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.6, 'character2').setInteractive();
-  const character3 = this.add.image(this.game.config.width * 0.75, this.game.config.height * 0.6, 'character3').setInteractive();
+  const character1 = this.add.image(200, 200, 'character1').setInteractive();
+  const character2 = this.add.image(400, 200, 'character2').setInteractive();
+  const character3 = this.add.image(600, 200, 'character3').setInteractive();
 
   // Set up input events for character selection
   character1.on('pointerdown', () => this.selectCharacter('character1', character1));
@@ -59,7 +60,7 @@ selectCharacter(characterKey, characterImage) {
   console.log(`Selected character: ${this.selectedCharacter}`);
 
   // Continue button
-  const continueButton = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.25, 'Continue', {
+  const continueButton = this.add.text(385, 550, 'Continue', {
     fontSize: '48px',
     fontFamily: 'knewave',
     fill: '#c92b23',
