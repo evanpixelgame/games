@@ -29,9 +29,6 @@ class WelcomePlayer extends Phaser.Scene {
       align: 'center',
     })
       .setOrigin(0.5);
-
-    // Additional styling for the text block
-    welcomeTextBlock.setShadow(2, 2, '#000000', 2, false, true);
   }
 }
 
