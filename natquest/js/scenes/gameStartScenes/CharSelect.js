@@ -15,6 +15,16 @@ class CharSelect extends Phaser.Scene {
   create() {
 
    const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+
+
+        // Set up input events for the confirm button
+  confirmButton.on('pointerdown', () => this.confirmSelection());
+
+  // Show the input elements
+  document.getElementById('nameInput').style.display = 'block';
+  document.getElementById('confirmButton').style.display = 'block';
+
+    
     
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
@@ -48,13 +58,6 @@ class CharSelect extends Phaser.Scene {
 
     console.log(`Selected character: ${this.selectedCharacter}`);
   }
-
-    // Set up input events for the confirm button
-  confirmButton.on('pointerdown', () => this.confirmSelection());
-
-  // Show the input elements
-  document.getElementById('nameInput').style.display = 'block';
-  document.getElementById('confirmButton').style.display = 'block';
 }
 
 window.CharSelect = CharSelect;
