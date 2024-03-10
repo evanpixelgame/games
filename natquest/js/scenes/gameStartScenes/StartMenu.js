@@ -5,6 +5,7 @@ class StartMenu extends Phaser.Scene {
 
   preload() {
     // Load background image
+    this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
   }
 
   create() {
