@@ -6,6 +6,8 @@ class Preloader extends Phaser.Scene {
   preload() {
     // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
     // this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
+    
+    //maybe just add a pink background that matches the background color set in StartMenu
 
     const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
     const desiredFontFamily = 'Knewave';
