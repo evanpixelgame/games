@@ -1,8 +1,8 @@
 class WelcomePlayer extends Phaser.Scene {
   constructor() {
     super({ key: 'WelcomePlayer' });
-    this.selectedCharacter = this.selectedCharacter;
-    this.playerName = this.playerName;
+    this.selectedCharacter = gameManager.selectedCharacter;
+    this.playerName = gameManager.playerName;
  /*   this.characterHighlight = null;
     this.inputText = '';
     this.inputElement = null; */
@@ -11,6 +11,7 @@ class WelcomePlayer extends Phaser.Scene {
 preload() {}
 
 create() {
+  
 const beginButton = this.add.text(385, 550, gameManager.playerName, {
       fontSize: '48px', 
       fontFamily: 'knewave',
