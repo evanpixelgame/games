@@ -19,10 +19,11 @@ class Preloader extends Phaser.Scene {
       this.scene.start('StartMenu');
     });
   }
-}
 
-create() {
-  this.cameras.main.setBackgroundColor(null);
+  create() {
+    // Remove the background image from the Preloader scene
+    this.cameras.main.setBackgroundColor(null);
+  }
 }
 
 window.Preloader = Preloader;
