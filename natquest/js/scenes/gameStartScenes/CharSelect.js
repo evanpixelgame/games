@@ -23,29 +23,22 @@ class CharSelect extends Phaser.Scene {
     character2.on('pointerdown', () => this.selectCharacter('character2', character2));
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
-     // Display confirm button
-  const confirmButton = this.add.text(500, 500, 'Confirm', {
-    fontSize: '24px',
-    fill: '#ffffff',
-    backgroundColor: '#000000',
-    padding: { x: 20, y: 10 },
-  }).setOrigin(0.5).setInteractive();
+    // Display name input field
+    const nameLabel = this.add.text(300, 400, 'Enter your name:', { fontSize: '24px', fill: '#ffffff' });
+    const nameInput = this.add.dom(500, 400, 'input', 'width: 200px; height: 40px; font-size: 24px;');
 
-  // Set up input events for the confirm button
-  confirmButton.on('pointerdown', () => this.confirmSelection());
+    // Display confirm button
+    const confirmButton = this.add.text(500, 500, 'Confirm', {
+      fontSize: '24px',
+      fill: '#ffffff',
+      backgroundColor: '#000000',
+      padding: { x: 20, y: 10 },
+    }).setOrigin(0.5).setInteractive();
 
-  // Display name input field
-  const nameLabel = this.add.text(300, 400, 'Enter your name:', { fontSize: '24px', fill: '#ffffff' });
-  const nameInput = this.add.dom(500, 400, 'input', 'width: 200px; height: 40px; font-size: 24px; border: 2px solid #fff; padding: 12px;');
+    // Set up input events for the confirm button
+    confirmButton.on('pointerdown', () => this.confirmSelection());
+  }
 
-  // Set up the name input event
-  nameInput.addListener('change');
-  nameInput.on('change', (event) => {
-    if (event.target.value !== '') {
-      this.playerName = event.target.value;
-    }
-  });
-    
   selectCharacter(characterKey, characterImage) {
     // Remove highlight from the previous selected character
     if (this.characterHighlight) {
