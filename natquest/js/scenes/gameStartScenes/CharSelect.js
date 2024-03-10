@@ -54,9 +54,7 @@ create() {
 
     // Centered container for input field and confirm button
     const container = this.add.container(400, 300);
-    container.add(inputBackground);
-    container.add(this.inputElement);
-    container.add(confirmButton);
+    container.add([background, character1, character2, character3, inputBackground, this.inputElement, confirmButton]);
 
     // Center the container
     Phaser.Display.Align.In.Center(container, this.add.zone(400, 300, 800, 600));
