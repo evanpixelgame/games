@@ -8,7 +8,13 @@ class Preloader extends Phaser.Scene {
     this.load.image('background', 'assets/backgrounds/startScreenBackground.jpg');
 
     const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
-    const progressText = this.add.text(200, 220, 'Loading...', { color: 'black' });
+    const progressText = this.add.text(200, 220, 'Loading...', {
+      fontFamily: 'Knewave',
+      color: 'black',
+      fontSize: '32px'
+});
+      progressText.setOrigin(0.5, 0.5); /* Center the text (optional) */
+
 
     this.load.on('progress', (percent) => {
       progressBar.setScale(percent, 1);
