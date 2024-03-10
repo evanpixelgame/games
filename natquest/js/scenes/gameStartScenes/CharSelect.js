@@ -74,6 +74,11 @@ selectCharacter(characterKey, characterImage) {
 
   // Set a callback function for the button click event
   continueButton.on('pointerdown', function () {
+    this.inputElement.style = 'display: none;';
+    
+
+    
+    
     // Transition to the main scene when the button is clicked
     this.scene.start('OpenWorld');
   }, this);
