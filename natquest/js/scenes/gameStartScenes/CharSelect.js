@@ -15,6 +15,10 @@ class CharSelect extends Phaser.Scene {
   create() {
 
    const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+    const inputElement = document.getElementById('nameInput');
+    const confirmButton = document.getElementById('confirmButton');
+    inputElement.style.display = 'block';
+    confirmButton.style.display = 'block';
     
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
