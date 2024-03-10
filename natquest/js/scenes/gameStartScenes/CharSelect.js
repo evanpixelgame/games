@@ -13,20 +13,8 @@ class CharSelect extends Phaser.Scene {
   }
 
   create() {
-
-   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
-
-
-        // Set up input events for the confirm button
-  confirmButton.on('pointerdown', () => this.confirmSelection());
-
-  // Show the input elements
-  const nameInput = document.getElementById('nameInput');
-  const confirmButton = document.getElementById('confirmButton');
-     nameInput.style.display = 'block';
-    confirmButton.style.display = 'block';
-
     
+     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
     
     // Display character options
     const character1 = this.add.image(200, 200, 'character1').setInteractive();
@@ -38,9 +26,34 @@ class CharSelect extends Phaser.Scene {
     character2.on('pointerdown', () => this.selectCharacter('character2', character2));
     character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
-    // Set up input events for the confirm button
-    confirmButton.on('pointerdown', () => this.confirmSelection());
-  }
+   // Create an input element
+const inputElement = document.createElement('input');
+inputElement.type = 'text'; // Set the input type to text
+inputElement.id = 'nameInput'; // Set an ID for the input (optional)
+inputElement.placeholder = 'Your name'; // Set a placeholder (optional)
+
+// Create a label element
+const labelElement = document.createElement('label');
+labelElement.textContent = 'Enter your name: '; // Set the label text
+labelElement.htmlFor = 'nameInput'; // Associate the label with the input using the "for" attribute
+
+// Create a button element
+const buttonElement = document.createElement('button');
+buttonElement.textContent = 'Get Value';
+buttonElement.onclick = getValue; // Set the button click event handler
+
+// Append the elements to the body of the document
+document.body.appendChild(labelElement);
+document.body.appendChild(inputElement);
+document.body.appendChild(buttonElement);
+
+// Function to handle button click
+function getValue() {
+  const enteredName = document.getElementById('nameInput').value;
+  console.log(`Entered Name: ${enteredName}`);
+}
+
+
 
   selectCharacter(characterKey, characterImage) {
     // Remove highlight from the previous selected character
@@ -59,6 +72,15 @@ class CharSelect extends Phaser.Scene {
     );
 
     console.log(`Selected character: ${this.selectedCharacter}`);
+  }
+
+  confirmSelection() {
+    // Handle confirm button logic
+    this.playerName = document.querySelector('input').value;
+    console.log(`Player Name: ${this.playerName}`);
+
+    // Store player name and selected character, and transition to the next scene
+    this.scene.start('OpenWorld', { playerName: this.playerName, selectedCharacter: this.selectedCharacter });
   }
 }
 
