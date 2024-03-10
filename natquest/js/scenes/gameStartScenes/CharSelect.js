@@ -33,7 +33,7 @@ class CharSelect extends Phaser.Scene {
 
     // Create a rectangle as a background for the input field
     const inputBackground = this.add.graphics();
-    inputBackground.fillStyle(0x000000, 1);
+    inputBackground.fillStyle(#a9ccd2, 1);
     inputBackground.fillRect(10, 50, 300, 40);
 
     // Create a text object to display the input
