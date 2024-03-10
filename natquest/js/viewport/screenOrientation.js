@@ -1,4 +1,4 @@
-// Create a new file, e.g., OrientationScene.js
+/*  // Create a new file, e.g., OrientationScene.js
 class OrientationScene extends Phaser.Scene {
   constructor() {
     super({ key: 'OrientationScene', active: true });
