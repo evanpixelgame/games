@@ -20,3 +20,4 @@ class PreloaderScene extends Phaser.Scene {
     });
   }
 }
+window.PreloaderScene = PreloaderScene;
