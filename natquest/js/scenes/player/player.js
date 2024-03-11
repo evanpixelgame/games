@@ -28,48 +28,49 @@ class Player {
       repeat: -1,
     });
 
+    anims.create({
      key: "woman-player-walk-front",
       frames: anims.generateFrameNumbers("confusedWoman", { start: 51, end: 59 }),
       frameRate: 8,
       repeat: -1,
     });
-
+anims.create({
   key: "woman-player-walk-left",
       frames: anims.generateFrameNumbers("confusedWoman", { start: 60, end: 68 }),
       frameRate: 8,
       repeat: -1,
     });
-
+anims.create({
 key: "woman-player-walk-down",
       frames: anims.generateFrameNumbers("confusedWoman", { start: 69, end: 77 }),
       frameRate: 8,
       repeat: -1,
     });
-
+anims.create({
 key: "woman-player-walk-right",
       frames: anims.generateFrameNumbers("confusedWoman", { start: 77, end: 85 }),
       frameRate: 8,
       repeat: -1,
     });
-
+anims.create({
 key: "wolf-player-walk-front",
       frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
       frameRate: 8,
       repeat: -1,
     });
-
+anims.create({
 key: "wolf-player-walk-left",
       frames: anims.generateFrameNumbers("fatWolf", { start: 60, end: 68 }),
       frameRate: 8,
       repeat: -1,
     });
-
+anims.create({
 key: "wolf-player-walk-down",
       frames: anims.generateFrameNumbers("fatWolf", { start: 69, end: 77 }),
       frameRate: 8,
       repeat: -1,
     });
-
+anims.create({
 key: "wolf-player-walk-right",
       frames: anims.generateFrameNumbers("fatWolf", { start: 77, end: 85 }),
       frameRate: 8,
@@ -82,7 +83,18 @@ key: "wolf-player-walk-right",
 
     this.sprite = scene.physics.add.sprite(x, y, "characters", 0).setSize(22, 33).setOffset(23, 27);
 
-    this.sprite.anims.play("player-walk-back");
+    this.sprite.anims.play("mouse-player-walk-front");
+     this.sprite.anims.play("mouse-player-walk-left");
+     this.sprite.anims.play("mouse-player-walk-back");
+     this.sprite.anims.play("mouse-player-walk-right");
+     this.sprite.anims.play("girl-player-walk-front");
+     this.sprite.anims.play("girl-player-walk-left");
+     this.sprite.anims.play("girl-player-walk-back");
+     this.sprite.anims.play("girl-player-walk-right");
+     this.sprite.anims.play("wolf-player-walk-front");
+     this.sprite.anims.play("wolf-player-walk-left");
+     this.sprite.anims.play("wolf-player-walk-back");
+     this.sprite.anims.play("wolf-player-walk-right");
 
     this.keys = scene.input.keyboard.createCursorKeys();
   }
