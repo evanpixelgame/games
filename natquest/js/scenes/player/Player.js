@@ -1,6 +1,6 @@
-class OpenWorld extends Phaser.Scene {
+class Player extends Phaser.Scene {
   constructor(scene, x, y) {
-    super({ key: 'OpenWorld' });
+    super({ key: 'Player' });
    // this.scene = scene;
     const sprite = this.babyMouse;
     const anims = scene.anims;
