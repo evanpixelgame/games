@@ -52,7 +52,7 @@ class OpenWorld extends Phaser.Scene {
   //  this.physics.world.enable(mainChar);
 
     // Set camera to follow the sprite (optional)
-    this.cameras.main.startFollow(mainChar);
+    this.cameras.main.startFollow(sprite);
 
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
