@@ -5,49 +5,49 @@ export default class Player {
     const anims = scene.anims;
     anims.create({
       key: "mouse-player-walk-front",
-      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("babyMouse", { start: 51, end: 59 }),
       frameRate: 8,
       repeat: -1,
     });
         anims.create({
       key: "mouse-player-walk-left",
-      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("babyMouse", { start: 60, end: 68 }),
       frameRate: 8,
       repeat: -1,
     });
         anims.create({
       key: "mouse-player-walk-down",
-      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("babyMouse", { start: 69, end: 77 }),
       frameRate: 8,
       repeat: -1,
     });
         anims.create({
       key: "mouse-player-right",
-      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("babyMouse", { start: 77, end: 85 }),
       frameRate: 8,
       repeat: -1,
     });
 
      key: "woman-player-walk-front",
-      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 51, end: 59 }),
       frameRate: 8,
       repeat: -1,
     });
 
   key: "woman-player-walk-left",
-      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 60, end: 68 }),
       frameRate: 8,
       repeat: -1,
     });
 
 key: "woman-player-walk-down",
-      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 69, end: 77 }),
       frameRate: 8,
       repeat: -1,
     });
 
 key: "woman-player-walk-right",
-      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 77, end: 85 }),
       frameRate: 8,
       repeat: -1,
     });
@@ -59,19 +59,19 @@ key: "wolf-player-walk-front",
     });
 
 key: "wolf-player-walk-left",
-      frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("fatWolf", { start: 60, end: 68 }),
       frameRate: 8,
       repeat: -1,
     });
 
 key: "wolf-player-walk-down",
-      frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("fatWolf", { start: 69, end: 77 }),
       frameRate: 8,
       repeat: -1,
     });
 
 key: "wolf-player-walk-right",
-      frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
+      frames: anims.generateFrameNumbers("fatWolf", { start: 77, end: 85 }),
       frameRate: 8,
       repeat: -1,
     });
