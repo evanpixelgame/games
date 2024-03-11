@@ -1,10 +1,8 @@
-class Player extends Phaser.Scene {
+export default class Player {
   constructor(scene, x, y) {
-   // this.scene = scene;
-    const sprite = babyMouse;
-    const anims = scene.anims;
+    this.scene = scene;
 
-    /*
+    const anims = scene.anims;
     anims.create({
       key: "player-walk",
       frames: anims.generateFrameNumbers("characters", { start: 46, end: 49 }),
@@ -27,12 +25,11 @@ class Player extends Phaser.Scene {
 
   freeze() {
     this.sprite.body.moves = false;
-  } 
-  */
+  }
 
   update() {
     const keys = this.keys;
-   // const sprite = this.sprite;
+    const sprite = this.sprite;
     const speed = 300;
     const prevVelocity = sprite.body.velocity.clone();
 
