@@ -15,12 +15,13 @@ class CharSelect extends Phaser.Scene {
   create() {
   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
+    /*
  // Add an oval backdrop
     const backdrop = this.add.graphics();
     const backdropWidth = 600;
     const backdropHeight = 300;
     backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
-    backdrop.fillEllipse(400, 300, backdropWidth, backdropHeight);
+    backdrop.fillEllipse(400, 300, backdropWidth, backdropHeight); */
 
     
   // Display character options
@@ -29,10 +30,10 @@ class CharSelect extends Phaser.Scene {
   const character3 = this.add.image(600, 200, 'character3').setInteractive();
 
       // Add some text to the backdrop
-  const instructionText = this.add.text(400, 300, 'Pick a character', {
+  const instructionText = this.add.text(400, 350, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'Arial',
-    fill: '#ffffff',
+    fill: 'purple',
     align: 'center',
   })
     .setOrigin(0.5);
