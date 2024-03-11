@@ -36,9 +36,9 @@ backdrop.lineStyle(4, 0x000000, 1);
   const character2 = this.add.image(400, 200, 'Confused Woman').setInteractive();
   const character3 = this.add.image(600, 200, 'Fat Wolf').setInteractive();
 
-character1.setScale(3.0); // Adjust the scale factor (0.5 scales to half the size)
-character2.setScale(3.0); 
-character3.setScale(3.0);
+character1.setScale(0.1); // Adjust the scale factor (0.5 scales to half the size)
+character2.setScale(0.1); 
+character3.setScale(0.1);
 
       // Add some text to the backdrop
   const instructionText = this.add.text(400, 270, 'Pick a character', {
@@ -73,26 +73,20 @@ character3.setScale(3.0);
 selectCharacter(characterKey, characterImage) {
   // Remove highlight from the previous selected character
   if (this.characterHighlight) {
-    this.characterHighlight.removeEffect('glow');
+    this.characterHighlight.destroy();
   }
 
   // Handle character selection logic
   this.selectedCharacter = characterKey;
 
-  // Create an FX.Glow effect
-  const glow = this.add.effect.Glow(characterImage);
+  // Add a highlight effect to the selected character
+  this.characterHighlight = this.add.image(
+    characterImage.x,
+    characterImage.y,
+    'characterHighlight'
+  );
 
-  // Set the glow color (yellow in this case)
-  glow.setColor(0xffff00);
-
-  // Adjust the glow strength (inner and outer)
-  glow.setIntensity(0.5); // Inner strength
-  glow.setOuterStrength(2.0); // Outer strength
-
-  // Save a reference to the character with the glow effect
-  this.characterHighlight = characterImage;
   console.log(`Selected character: ${this.selectedCharacter}`);
-}
 
   // Continue button
   const continueButton = this.add.text(385, 550, 'Continue', {
