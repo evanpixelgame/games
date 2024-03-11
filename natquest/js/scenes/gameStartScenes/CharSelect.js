@@ -23,6 +23,10 @@ class CharSelect extends Phaser.Scene {
     backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
     backdrop.fillEllipse(400, 300, backdropWidth, backdropHeight); */
 
+      const backdrop = this.add.graphics();
+  backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
+  backdrop.fillRect(100, 150, 600, 300);
+
     
   // Display character options
   const character1 = this.add.image(200, 200, 'character1').setInteractive();
