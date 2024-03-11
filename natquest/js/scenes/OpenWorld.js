@@ -38,8 +38,13 @@ const map = this.make.tilemap({ key: 'map' });
   // Set world bounds for the player
   this.player.setCollideWorldBounds(true);
 
-  // Create controls
-  this.cursors = this.input.keyboard.createCursorKeys();
+  // Create controls for arrow keys and WASD
+  this.cursors = this.input.keyboard.addKeys({
+    up: Phaser.Input.Keyboard.KeyCodes.W,
+    down: Phaser.Input.Keyboard.KeyCodes.S,
+    left: Phaser.Input.Keyboard.KeyCodes.A,
+    right: Phaser.Input.Keyboard.KeyCodes.D,
+  });
 
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
