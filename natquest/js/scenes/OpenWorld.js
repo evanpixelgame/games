@@ -1,4 +1,12 @@
+import VirtualJoyStickPlugin from "assets/plugins/rex-virtual-joystick-plugin";
 
+// Define your condition or criteria here
+const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);  //check if true (that its on mobile)
+if (shouldRunCustomScene) {
+  console.log('mobile');
+  }
+} else {
+  // Handle the case when the custom scene should not run
 
 class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -84,3 +92,4 @@ const map = this.make.tilemap({ key: 'map' });
   }
 }
 window.OpenWorld = OpenWorld;
+}
