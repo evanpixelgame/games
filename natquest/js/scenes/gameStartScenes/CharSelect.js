@@ -32,9 +32,9 @@ backdrop.lineStyle(4, 0x000000, 1);
 
     
   // Display character options
-  const character1 = this.add.image(200, 200, 'character1').setInteractive();
-  const character2 = this.add.image(400, 200, 'character2').setInteractive();
-  const character3 = this.add.image(600, 200, 'character3').setInteractive();
+  const character1 = this.add.image(200, 200, 'Baby Mouse').setInteractive();
+  const character2 = this.add.image(400, 200, 'Confused Woman').setInteractive();
+  const character3 = this.add.image(600, 200, 'Fat Wolf').setInteractive();
 
       // Add some text to the backdrop
   const instructionText = this.add.text(400, 270, 'Pick a character', {
