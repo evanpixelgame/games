@@ -2,6 +2,7 @@ class Player extends Phaser.Scene {
   constructor(scene, x, y) {
     super({ key: 'Player' });
   //  this.scene = scene;
+    this.sprite = scene.physics.add.sprite(x, y, "placeholder", 0).setSize(22, 33).setOffset(23, 27);
     const anims = scene.anims;
 
 //Do something with string interpolation where which character you picked and
@@ -84,17 +85,6 @@ key: "wolf-player-walk-right",
       repeat: -1,
     });
 
-
-
-
-    if (this.selectedCharacter === "Baby Mouse") {
-      this.sprite = scene.physics.add.sprite(x, y, "babyMouse", 0).setSize(22, 33).setOffset(23, 27);
-    } else if (this.selectedCharacter === "Confused Woman") {
-      this.sprite = scene.physics.add.sprite(x, y, "confusedWoman", 0).setSize(22, 33).setOffset(23, 27);
-    } else if (this.selectedCharacter === "Fat Wolf") {
-this.sprite = scene.physics.add.sprite(x, y, "fatWolf", 0).setSize(22, 33).setOffset(23, 27);
-    }
-
     this.sprite = scene.physics.add.sprite(x, y, "fatWolf", 0).setSize(22, 33).setOffset(23, 27);
 /*
     this.sprite.anims.play("mouse-player-walk-front");
@@ -123,6 +113,15 @@ this.sprite = scene.physics.add.sprite(x, y, "fatWolf", 0).setSize(22, 33).setOf
     const speed = 300;
     const prevVelocity = sprite.body.velocity.clone();
 
+  if (this.selectedCharacter === "Baby Mouse") {
+    this.sprite.anims.play("mouse-player-walk", true);
+  } else if (this.selectedCharacter === "Confused Woman") {
+    this.sprite.anims.play("woman-player-walk", true);
+  } else if (this.selectedCharacter === "Fat Wolf") {
+    this.sprite.anims.play("wolf-player-walk", true);
+  }
+
+    
     // Stop any previous movement from the last frame
     sprite.body.setVelocity(0);
 
