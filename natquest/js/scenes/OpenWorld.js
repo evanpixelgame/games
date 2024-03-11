@@ -36,6 +36,8 @@ class OpenWorld extends Phaser.Scene {
     // Phaser supports multiple cameras, but you can access the default camera like this:
    // const camera = this.cameras.main;
     let mainChar = '';
+    let x = 200;
+    let y = 200;
     if (selectedCharacter == 'Baby Mouse') {mainChar = this.add.sprite(x, y, 'babyMouse') }
     else if (selectedCharacter == 'Confused Woman') {mainChar = this.add.sprite(x, y, 'confusedWoman')}
     else if (selectedCharacter == 'Fat Wolf') {mainChar = this.add.sprite(x, y, 'fatWolf')}
