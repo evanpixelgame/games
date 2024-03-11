@@ -13,7 +13,7 @@ class OpenWorld extends Phaser.Scene {
     }
   }
 
-    init() {
+  init() {
     super.init();
     this.staticXJsPos = this.gameWidthMiddle;
     this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
@@ -26,7 +26,7 @@ class OpenWorld extends Phaser.Scene {
     };
   }
 
-    createVirtualJoystick() {
+  createVirtualJoystick() {
     this.joyStick = this.plugins.get('rex-virtual-joystick-plugin"').add(
       this,
       Object.assign({}, this.joystickConfig, {
@@ -72,7 +72,6 @@ class OpenWorld extends Phaser.Scene {
     text += `FPS: ${this.sys.game.loop.actualFps}\n`;
     this.cursorDebugText.setText(text);
   }
-}
 
 
   preload() {
