@@ -49,11 +49,11 @@ const map = this.make.tilemap({ key: 'map' });
   });
 
   // Constrain the camera
-  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+ // this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
   // Help text
   this.add
-    .text(16, 16, 'Arrow keys to move', {
+    .text(16, 16, 'W,A,S,D to move', {
       font: '18px monospace',
       fill: '#ffffff',
       padding: { x: 20, y: 10 },
