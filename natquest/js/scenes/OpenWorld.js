@@ -60,6 +60,8 @@ const map = this.make.tilemap({ key: 'map' });
       backgroundColor: '#000000',
     })
     .setScrollFactor(0);
+ }  else {
+   
  }
 }
     
@@ -83,6 +85,8 @@ const map = this.make.tilemap({ key: 'map' });
       this.player.setVelocityX(0);
     }
       this.cameras.main.startFollow(this.player);
+  } else {
+       
   }
   }
 }
