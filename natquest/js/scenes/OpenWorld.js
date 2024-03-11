@@ -81,7 +81,7 @@ const map = this.make.tilemap({ key: 'map' });
     })
     .setScrollFactor(0);
  }  else {
-    createVirtualJoystick() {
+   createVirtualJoystick() {
     this.joyStick = this.plugins.get('rex-virtual-joystick-plugin"').add(
         this,
         Object.assign({}, this.joystickConfig, {
@@ -93,7 +93,7 @@ const map = this.make.tilemap({ key: 'map' });
     this.cursorKeys = this.joyStick.createCursorKeys();
 
     // Listener event to reposition virtual joystick
-    // whatever place you click in game area
+    // whatever place you click in the game area
     this.input.on('pointerdown', pointer => {
         this.joyStick.x = pointer.x;
         this.joyStick.y = pointer.y;
