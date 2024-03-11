@@ -109,7 +109,7 @@ class OpenWorld extends Phaser.Scene {
     });
 
 
-    const player = new Player (this, 100, 100)
+  //  const player = new Player (this, 100, 100)
 
     
     // Constrain the camera
