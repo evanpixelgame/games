@@ -38,6 +38,8 @@ const map = this.make.tilemap({ key: 'map' });
   // Set world bounds for the player
   this.player.setCollideWorldBounds(true);
 
+     this.speed = 200;
+
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
     up: Phaser.Input.Keyboard.KeyCodes.W,
