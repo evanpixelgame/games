@@ -115,10 +115,8 @@ const map = this.make.tilemap({ key: 'map' });
     left: Phaser.Input.Keyboard.KeyCodes.A,
     right: Phaser.Input.Keyboard.KeyCodes.D,
   });
-
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-
   // Help text
   this.add
     .text(16, 16, 'Arrow keys to move', {
@@ -133,7 +131,6 @@ const map = this.make.tilemap({ key: 'map' });
     this.setCursorDebugInfo();
     this.updateJoystickState();
   }
- }
 }
     
 
