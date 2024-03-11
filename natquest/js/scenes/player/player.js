@@ -3,6 +3,13 @@ class Player extends Phaser.Scene {
     super({ key: 'Player' });
     this.scene = scene;
     const anims = scene.anims;
+
+//Do something with string interpolation where which character you picked and
+//is stored in...player.selectedCharacter??? snf then do
+   //   frames: anims.generateFrameNumbers("babyMouse", { start: 51, end: 59 }),
+    // except do search for characterSelection depending on who they picked so it
+    //only runs the code for the picked character
+    
     anims.create({
       key: "mouse-player-walk-front",
       frames: anims.generateFrameNumbers("babyMouse", { start: 51, end: 59 }),
