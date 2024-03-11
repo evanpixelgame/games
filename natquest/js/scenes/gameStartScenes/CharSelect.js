@@ -24,7 +24,7 @@ class CharSelect extends Phaser.Scene {
     backdrop.fillEllipse(400, 300, backdropWidth, backdropHeight); */
 
       const backdrop = this.add.graphics();
-  backdrop.fillStyle(E6E6FA, .7); // F8F8FF is the hex code for off-white, and 1 is the opacity
+  backdrop.fillStyle(0xE6E6FA, .7); // F8F8FF is the hex code for off-white, and 1 is the opacity
 // Set the line style for the border (black color with 2 pixels width)
 backdrop.lineStyle(4, 0x000000, 1);
 //  backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
