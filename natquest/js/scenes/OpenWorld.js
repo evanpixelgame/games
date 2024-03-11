@@ -3,7 +3,7 @@ import VirtualJoyStickPlugin from "assets/plugins/rex-virtual-joystick-plugin.js
 // Define your condition or criteria here
 const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);  //check if true (that its on mobile)
 if (shouldRunCustomScene) {
-  class OpenWorld extends Phaser.Scene {
+/*  class OpenWorld extends Phaser.Scene {
 
   constructor(options = { key: "OpenWorld" }) {
     super(options)
@@ -188,7 +188,7 @@ if (shouldRunCustomScene) {
       this.setCursorDebugInfo();
   }
   
-}
+} */
   console.log('mobile');
 } else {
   // Handle the case when the custom scene should not run
