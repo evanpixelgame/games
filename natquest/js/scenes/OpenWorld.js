@@ -1,88 +1,4 @@
 
-
-class OpenWorld extends Phaser.Scene {
-  constructor() {
-    super({ key: 'OpenWorld' });
-    
-    // Declare controls as a property of the class
-    this.controls = null;
-  }
-
-  preload() {
-  
-  }
-
-  create() {
-
-        // Check for portrait mode on mobile devices
-    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
-      if (window.orientation === 0 || window.orientation === 180) {
-        // Portrait mode alert
-        alert("Please switch to landscape mode for the best experience.");
-      }
-    }
-    
-    // Load tilemap
-    const map = this.make.tilemap({ key: 'map' });
-
-    // Load tileset
-    const tileset = map.addTilesetImage('tilemap1', 'tiles');
-
-    // Create layers
-    const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
-    const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
-    const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
-
-    // Phaser supports multiple cameras, but you can access the default camera like this:
-   // const camera = this.cameras.main;
-
-    // Create controls
-    const cursors = this.input.keyboard.createCursorKeys();
-    this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
-      camera: this.cameras.main,
-      left: cursors.left,
-      right: cursors.right,
-      up: cursors.up,
-      down: cursors.down,
-      speed: 0.5,
-    });
-const testSprite = this.add.sprite(200, 200, 'babyMouse');
-    // Inside your create method in the OpenWorld scene
-console.log(testSprite); // Log the sprite object to the console
-
-    // Enable physics for the sprite if needed
-    this.physics.world.enable(this.testSprite);
-
-    // Set camera to follow the sprite
-    this.cameras.main.startFollow(this.testSprite);
-  //  const player = new Player (this, 100, 100)
-
-    
-    // Constrain the camera
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-
-    // Help text
-    this.add
-      .text(16, 16, 'Arrow keys to scroll', {
-        font: '18px monospace',
-        fill: '#ffffff',
-        padding: { x: 20, y: 10 },
-        backgroundColor: '#000000',
-      })
-      .setScrollFactor(0);
-  }
-
-  update(time, delta) {
-    // Apply the controls to the camera each update tick of the game
-    if (this.controls) {
-      this.controls.update(delta);
-    }
-  }
-}
-
-window.OpenWorld = OpenWorld;
-
-
 /*   the controls for this are half working, they appear on the map but the map has disappeared 
 
 class OpenWorld extends Phaser.Scene {
@@ -144,3 +60,75 @@ class OpenWorld extends Phaser.Scene {
   }
 }
 window.OpenWorld = OpenWorld; */
+
+class OpenWorld extends Phaser.Scene {
+  constructor() {
+    super({ key: 'OpenWorld' });
+    
+    // Declare controls as a property of the class
+    this.controls = null;
+  }
+
+  preload() {
+  
+  }
+
+  create() {
+
+        // Check for portrait mode on mobile devices
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+      if (window.orientation === 0 || window.orientation === 180) {
+        // Portrait mode alert
+        alert("Please switch to landscape mode for the best experience.");
+      }
+    }
+    
+    // Load tilemap
+    const map = this.make.tilemap({ key: 'map' });
+
+    // Load tileset
+    const tileset = map.addTilesetImage('tilemap1', 'tiles');
+
+    // Create layers
+    const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
+    const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
+    const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+
+    // Phaser supports multiple cameras, but you can access the default camera like this:
+    const camera = this.cameras.main;
+
+    // Create controls
+    const cursors = this.input.keyboard.createCursorKeys();
+    this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
+      camera: this.cameras.main,
+      left: cursors.left,
+      right: cursors.right,
+      up: cursors.up,
+      down: cursors.down,
+      speed: 0.5,
+    });
+
+    // Constrain the camera
+    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+    // Help text
+    this.add
+      .text(16, 16, 'Arrow keys to scroll', {
+        font: '18px monospace',
+        fill: '#ffffff',
+        padding: { x: 20, y: 10 },
+        backgroundColor: '#000000',
+      })
+      .setScrollFactor(0);
+  }
+
+  update(time, delta) {
+    // Apply the controls to the camera each update tick of the game
+    if (this.controls) {
+      this.controls.update(delta);
+    }
+  }
+}
+
+window.OpenWorld = OpenWorld;
+
