@@ -21,6 +21,7 @@ class OpenWorld extends Phaser.Scene {
         alert("Please switch to landscape mode for the best experience.");
       }
     }
+
     
     // Load tilemap
     const map = this.make.tilemap({ key: 'map' });
@@ -32,11 +33,11 @@ class OpenWorld extends Phaser.Scene {
     const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
     const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
     const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
-    
 
+    //const sprite = this.add.image(0, 0, 'sprite1');
+    const sprite = this.add.sprite(200, 200, 'sprite1');
     // Phaser supports multiple cameras, but you can access the default camera like this:
    // const camera = this.cameras.main;
-    let mainChar = sprite1;
     let x = 200;
     let y = 200;
   /*  if (this.selectedCharacter == 'Baby Mouse') {mainChar = this.add.sprite(x, y, 'babyMouse') }
