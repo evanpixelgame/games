@@ -32,12 +32,12 @@ character1.setScale(2.8); // Adjust the scale factor (0.5 scales to half the siz
 character2.setScale(2.8); 
 character3.setScale(2.8);
 
+    
       // Add some text to the backdrop
   const instructionText = this.add.text(400, 270, 'Pick a character', {
     fontSize: '32px',
-    fontWeight: 'bold',
-    fontFamily: 'Arial',
-    fill: 'purple',
+    fontFamily: 'knewave',
+    fill: '#c92b23',
     align: 'center',
   })
     .setOrigin(0.5);
