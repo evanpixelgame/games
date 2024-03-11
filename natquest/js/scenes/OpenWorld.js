@@ -1,4 +1,4 @@
-import VirtualJoyStickPlugin from "assets/plugins/rex-virtual-joystick-plugin";
+import VirtualJoyStickPlugin from "assets/plugins/rex-virtual-joystick-plugin.js";
 
 class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -23,9 +23,9 @@ if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
 }
   preload() {
   this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
-      this.load.image('base', './assets/image/base.png');
-      this.load.image('thumb', './assets/image/thumb.png');
-      this.load.plugin('rex-virtual-joystick-plugin"', VirtualJoyStickPlugin, true);
+      this.load.image('base', 'assets/image/base.png');
+      this.load.image('thumb', 'assets/image/thumb.png');
+      this.load.plugin('rex-virtual-joystick-plugin.js"', VirtualJoyStickPlugin, true);
   }
 
   create() {
