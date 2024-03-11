@@ -121,13 +121,24 @@ class OpenWorld extends Phaser.Scene {
   }
 
   update(time, delta) {
-    // Apply the controls to the camera each update tick of the game
-    if (this.controls) {
-      this.controls.update(delta);
+    // Update player movement based on keyboard input
+    if (this.cursors.up.isDown) {
+      this.player.setVelocityY(-this.speed);
+    } else if (this.cursors.down.isDown) {
+      this.player.setVelocityY(this.speed);
+    } else {
+      this.player.setVelocityY(0);
+    }
+
+    if (this.cursors.left.isDown) {
+      this.player.setVelocityX(-this.speed);
+    } else if (this.cursors.right.isDown) {
+      this.player.setVelocityX(this.speed);
+    } else {
+      this.player.setVelocityX(0);
     }
   }
 }
-
 window.OpenWorld = OpenWorld;
 
 
