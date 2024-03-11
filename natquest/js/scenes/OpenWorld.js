@@ -51,7 +51,7 @@ const testSprite = this.add.sprite(200, 200, 'babyMouse');
 console.log(testSprite); // Log the sprite object to the console
 
     // Enable physics for the sprite if needed
-    this.physics.world.enable(this.testSprite);
+    this.physics.world.enable(testSprite);
 
     // Set camera to follow the sprite
     this.cameras.main.startFollow(this.testSprite);
