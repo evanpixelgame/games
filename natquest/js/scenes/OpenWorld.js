@@ -65,6 +65,7 @@ const map = this.make.tilemap({ key: 'map' });
     
 
   update(time, delta) {
+     if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
     // Update player movement based on keyboard input
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
@@ -82,6 +83,7 @@ const map = this.make.tilemap({ key: 'map' });
       this.player.setVelocityX(0);
     }
       this.cameras.main.startFollow(this.player);
+  }
   }
 }
 window.OpenWorld = OpenWorld;
