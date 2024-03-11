@@ -63,7 +63,7 @@ class OpenWorld extends Phaser.Scene {
     });
   }
 
-  setCursorDebugInfo() {
+   setCursorDebugInfo() {
     const force = Math.floor(this.joyStick.force * 100) / 100;
     const angle = Math.floor(this.joyStick.angle * 100) / 100;
     let text = `Direction: ${this.lastCursorDirection}\n`;
