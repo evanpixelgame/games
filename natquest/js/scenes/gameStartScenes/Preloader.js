@@ -9,7 +9,7 @@ class Preloader extends Phaser.Scene {
     // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
 
-        this.load.image('character1', 'assets/sprites/charSelect/babyMouseSelect.png');
+        this.load.image('Baby Mouse', 'assets/sprites/charSelect/babyMouseSelect.png');
     this.load.image('character2', 'assets/sprites/charSelect/womanSelect.png');
     this.load.image('character3', 'assets/sprites/charSelect/fatWolfSelect.png');
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
