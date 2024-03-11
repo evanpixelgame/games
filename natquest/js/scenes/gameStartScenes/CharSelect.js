@@ -85,8 +85,8 @@ selectCharacter(characterKey, characterImage) {
   this.characterHighlight.setScale(characterImage.scaleX, characterImage.scaleY);
 
   // Calculate scaled glow properties
-  const scaledOuterStrength = baseOuterStrength * characterImage.scaleX;
-  const scaledInnerStrength = baseInnerStrength * characterImage.scaleX;
+  const scaledOuterStrength = outerStrength * characterImage.scaleX;
+  const scaledInnerStrength = innerStrength * characterImage.scaleX;
 
   // Apply the Glow effect with scaled properties
   this.characterHighlight.preFX.addGlow(glowColor, scaledOuterStrength, scaledInnerStrength, knockout);
