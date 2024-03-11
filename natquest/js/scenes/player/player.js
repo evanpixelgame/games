@@ -1,7 +1,8 @@
 class Player {
+  class CharSelect extends Phaser.Scene {
   constructor(scene, x, y) {
+    super({ key: 'Player' });
     this.scene = scene;
-
     const anims = scene.anims;
     anims.create({
       key: "mouse-player-walk-front",
