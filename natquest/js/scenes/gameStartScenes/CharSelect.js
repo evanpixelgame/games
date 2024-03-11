@@ -79,13 +79,14 @@ selectCharacter(characterKey, characterImage) {
   // Handle character selection logic
   this.selectedCharacter = characterKey;
 
-  // Add a highlight effect to the selected character
-  this.characterHighlight = this.add.image(
-    characterImage.x,
-    characterImage.y,
-    'characterHighlight'
-  );
+  // Create a Glow Filter
+  const glowFilter = new Phaser.Display.GlowFilter(0xffff00, 16, 0, 0);
 
+  // Apply the Glow Filter to the selected character image
+  characterImage.setPipeline('GlowFilter', glowFilter);
+
+  // Save a reference to the Glow Filter in case you need to remove it later
+  this.characterHighlight = characterImage;
   console.log(`Selected character: ${this.selectedCharacter}`);
 
   // Continue button
