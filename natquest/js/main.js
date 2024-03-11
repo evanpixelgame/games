@@ -21,7 +21,7 @@ const config = {
     Preloader,
     StartMenu,
     CharSelect,
-  //  Player,
+    Player,
     WelcomePlayer,
     OpenWorld,
   ],
