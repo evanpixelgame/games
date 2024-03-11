@@ -73,6 +73,13 @@ class OpenWorld extends Phaser.Scene {
     this.cursorDebugText.setText(text);
   }
 
+  stopPlayerAnimations() {
+      this.player.anims.stop('walking-left');
+      this.player.anims.stop('walking-right');
+      this.player.anims.stop('walking-up');
+      this.player.anims.stop('walking-down');
+  }
+
 
   preload() {
     this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
@@ -154,13 +161,10 @@ const map = this.make.tilemap({ key: 'map' });
     }
       this.cameras.main.startFollow(this.player);
   } else {
+       this.stopPlayerAnimations();
        // this.updateJoystickState(); moved to bottom?
-         stopPlayerAnimations() {
-      this.player.anims.stop('walking-left');
-      this.player.anims.stop('walking-right');
-      this.player.anims.stop('walking-up');
-      this.player.anims.stop('walking-down');
-  }}
+         }
+  
 
   movePlayer() {
       if (this.lastCursorDirection === "up") {
