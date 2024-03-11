@@ -4,17 +4,81 @@ export default class Player {
 
     const anims = scene.anims;
     anims.create({
-      key: "player-walk",
-      frames: anims.generateFrameNumbers("characters", { start: 46, end: 49 }),
+      key: "mouse-player-walk-front",
+      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
       frameRate: 8,
       repeat: -1,
     });
-    anims.create({
-      key: "player-walk-back",
-      frames: anims.generateFrameNumbers("characters", { start: 65, end: 68 }),
+        anims.create({
+      key: "mouse-player-walk-left",
+      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
       frameRate: 8,
       repeat: -1,
     });
+        anims.create({
+      key: "mouse-player-walk-down",
+      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+        anims.create({
+      key: "mouse-player-right",
+      frames: anims.generateFrameNumbers("babyMouse", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+     key: "woman-player-walk-front",
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+  key: "woman-player-walk-left",
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+key: "woman-player-walk-down",
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+key: "woman-player-walk-right",
+      frames: anims.generateFrameNumbers("confusedWoman", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+key: "wolf-player-walk-front",
+      frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+key: "wolf-player-walk-left",
+      frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+key: "wolf-player-walk-down",
+      frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+key: "wolf-player-walk-right",
+      frames: anims.generateFrameNumbers("fatWolf", { start: 46, end: 49 }),
+      frameRate: 8,
+      repeat: -1,
+    });
+
+
+
+
 
     this.sprite = scene.physics.add.sprite(x, y, "characters", 0).setSize(22, 33).setOffset(23, 27);
 
