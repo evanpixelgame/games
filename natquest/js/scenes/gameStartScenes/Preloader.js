@@ -20,7 +20,7 @@ progressText.setOrigin(0.5, 0.5);
 
     // Inside the preload method of your scene
   this.load.spritesheet('babyMouse', 'assets/sprites/player/babyMouse.png', { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet('confusedWoman', 'assets/sprites/player/confusedWoman.png', { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet('confusedWoman', 'assets/sprites/player/womanPlayer.png', { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet('fatWolf', 'assets/sprites/player/fatWolf.png', { frameWidth: 64, frameHeight: 64 });
 
     
