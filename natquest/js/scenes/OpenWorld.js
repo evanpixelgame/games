@@ -147,7 +147,6 @@ const map = this.make.tilemap({ key: 'map' });
     } else {
       this.player.setVelocityY(0);
     }
-     }
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-this.speed);
@@ -164,7 +163,7 @@ const map = this.make.tilemap({ key: 'map' });
       this.player.anims.stop('walking-right');
       this.player.anims.stop('walking-up');
       this.player.anims.stop('walking-down');
-  }
+  }}
 
   movePlayer() {
       if (this.lastCursorDirection === "up") {
