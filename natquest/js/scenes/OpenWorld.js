@@ -80,6 +80,7 @@ const map = this.make.tilemap({ key: 'map' });
     } else {
       this.player.setVelocityX(0);
     }
+      this.cameras.main.startFollow(this.player);
   }
 }
 window.OpenWorld = OpenWorld;
