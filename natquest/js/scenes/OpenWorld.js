@@ -30,7 +30,7 @@ class OpenWorld extends Phaser.Scene {
   this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
       this.load.image('base', 'assets/images/base.png');
       this.load.image('thumb', 'assets/images/thumb.png');
-      this.load.plugin('rex-virtual-joystick-plugin.js"', VirtualJoyStickPlugin, true);
+      this.load.plugin('rex-virtual-joystick-plugin.js', VirtualJoyStickPlugin, true);
   }
 
   create() {
