@@ -108,6 +108,10 @@ class OpenWorld extends Phaser.Scene {
       speed: 0.5,
     });
 
+
+    const this.player = new Player (this, 100, 100)
+
+    
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
