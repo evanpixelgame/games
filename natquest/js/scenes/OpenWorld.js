@@ -39,7 +39,7 @@ const map = this.make.tilemap({ key: 'map' });
 //  this.player.setCollideWorldBounds(true);
 
      this.speed = 200;
-
+ if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
     up: Phaser.Input.Keyboard.KeyCodes.W,
@@ -60,6 +60,7 @@ const map = this.make.tilemap({ key: 'map' });
       backgroundColor: '#000000',
     })
     .setScrollFactor(0);
+ }
 }
     
 
