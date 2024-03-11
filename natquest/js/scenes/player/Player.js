@@ -1,6 +1,5 @@
 class Player extends Phaser.Scene {
   constructor(scene, x, y) {
-    super({ key: 'Player' });
    // this.scene = scene;
     const sprite = this.babyMouse;
     const anims = scene.anims;
