@@ -147,6 +147,7 @@ const map = this.make.tilemap({ key: 'map' });
     } else {
       this.player.setVelocityY(0);
     }
+     }
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-this.speed);
