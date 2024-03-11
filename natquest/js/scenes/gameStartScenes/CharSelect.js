@@ -73,21 +73,26 @@ character3.setScale(3.0);
 selectCharacter(characterKey, characterImage) {
   // Remove highlight from the previous selected character
   if (this.characterHighlight) {
-    this.characterHighlight.destroy();
+    this.characterHighlight.removeEffect('glow');
   }
 
   // Handle character selection logic
   this.selectedCharacter = characterKey;
 
-  // Create a Glow Filter
-  const glowFilter = new Phaser.Display.GlowFilter(0xffff00, 16, 0, 0);
+  // Create an FX.Glow effect
+  const glow = this.add.effect.Glow(characterImage);
 
-  // Apply the Glow Filter to the selected character image
-  characterImage.setPipeline('GlowFilter', glowFilter);
+  // Set the glow color (yellow in this case)
+  glow.setColor(0xffff00);
 
-  // Save a reference to the Glow Filter in case you need to remove it later
+  // Adjust the glow strength (inner and outer)
+  glow.setIntensity(0.5); // Inner strength
+  glow.setOuterStrength(2.0); // Outer strength
+
+  // Save a reference to the character with the glow effect
   this.characterHighlight = characterImage;
   console.log(`Selected character: ${this.selectedCharacter}`);
+}
 
   // Continue button
   const continueButton = this.add.text(385, 550, 'Continue', {
