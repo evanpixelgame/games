@@ -9,7 +9,7 @@ class OpenWorld extends Phaser.Scene {
   }
 
   preload() {
-  
+  this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
   }
 
   create() {
