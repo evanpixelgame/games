@@ -73,8 +73,8 @@ selectCharacter(characterKey, characterImage) {
   this.selectedCharacter = characterKey;
 
  // Add a Glow effect to the selected character
-  const glowColor = 0x00ff00; // You can adjust the color as needed
-  const outerStrength = 8;
+  const glowColor = 0xe6e6f480; // You can adjust the color as needed
+  const outerStrength = 4;
   const innerStrength = 4;
   const knockout = false;
 
