@@ -47,7 +47,7 @@ backdrop.lineStyle(4, 0x000000, 1);
 
   // Set up input events for character selection
   character1.on('pointerdown', () => this.selectCharacter('character1', character1));
-  character2.on('pointerdown', () => this.selectCharacter('character2', Confused Woman));
+  character2.on('pointerdown', () => this.selectCharacter('character2', character2));
   character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
   // Create an input element
