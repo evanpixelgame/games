@@ -32,14 +32,11 @@ class OpenWorld extends Phaser.Scene {
     const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
     const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
     const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
-
-    const preloaderScene = this.scene.get('Preloader');
-    const selectedCharacter = preloaderScene.sharedData.babyMouse;
     
 
     // Phaser supports multiple cameras, but you can access the default camera like this:
    // const camera = this.cameras.main;
-    let mainChar = selectedCharacter;
+    let mainChar = sprite1;
     let x = 200;
     let y = 200;
   /*  if (this.selectedCharacter == 'Baby Mouse') {mainChar = this.add.sprite(x, y, 'babyMouse') }
