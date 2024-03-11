@@ -15,14 +15,6 @@ class CharSelect extends Phaser.Scene {
   create() {
   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
-    /*
- // Add an oval backdrop
-    const backdrop = this.add.graphics();
-    const backdropWidth = 600;
-    const backdropHeight = 300;
-    backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
-    backdrop.fillEllipse(400, 300, backdropWidth, backdropHeight); */
-
       const backdrop = this.add.graphics();
   backdrop.fillStyle(0xE6E6FA, .7); // F8F8FF is the hex code for off-white, and 1 is the opacity
 // Set the line style for the border (black color with 2 pixels width)
@@ -85,10 +77,7 @@ selectCharacter(characterKey, characterImage) {
   const outerStrength = 8;
   const innerStrength = 4;
   const knockout = false;
-  // let newImageSize = characterImage.setScale(3.0);
 
-  //this.characterHighlight = this.add.sprite(newImageSize.x, newImageSize.y, characterKey);
-  //this.characterHighlight.preFX.addGlow(glowColor, outerStrength, innerStrength, knockout);
  // Create a new sprite for the selected character
   this.characterHighlight = this.add.sprite(characterImage.x, characterImage.y, characterKey);
 
