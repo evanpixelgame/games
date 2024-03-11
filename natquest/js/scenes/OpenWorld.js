@@ -20,7 +20,24 @@ class OpenWorld extends Phaser.Scene {
         // Portrait mode alert
         alert("Please switch to landscape mode for the best experience.");
       }
-    }
+        this.add
+    .text(16, 16, 'Virtual joystick to move', {
+      font: '18px monospace',
+      fill: '#ffffff',
+      padding: { x: 20, y: 10 },
+      backgroundColor: '#000000',
+    })
+    .setScrollFactor(0);
+}
+    } else   this.add
+    .text(16, 16, 'Arrow keys to move', {
+      font: '18px monospace',
+      fill: '#ffffff',
+      padding: { x: 20, y: 10 },
+      backgroundColor: '#000000',
+    })
+    .setScrollFactor(0);
+}
 
 const map = this.make.tilemap({ key: 'map' });
 
@@ -50,16 +67,6 @@ const map = this.make.tilemap({ key: 'map' });
 
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-
-  // Help text
-  this.add
-    .text(16, 16, 'Arrow keys to move', {
-      font: '18px monospace',
-      fill: '#ffffff',
-      padding: { x: 20, y: 10 },
-      backgroundColor: '#000000',
-    })
-    .setScrollFactor(0);
 }
     
 
