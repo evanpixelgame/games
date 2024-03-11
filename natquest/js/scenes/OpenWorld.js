@@ -42,14 +42,11 @@ class OpenWorld extends Phaser.Scene {
     this.physics.world.enable(sprite);
 
     // Create controls
-    const cursors = this.input.keyboard.createCursorKeys();
-    this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
-      camera: this.cameras.main,
-      left: cursors.left,
-      right: cursors.right,
-      up: cursors.up,
-      down: cursors.down,
-      speed: 0.5,
+     const cursors = this.input.keyboard.addKeys({
+      up: Phaser.Input.Keyboard.KeyCodes.W,
+      down: Phaser.Input.Keyboard.KeyCodes.S,
+      left: Phaser.Input.Keyboard.KeyCodes.A,
+      right: Phaser.Input.Keyboard.KeyCodes.D,
     });
 
     // Optionally, you can customize properties of the sprite, such as scale, rotation, etc.
@@ -61,7 +58,24 @@ class OpenWorld extends Phaser.Scene {
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, this.game.config.width * 2, this.game.config.height * 2);
 
-
+    // Update function for continuous movement
+    this.input.keyboard.on('keydown', (event) => {
+      const speed = 200; // Adjust the speed as needed
+      switch (event.code) {
+        case 'KeyW':
+          sprite.setVelocityY(-speed);
+          break;
+        case 'KeyS':
+          sprite.setVelocityY(speed);
+          break;
+        case 'KeyA':
+          sprite.setVelocityX(-speed);
+          break;
+        case 'KeyD':
+          sprite.setVelocityX(speed);
+          break;
+      }
+    });
     
     // Phaser supports multiple cameras, but you can access the default camera like this:
    // const camera = this.cameras.main;
@@ -97,7 +111,7 @@ class OpenWorld extends Phaser.Scene {
 
     // Help text
     this.add
-      .text(16, 16, 'Arrow keys to scroll', {
+      .text(16, 16, 'Arrow keys\nto scroll\n\nW,A,S,D\n to move avatar', {
         font: '18px monospace',
         fill: '#ffffff',
         padding: { x: 20, y: 10 },
