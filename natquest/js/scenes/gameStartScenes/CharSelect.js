@@ -30,7 +30,7 @@ class CharSelect extends Phaser.Scene {
   const character3 = this.add.image(600, 200, 'character3').setInteractive();
 
       // Add some text to the backdrop
-  const instructionText = this.add.text(400, 350, 'Pick a character', {
+  const instructionText = this.add.text(400, 250, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'Arial',
     fill: 'purple',
