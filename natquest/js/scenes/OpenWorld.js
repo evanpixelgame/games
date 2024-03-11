@@ -47,7 +47,7 @@ class OpenWorld extends Phaser.Scene {
     //mainChar.setScale(2); // Example: Set scale to 2x
 
     // Enable physics for the sprite if needed
-    this.physics.world.enable(mainChar);
+  //  this.physics.world.enable(mainChar);
 
     // Set camera to follow the sprite (optional)
     this.cameras.main.startFollow(mainChar);
