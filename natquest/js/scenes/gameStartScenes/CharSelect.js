@@ -84,8 +84,9 @@ selectCharacter(characterKey, characterImage) {
   const outerStrength = 8;
   const innerStrength = 4;
   const knockout = false;
+  let newImageSize = characterImage.setScale(3.0);
 
-  this.characterHighlight = this.add.sprite(characterImage.x, characterImage.y, characterKey);
+  this.characterHighlight = this.add.sprite(newImageSize.x, newImageSize.y, characterKey);
   this.characterHighlight.preFX.addGlow(glowColor, outerStrength, innerStrength, knockout);
 
 
