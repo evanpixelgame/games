@@ -15,10 +15,27 @@ class CharSelect extends Phaser.Scene {
   create() {
   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
+ // Add an oval backdrop
+    const backdrop = this.add.graphics();
+    const backdropWidth = 600;
+    const backdropHeight = 300;
+    backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
+    backdrop.fillEllipse(400, 300, backdropWidth, backdropHeight);
+
+    
   // Display character options
   const character1 = this.add.image(200, 200, 'character1').setInteractive();
   const character2 = this.add.image(400, 200, 'character2').setInteractive();
   const character3 = this.add.image(600, 200, 'character3').setInteractive();
+
+      // Add some text to the backdrop
+  const instructionText = this.add.text(400, 300, 'Pick a character', {
+    fontSize: '32px',
+    fontFamily: 'Arial',
+    fill: '#ffffff',
+    align: 'center',
+  })
+    .setOrigin(0.5);
 
   // Set up input events for character selection
   character1.on('pointerdown', () => this.selectCharacter('character1', character1));
