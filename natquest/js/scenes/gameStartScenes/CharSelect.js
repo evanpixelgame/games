@@ -32,7 +32,7 @@ backdrop.lineStyle(4, 0x000000, 1);
 
     
   // Display character options
-  const character1 = this.add.image(200, 200, 'character1').setInteractive();
+  const character1 = this.add.image(200, 200, 'Baby Mouse').setInteractive();
   const character2 = this.add.image(400, 200, 'character2').setInteractive();
   const character3 = this.add.image(600, 200, 'character3').setInteractive();
 
@@ -50,7 +50,7 @@ character3.setScale(0.1);
     .setOrigin(0.5);
 
   // Set up input events for character selection
-  character1.on('pointerdown', () => this.selectCharacter('character1', character1));
+  character1.on('pointerdown', () => this.selectCharacter('Baby Mouse', character1));
   character2.on('pointerdown', () => this.selectCharacter('character2', character2));
   character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
