@@ -13,6 +13,19 @@ class OpenWorld extends Phaser.Scene {
     }
   }
 
+    init() {
+    super.init();
+    this.staticXJsPos = this.gameWidthMiddle;
+    this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
+    this.playerSpeed = 1;
+    this.lastCursorDirection = "center";
+    this.joystickConfig = {
+      x: this.staticXJsPos,
+      y: this.staticYJsPos,
+      enabled: true
+    };
+  }
+
   createVirtualJoystick() {
     this.joyStick = this.plugins.get('rex-virtual-joystick-plugin"').add(
         this,
@@ -47,19 +60,6 @@ class OpenWorld extends Phaser.Scene {
         this.lastCursorDirection = "center";
         this.setCursorDebugInfo();
     });
-  
-  init() {
-    super.init();
-    this.staticXJsPos = this.gameWidthMiddle;
-    this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
-    this.playerSpeed = 1;
-    this.lastCursorDirection = "center";
-    this.joystickConfig = {
-      x: this.staticXJsPos,
-      y: this.staticYJsPos,
-      enabled: true
-    };
-  }
 
   preload() {
     this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
