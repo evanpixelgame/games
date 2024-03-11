@@ -33,8 +33,8 @@ backdrop.lineStyle(4, 0x000000, 1);
     
   // Display character options
   const character1 = this.add.image(200, 200, 'Baby Mouse').setInteractive();
-  const character2 = this.add.image(400, 200, 'Confused Woman').setInteractive();
-  const character3 = this.add.image(600, 200, 'Fat Wolf').setInteractive();
+  const character2 = this.add.image(400, 200, 'character2').setInteractive();
+  const character3 = this.add.image(600, 200, 'character3').setInteractive();
 
 character1.setScale(0.1); // Adjust the scale factor (0.5 scales to half the size)
 character2.setScale(0.1); 
@@ -51,8 +51,8 @@ character3.setScale(0.1);
 
   // Set up input events for character selection
   character1.on('pointerdown', () => this.selectCharacter('Baby Mouse', character1));
-  character2.on('pointerdown', () => this.selectCharacter('Confused Woman', character2));
-  character3.on('pointerdown', () => this.selectCharacter('Fat Wolf', character3));
+  character2.on('pointerdown', () => this.selectCharacter('character2', character2));
+  character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
   // Create an input element
   this.inputElement = document.createElement('input');
