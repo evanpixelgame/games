@@ -74,6 +74,15 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
+
+        // Check for portrait mode on mobile devices
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+      if (window.orientation === 0 || window.orientation === 180) {
+        // Portrait mode alert
+        alert("Please switch to landscape mode for the best experience.");
+      }
+    }
+    
     // Load tilemap
     const map = this.make.tilemap({ key: 'map' });
 
