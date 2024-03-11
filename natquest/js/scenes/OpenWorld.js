@@ -6,18 +6,23 @@ class OpenWorld extends Phaser.Scene {
     
     // Declare controls as a property of the class
     this.controls = null;
+
+    // Check for mobile OS in the constructor
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+      this.init();
+    }
   }
-if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
-   init() {
-      super.init();
-      this.staticXJsPos = this.gameWidthMiddle;
-      this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
-      this.playerSpeed = 1;
-      this.lastCursorDirection = "center";
-      this.joystickConfig = {
-        x: this.staticXJsPos,
-        y: this.staticYJsPos,
-        enabled: true
+
+  init() {
+    super.init();
+    this.staticXJsPos = this.gameWidthMiddle;
+    this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
+    this.playerSpeed = 1;
+    this.lastCursorDirection = "center";
+    this.joystickConfig = {
+      x: this.staticXJsPos,
+      y: this.staticYJsPos,
+      enabled: true
     };
   }
 }
