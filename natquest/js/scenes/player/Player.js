@@ -1,5 +1,6 @@
-export default class Player {
+class OpenWorld extends Phaser.Scene {
   constructor(scene, x, y) {
+    super({ key: 'OpenWorld' });
     this.scene = scene;
     const sprite = this.babyMouse;
     const anims = scene.anims;
