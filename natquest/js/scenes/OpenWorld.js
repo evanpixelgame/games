@@ -60,6 +60,16 @@ class OpenWorld extends Phaser.Scene {
         this.lastCursorDirection = "center";
         this.setCursorDebugInfo();
     });
+      setCursorDebugInfo() {
+    const force = Math.floor(this.joyStick.force * 100) / 100;
+    const angle = Math.floor(this.joyStick.angle * 100) / 100;
+    let text = `Direction: ${this.lastCursorDirection}\n`;
+    text += `Force: ${force}\n`;
+    text += `Angle: ${angle}\n`;
+    text += `FPS: ${this.sys.game.loop.actualFps}\n`;
+    this.cursorDebugText.setText(text);
+  }
+
   }
 
   preload() {
@@ -121,17 +131,6 @@ const map = this.make.tilemap({ key: 'map' });
     this.setCursorDebugInfo();
     this.updateJoystickState();
   }
-
-  setCursorDebugInfo() {
-    const force = Math.floor(this.joyStick.force * 100) / 100;
-    const angle = Math.floor(this.joyStick.angle * 100) / 100;
-    let text = `Direction: ${this.lastCursorDirection}\n`;
-    text += `Force: ${force}\n`;
-    text += `Angle: ${angle}\n`;
-    text += `FPS: ${this.sys.game.loop.actualFps}\n`;
-    this.cursorDebugText.setText(text);
-  }
-
  }
 }
     
