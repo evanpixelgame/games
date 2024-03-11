@@ -7,23 +7,6 @@ class Preloader extends Phaser.Scene {
     //USE TO LOAD ALL GAME ASSETS SO THEYRE ALL READY AND REST OF GAME IS FAST AFTER LOADING 
       //Maybe load sprites separately so only have to load the one they pick instead of all of them
     // Load your assets here using Phaser's loading methods (e.g., this.load.image, this.load.audio)
-
-
-    const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
-    const desiredFontFamily = 'Knewave';
-  const progressText = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.8, 'Loading...', {
-      fontFamily: 'Knewave',
-      color: 'black',
-      fontSize: '32px'
-});
-progressText.setOrigin(0.5, 0.5);
-
-    // Inside the preload method of your scene
-  this.load.spritesheet('babyMouse', 'assets/sprites/player/babyMouse.png', { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet('confusedWoman', 'assets/sprites/player/womanPlayer.png', { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet('fatWolf', 'assets/sprites/player/fatWolf.png', { frameWidth: 64, frameHeight: 64 });
-
-    
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
 
         this.load.image('Baby Mouse', 'assets/sprites/charSelect/babyMouse64.png');
@@ -37,6 +20,14 @@ progressText.setOrigin(0.5, 0.5);
     //maybe just add a pink background that matches the background color set in StartMenu
  //also sometimes it still seems to glitch a little bit, i bet more stuff just needs to be loaded onto this screen for it to work properly
     
+    const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
+    const desiredFontFamily = 'Knewave';
+  const progressText = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.8, 'Loading...', {
+      fontFamily: 'Knewave',
+      color: 'black',
+      fontSize: '32px'
+});
+progressText.setOrigin(0.5, 0.5);
 
 this.load.on('complete', () => {
   if (progressText.style.fontFamily === desiredFontFamily) { // Check stored font family
