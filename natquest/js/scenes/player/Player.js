@@ -1,7 +1,7 @@
 class Player extends Phaser.Scene {
   constructor(scene, x, y) {
     super({ key: 'Player' });
-    this.scene = scene;
+  //  this.scene = scene;
     const anims = scene.anims;
 
 //Do something with string interpolation where which character you picked and
