@@ -35,9 +35,9 @@ character3.setScale(2.8);
     
       // Add some text to the backdrop
   const instructionText = this.add.text(400, 270, 'Pick a character', {
-    fontSize: '32px',
+    fontSize: '30px',
     fontFamily: 'knewave',
-    fill: '#c92b23',
+    fill: '#b976d1',
     align: 'center',
   })
     .setOrigin(0.5);
