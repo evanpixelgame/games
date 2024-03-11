@@ -87,9 +87,16 @@ key: "wolf-player-walk-right",
 
 
 
+    if (this.selectedCharacter === "Baby Mouse") {
+      this.sprite = scene.physics.add.sprite(x, y, "babyMouse", 0).setSize(22, 33).setOffset(23, 27);
+    } else if (this.selectedCharacter === "Confused Woman") {
+      this.sprite = scene.physics.add.sprite(x, y, "confusedWoman", 0).setSize(22, 33).setOffset(23, 27);
+    } else if (this.selectedCharacter === "Fat Wolf") {
+this.sprite = scene.physics.add.sprite(x, y, "fatWolf", 0).setSize(22, 33).setOffset(23, 27);
+    }
 
-    this.sprite = scene.physics.add.sprite(x, y, "characters", 0).setSize(22, 33).setOffset(23, 27);
-
+    this.sprite = scene.physics.add.sprite(x, y, "fatWolf", 0).setSize(22, 33).setOffset(23, 27);
+/*
     this.sprite.anims.play("mouse-player-walk-front");
      this.sprite.anims.play("mouse-player-walk-left");
      this.sprite.anims.play("mouse-player-walk-back");
@@ -101,7 +108,7 @@ key: "wolf-player-walk-right",
      this.sprite.anims.play("wolf-player-walk-front");
      this.sprite.anims.play("wolf-player-walk-left");
      this.sprite.anims.play("wolf-player-walk-back");
-     this.sprite.anims.play("wolf-player-walk-right");
+     this.sprite.anims.play("wolf-player-walk-right"); */
 
     this.keys = scene.input.keyboard.createCursorKeys();
   }
