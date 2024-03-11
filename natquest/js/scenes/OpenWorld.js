@@ -60,6 +60,7 @@ class OpenWorld extends Phaser.Scene {
         this.lastCursorDirection = "center";
         this.setCursorDebugInfo();
     });
+  }
 
   preload() {
     this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
