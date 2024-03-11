@@ -137,8 +137,8 @@ const map = this.make.tilemap({ key: 'map' });
 }
     
 
-update(time, delta) {
-  if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
+  update(time, delta) {
+     if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
     // Update player movement based on keyboard input
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
@@ -155,91 +155,89 @@ update(time, delta) {
     } else {
       this.player.setVelocityX(0);
     }
-    this.cameras.main.startFollow(this.player);
+      this.cameras.main.startFollow(this.player);
   } else {
-    // this.updateJoystickState(); moved to bottom?
-    stopPlayerAnimations() {
+       // this.updateJoystickState(); moved to bottom?
+         stopPlayerAnimations() {
       this.player.anims.stop('walking-left');
       this.player.anims.stop('walking-right');
       this.player.anims.stop('walking-up');
       this.player.anims.stop('walking-down');
-    }
-  }
+  }}
 
   movePlayer() {
-    if (this.lastCursorDirection === "up") {
-      this.player.y -= this.playerSpeed;
-      if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-up');
+      if (this.lastCursorDirection === "up") {
+        this.player.y -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-up');
     } else if (this.lastCursorDirection === "down") {
-      this.player.y += this.playerSpeed;
-      if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-down');
-    } else if (this.lastCursorDirection === "right") {
-      this.player.x += this.playerSpeed;
-      if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-right');
+        this.player.y += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-down');
+    } else if(this.lastCursorDirection === "right") {
+        this.player.x += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-right');
     } else if (this.lastCursorDirection === "left") {
-      this.player.x -= this.playerSpeed;
-      if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-left');
+        this.player.x -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-left');
     } else if (this.lastCursorDirection === "upright") {
-      this.player.x += this.playerSpeed;
-      this.player.y -= this.playerSpeed;
-      if (!this.player.anims.isPlaying)
+        this.player.x += this.playerSpeed;
+        this.player.y -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
         this.player.anims.play('walking-right');
     } else if (this.lastCursorDirection === "downright") {
-      this.player.x += this.playerSpeed;
-      this.player.y += this.playerSpeed;
-      if (!this.player.anims.isPlaying)
+        this.player.x += this.playerSpeed;
+        this.player.y += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
         this.player.anims.play('walking-right');
     } else if (this.lastCursorDirection === "downleft") {
-      this.player.x -= this.playerSpeed;
-      this.player.y += this.playerSpeed;
-      if (!this.player.anims.isPlaying)
+        this.player.x -= this.playerSpeed;
+        this.player.y += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
         this.player.anims.play('walking-left');
     } else if (this.lastCursorDirection === "upleft") {
-      this.player.x -= this.playerSpeed;
-      this.player.y -= this.playerSpeed;
-      if (!this.player.anims.isPlaying)
+        this.player.x -= this.playerSpeed;
+        this.player.y -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
         this.player.anims.play('walking-left');
     } else {
-      this.stopPlayerAnimations();
+        this.stopPlayerAnimations();
     }
   }
 
   updateJoystickState() {
-    let direction = '';
-    for (let key in this.cursorKeys) {
-      if (this.cursorKeys[key].isDown) {
-        direction += key;
+      let direction = '';
+      for (let key in this.cursorKeys) {
+          if (this.cursorKeys[key].isDown) {
+            direction += key;
+          }
       }
-    }
 
-    // If no direction if provided then stop 
-    // the player animations and exit the method
-    if (direction.length === 0) {
-      this.stopPlayerAnimations();
-      return;
-    }
+      // If no direction if provided then stop 
+      // the player animations and exit the method
+      if(direction.length === 0) { 
+          this.stopPlayerAnimations();
+          return;
+      }
 
-    // If last cursor direction is different
-    //  the stop all player animations
-    if (this.lastCursorDirection !== direction) {
-      this.stopPlayerAnimations();
-    }
+      // If last cursor direction is different
+      //  the stop all player animations
+      if (this.lastCursorDirection !== direction) {
+          this.stopPlayerAnimations();
+      }
+      
+      // Set the new cursor direction
+      this.lastCursorDirection = direction;
 
-    // Set the new cursor direction
-    this.lastCursorDirection = direction;
+      // Handle the player moving
+      this.movePlayer();
 
-    // Handle the player moving
-    this.movePlayer();
-
-    // Set debug info about the cursor
-    this.setCursorDebugInfo();
-    // this.updateJoystickState();  // Commented this line to avoid recursive call
+      // Set debug info about the cursor
+      this.setCursorDebugInfo();
+     this.updateJoystickState();
   }
-}
   }
   }
 }
