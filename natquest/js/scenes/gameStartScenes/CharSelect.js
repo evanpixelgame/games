@@ -75,7 +75,7 @@ selectCharacter(characterKey, characterImage) {
  // Add a Glow effect to the selected character
   const glowColor = 0xe6e6f480; // You can adjust the color as needed
   const outerStrength = 1;
-  const innerStrength = 4;
+  const innerStrength = 1;
   const knockout = false;
 
  // Create a new sprite for the selected character
