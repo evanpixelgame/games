@@ -3,7 +3,7 @@ import VirtualJoyStickPlugin from "assets/plugins/rex-virtual-joystick-plugin.js
 class OpenWorld extends Phaser.Scene {
   constructor() {
     super({ key: 'OpenWorld' });
-    
+
     // Declare controls as a property of the class
     this.controls = null;
 
@@ -25,14 +25,13 @@ class OpenWorld extends Phaser.Scene {
       enabled: true
     };
   }
-}
-  preload() {
-  this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
-      this.load.image('base', 'assets/images/base.png');
-      this.load.image('thumb', 'assets/images/thumb.png');
-      this.load.plugin('rex-virtual-joystick-plugin.js', VirtualJoyStickPlugin, true);
-  }
 
+  preload() {
+    this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
+    this.load.image('base', 'assets/images/base.png');
+    this.load.image('thumb', 'assets/images/thumb.png');
+    this.load.plugin('rex-virtual-joystick-plugin', VirtualJoyStickPlugin, true);
+  }
   create() {
 
         // Check for portrait mode on mobile devices
