@@ -3,6 +3,8 @@ export default class Player {
     this.scene = scene;
     const sprite = this.babyMouse;
     const anims = scene.anims;
+
+    
     anims.create({
       key: "player-walk",
       frames: anims.generateFrameNumbers("characters", { start: 46, end: 49 }),
