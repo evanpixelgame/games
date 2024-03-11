@@ -1,4 +1,4 @@
-export default class Player {
+class Player {
   constructor(scene, x, y) {
     this.scene = scene;
 
