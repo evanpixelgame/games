@@ -237,8 +237,5 @@ const map = this.make.tilemap({ key: 'map' });
        this.stopPlayerAnimations();
        // this.updateJoystickState(); moved to bottom?
          }
-  
   }
-  }
-}
 window.OpenWorld = OpenWorld;
