@@ -80,6 +80,79 @@ class OpenWorld extends Phaser.Scene {
       this.player.anims.stop('walking-down');
   }
 
+    movePlayer() {
+      if (this.lastCursorDirection === "up") {
+        this.player.y -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-up');
+    } else if (this.lastCursorDirection === "down") {
+        this.player.y += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-down');
+    } else if(this.lastCursorDirection === "right") {
+        this.player.x += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-right');
+    } else if (this.lastCursorDirection === "left") {
+        this.player.x -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+            this.player.anims.play('walking-left');
+    } else if (this.lastCursorDirection === "upright") {
+        this.player.x += this.playerSpeed;
+        this.player.y -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+        this.player.anims.play('walking-right');
+    } else if (this.lastCursorDirection === "downright") {
+        this.player.x += this.playerSpeed;
+        this.player.y += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+        this.player.anims.play('walking-right');
+    } else if (this.lastCursorDirection === "downleft") {
+        this.player.x -= this.playerSpeed;
+        this.player.y += this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+        this.player.anims.play('walking-left');
+    } else if (this.lastCursorDirection === "upleft") {
+        this.player.x -= this.playerSpeed;
+        this.player.y -= this.playerSpeed;
+        if (!this.player.anims.isPlaying)
+        this.player.anims.play('walking-left');
+    } else {
+        this.stopPlayerAnimations();
+    }
+  }
+
+  updateJoystickState() {
+      let direction = '';
+      for (let key in this.cursorKeys) {
+          if (this.cursorKeys[key].isDown) {
+            direction += key;
+          }
+      }
+
+      // If no direction if provided then stop 
+      // the player animations and exit the method
+      if(direction.length === 0) { 
+          this.stopPlayerAnimations();
+          return;
+      }
+
+      // If last cursor direction is different
+      //  the stop all player animations
+      if (this.lastCursorDirection !== direction) {
+          this.stopPlayerAnimations();
+      }
+      
+      // Set the new cursor direction
+      this.lastCursorDirection = direction;
+
+      // Handle the player moving
+      this.movePlayer();
+
+      // Set debug info about the cursor
+      this.setCursorDebugInfo();
+     this.updateJoystickState();
+  }
 
   preload() {
     this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
@@ -165,80 +238,6 @@ const map = this.make.tilemap({ key: 'map' });
        // this.updateJoystickState(); moved to bottom?
          }
   
-
-  movePlayer() {
-      if (this.lastCursorDirection === "up") {
-        this.player.y -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-up');
-    } else if (this.lastCursorDirection === "down") {
-        this.player.y += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-down');
-    } else if(this.lastCursorDirection === "right") {
-        this.player.x += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-right');
-    } else if (this.lastCursorDirection === "left") {
-        this.player.x -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-left');
-    } else if (this.lastCursorDirection === "upright") {
-        this.player.x += this.playerSpeed;
-        this.player.y -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-right');
-    } else if (this.lastCursorDirection === "downright") {
-        this.player.x += this.playerSpeed;
-        this.player.y += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-right');
-    } else if (this.lastCursorDirection === "downleft") {
-        this.player.x -= this.playerSpeed;
-        this.player.y += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-left');
-    } else if (this.lastCursorDirection === "upleft") {
-        this.player.x -= this.playerSpeed;
-        this.player.y -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-left');
-    } else {
-        this.stopPlayerAnimations();
-    }
-  }
-
-  updateJoystickState() {
-      let direction = '';
-      for (let key in this.cursorKeys) {
-          if (this.cursorKeys[key].isDown) {
-            direction += key;
-          }
-      }
-
-      // If no direction if provided then stop 
-      // the player animations and exit the method
-      if(direction.length === 0) { 
-          this.stopPlayerAnimations();
-          return;
-      }
-
-      // If last cursor direction is different
-      //  the stop all player animations
-      if (this.lastCursorDirection !== direction) {
-          this.stopPlayerAnimations();
-      }
-      
-      // Set the new cursor direction
-      this.lastCursorDirection = direction;
-
-      // Handle the player moving
-      this.movePlayer();
-
-      // Set debug info about the cursor
-      this.setCursorDebugInfo();
-     this.updateJoystickState();
-  }
   }
   }
 }
