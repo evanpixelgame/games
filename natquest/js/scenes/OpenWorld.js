@@ -36,10 +36,37 @@ class OpenWorld extends Phaser.Scene {
 
     //const sprite = this.add.image(0, 0, 'sprite1');
     const sprite = this.add.sprite(200, 200, 'sprite1');
+
+    
+    // Enable physics for the sprite if needed
+    this.physics.world.enable(sprite);
+
+    // Create controls
+    const cursors = this.input.keyboard.createCursorKeys();
+    this.controls = new Phaser.Cameras.Controls.FixedKeyControl({
+      camera: this.cameras.main,
+      left: cursors.left,
+      right: cursors.right,
+      up: cursors.up,
+      down: cursors.down,
+      speed: 0.5,
+    });
+
+    // Optionally, you can customize properties of the sprite, such as scale, rotation, etc.
+    sprite.setScale(2); // Example: Set scale to 2x
+
+    // Set camera to follow the sprite (optional)
+    this.cameras.main.startFollow(sprite);
+
+    // Constrain the camera
+    this.cameras.main.setBounds(0, 0, this.game.config.width * 2, this.game.config.height * 2);
+
+
+    
     // Phaser supports multiple cameras, but you can access the default camera like this:
    // const camera = this.cameras.main;
-    let x = 200;
-    let y = 200;
+  //  let x = 200;
+    //let y = 200;
   /*  if (this.selectedCharacter == 'Baby Mouse') {mainChar = this.add.sprite(x, y, 'babyMouse') }
     else if (this.selectedCharacter == 'Confused Woman') {mainChar = this.add.sprite(x, y, 'confusedWoman')}
     else if (this.selectedCharacter == 'Fat Wolf') {mainChar = this.add.sprite(x, y, 'fatWolf')} */
@@ -52,7 +79,7 @@ class OpenWorld extends Phaser.Scene {
   //  this.physics.world.enable(mainChar);
 
     // Set camera to follow the sprite (optional)
-    this.cameras.main.startFollow(sprite);
+   /* this.cameras.main.startFollow(sprite);
 
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
@@ -66,7 +93,7 @@ class OpenWorld extends Phaser.Scene {
     });
 
     // Constrain the camera
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels); */
 
     // Help text
     this.add
