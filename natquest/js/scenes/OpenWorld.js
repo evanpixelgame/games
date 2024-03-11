@@ -46,6 +46,9 @@ class OpenWorld extends Phaser.Scene {
       down: cursors.down,
       speed: 0.5,
     });
+const testSprite = this.add.sprite(200, 200, 'babyMouse');
+    // Inside your create method in the OpenWorld scene
+console.log(testSprite); // Log the sprite object to the console
 
 
   //  const player = new Player (this, 100, 100)
