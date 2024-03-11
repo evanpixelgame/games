@@ -1,4 +1,4 @@
-import VirtualJoyStickPlugin from "assets/plugins/rex-virtual-joystick-plugin.js";
+
 
 // Define your condition or criteria here
 const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);  //check if true (that its on mobile)
