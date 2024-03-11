@@ -84,11 +84,22 @@ selectCharacter(characterKey, characterImage) {
   const outerStrength = 8;
   const innerStrength = 4;
   const knockout = false;
-  let newImageSize = characterImage.setScale(3.0);
+  // let newImageSize = characterImage.setScale(3.0);
 
-  this.characterHighlight = this.add.sprite(newImageSize.x, newImageSize.y, characterKey);
-  this.characterHighlight.preFX.addGlow(glowColor, outerStrength, innerStrength, knockout);
+  //this.characterHighlight = this.add.sprite(newImageSize.x, newImageSize.y, characterKey);
+  //this.characterHighlight.preFX.addGlow(glowColor, outerStrength, innerStrength, knockout);
+ // Create a new sprite for the selected character
+  this.characterHighlight = this.add.sprite(characterImage.x, characterImage.y, characterKey);
 
+  // Set the scale of the new sprite based on the original characterImage
+  this.characterHighlight.setScale(characterImage.scaleX, characterImage.scaleY);
+
+  // Calculate scaled glow properties
+  const scaledOuterStrength = baseOuterStrength * characterImage.scaleX;
+  const scaledInnerStrength = baseInnerStrength * characterImage.scaleX;
+
+  // Apply the Glow effect with scaled properties
+  this.characterHighlight.preFX.addGlow(glowColor, scaledOuterStrength, scaledInnerStrength, knockout);
 
   console.log(`Selected character: ${this.selectedCharacter}`);
 
