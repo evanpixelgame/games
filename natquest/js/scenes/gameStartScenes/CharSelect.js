@@ -79,12 +79,15 @@ selectCharacter(characterKey, characterImage) {
   // Handle character selection logic
   this.selectedCharacter = characterKey;
 
-  // Add a highlight effect to the selected character
-  this.characterHighlight = this.add.image(
-    characterImage.x,
-    characterImage.y,
-    'characterHighlight'
-  );
+ // Add a Glow effect to the selected character
+  const glowColor = 0x00ff00; // You can adjust the color as needed
+  const outerStrength = 8;
+  const innerStrength = 4;
+  const knockout = false;
+
+  this.characterHighlight = this.add.sprite(characterImage.x, characterImage.y, characterKey);
+  this.characterHighlight.preFX.addGlow(glowColor, outerStrength, innerStrength, knockout);
+
 
   console.log(`Selected character: ${this.selectedCharacter}`);
 
