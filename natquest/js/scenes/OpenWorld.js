@@ -44,7 +44,7 @@ class OpenWorld extends Phaser.Scene {
      
 
     // You can customize properties of the sprite, such as scale, rotation, etc.
-    mainChar.setScale(2); // Example: Set scale to 2x
+    //mainChar.setScale(2); // Example: Set scale to 2x
 
     // Enable physics for the sprite if needed
     this.physics.world.enable(mainChar);
