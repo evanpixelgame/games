@@ -34,7 +34,7 @@ class OpenWorld extends Phaser.Scene {
     const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
     // Phaser supports multiple cameras, but you can access the default camera like this:
-    const camera = this.cameras.main;
+   // const camera = this.cameras.main;
 
     // Create controls
     const cursors = this.input.keyboard.createCursorKeys();
@@ -50,7 +50,11 @@ const testSprite = this.add.sprite(200, 200, 'babyMouse');
     // Inside your create method in the OpenWorld scene
 console.log(testSprite); // Log the sprite object to the console
 
+    // Enable physics for the sprite if needed
+    this.physics.world.enable(this.testSprite);
 
+    // Set camera to follow the sprite
+    this.cameras.main.startFollow(this.testSprite);
   //  const player = new Player (this, 100, 100)
 
     
