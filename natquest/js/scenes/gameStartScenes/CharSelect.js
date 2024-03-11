@@ -32,9 +32,9 @@ backdrop.lineStyle(4, 0x000000, 1);
 
     
   // Display character options
-  const character1 = this.add.image(200, 200, 'Baby Mouse').setInteractive();
-  const character2 = this.add.image(400, 200, 'Confused Woman').setInteractive();
-  const character3 = this.add.image(600, 200, 'Fat Wolf').setInteractive();
+  const character1 = this.add.image(200, 200, 'character1').setInteractive();
+  const character2 = this.add.image(400, 200, 'character2').setInteractive();
+  const character3 = this.add.image(600, 200, 'character3').setInteractive();
 
       // Add some text to the backdrop
   const instructionText = this.add.text(400, 270, 'Pick a character', {
@@ -47,7 +47,7 @@ backdrop.lineStyle(4, 0x000000, 1);
 
   // Set up input events for character selection
   character1.on('pointerdown', () => this.selectCharacter('character1', character1));
-  character2.on('pointerdown', () => this.selectCharacter('character2', character2));
+  character2.on('pointerdown', () => this.selectCharacter('character2', Confused Woman));
   character3.on('pointerdown', () => this.selectCharacter('character3', character3));
 
   // Create an input element
