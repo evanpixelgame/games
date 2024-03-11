@@ -4,7 +4,7 @@ class Player extends Phaser.Scene {
     const sprite = babyMouse;
     const anims = scene.anims;
 
-    
+    /*
     anims.create({
       key: "player-walk",
       frames: anims.generateFrameNumbers("characters", { start: 46, end: 49 }),
@@ -27,7 +27,8 @@ class Player extends Phaser.Scene {
 
   freeze() {
     this.sprite.body.moves = false;
-  }
+  } 
+  */
 
   update() {
     const keys = this.keys;
