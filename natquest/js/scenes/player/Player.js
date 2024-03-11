@@ -1,7 +1,7 @@
 export default class Player {
   constructor(scene, x, y) {
     this.scene = scene;
-
+    const sprite = this.babyMouse;
     const anims = scene.anims;
     anims.create({
       key: "player-walk",
@@ -29,7 +29,7 @@ export default class Player {
 
   update() {
     const keys = this.keys;
-    const sprite = this.sprite;
+   // const sprite = this.sprite;
     const speed = 300;
     const prevVelocity = sprite.body.velocity.clone();
 
