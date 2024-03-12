@@ -7,6 +7,11 @@ class OpenWorld extends Phaser.Scene {
     this.isMobile = null;
   }
   // Handle the case when the custom scene should not run
+  
+  if (!this.isMobile) {
+
+    console.log('does this work');
+  }
 
   preload() {
   this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
@@ -19,13 +24,8 @@ class OpenWorld extends Phaser.Scene {
           startFrame: 0,
           endFrame: 36
       });
-    
   }
 
-  if (!this.isMobile) {
-
-    console.log('does this work');
-  }
 
   create() {
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
