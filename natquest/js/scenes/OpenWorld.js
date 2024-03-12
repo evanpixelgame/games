@@ -98,7 +98,7 @@ class OpenWorld extends Phaser.Scene {
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
   // Create player sprite
-  this.player = this.physics.add.sprite(200, 200, 'sprite1');
+  this.player = this.physics.add.sprite(200, 200, 'babyMouse');
 
   // Set world bounds for the player
 //  this.player.setCollideWorldBounds(true);
