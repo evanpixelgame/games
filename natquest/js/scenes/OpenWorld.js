@@ -22,9 +22,7 @@ class OpenWorld extends Phaser.Scene {
       this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
       this.load.spritesheet("babyMouse", "assets/sprites/player/babyMouse.png", {
           frameWidth: 64,
-          frameHeight: 64,
-          startFrame: 0,
-          endFrame: 272
+          frameHeight: 64
       });
   }
 
