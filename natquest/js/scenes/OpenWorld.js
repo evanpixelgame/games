@@ -8,12 +8,12 @@ class OpenWorld extends Phaser.Scene {
 
 // Define your condition or criteria here
 const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS); 
-  }
+
   //^^check if true (that its on mobile) 
     
 if (shouldRunCustomScene) {
   console.log('mobile');
-} else {
+} else {    console.log('notmobile');   }
   // Handle the case when the custom scene should not run
 
   preload() {
