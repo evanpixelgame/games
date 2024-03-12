@@ -6,7 +6,13 @@ class OpenWorld extends Phaser.Scene {
     this.controls = null;
     this.isMobile = null;
     this.isComputer = true;
+    //this.player = null; //REIMPLEMENT THIS IF SPRITES NOT WORKING
     this.map = null;
+    this.joyStickBase = null;
+    this.joyStickThumb = null;
+    this.joystickConfig = {
+      radius: 50,
+    };
   }
   // Handle the case when the custom scene should not run
   
@@ -219,6 +225,50 @@ class OpenWorld extends Phaser.Scene {
     this.createVirtualJoystick();
     this.setCursorDebugInfo();
     this.updateJoystickState();
+
+            // Create joystick base and thumb
+    this.joyStickBase = this.add.image(100, 400, 'base').setDisplaySize(100, 100);
+    this.joyStickThumb = this.add.image(100, 400, 'thumb').setDisplaySize(50, 50);
+
+    // Enable input on thumb
+    this.joyStickThumb.setInteractive({ draggable: true });
+
+    // Set events for dragging thumb
+    this.input.on('dragstart', (_, gameObject) => {
+      gameObject.setTint(0xff0000);
+    });
+
+    this.input.on('drag', (_, gameObject, dragX, dragY) => {
+      const distance = Phaser.Math.Distance.Between(this.joyStickBase.x, this.joyStickBase.y, dragX, dragY);
+
+      // Constrain thumb within the base using distance
+      if (distance <= this.joystickConfig.radius) {
+        gameObject.x = dragX;
+        gameObject.y = dragY;
+      } else {
+        const angle = Phaser.Math.Angle.Between(this.joyStickBase.x, this.joyStickBase.y, dragX, dragY);
+        const x = this.joyStickBase.x + this.joystickConfig.radius * Math.cos(angle);
+        const y = this.joyStickBase.y + this.joystickConfig.radius * Math.sin(angle);
+        gameObject.x = x;
+        gameObject.y = y;
+      }
+    });
+
+    this.input.on('dragend', (_, gameObject) => {
+      gameObject.clearTint();
+      gameObject.x = this.joyStickBase.x;
+      gameObject.y = this.joyStickBase.y;
+    });
+
+    // Set the camera to follow the player
+    this.cameras.main.startFollow(this.player);
+
+    // Set world bounds for the player
+    this.physics.world.setBounds(0, 0, 800, 600);
+    this.player.setCollideWorldBounds(true);
+
+    // Create animations
+    this.createAnimations();
          
        }
 
