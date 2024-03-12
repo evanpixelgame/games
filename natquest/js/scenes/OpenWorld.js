@@ -78,7 +78,7 @@ const map = this.make.tilemap({ key: 'map' });
 } else {  
   console.log('notmobile');   
        }
-}
+}  // <=== create() end tag
     
 
   update(time, delta) {
