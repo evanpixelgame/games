@@ -36,6 +36,7 @@ class OpenWorld extends Phaser.Scene {
   const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
   const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+    console.log(this.selectedCharacter);
 
   // Create player sprite
   this.player = this.physics.add.sprite(200, 200, 'babyMouse');
