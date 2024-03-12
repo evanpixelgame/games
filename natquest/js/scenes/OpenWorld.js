@@ -85,9 +85,11 @@ const map = this.make.tilemap({ key: 'map' });
 
   //^^check if true (that its on mobile) 
     
-if (shouldRunCustomScene) {
+if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
   console.log('mobile');
-} else {    console.log('notmobile');   }}
+} else {  
+  console.log('notmobile');   
+       }
   // Handle the case when the custom scene should not run
   
 }
