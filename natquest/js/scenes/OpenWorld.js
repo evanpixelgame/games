@@ -36,13 +36,7 @@ class OpenWorld extends Phaser.Scene {
 
 
   create() {
-    console.log(selectedCharacter);
-    console.log(this.selectedCharacter);
-    console.log('Sprite Key:', this.player.texture.key);
-console.log('Animation Keys:', this.anims.getAnimationNames());
-    this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
-    const map = this.make.tilemap({ key: 'map' });
-
+  const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
 
@@ -59,12 +53,6 @@ console.log('Animation Keys:', this.anims.getAnimationNames());
 
      this.speed = 200;
     this.createAnimations();
-
-    // MAYBE PUT THE METHODS RIGHT HERE 
-       if (!this.isMobile) {
-         console.log('this should be the computer screen code');
-      
-         //COMPUTER CONTROL LOGIC HERE
 
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
@@ -87,13 +75,6 @@ console.log('Animation Keys:', this.anims.getAnimationNames());
     })
     .setScrollFactor(0);
 
-    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
-  console.log('mobile');
-} else {  
-  console.log('notmobile');   
-       }
-
-} else {
          if (window.orientation === 0 || window.orientation === 180) {
         // Portrait mode alert
         alert("Please switch to landscape mode for the best experience.");
@@ -102,8 +83,6 @@ console.log('Animation Keys:', this.anims.getAnimationNames());
   
           //PUT MOBILE CONTROL LOGIC HERE 
 
-         
-       }
   createAnimations() {
     this.anims.create({
         key: 'walking-up',
@@ -158,8 +137,6 @@ console.log('Animation Keys:', this.anims.getAnimationNames());
 
   update(time, delta) {
 
-    if (!this.isMobile) {    
-    // Update player movement based on keyboard input
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
        this.player.anims.play('walking-down', true);
@@ -179,16 +156,9 @@ console.log('Animation Keys:', this.anims.getAnimationNames());
     } else {
       this.player.setVelocityX(0);
     }
-      this.cameras.main.startFollow(this.player);
-
-  } else {
-      
-     //PUT MOBILE UPDATE FUNCTION LOGIC HERE 
-
-    this.updateJoystickState();
-      
-  }
-  // Handle the case when the custom scene should not run
+    
+    this.cameras.main.startFollow(this.player);
+    
   }
 }
 window.OpenWorld = OpenWorld;
