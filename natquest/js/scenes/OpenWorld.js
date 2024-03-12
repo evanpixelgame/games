@@ -52,7 +52,6 @@ class OpenWorld extends Phaser.Scene {
 //  this.player.setCollideWorldBounds(true);
 
      this.speed = 200;
-    this.createAnimations();
 
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
@@ -79,9 +78,8 @@ class OpenWorld extends Phaser.Scene {
         // Portrait mode alert
         alert("Please switch to landscape mode for the best experience.");
       }
-        console.log('this should be the phone screen code');
-  
-          //PUT MOBILE CONTROL LOGIC HERE 
+       this.createAnimations();
+  }
 
   createAnimations() {
     this.anims.create({
@@ -131,9 +129,7 @@ class OpenWorld extends Phaser.Scene {
         frameRate: 12,
         repeat: -1
     });
-  }
-}  // <=== create() end tag
-    
+  } // <=== create() end tag
 
   update(time, delta) {
 
