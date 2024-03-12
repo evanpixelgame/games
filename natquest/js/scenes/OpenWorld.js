@@ -8,6 +8,7 @@ class OpenWorld extends Phaser.Scene {
     this.isComputer = true;
     this.map = null;
     let selectedCharacter = this.selectedCharacter;
+    this.playerCharacter = this.selectedCharacter;
   }
   // Handle the case when the custom scene should not run
   if (isComputer) {
