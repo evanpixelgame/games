@@ -8,7 +8,8 @@ class OpenWorld extends Phaser.Scene {
 
 // Define your condition or criteria here
 const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS); 
-  } //check if true (that its on mobile) 
+  }
+  //^^check if true (that its on mobile) 
     
 if (shouldRunCustomScene) {
 /*  class OpenWorld extends Phaser.Scene {
