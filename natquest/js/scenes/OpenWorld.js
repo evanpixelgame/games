@@ -67,6 +67,12 @@ class OpenWorld extends Phaser.Scene {
 
   preload() {
   this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
+    this.load.spritesheet('babyMouse', 'assets/sprites/player/babyMouse.png', {
+    frameWidth: 64,  // Width of each frame in pixels
+    frameHeight: 64, // Height of each frame in pixels
+    startFrame: 0,   // The first frame to start with (optional)
+    endFrame: 36     // The last frame to end with (optional)
+});
       this.load.image('base', 'assets/images/base.png');
       this.load.image('thumb', 'assets/images/thumb.png');
       this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
@@ -140,17 +146,7 @@ class OpenWorld extends Phaser.Scene {
         console.log('this should be the phone screen code');
   
           //PUT MOBILE CONTROL LOGIC HERE 
-    this.physics.world.bounds.width = this.gameWidth;
-    this.physics.world.bounds.height = this.gameHeight;
-    this.background = this.add.sprite(0, 0, "background").setOrigin(0, 0);
-    this.background.setDisplaySize(this.gameWidth, this.gameHeight);
-    this.background.setDepth(-1);
-    this.cursorDebugText = this.add.text(10, 10);
-    this.createAnimations();
-    this.createPlayer();
-    this.createVirtualJoystick();
-    this.setCursorDebugInfo();
-    this.updateJoystickState();
+
          
        }
 
