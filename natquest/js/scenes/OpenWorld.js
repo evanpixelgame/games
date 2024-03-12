@@ -92,4 +92,3 @@ const map = this.make.tilemap({ key: 'map' });
   }
 }
 window.OpenWorld = OpenWorld;
-}
