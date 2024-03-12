@@ -80,10 +80,6 @@ const map = this.make.tilemap({ key: 'map' });
     }
       this.cameras.main.startFollow(this.player);
   }
-
-  const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS); 
-
-  //^^check if true (that its on mobile) 
     
 if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
   console.log('mobile');
