@@ -158,7 +158,13 @@ const isMoving = this.cursors.up.isDown || this.cursors.down.isDown || this.curs
     } else {
       this.player.setVelocityX(0);
     } 
+  } else {
+    // Stop animation when no arrow key is pressed
+    this.player.anims.stop();
+    // Set the sprite frame to the idle frame (adjust the frame number accordingly)
+    this.player.setFrame(0);
   }
+
     
     this.cameras.main.startFollow(this.player);
     
