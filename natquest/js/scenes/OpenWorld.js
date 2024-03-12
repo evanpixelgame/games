@@ -1,39 +1,39 @@
 class OpenWorld extends Phaser.Scene {
   constructor() {
     super({ key: 'OpenWorld' });
+    
     // Declare controls as a property of the class
     this.controls = null;
     this.isMobile = null;
+    this.isComputer = true;
     this.map = null;
-    this.playerChar = this.selectedChar;
+    let selectedCharacter = this.selectedCharacter;
+    this.playerCharacter = this.selectedCharacter;
+  }
+  // Handle the case when the custom scene should not run
+  if (isComputer) {
+
+    console.log('does this work');
   }
 
-  
   preload() {
-    this.load.image('base', 'assets/images/base.png');
-    this.load.image('thumb', 'assets/images/thumb.png');
-    this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
+    this.load.spritesheet('babyMouse', 'assets/sprites/player/babyMouse.png', {
+    frameWidth: 64,  // Width of each frame in pixels
+    frameHeight: 64, // Height of each frame in pixels
+ //   startFrame: 0,   // The first frame to start with (optional)
+ //   endFrame: 272     // The last frame to end with (optional)
+});
+      this.load.image('base', 'assets/images/base.png');
+      this.load.image('thumb', 'assets/images/thumb.png');
+      this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
+      this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
+          frameWidth: 64,
+          frameHeight: 64,
+          startFrame: 0,
+          endFrame: 36
+      });
+  }
 
-    if (this.selectedCharacter === 'Baby Mouse') {
-      this.playerChar = 'playerChar'; 
-      this.load.spritesheet('playerChar', 'assets/sprites/player/babyMouse.png', {
-        frameWidth: 64,
-        frameHeight: 64
-      });
-    } else if (this.selectedCharacter === 'Confused Woman') {
-      this.playerChar = 'playerChar'; 
-      this.load.spritesheet('playerChar', 'assets/sprites/player/confusedWoman.png', {
-        frameWidth: 64,
-        frameHeight: 64
-      });
-    } else if (this.selectedCharacter === 'Fat Wolf') {
-      this.playerChar = 'playerChar'; 
-      this.load.spritesheet('playerChar', 'assets/sprites/player/fatWolf.png', {
-        frameWidth: 64,
-        frameHeight: 64
-      });
-    }
-  } 
 
   create() {
   const map = this.make.tilemap({ key: 'map' });
@@ -44,10 +44,9 @@ class OpenWorld extends Phaser.Scene {
   const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
   const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
-    console.log(this.selectedCharacter);
-  
+
   // Create player sprite
-  this.player = this.physics.add.sprite(200, 200, this.playerChar);
+  this.player = this.physics.add.sprite(200, 200, 'babyMouse');
 
   // Set world bounds for the player
 //  this.player.setCollideWorldBounds(true);
@@ -67,7 +66,7 @@ class OpenWorld extends Phaser.Scene {
 
   // Help text
   this.add
-    .text(16, 16, 'WASD to move', {
+    .text(16, 16, 'Arrow keys to move', {
       font: '18px monospace',
       fill: '#ffffff',
       padding: { x: 20, y: 10 },
@@ -83,12 +82,11 @@ class OpenWorld extends Phaser.Scene {
   }
 
   createAnimations() {
-    
     this.anims.create({
         key: 'walking-up',
-        frames: this.anims.generateFrameNames(this.playerChar, {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
-              104, 105, 106, 107, 108, 109, 110, 111, 112
+              104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116  
             ]
         }),
         yoyo: false,
@@ -98,9 +96,9 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-left',
-        frames: this.anims.generateFrameNames(this.playerChar, {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
-              117, 118, 119, 120, 121, 122, 123, 124, 125
+              117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
             ]
         }),
         yoyo: false,
@@ -110,9 +108,9 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-down',
-        frames: this.anims.generateFrameNames(this.playerChar, {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
-              130, 131, 132, 133, 134, 135, 136, 137, 138
+              130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142
             ]
         }),
         yoyo: false,
@@ -122,9 +120,9 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-right',
-        frames: this.anims.generateFrameNames(this.playerChar, {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
-              143, 144, 145, 146, 147, 148, 149, 150, 151 
+              143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155  
             ]
         }),
         yoyo: false,
@@ -135,15 +133,15 @@ class OpenWorld extends Phaser.Scene {
 
   update(time, delta) {
 
-  if (this.cursors.up.isDown) {
-    this.player.setVelocityY(-this.speed);
-    this.player.anims.play('walking-up', true);
-} else if (this.cursors.down.isDown) {
-    this.player.setVelocityY(this.speed);
-    this.player.anims.play('walking-down', true);
-} else {
-    this.player.setVelocityY(0);
-}
+    if (this.cursors.up.isDown) {
+      this.player.setVelocityY(-this.speed);
+       this.player.anims.play('walking-down', true);
+    } else if (this.cursors.down.isDown) {
+      this.player.setVelocityY(this.speed);
+       this.player.anims.play('walking-up', true);
+    } else {
+      this.player.setVelocityY(0);
+    }
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-this.speed);
@@ -154,7 +152,7 @@ class OpenWorld extends Phaser.Scene {
     } else {
       this.player.setVelocityX(0);
     }
-
+    
     this.cameras.main.startFollow(this.player);
     
   }
