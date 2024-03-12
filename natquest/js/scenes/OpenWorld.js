@@ -166,6 +166,20 @@ class OpenWorld extends Phaser.Scene {
 
      this.speed = 200;
 
+
+
+ this.joyStick = this.plugins.get('rex-virtual-joystick-plugin').add(
+      this,
+      {
+        x: this.game.config.width / 2,
+        y: this.game.config.height / 2,
+        radius: 50,
+        base: this.add.image(0, 0, 'baseImage').setDisplaySize(100, 100),
+        thumb: this.add.image(0, 0, 'thumbImage').setDisplaySize(50, 50)
+      }
+    );
+    
+    
     // MAYBE PUT THE METHODS RIGHT HERE 
        if (!this.isMobile) {
          console.log('this should be the computer screen code');
