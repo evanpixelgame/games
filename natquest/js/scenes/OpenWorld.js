@@ -5,7 +5,6 @@ class OpenWorld extends Phaser.Scene {
     this.controls = null;
     this.isMobile = null;
     this.map = null;
-    this.playerChar = null;
   }
 
   
