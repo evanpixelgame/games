@@ -1,19 +1,10 @@
 class OpenWorld extends Phaser.Scene {
   constructor() {
     super({ key: 'OpenWorld' });
-    
     // Declare controls as a property of the class
     this.controls = null;
     this.isMobile = null;
-    this.isComputer = true;
     this.map = null;
-    let selectedCharacter = this.selectedCharacter;
-    this.playerCharacter = this.selectedCharacter;
-  }
-  // Handle the case when the custom scene should not run
-  if (isComputer) {
-
-    console.log('does this work');
   }
 
   preload() {
@@ -33,7 +24,6 @@ class OpenWorld extends Phaser.Scene {
           frameHeight: 64
       });
   }
-
 
   create() {
   const map = this.make.tilemap({ key: 'map' });
@@ -146,7 +136,6 @@ const spriteSheetName = this.selectedCharacter;
     this.player.setVelocityY(0);
 }
 
-
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-this.speed);
       this.player.anims.play('walking-left', true);
@@ -156,7 +145,7 @@ const spriteSheetName = this.selectedCharacter;
     } else {
       this.player.setVelocityX(0);
     }
-    
+
     this.cameras.main.startFollow(this.player);
     
   }
