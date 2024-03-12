@@ -219,7 +219,9 @@ class OpenWorld extends Phaser.Scene {
         alert("Please switch to landscape mode for the best experience.");
       }
         console.log('this should be the phone screen code');
-  
+    const baseImage = this.add.image(0, 0, 'baseImage').setDisplaySize(100, 100);
+    const thumbImage = this.add.image(0, 0, 'thumbImage').setDisplaySize(50, 50);
+
           //PUT MOBILE CONTROL LOGIC HERE 
     this.physics.world.bounds.width = this.gameWidth;
     this.physics.world.bounds.height = this.gameHeight;
