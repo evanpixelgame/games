@@ -5,7 +5,7 @@ class OpenWorld extends Phaser.Scene {
     this.controls = null;
     this.isMobile = null;
     this.map = null;
-    this.spriteSheetName = null;
+    this.playerChar = null;
   }
 
   preload() {
@@ -39,7 +39,7 @@ class OpenWorld extends Phaser.Scene {
   const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
     console.log(this.selectedCharacter);
-const spriteSheetName = this.selectedCharacter;
+  
   // Create player sprite
   this.player = this.physics.add.sprite(200, 200, playerChar);
 
