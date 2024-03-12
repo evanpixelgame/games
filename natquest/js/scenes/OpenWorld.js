@@ -18,22 +18,7 @@ class OpenWorld extends Phaser.Scene {
       
          //PUT COMPUTER CONTROL LOGIC HERE
 
-
-
-         
-       } else {
-         if (window.orientation === 0 || window.orientation === 180) {
-        // Portrait mode alert
-        alert("Please switch to landscape mode for the best experience.");
-      }
-        console.log('this should be the phone screen code');
-  
-          //PUT MOBILE CONTROL LOGIC HERE 
-
-
-         
-       }
-    
+             
 const map = this.make.tilemap({ key: 'map' });
 
   // Load tileset
@@ -78,6 +63,22 @@ const map = this.make.tilemap({ key: 'map' });
 } else {  
   console.log('notmobile');   
        }
+
+
+         
+       } else {
+         if (window.orientation === 0 || window.orientation === 180) {
+        // Portrait mode alert
+        alert("Please switch to landscape mode for the best experience.");
+      }
+        console.log('this should be the phone screen code');
+  
+          //PUT MOBILE CONTROL LOGIC HERE 
+
+
+         
+       }
+
 }  // <=== create() end tag
     
 
