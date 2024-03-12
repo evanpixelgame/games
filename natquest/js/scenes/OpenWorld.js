@@ -150,6 +150,17 @@ class OpenWorld extends Phaser.Scene {
     this.player = this.physics.add.sprite(200, 200, 'sprite1');
     this.player.setCollideWorldBounds(true);
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
+
+    const map = this.make.tilemap({ key: 'map' });
+
+  // Load tileset
+  const tileset = map.addTilesetImage('tilemap1', 'tiles');
+
+  // Create layers
+  const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
+  const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
+  const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+
     // MAYBE PUT THE METHODS RIGHT HERE 
        if (!this.isMobile) {
          console.log('this should be the computer screen code');
