@@ -85,6 +85,8 @@ class OpenWorld extends Phaser.Scene {
 
 
   create() {
+    console.log('Sprite Key:', this.player.texture.key);
+console.log('Animation Keys:', this.anims.getAnimationNames());
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
     const map = this.make.tilemap({ key: 'map' });
 
