@@ -10,6 +10,16 @@ class OpenWorld extends Phaser.Scene {
 
   preload() {
   this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
+      this.load.image('base', './assets/image/base.png');
+      this.load.image('thumb', './assets/image/thumb.png');
+      this.load.plugin('rex-virtual-joystick-plugin"', VirtualJoyStickPlugin, true);
+      this.load.spritesheet("player", "./assets/image/player.png", {
+          frameWidth: 64,
+          frameHeight: 64,
+          startFrame: 0,
+          endFrame: 36
+      });
+    
   }
 
   create() {
@@ -86,20 +96,7 @@ const map = this.make.tilemap({ key: 'map' });
     };
   }
 
-  preload() { 
-      this.load.image('background', './assets/image/background.jpg');
-      this.load.image('base', './assets/image/base.png');
-      this.load.image('thumb', './assets/image/thumb.png');
-      this.load.plugin('rex-virtual-joystick-plugin"', VirtualJoyStickPlugin, true);
-      this.load.spritesheet("player", "./assets/image/player.png", {
-          frameWidth: 64,
-          frameHeight: 64,
-          startFrame: 0,
-          endFrame: 36
-      });
-  }
-
-  createAnimations() {
+/*  createAnimations() {
     this.anims.create({
         key: 'walking-left',
         frames: this.anims.generateFrameNames('player', {
@@ -147,10 +144,11 @@ const map = this.make.tilemap({ key: 'map' });
         frameRate: 12,
         repeat: -1
     });
-  }
+  } 
+  */
 
   createPlayer() {
-    this.player = this.add.sprite(this.gameWidthMiddle, this.gameHeightMiddle, 'player', 1);
+    this.player = this.add.sprite(this.gameWidthMiddle, this.gameHeightMiddle, 'sprite1', 1);
     this.physics.add.existing(this.player);
     this.player.body.setCollideWorldBounds(true);
     this.player.setScale(1.25);
