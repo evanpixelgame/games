@@ -119,7 +119,7 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
             var key = cursorKeys[name];
             s += `${name}: duration=${key.duration / 1000}\n`;
         }
-        this.text.setText(s);
+        this.text.setText(s);}
 
 }  // <=== create() end tag
     
