@@ -227,8 +227,11 @@ class OpenWorld extends Phaser.Scene {
     this.updateJoystickState();
 
             // Create joystick base and thumb
-    this.joyStickBase = this.add.image(100, 400, 'base').setDisplaySize(100, 100);
-    this.joyStickThumb = this.add.image(100, 400, 'thumb').setDisplaySize(50, 50);
+  const centerX = this.cameras.main.centerX;
+    const centerY = this.cameras.main.centerY;
+
+    this.joyStickBase = this.add.image(centerX, centerY, 'base').setDisplaySize(100, 100);
+    this.joyStickThumb = this.add.image(centerX, centerY, 'thumb').setDisplaySize(50, 50);
 
     // Enable input on thumb
     this.joyStickThumb.setInteractive({ draggable: true });
