@@ -81,134 +81,6 @@ const map = this.make.tilemap({ key: 'map' });
         console.log('this should be the phone screen code');
   
           //PUT MOBILE CONTROL LOGIC HERE 
-
-this.init();
-this.createPlayer();
- this.createVirtualJoystick();
-  this.setCursorDebugInfo();
-  this.create();
-         
-         
-  init() {
-      super.init();
-      this.staticXJsPos = this.gameWidthMiddle;
-      this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
-      this.playerSpeed = 1;
-      this.lastCursorDirection = "center";
-      this.joystickConfig = {
-        x: this.staticXJsPos,
-        y: this.staticYJsPos,
-        enabled: true
-    };
-  }
-
-/*  createAnimations() {
-    this.anims.create({
-        key: 'walking-left',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-                9 , 11, 12, 13, 14, 15, 16, 17
-            ]
-        }),
-        yoyo: true,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walking-right',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-                27,28,29,30,31,32,33,34,35
-            ]
-        }),
-        yoyo: true,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walking-up',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-                0,1.2,3,4,5,6,7,8
-            ]
-        }),
-        yoyo: true,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walking-down',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-                18,19,20,21,22,23,24,25,26
-            ]
-        }),
-        yoyo: true,
-        frameRate: 12,
-        repeat: -1
-    });
-  } 
-  */
-
-  createPlayer() {
-    this.player = this.add.sprite(this.gameWidthMiddle, this.gameHeightMiddle, 'sprite1', 1);
-    this.physics.add.existing(this.player);
-    this.player.body.setCollideWorldBounds(true);
-    this.player.setScale(1.25);
-    this.player.setFrame(18);
-  }
-
-  createVirtualJoystick() {
-    this.joyStick = this.plugins.get('rex-virtual-joystick-plugin"').add(
-        this,
-        Object.assign({}, this.joystickConfig, {
-            radius: 32,
-            base: this.add.image(0, 0, 'base').setDisplaySize(110, 110),
-            thumb: this.add.image(0, 0, 'thumb').setDisplaySize(48, 48)
-        })
-    ).on('update', this.updateJoystickState, this);
-    this.cursorKeys = this.joyStick.createCursorKeys();
-
-    // Listener event to reposition virtual joystick
-    // whatever place you click in game area
-    this.input.on('pointerdown', pointer => {
-        this.joyStick.x = pointer.x;
-        this.joyStick.y = pointer.y;
-        this.joyStick.base.x = pointer.x;
-        this.joyStick.base.y = pointer.y;
-        this.joyStick.thumb.x = pointer.x;
-        this.joyStick.thumb.y = pointer.y;
-    });
-
-    // Listener event to return virtual 
-    // joystick to its original position
-    this.input.on('pointerup', pointer => {
-        this.joyStick.x = this.staticXJsPos;
-        this.joyStick.y = this.staticYJsPos;
-        this.joyStick.base.x = this.staticXJsPos;
-        this.joyStick.base.y = this.staticYJsPos;
-        this.joyStick.thumb.x = this.staticXJsPos;
-        this.joyStick.thumb.y = this.staticYJsPos;
-        this.lastCursorDirection = "center";
-        this.setCursorDebugInfo();
-    });
-
-  }
-
-  setCursorDebugInfo() {
-    const force = Math.floor(this.joyStick.force * 100) / 100;
-    const angle = Math.floor(this.joyStick.angle * 100) / 100;
-    let text = `Direction: ${this.lastCursorDirection}\n`;
-    text += `Force: ${force}\n`;
-    text += `Angle: ${angle}\n`;
-    text += `FPS: ${this.sys.game.loop.actualFps}\n`;
-    this.cursorDebugText.setText(text);
-  }
-
-  create() {
     this.physics.world.bounds.width = this.gameWidth;
     this.physics.world.bounds.height = this.gameHeight;
     this.background = this.add.sprite(0, 0, "background").setOrigin(0, 0);
@@ -250,7 +122,7 @@ this.createPlayer();
       
      //PUT MOBILE UPDATE FUNCTION LOGIC HERE 
 
-
+    this.updateJoystickState();
       
   }
   // Handle the case when the custom scene should not run
