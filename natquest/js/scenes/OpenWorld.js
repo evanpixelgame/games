@@ -298,8 +298,19 @@ class OpenWorld extends Phaser.Scene {
   } else {
       
      //PUT MOBILE UPDATE FUNCTION LOGIC HERE 
+     // Update player movement based on joystick input
+    const angle = Phaser.Math.Angle.Between(this.joyStickBase.x, this.joyStickBase.y, this.joyStickThumb.x, this.joyStickThumb.y);
+    const speed = 200;
 
-    this.updateJoystickState();
+    if (this.joyStickThumb.x !== this.joyStickBase.x && this.joyStickThumb.y !== this.joyStickBase.y) {
+      this.player.setVelocityX(speed * Math.cos(angle));
+      this.player.setVelocityY(speed * Math.sin(angle));
+    } else {
+      this.player.setVelocity(0);
+    }
+    
+      
+      this.updateJoystickState(); // THIS WAS ONLY LINE IN MOBILE UPDATE FUNCTION BEFORE CHANGES
       
   }
   // Handle the case when the custom scene should not run
