@@ -7,9 +7,9 @@ class OpenWorld extends Phaser.Scene {
     this.isMobile = null;
     this.isComputer = true;
     this.map = null;
+    let selectedCharacter = this.selectedCharacter;
   }
   // Handle the case when the custom scene should not run
-  
   if (isComputer) {
 
     console.log('does this work');
@@ -35,6 +35,8 @@ class OpenWorld extends Phaser.Scene {
 
 
   create() {
+    console.log(selectedCharacter);
+    console.log(this.selectedCharacter);
     console.log('Sprite Key:', this.player.texture.key);
 console.log('Animation Keys:', this.anims.getAnimationNames());
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
