@@ -17,37 +17,37 @@ class OpenWorld extends Phaser.Scene {
 
   createAnimations() {
     this.anims.create({
-        key: 'walking-left',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-                9 , 11, 12, 13, 14, 15, 16, 17
-            ]
-        }),
-        yoyo: true,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walking-right',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-                27,28,29,30,31,32,33,34,35
-            ]
-        }),
-        yoyo: true,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
         key: 'walking-up',
         frames: this.anims.generateFrameNames('player', {
             frames: [
-                0,1.2,3,4,5,6,7,8
+              104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116  
             ]
         }),
-        yoyo: true,
+        yoyo: false,
+        frameRate: 12,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'walking-left',
+        frames: this.anims.generateFrameNames('player', {
+            frames: [
+              117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
+            ]
+        }),
+        yoyo: false,
+        frameRate: 12,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'walking-down',
+        frames: this.anims.generateFrameNames('player', {
+            frames: [
+              130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142
+            ]
+        }),
+        yoyo: false,
         frameRate: 12,
         repeat: -1
     });
