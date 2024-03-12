@@ -137,6 +137,7 @@ class OpenWorld extends Phaser.Scene {
       this.load.image('base', 'assets/images/base.png');
       this.load.image('thumb', 'assets/images/thumb.png');
       this.load.plugin('rex-virtual-joystick-plugin', 'assets/plugins/rex-virtual-joystick-plugin.js', true);
+     this.load.plugin('rex-virtual-joystick-plugin', 'assets/plugins/rex-virtual-joystick-plugin.js', true);
       this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
           frameWidth: 64,
           frameHeight: 64,
@@ -207,14 +208,14 @@ class OpenWorld extends Phaser.Scene {
         console.log('this should be the phone screen code');
   
           //PUT MOBILE CONTROL LOGIC HERE 
-    this.physics.world.bounds.width = this.gameWidth;
-    this.physics.world.bounds.height = this.gameHeight;
-    this.background = this.add.sprite(0, 0, "background").setOrigin(0, 0);
-    this.background.setDisplaySize(this.gameWidth, this.gameHeight);
-    this.background.setDepth(-1);
+    //this.physics.world.bounds.width = this.gameWidth;
+    //this.physics.world.bounds.height = this.gameHeight;
+    //this.background = this.add.sprite(0, 0, "background").setOrigin(0, 0);
+    //this.background.setDisplaySize(this.gameWidth, this.gameHeight);
+   //this.background.setDepth(-1);
     this.cursorDebugText = this.add.text(10, 10);
     this.createAnimations();
-    this.createPlayer();
+   this.createPlayer();
     this.createVirtualJoystick();
     this.setCursorDebugInfo();
     this.updateJoystickState();
