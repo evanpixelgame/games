@@ -8,10 +8,12 @@ class OpenWorld extends Phaser.Scene {
     this.playerChar = null;
   }
 
+  
   preload() {
-   this.load.image('base', 'assets/images/base.png');
-      this.load.image('thumb', 'assets/images/thumb.png');
-      this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
+    this.load.image('base', 'assets/images/base.png');
+    this.load.image('thumb', 'assets/images/thumb.png');
+    this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
+
     if (this.selectedCharacter === 'Baby Mouse') {
       this.load.spritesheet('playerChar', 'assets/sprites/player/babyMouse.png', {
         frameWidth: 64,
@@ -23,11 +25,12 @@ class OpenWorld extends Phaser.Scene {
         frameHeight: 64
       });
     } else if (this.selectedCharacter === 'Fat Wolf') {
-      this.load.spritesheet('playChar', 'assets/sprites/player/fatWolf.png', {
+      this.load.spritesheet('playerChar', 'assets/sprites/player/fatWolf.png', {
         frameWidth: 64,
         frameHeight: 64
       });
-  }
+    }
+  } 
 
   create() {
   const map = this.make.tilemap({ key: 'map' });
