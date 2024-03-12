@@ -136,7 +136,9 @@ class OpenWorld extends Phaser.Scene {
   } // <=== create() end tag
 
   update(time, delta) {
-
+const isMoving = this.cursors.up.isDown || this.cursors.down.isDown || this.cursors.left.isDown || this.cursors.right.isDown;
+    
+  if (isMoving) {
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
        this.player.anims.play('walking-down', true);
@@ -155,7 +157,8 @@ class OpenWorld extends Phaser.Scene {
       this.player.anims.play('walking-right', true);
     } else {
       this.player.setVelocityX(0);
-    }
+    } 
+  }
     
     this.cameras.main.startFollow(this.player);
     
