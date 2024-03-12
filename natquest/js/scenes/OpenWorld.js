@@ -125,15 +125,16 @@ class OpenWorld extends Phaser.Scene {
 
   update(time, delta) {
 
-    if (this.cursors.up.isDown) {
-      this.player.setVelocityY(-this.speed);
-       this.player.anims.play('walking-down', true);
-    } else if (this.cursors.down.isDown) {
-      this.player.setVelocityY(this.speed);
-       this.player.anims.play('walking-up', true);
-    } else {
-      this.player.setVelocityY(0);
-    }
+  if (this.cursors.up.isDown) {
+    this.player.setVelocityY(-this.speed);
+    this.player.anims.play('walking-up', true);
+} else if (this.cursors.down.isDown) {
+    this.player.setVelocityY(this.speed);
+    this.player.anims.play('walking-down', true);
+} else {
+    this.player.setVelocityY(0);
+}
+
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-this.speed);
