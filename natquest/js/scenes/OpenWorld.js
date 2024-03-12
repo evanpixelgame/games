@@ -70,8 +70,8 @@ class OpenWorld extends Phaser.Scene {
     this.load.spritesheet('babyMouse', 'assets/sprites/player/babyMouse.png', {
     frameWidth: 64,  // Width of each frame in pixels
     frameHeight: 64, // Height of each frame in pixels
-    startFrame: 0,   // The first frame to start with (optional)
-    endFrame: 36     // The last frame to end with (optional)
+ //   startFrame: 0,   // The first frame to start with (optional)
+ //   endFrame: 272     // The last frame to end with (optional)
 });
       this.load.image('base', 'assets/images/base.png');
       this.load.image('thumb', 'assets/images/thumb.png');
