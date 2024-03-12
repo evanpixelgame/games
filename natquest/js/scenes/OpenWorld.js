@@ -70,7 +70,7 @@ class OpenWorld extends Phaser.Scene {
 
   // Help text
   this.add
-    .text(16, 16, 'Arrow keys to move', {
+    .text(16, 16, 'WASD to move', {
       font: '18px monospace',
       fill: '#ffffff',
       padding: { x: 20, y: 10 },
