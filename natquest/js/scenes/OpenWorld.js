@@ -82,7 +82,7 @@ const spriteSheetName = this.selectedCharacter;
             ]
         }),
         yoyo: false,
-        frameRate: 13,
+        frameRate: 12,
         repeat: -1
     });
 
@@ -94,7 +94,7 @@ const spriteSheetName = this.selectedCharacter;
             ]
         }),
         yoyo: false,
-        frameRate: 13,
+        frameRate: 12,
         repeat: -1
     });
 
@@ -106,7 +106,7 @@ const spriteSheetName = this.selectedCharacter;
             ]
         }),
         yoyo: false,
-        frameRate: 13,
+        frameRate: 12,
         repeat: -1
     });
 
@@ -118,7 +118,7 @@ const spriteSheetName = this.selectedCharacter;
             ]
         }),
         yoyo: false,
-        frameRate: 13,
+        frameRate: 12,
         repeat: -1
     });
   } // <=== create() end tag
