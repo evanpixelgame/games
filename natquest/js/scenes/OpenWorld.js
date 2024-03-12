@@ -17,20 +17,14 @@ class OpenWorld extends Phaser.Scene {
   }
 
   preload() {
-    this.load.spritesheet('babyMouse', 'assets/sprites/player/babyMouse.png', {
-    frameWidth: 64,  // Width of each frame in pixels
-    frameHeight: 64, // Height of each frame in pixels
- //   startFrame: 0,   // The first frame to start with (optional)
- //   endFrame: 272     // The last frame to end with (optional)
-});
-      this.load.image('base', 'assets/images/base.png');
+   this.load.image('base', 'assets/images/base.png');
       this.load.image('thumb', 'assets/images/thumb.png');
       this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
       this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
           frameWidth: 64,
           frameHeight: 64,
-          startFrame: 1,
-          endFrame: 36
+          startFrame: 0,
+          endFrame: 272
       });
   }
 
