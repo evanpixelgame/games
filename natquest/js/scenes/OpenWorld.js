@@ -86,7 +86,7 @@ class OpenWorld extends Phaser.Scene {
   }
 
   createVirtualJoystick() {
-    this.joyStick = this.plugins.get('rex-virtual-joystick-plugin"').add(
+    this.joyStick = this.plugins.get('rex-virtual-joystick-plugin').add(
         this,
         Object.assign({}, this.joystickConfig, {
             radius: 32,
