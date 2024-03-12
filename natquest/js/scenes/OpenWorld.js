@@ -4,6 +4,7 @@ class OpenWorld extends Phaser.Scene {
     
     // Declare controls as a property of the class
     this.controls = null;
+    this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
   }
   // Handle the case when the custom scene should not run
 
@@ -12,7 +13,6 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
-    const isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
        if (!isMobile) {
          console.log('this should be the computer screen code');
       
