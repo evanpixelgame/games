@@ -14,7 +14,7 @@ class OpenWorld extends Phaser.Scene {
 
   create() {
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
-       if (!isMobile) {
+       if (!this.isMobile) {
          console.log('this should be the computer screen code');
       
          //COMPUTER CONTROL LOGIC HERE
@@ -83,7 +83,7 @@ const map = this.make.tilemap({ key: 'map' });
 
   update(time, delta) {
 
-    if (!isMobile) {    
+    if (!this.isMobile) {    
     // Update player movement based on keyboard input
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
