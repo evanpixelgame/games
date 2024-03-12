@@ -84,7 +84,7 @@ class OpenWorld extends Phaser.Scene {
         console.log('this should be the phone screen code');
 
 
--        this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
+    this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
                 x: 400,
                 y: 300,
                 radius: 100,
