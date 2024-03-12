@@ -4,16 +4,7 @@ class OpenWorld extends Phaser.Scene {
     
     // Declare controls as a property of the class
     this.controls = null;
-  
-
-// Define your condition or criteria here
-const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS); 
-
-  //^^check if true (that its on mobile) 
-    
-if (shouldRunCustomScene) {
-  console.log('mobile');
-} else {    console.log('notmobile');   }}
+  }
   // Handle the case when the custom scene should not run
 
   preload() {
@@ -21,7 +12,6 @@ if (shouldRunCustomScene) {
   }
 
   create() {
-
         // Check for portrait mode on mobile devices
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
       if (window.orientation === 0 || window.orientation === 180) {
@@ -90,5 +80,15 @@ const map = this.make.tilemap({ key: 'map' });
     }
       this.cameras.main.startFollow(this.player);
   }
+
+  const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS); 
+
+  //^^check if true (that its on mobile) 
+    
+if (shouldRunCustomScene) {
+  console.log('mobile');
+} else {    console.log('notmobile');   }}
+  // Handle the case when the custom scene should not run
+  
 }
 window.OpenWorld = OpenWorld;
