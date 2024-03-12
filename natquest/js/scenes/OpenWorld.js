@@ -53,7 +53,7 @@ class OpenWorld extends Phaser.Scene {
     });
 
     this.anims.create({
-        key: 'walking-down',
+        key: 'walking-right',
         frames: this.anims.generateFrameNames('player', {
             frames: [
               143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155  
