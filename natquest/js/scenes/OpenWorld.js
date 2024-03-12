@@ -30,7 +30,7 @@ class OpenWorld extends Phaser.Scene {
     this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
           frameWidth: 64,
           frameHeight: 64
-      }); 
+      }); }
     } else if (this.selectedCharacter == 'Confused Woman') {
     
        this.load.spritesheet("player", "assets/sprites/player/confusedWoman.png", {
