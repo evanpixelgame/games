@@ -14,16 +14,19 @@ class OpenWorld extends Phaser.Scene {
     this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
 
     if (this.selectedCharacter === 'Baby Mouse') {
+      this.playerChar = 'playerChar'; 
       this.load.spritesheet('playerChar', 'assets/sprites/player/babyMouse.png', {
         frameWidth: 64,
         frameHeight: 64
       });
     } else if (this.selectedCharacter === 'Confused Woman') {
+      this.playerChar = 'playerChar'; 
       this.load.spritesheet('playerChar', 'assets/sprites/player/confusedWoman.png', {
         frameWidth: 64,
         frameHeight: 64
       });
     } else if (this.selectedCharacter === 'Fat Wolf') {
+      this.playerChar = 'playerChar'; 
       this.load.spritesheet('playerChar', 'assets/sprites/player/fatWolf.png', {
         frameWidth: 64,
         frameHeight: 64
