@@ -44,7 +44,7 @@ class OpenWorld extends Phaser.Scene {
     console.log(this.selectedCharacter);
   
   // Create player sprite
-  this.player = this.physics.add.sprite(200, 200, playerChar);
+  this.player = this.physics.add.sprite(200, 200, this.playerChar);
 
   // Set world bounds for the player
 //  this.player.setCollideWorldBounds(true);
