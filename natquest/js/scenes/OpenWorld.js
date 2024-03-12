@@ -30,6 +30,7 @@ class OpenWorld extends Phaser.Scene {
 
   create() {
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
+    // MAYBE PUT THE METHODS RIGHT HERE 
        if (!this.isMobile) {
          console.log('this should be the computer screen code');
       
