@@ -20,7 +20,15 @@ class OpenWorld extends Phaser.Scene {
    this.load.image('base', 'assets/images/base.png');
       this.load.image('thumb', 'assets/images/thumb.png');
       this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
-      this.load.spritesheet("babyMouse", "assets/sprites/player/babyMouse.png", {
+      this.load.spritesheet("Baby Mouse", "assets/sprites/player/babyMouse.png", {
+          frameWidth: 64,
+          frameHeight: 64
+      });
+    this.load.spritesheet("Confused Woman", "assets/sprites/player/confusedWoman.png", {
+          frameWidth: 64,
+          frameHeight: 64
+      });
+    this.load.spritesheet("Fat Wolf", "assets/sprites/player/fatWolf.png", {
           frameWidth: 64,
           frameHeight: 64
       });
@@ -77,49 +85,49 @@ class OpenWorld extends Phaser.Scene {
   createAnimations() {
     this.anims.create({
         key: 'walking-up',
-        frames: this.anims.generateFrameNames('babyMouse', {
+        frames: this.anims.generateFrameNames(this.selectedCharacter, {
             frames: [
               104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116  
             ]
         }),
         yoyo: false,
-        frameRate: 12,
+        frameRate: 13,
         repeat: -1
     });
 
     this.anims.create({
         key: 'walking-left',
-        frames: this.anims.generateFrameNames('babyMouse', {
+        frames: this.anims.generateFrameNames(this.selectedCharacter, {
             frames: [
               117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
             ]
         }),
         yoyo: false,
-        frameRate: 12,
+        frameRate: 13,
         repeat: -1
     });
 
     this.anims.create({
         key: 'walking-down',
-        frames: this.anims.generateFrameNames('babyMouse', {
+        frames: this.anims.generateFrameNames(this.selectedCharacter, {
             frames: [
               130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142
             ]
         }),
         yoyo: false,
-        frameRate: 12,
+        frameRate: 13,
         repeat: -1
     });
 
     this.anims.create({
         key: 'walking-right',
-        frames: this.anims.generateFrameNames('babyMouse', {
+        frames: this.anims.generateFrameNames(this.selectedCharacter, {
             frames: [
               143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155  
             ]
         }),
         yoyo: false,
-        frameRate: 12,
+        frameRate: 13,
         repeat: -1
     });
   } // <=== create() end tag
