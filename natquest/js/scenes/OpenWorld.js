@@ -83,6 +83,8 @@ const map = this.make.tilemap({ key: 'map' });
     
 
   update(time, delta) {
+
+    if (!isMobile) {    
     // Update player movement based on keyboard input
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
@@ -100,8 +102,10 @@ const map = this.make.tilemap({ key: 'map' });
       this.player.setVelocityX(0);
     }
       this.cameras.main.startFollow(this.player);
+  } else {
+      console.log('notyet');
   }
   // Handle the case when the custom scene should not run
-  
+  }
 }
 window.OpenWorld = OpenWorld;
