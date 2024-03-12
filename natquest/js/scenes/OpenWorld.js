@@ -146,6 +146,9 @@ class OpenWorld extends Phaser.Scene {
 
 
   create() {
+    this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.player = this.physics.add.sprite(200, 200, 'sprite1');
+    this.player.setCollideWorldBounds(true);
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
     // MAYBE PUT THE METHODS RIGHT HERE 
        if (!this.isMobile) {
