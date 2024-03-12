@@ -299,9 +299,8 @@ class OpenWorld extends Phaser.Scene {
     }
       this.cameras.main.startFollow(this.player);
   } else {
-      
-     //PUT MOBILE UPDATE FUNCTION LOGIC HERE 
-     // Update player movement based on joystick input
+      {
+    // Update player movement based on joystick input
     const angle = Phaser.Math.Angle.Between(this.joyStickBase.x, this.joyStickBase.y, this.joyStickThumb.x, this.joyStickThumb.y);
     const speed = 200;
 
@@ -311,12 +310,11 @@ class OpenWorld extends Phaser.Scene {
     } else {
       this.player.setVelocity(0);
     }
-    
-      
-      this.updateJoystickState(); // THIS WAS ONLY LINE IN MOBILE UPDATE FUNCTION BEFORE CHANGES
-      
-  }
-  // Handle the case when the custom scene should not run
+
+    // Log joystick position for debugging
+    console.log('Thumb Position:', this.joyStickThumb.x, this.joyStickThumb.y);
+    console.log('Base Position:', this.joyStickBase.x, this.joyStickBase.y);
   }
 }
+  }
 window.OpenWorld = OpenWorld;
