@@ -27,7 +27,7 @@ class OpenWorld extends Phaser.Scene {
       }); 
     } else if (gameManager.selectedCharacter == 'Confused Woman') {
     
-       this.load.spritesheet("player", "assets/sprites/player/confusedWoman.png", {
+       this.load.spritesheet("player", "assets/sprites/player/womanPlayer.png", {
           frameWidth: 64,
           frameHeight: 64
       });
