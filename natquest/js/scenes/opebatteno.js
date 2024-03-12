@@ -84,23 +84,42 @@ class OpenWorld extends Phaser.Scene {
         console.log('this should be the phone screen code');
 
 
+-        this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
+                x: 400,
+                y: 300,
+                radius: 100,
+                base: this.add.circle(0, 0, 100, 0x888888),
+                thumb: this.add.circle(0, 0, 50, 0xcccccc),
+                // dir: '8dir',   // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
+                // forceMin: 16,
+                // enable: true
+            })
+            .on('update', this.dumpJoyStickState, this);
 
-         
-          //PUT MOBILE CONTROL LOGIC HERE 
-         
-    this.physics.world.bounds.width = this.gameWidth;
-    this.physics.world.bounds.height = this.gameHeight;
-    this.background = this.add.sprite(0, 0, "background").setOrigin(0, 0);
-    this.background.setDisplaySize(this.gameWidth, this.gameHeight);
-    this.background.setDepth(-1);
-    this.cursorDebugText = this.add.text(10, 10);
-    this.createAnimations();
-    this.createPlayer();
-    this.createVirtualJoystick();
-    this.setCursorDebugInfo();
-    this.updateJoystickState();
-         
-       }
+        this.text = this.add.text(0, 0);
+        this.dumpJoyStickState();
+    }
+
+    dumpJoyStickState() {
+        var cursorKeys = this.joyStick.createCursorKeys();
+        var s = 'Key down: ';
+        for (var name in cursorKeys) {
+            if (cursorKeys[name].isDown) {
+                s += `${name} `;
+            }
+        }
+
+        s += `
+Force: ${Math.floor(this.joyStick.force * 100) / 100}
+Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
+`;
+
+        s += '\nTimestamp:\n';
+        for (var name in cursorKeys) {
+            var key = cursorKeys[name];
+            s += `${name}: duration=${key.duration / 1000}\n`;
+        }
+        this.text.setText(s);
 
 }  // <=== create() end tag
     
@@ -129,8 +148,8 @@ class OpenWorld extends Phaser.Scene {
       
      //PUT MOBILE UPDATE FUNCTION LOGIC HERE 
 
-    this.updateJoystickState();
-      
+  //  this.updateJoystickState();  Old logic
+      console.log('joystick diviison');
   }
   // Handle the case when the custom scene should not run
   }
