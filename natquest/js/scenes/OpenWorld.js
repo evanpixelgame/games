@@ -6,7 +6,6 @@ class OpenWorld extends Phaser.Scene {
     this.controls = null;
     this.isMobile = null;
     this.isComputer = true;
-    this.map = null;
   }
   // Handle the case when the custom scene should not run
   
@@ -148,7 +147,12 @@ class OpenWorld extends Phaser.Scene {
 
   create() {
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
-    const map = this.make.tilemap({ key: 'map' });
+    // MAYBE PUT THE METHODS RIGHT HERE 
+       if (!this.isMobile) {
+         console.log('this should be the computer screen code');
+      
+         //COMPUTER CONTROL LOGIC HERE
+const map = this.make.tilemap({ key: 'map' });
 
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
@@ -165,26 +169,6 @@ class OpenWorld extends Phaser.Scene {
 //  this.player.setCollideWorldBounds(true);
 
      this.speed = 200;
-
-
-
- this.joyStick = this.plugins.get('rex-virtual-joystick-plugin').add(
-      this,
-      {
-        x: this.game.config.width / 2,
-        y: this.game.config.height / 2,
-        radius: 50,
-        base: this.add.image(0, 0, 'base').setDisplaySize(100, 100),
-        thumb: this.add.image(0, 0, 'thumb').setDisplaySize(50, 50)
-      }
-    );
-    
-    
-    // MAYBE PUT THE METHODS RIGHT HERE 
-       if (!this.isMobile) {
-         console.log('this should be the computer screen code');
-      
-         //COMPUTER CONTROL LOGIC HERE
 
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
@@ -219,9 +203,7 @@ class OpenWorld extends Phaser.Scene {
         alert("Please switch to landscape mode for the best experience.");
       }
         console.log('this should be the phone screen code');
-    const baseImage = this.add.image(0, 0, 'baseImage').setDisplaySize(100, 100);
-    const thumbImage = this.add.image(0, 0, 'thumbImage').setDisplaySize(50, 50);
-
+  
           //PUT MOBILE CONTROL LOGIC HERE 
     this.physics.world.bounds.width = this.gameWidth;
     this.physics.world.bounds.height = this.gameHeight;
