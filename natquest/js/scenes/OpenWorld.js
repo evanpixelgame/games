@@ -18,7 +18,7 @@ class OpenWorld extends Phaser.Scene {
   createAnimations() {
     this.anims.create({
         key: 'walking-up',
-        frames: this.anims.generateFrameNames('player', {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
               104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116  
             ]
@@ -30,7 +30,7 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-left',
-        frames: this.anims.generateFrameNames('player', {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
               117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129
             ]
@@ -42,7 +42,7 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-down',
-        frames: this.anims.generateFrameNames('player', {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
               130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142
             ]
@@ -54,7 +54,7 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-right',
-        frames: this.anims.generateFrameNames('player', {
+        frames: this.anims.generateFrameNames('babyMouse', {
             frames: [
               143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155  
             ]
