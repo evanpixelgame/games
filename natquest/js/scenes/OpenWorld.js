@@ -173,6 +173,22 @@ class OpenWorld extends Phaser.Scene {
       this.player.setVelocityX(0);
     }
       this.cameras.main.startFollow(this.player);
+
+      //set animation conditions + keys here
+      if (input.isLeft()) {
+        this.player.anims.play('walking-left', true);
+    } else if (input.isRight()) {
+        this.player.anims.play('walking-right', true);
+    } else if (input.isUp()) {
+        this.player.anims.play('walking-up', true);
+    } else if (input.isDown()) {
+        this.player.anims.play('walking-down', true);
+    } else {
+        // If no movement, stop the animation or set a default animation
+        this.player.anims.stop();
+        this.player.setFrame(0); // Set a default frame
+    }
+      
   } else {
       
      //PUT MOBILE UPDATE FUNCTION LOGIC HERE 
