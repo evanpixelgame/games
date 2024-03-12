@@ -58,6 +58,12 @@ const map = this.make.tilemap({ key: 'map' });
       backgroundColor: '#000000',
     })
     .setScrollFactor(0);
+
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+  console.log('mobile');
+} else {  
+  console.log('notmobile');   
+       }
 }
     
 
