@@ -1,7 +1,15 @@
-
+class OpenWorld extends Phaser.Scene {
+  constructor() {
+    super({ key: 'OpenWorld' });
+    
+    // Declare controls as a property of the class
+    this.controls = null;
+  
 
 // Define your condition or criteria here
-const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);  //check if true (that its on mobile)
+const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.device.os.iOS); 
+  } //check if true (that its on mobile) 
+    
 if (shouldRunCustomScene) {
 /*  class OpenWorld extends Phaser.Scene {
 
@@ -192,14 +200,6 @@ if (shouldRunCustomScene) {
   console.log('mobile');
 } else {
   // Handle the case when the custom scene should not run
-
-class OpenWorld extends Phaser.Scene {
-  constructor() {
-    super({ key: 'OpenWorld' });
-    
-    // Declare controls as a property of the class
-    this.controls = null;
-  }
 
   preload() {
   this.load.image('sprite1', 'assets/sprites/charSelect/sprite1.png');
