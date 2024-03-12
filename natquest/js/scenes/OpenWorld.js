@@ -13,7 +13,7 @@ const shouldRunCustomScene = (this.sys.game.device.os.android || this.sys.game.d
     
 if (shouldRunCustomScene) {
   console.log('mobile');
-} else {    console.log('notmobile');   }
+} else {    console.log('notmobile');   }}
   // Handle the case when the custom scene should not run
 
   preload() {
