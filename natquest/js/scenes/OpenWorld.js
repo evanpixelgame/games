@@ -316,5 +316,4 @@ class OpenWorld extends Phaser.Scene {
     console.log('Base Position:', this.joyStickBase.x, this.joyStickBase.y);
   }
 }
-  }
 window.OpenWorld = OpenWorld;
