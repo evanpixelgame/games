@@ -16,9 +16,7 @@ class OpenWorld extends Phaser.Scene {
        if (!isMobile) {
          console.log('this should be the computer screen code');
       
-         //PUT COMPUTER CONTROL LOGIC HERE
-
-             
+         //COMPUTER CONTROL LOGIC HERE
 const map = this.make.tilemap({ key: 'map' });
 
   // Load tileset
