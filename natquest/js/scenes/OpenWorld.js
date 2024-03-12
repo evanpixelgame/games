@@ -25,7 +25,7 @@ class OpenWorld extends Phaser.Scene {
           frameWidth: 64,
           frameHeight: 64
       }); 
-    } else if (gameManager.selectedCharacter == 'Confused Woman')') {
+    } else if (gameManager.selectedCharacter == 'Confused Woman') {
     
        this.load.spritesheet("player", "assets/sprites/player/confusedWoman.png", {
           frameWidth: 64,
@@ -136,41 +136,26 @@ class OpenWorld extends Phaser.Scene {
   } // <=== create() end tag
 
   update(time, delta) {
-const isMoving = this.cursors.up.isDown || this.cursors.down.isDown || this.cursors.left.isDown || this.cursors.right.isDown;
-  JavaScript
-if (isMoving) {
-  // Update movement based on key presses
-  if (this.cursors.up.isDown) {
-    this.player.setVelocityY(-this.speed);
-    this.player.anims.play('walking-down', true);
-  } else if (this.cursors.down.isDown) {
-    this.player.setVelocityY(this.speed);
-    this.player.anims.play('walking-up', true);
-  } else {
-    this.player.setVelocityY(0);
-  }
 
-  if (this.cursors.left.isDown) {
-    this.player.setVelocityX(-this.speed);
-    this.player.anims.play('walking-left', true);
-  } else if (this.cursors.right.isDown) {
-    this.player.setVelocityX(this.speed);
-    this.player.anims.play('walking-right', true);
-  } else {
-    // Player is not moving horizontally (left or right key not pressed)
-    this.player.setVelocityX(0);
-    // Check if player is also not moving vertically (up or down key not pressed)
-    if (Math.abs(this.player.body.velocity.y) < 0.1) {
-      // Stop animation and set idle frame
-      this.player.anims.stop();
-      this.player.setFrame(0); // Adjust frame number for your idle sprite
+    if (this.cursors.up.isDown) {
+      this.player.setVelocityY(-this.speed);
+       this.player.anims.play('walking-down', true);
+    } else if (this.cursors.down.isDown) {
+      this.player.setVelocityY(this.speed);
+       this.player.anims.play('walking-up', true);
+    } else {
+      this.player.setVelocityY(0);
     }
-  }
-} else {
-  // Player is not moving at all (no arrow key is pressed)
-  this.player.anims.stop();
-  this.player.setFrame(0); // Adjust frame number for your idle sprite
-}
+
+    if (this.cursors.left.isDown) {
+      this.player.setVelocityX(-this.speed);
+      this.player.anims.play('walking-left', true);
+    } else if (this.cursors.right.isDown) {
+      this.player.setVelocityX(this.speed);
+      this.player.anims.play('walking-right', true);
+    } else {
+      this.player.setVelocityX(0);
+    }
     
     this.cameras.main.startFollow(this.player);
     
