@@ -13,14 +13,14 @@ class OpenWorld extends Phaser.Scene {
 
   create() {
     const isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
-       if (isMobile) {
+       if (!isMobile) {
          console.log('this should be the computer screen code');
        } else {
           console.log('this should be the phone screen code');
        }
     
         // Check for portrait mode on mobile devices
-    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+    if (isMobile) {
       if (window.orientation === 0 || window.orientation === 180) {
         // Portrait mode alert
         alert("Please switch to landscape mode for the best experience.");
