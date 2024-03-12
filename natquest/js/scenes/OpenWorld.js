@@ -5,10 +5,11 @@ class OpenWorld extends Phaser.Scene {
     // Declare controls as a property of the class
     this.controls = null;
     this.isMobile = null;
+    this.isComputer = true;
   }
   // Handle the case when the custom scene should not run
   
-  if (!this.isMobile) {
+  if (isComputer) {
 
     console.log('does this work');
   }
