@@ -159,36 +159,25 @@ class OpenWorld extends Phaser.Scene {
     // Update player movement based on keyboard input
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
+       this.player.anims.play('walking-down', true);
     } else if (this.cursors.down.isDown) {
       this.player.setVelocityY(this.speed);
+       this.player.anims.play('walking-up', true);
     } else {
       this.player.setVelocityY(0);
     }
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-this.speed);
+      this.player.anims.play('walking-left', true);
     } else if (this.cursors.right.isDown) {
       this.player.setVelocityX(this.speed);
+      this.player.anims.play('walking-right', true);
     } else {
       this.player.setVelocityX(0);
     }
       this.cameras.main.startFollow(this.player);
 
-      //set animation conditions + keys here
-      if (input.isLeft()) {
-        this.player.anims.play('walking-left', true);
-    } else if (input.isRight()) {
-        this.player.anims.play('walking-right', true);
-    } else if (input.isUp()) {
-        this.player.anims.play('walking-up', true);
-    } else if (input.isDown()) {
-        this.player.anims.play('walking-down', true);
-    } else {
-        // If no movement, stop the animation or set a default animation
-        this.player.anims.stop();
-        this.player.setFrame(0); // Set a default frame
-    }
-      
   } else {
       
      //PUT MOBILE UPDATE FUNCTION LOGIC HERE 
