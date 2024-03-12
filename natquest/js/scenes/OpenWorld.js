@@ -83,7 +83,7 @@ class OpenWorld extends Phaser.Scene {
     
     this.anims.create({
         key: 'walking-up',
-        frames: this.anims.generateFrameNames(playerChar, {
+        frames: this.anims.generateFrameNames(this.playerChar, {
             frames: [
               104, 105, 106, 107, 108, 109, 110, 111, 112
             ]
@@ -95,7 +95,7 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-left',
-        frames: this.anims.generateFrameNames(playerChar, {
+        frames: this.anims.generateFrameNames(this.playerChar, {
             frames: [
               117, 118, 119, 120, 121, 122, 123, 124, 125
             ]
@@ -107,7 +107,7 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-down',
-        frames: this.anims.generateFrameNames(playerChar, {
+        frames: this.anims.generateFrameNames(this.playerChar, {
             frames: [
               130, 131, 132, 133, 134, 135, 136, 137, 138
             ]
@@ -119,7 +119,7 @@ class OpenWorld extends Phaser.Scene {
 
     this.anims.create({
         key: 'walking-right',
-        frames: this.anims.generateFrameNames(playerChar, {
+        frames: this.anims.generateFrameNames(this.playerChar, {
             frames: [
               143, 144, 145, 146, 147, 148, 149, 150, 151 
             ]
