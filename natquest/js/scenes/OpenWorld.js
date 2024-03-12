@@ -22,6 +22,11 @@ class OpenWorld extends Phaser.Scene {
     
   }
 
+  if (!this.isMobile) {
+
+    console.log('does this work');
+  }
+
   create() {
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
        if (!this.isMobile) {
