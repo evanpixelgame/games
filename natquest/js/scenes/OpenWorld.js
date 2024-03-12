@@ -148,12 +148,7 @@ class OpenWorld extends Phaser.Scene {
 
   create() {
     this.isMobile = (this.sys.game.device.os.android || this.sys.game.device.os.iOS);
-    // MAYBE PUT THE METHODS RIGHT HERE 
-       if (!this.isMobile) {
-         console.log('this should be the computer screen code');
-      
-         //COMPUTER CONTROL LOGIC HERE
-const map = this.make.tilemap({ key: 'map' });
+    const map = this.make.tilemap({ key: 'map' });
 
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
@@ -170,6 +165,12 @@ const map = this.make.tilemap({ key: 'map' });
 //  this.player.setCollideWorldBounds(true);
 
      this.speed = 200;
+
+    // MAYBE PUT THE METHODS RIGHT HERE 
+       if (!this.isMobile) {
+         console.log('this should be the computer screen code');
+      
+         //COMPUTER CONTROL LOGIC HERE
 
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
