@@ -174,8 +174,8 @@ class OpenWorld extends Phaser.Scene {
         x: this.game.config.width / 2,
         y: this.game.config.height / 2,
         radius: 50,
-        base: this.add.image(0, 0, 'baseImage').setDisplaySize(100, 100),
-        thumb: this.add.image(0, 0, 'thumbImage').setDisplaySize(50, 50)
+        base: this.add.image(0, 0, 'base').setDisplaySize(100, 100),
+        thumb: this.add.image(0, 0, 'thumb').setDisplaySize(50, 50)
       }
     );
     
