@@ -26,11 +26,17 @@ class OpenWorld extends Phaser.Scene {
       this.load.image('base', 'assets/images/base.png');
       this.load.image('thumb', 'assets/images/thumb.png');
       this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
-      this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
+      this.load.spritesheet("babyMouse", "assets/sprites/player/babyMouse.png", {
           frameWidth: 64,
-          frameHeight: 64,
-          startFrame: 0,
-          endFrame: 36
+          frameHeight: 64
+      });
+       this.load.spritesheet("player", "assets/sprites/player/confusedWoman.png", {
+          frameWidth: 64,
+          frameHeight: 64
+      });
+       this.load.spritesheet("player", "assets/sprites/player/fatWolf.png", {
+          frameWidth: 64,
+          frameHeight: 64
       });
   }
 
@@ -46,7 +52,7 @@ class OpenWorld extends Phaser.Scene {
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
   // Create player sprite
-  this.player = this.physics.add.sprite(200, 200, 'babyMouse');
+  this.player = this.physics.add.sprite(200, 200, 'player');
 
   // Set world bounds for the player
 //  this.player.setCollideWorldBounds(true);
