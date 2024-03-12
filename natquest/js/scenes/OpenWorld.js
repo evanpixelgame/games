@@ -82,7 +82,13 @@ const map = this.make.tilemap({ key: 'map' });
   
           //PUT MOBILE CONTROL LOGIC HERE 
 
-
+this.init();
+this.createPlayer();
+ this.createVirtualJoystick();
+  this.setCursorDebugInfo();
+  this.create();
+         
+         
   init() {
       super.init();
       this.staticXJsPos = this.gameWidthMiddle;
