@@ -35,9 +35,9 @@ class OpenWorld extends Phaser.Scene {
   const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
     console.log(this.selectedCharacter);
-
+const spriteSheetName = this.selectedCharacter;
   // Create player sprite
-  this.player = this.physics.add.sprite(200, 200, this.selectedCharacter);
+  this.player = this.physics.add.sprite(200, 200, spriteSheetName);
 
   // Set world bounds for the player
 //  this.player.setCollideWorldBounds(true);
@@ -73,7 +73,6 @@ class OpenWorld extends Phaser.Scene {
   }
 
   createAnimations() {
-const spriteSheetName = this.selectedCharacter;
     
     this.anims.create({
         key: 'walking-up',
