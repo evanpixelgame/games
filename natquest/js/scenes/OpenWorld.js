@@ -137,34 +137,40 @@ class OpenWorld extends Phaser.Scene {
 
   update(time, delta) {
 const isMoving = this.cursors.up.isDown || this.cursors.down.isDown || this.cursors.left.isDown || this.cursors.right.isDown;
-    
-  if (isMoving) {
-    if (this.cursors.up.isDown) {
-      this.player.setVelocityY(-this.speed);
-       this.player.anims.play('walking-down', true);
-    } else if (this.cursors.down.isDown) {
-      this.player.setVelocityY(this.speed);
-       this.player.anims.play('walking-up', true);
-    } else {
-      this.player.setVelocityY(0);
-    }
-
-    if (this.cursors.left.isDown) {
-      this.player.setVelocityX(-this.speed);
-      this.player.anims.play('walking-left', true);
-    } else if (this.cursors.right.isDown) {
-      this.player.setVelocityX(this.speed);
-      this.player.anims.play('walking-right', true);
-    } else {
-      this.player.setVelocityX(0);
-    } 
+  JavaScript
+if (isMoving) {
+  // Update movement based on key presses
+  if (this.cursors.up.isDown) {
+    this.player.setVelocityY(-this.speed);
+    this.player.anims.play('walking-down', true);
+  } else if (this.cursors.down.isDown) {
+    this.player.setVelocityY(this.speed);
+    this.player.anims.play('walking-up', true);
   } else {
-    // Stop animation when no arrow key is pressed
-    this.player.anims.stop();
-    // Set the sprite frame to the idle frame (adjust the frame number accordingly)
-    this.player.setFrame(0);
+    this.player.setVelocityY(0);
   }
 
+  if (this.cursors.left.isDown) {
+    this.player.setVelocityX(-this.speed);
+    this.player.anims.play('walking-left', true);
+  } else if (this.cursors.right.isDown) {
+    this.player.setVelocityX(this.speed);
+    this.player.anims.play('walking-right', true);
+  } else {
+    // Player is not moving horizontally (left or right key not pressed)
+    this.player.setVelocityX(0);
+    // Check if player is also not moving vertically (up or down key not pressed)
+    if (Math.abs(this.player.body.velocity.y) < 0.1) {
+      // Stop animation and set idle frame
+      this.player.anims.stop();
+      this.player.setFrame(0); // Adjust frame number for your idle sprite
+    }
+  }
+} else {
+  // Player is not moving at all (no arrow key is pressed)
+  this.player.anims.stop();
+  this.player.setFrame(0); // Adjust frame number for your idle sprite
+}
     
     this.cameras.main.startFollow(this.player);
     
