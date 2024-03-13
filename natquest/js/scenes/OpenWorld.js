@@ -240,18 +240,36 @@ class OpenWorld extends Phaser.Scene {
     
     this.cameras.main.startFollow(this.player);
 
-    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+
+    
+    
+
+ if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+    // Get the viewport size
     const viewportWidth = this.scale.gameSize.width;
     const viewportHeight = this.scale.gameSize.height;
+
+    // Get the player's position
     const playerX = this.player.x;
     const playerY = this.player.y;
 
-    const cameraX = playerX - viewportWidth / 2;
-    const cameraY = playerY - viewportHeight / 2;
+    // Calculate the camera position based on the player's position and the viewport size
+    let cameraX = playerX - viewportWidth / 2;
+    let cameraY = playerY - viewportHeight / 2;
 
+    // Ensure the camera stays within the bounds of the game world
+    cameraX = Phaser.Math.Clamp(cameraX, 0, this.map.widthInPixels - viewportWidth);
+    cameraY = Phaser.Math.Clamp(cameraY, 0, this.map.heightInPixels - viewportHeight);
+
+    // Set the camera position
     this.cameras.main.scrollX = cameraX;
     this.cameras.main.scrollY = cameraY;
 }
+
+    
+
+
+
     
   }
 }
