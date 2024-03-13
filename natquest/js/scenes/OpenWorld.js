@@ -74,7 +74,7 @@ class OpenWorld extends Phaser.Scene {
   // Set world bounds for the player
 
     // Set world bounds slightly smaller than the map size
-    const boundaryOffset = 32; // Adjust this value as needed
+    const boundaryOffset = 20; // Adjust this value as needed
     const worldBounds = new Phaser.Geom.Rectangle(
         boundaryOffset,
         boundaryOffset,
