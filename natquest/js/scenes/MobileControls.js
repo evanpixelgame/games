@@ -77,42 +77,24 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
       movePlayer() {
       if (this.lastCursorDirection === "up") {
         this.player.y -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-up');
     } else if (this.lastCursorDirection === "down") {
         this.player.y += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-down');
     } else if(this.lastCursorDirection === "right") {
         this.player.x += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-right');
     } else if (this.lastCursorDirection === "left") {
         this.player.x -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-            this.player.anims.play('walking-left');
     } else if (this.lastCursorDirection === "upright") {
         this.player.x += this.playerSpeed;
         this.player.y -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-right');
     } else if (this.lastCursorDirection === "downright") {
         this.player.x += this.playerSpeed;
         this.player.y += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-right');
     } else if (this.lastCursorDirection === "downleft") {
         this.player.x -= this.playerSpeed;
         this.player.y += this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-left');
     } else if (this.lastCursorDirection === "upleft") {
         this.player.x -= this.playerSpeed;
         this.player.y -= this.playerSpeed;
-        if (!this.player.anims.isPlaying)
-        this.player.anims.play('walking-left');
-    } else {
-        this.stopPlayerAnimations();
     }
   }
 
