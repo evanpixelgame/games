@@ -8,29 +8,29 @@ class MobileControls extends Phaser.Scene {
     }
 
     preload() {
-        
+
         this.load.image('base', 'assets/images/base.png');
-    this.load.image('thumb', 'assets/images/thumb.png');
+        this.load.image('thumb', 'assets/images/thumb.png');
         var url;
-  
+
         url = 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js';
         this.load.plugin('rexvirtualjoystickplugin', url, true);
     }
 
     create() {
-            this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
-            const posX = 120; //this.game.config.width / 5;
-   ```````` const posY = 100;
+        this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
+        const posX = 120; //this.game.config.width / 5;
+        ```````` const posY = 100;
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
-                x: posX,
-                y: posY,
-                radius: 50,
-                base: this.add.image(0, 0, this.textures.get('base')),//this.add.circle(0, 0, 100, 0x888888),
-                thumb: this.add.image(0, 0, this.textures.get('thumb')),//this.add.circle(0, 0, 50, 0xcccccc),
-                // dir: '8dir',   // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
-                // forceMin: 16,
-                // enable: true
-            })
+            x: posX,
+            y: posY,
+            radius: 50,
+            base: this.add.image(0, 0, this.textures.get('base')),//this.add.circle(0, 0, 100, 0x888888),
+            thumb: this.add.image(0, 0, this.textures.get('thumb')),//this.add.circle(0, 0, 50, 0xcccccc),
+            // dir: '8dir',   // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
+            // forceMin: 16,
+            // enable: true
+        })
             .on('update', this.dumpJoyStickState, this);
 
         this.text = this.add.text(0, 0);
