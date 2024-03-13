@@ -1,4 +1,4 @@
-'use strict'
+//'use strict'
 
 class MobileControls extends Phaser.Scene {
     constructor() {
