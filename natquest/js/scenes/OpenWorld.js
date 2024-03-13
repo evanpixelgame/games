@@ -239,6 +239,19 @@ class OpenWorld extends Phaser.Scene {
     }
     
     this.cameras.main.startFollow(this.player);
+
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+    const viewportWidth = this.scale.gameSize.width;
+    const viewportHeight = this.scale.gameSize.height;
+    const playerX = this.player.x;
+    const playerY = this.player.y;
+
+    const cameraX = playerX - viewportWidth / 2;
+    const cameraY = playerY - viewportHeight / 2;
+
+    this.cameras.main.scrollX = cameraX;
+    this.cameras.main.scrollY = cameraY;
+}
     
   }
 }
