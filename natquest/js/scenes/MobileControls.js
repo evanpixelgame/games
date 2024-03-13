@@ -24,9 +24,9 @@ class MobileControls extends Phaser.Scene {
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
                 x: posX,
                 y: posY,
-                radius: 100,
-                base: this.add.circle(0, 0, 100, 0x888888),
-                thumb: this.add.circle(0, 0, 50, 0xcccccc),
+                radius: 50,
+                base: base,//this.add.circle(0, 0, 100, 0x888888),
+                thumb: thumb,//this.add.circle(0, 0, 50, 0xcccccc),
                 // dir: '8dir',   // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
                 // forceMin: 16,
                 // enable: true
