@@ -28,7 +28,7 @@ class MobileControls extends Phaser.Scene {
 
     // Set the scale for base and thumb images
     base.setScale(0.5); // Adjust the scale as needed
-    thumb.setScale(0.5); /
+    thumb.setScale(0.5);
         
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
                 x: posX,
