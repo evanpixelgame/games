@@ -9,7 +9,7 @@ class MobileControls extends Phaser.Scene {
 
     preload() {
         
-    this.load.image('base', 'assets/images/base.png');
+        this.load.image('base', 'assets/images/base.png');
     this.load.image('thumb', 'assets/images/thumb.png');
         var url;
   
