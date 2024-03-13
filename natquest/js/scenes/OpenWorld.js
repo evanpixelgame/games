@@ -114,9 +114,10 @@ class OpenWorld extends Phaser.Scene {
    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
-        const centerX = map.width / 2;
-        const centerY = map.height / 2;
-        this.player.setPosition(centerX, centerY);
+      this.cameras.main.startFollow(this.player);
+      //  const centerX = map.width / 2;
+   //     const centerY = map.height / 2;
+       /// this.player.setPosition(centerX, centerY);
        // Check the current orientation
    //     const currentOrientation = this.scale.orientation;
 
