@@ -17,7 +17,7 @@ class MobileControls extends Phaser.Scene {
     create() {
         console.log('pleasewritethis');
             const posX = this.game.config.width - this.game.config.width / 5;
-    const posY = this.game.config.height - this.game.config.height / 5;
+    const posY = this.game.config.height / 5;
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
                 x: posX,
                 y: posY,
