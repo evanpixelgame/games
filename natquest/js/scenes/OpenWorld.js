@@ -133,6 +133,7 @@ class OpenWorld extends Phaser.Scene {
         frameRate: 12,
         repeat: -1
     });
+    this.scene.launch('MobileControls');
   } // <=== create() end tag
 
   update(time, delta) {
