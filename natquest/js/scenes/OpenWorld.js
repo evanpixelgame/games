@@ -40,6 +40,7 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
+  this.cameras.main.setSize(window.innerWidth, window.innerHeight);
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
