@@ -49,8 +49,6 @@ this.load.on('complete', () => {
 
   }
    create() {
-       this.game.config.width = 800;
-  this.game.config.height = 600;
          const background = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.8, 'background');
     background.setOrigin(0.5);
 }
