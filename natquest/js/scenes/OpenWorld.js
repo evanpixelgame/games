@@ -92,12 +92,12 @@ class OpenWorld extends Phaser.Scene {
 
     this.scene.launch('MobileControls');
 
-    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+   // this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
     // Center game objects (optional)
-    this.scale.pageAlignHorizontally = true;
-    this.scale.pageAlignVertically = true;
+  //  this.scale.pageAlignHorizontally = true;
+  //  this.scale.pageAlignVertically = true;
     // Set the size of the game canvas to fill the entire screen
-    this.scale.setGameSize(window.innerWidth, window.innerHeight);
+ //   this.scale.setGameSize(window.innerWidth, window.innerHeight);
       
          if (window.orientation === 0 || window.orientation === 180) {
         // Portrait mode alert
@@ -157,7 +157,6 @@ class OpenWorld extends Phaser.Scene {
         frameRate: 12,
         repeat: -1
     });
-  //  this.scene.launch('MobileControls'); MOVED TO IF STATEMENT FOR NOW MOVE BACK IF DOESNT WORK
   } // <=== create() end tag
 
   update(time, delta) {
