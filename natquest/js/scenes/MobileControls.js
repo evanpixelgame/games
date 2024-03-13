@@ -18,15 +18,24 @@ class MobileControls extends Phaser.Scene {
     }
 
     create() {
-            this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
-            const posX = 120; //this.game.config.width / 5;
+    
+    this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
+    const posX = 120; //this.game.config.width / 5;
     const posY = 100;
+
+        const base = this.add.image(0, 0, 'base');
+    const thumb = this.add.image(0, 0, 'thumb');
+
+    // Set the scale for base and thumb images
+    base.setScale(0.5); // Adjust the scale as needed
+    thumb.setScale(0.5); /
+        
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
                 x: posX,
                 y: posY,
                 radius: 50,
-                base: this.add.image(0, 0, this.textures.get('base')),//this.add.circle(0, 0, 100, 0x888888),
-                thumb: this.add.image(0, 0, this.textures.get('thumb')),//this.add.circle(0, 0, 50, 0xcccccc),
+                base: base,//this.add.image(0, 0, this.textures.get('base')),//this.add.circle(0, 0, 100, 0x888888),
+                thumb: thumb,//this.add.image(0, 0, this.textures.get('thumb')),//this.add.circle(0, 0, 50, 0xcccccc),
                 // dir: '8dir',   // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
                 // forceMin: 16,
                 // enable: true
