@@ -15,6 +15,7 @@ class MobileControls extends Phaser.Scene {
     }
 
     create() {
+        console.log('mobile controls should be working');
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
                 x: 400,
                 y: 300,
