@@ -55,7 +55,6 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
         }
         this.text.setText(s);
         console.log('mobile controls should be working');
-        this.scene.start('OpenWorld');
     }
     update() {
         console.log('pleasewritesomething');
