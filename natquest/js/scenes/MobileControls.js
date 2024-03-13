@@ -15,6 +15,7 @@ class MobileControls extends Phaser.Scene {
     }
 
     create() {
+        this.openWorldScene = this.scene.get('OpenWorld');
         console.log('pleasewritethis');
             const posX = this.game.config.width / 5;
     const posY = this.game.config.height - this.game.config.height / 3;
