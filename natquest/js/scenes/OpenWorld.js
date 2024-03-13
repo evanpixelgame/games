@@ -10,7 +10,12 @@ class OpenWorld extends Phaser.Scene {
     let selectedCharacter = this.selectedCharacter;
     this.playerCharacter = this.selectedCharacter;
   }
+    init() {
+        this.game.config.width = 1200;
+        this.game.config.height = 800;
+    }
 
+      
   preload() {
      // startFrame: 0,   // The first frame to start with (optional)
      // endFrame: 272     // The last frame to end with (optional)
