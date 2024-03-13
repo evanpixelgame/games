@@ -40,6 +40,7 @@ class OpenWorld extends Phaser.Scene {
   }
 // computer specific create ************************************************************************************************************************************************
   create() {
+     this.scene.launch('MobileControls');
 
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
   if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
