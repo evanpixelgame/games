@@ -40,8 +40,9 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
-
-     this.scale.setGameSize(window.innerWidth, window.innerHeight);
+  if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
+     this.scale.setGameSize(window.innerWidth, window.innerHeight); 
+  }
     //    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
 
         // Center game objects (optional)
