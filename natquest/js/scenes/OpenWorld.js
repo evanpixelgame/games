@@ -62,15 +62,16 @@ class OpenWorld extends Phaser.Scene {
       //  this.scale.pageAlignVertically = true;
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
-  const tileset = map.addTilesetImage('tilemap1', 'tiles');
-
+  const tileset = map.addTilesetImage('tilemap1', 'tiles'); 
   // Create layers
   const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
   const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
   // Create player sprite
-  this.player = this.physics.add.sprite(1200, 1200, 'player');
+  const playerStartingX = 1200;
+  const playerStartingY = 1200;
+  this.player = this.physics.add.sprite(playerStartingX, playerStartingY, 'player');
 
   // Set world bounds for the player
 
@@ -147,20 +148,23 @@ class OpenWorld extends Phaser.Scene {
        this.createAnimations();
   }
 
-           setInitialPlayerPosition() {
-        // Check the current orientation
-        const currentOrientation = this.scale.orientation;
 
-        // Set the player's initial position based on the orientation
-        if (currentOrientation === Phaser.Scale.Orientation.PORTRAIT) {
-            this.player = this.physics.add.sprite(this.playerStartingX, this.playerStartingY, 'player');
-        } else if (currentOrientation === Phaser.Scale.Orientation.LANDSCAPE) {
-            // Calculate the landscape dimensions and adjust the player's position
-            const landscapeX = /* Calculate X position for landscape mode */;
-            const landscapeY = /* Calculate Y position for landscape mode */;
-            this.player = this.physics.add.sprite(landscapeX, landscapeY, 'player');
-        } 
-         }
+  setInitialPlayerPosition() {
+    // Check the current orientation
+    const currentOrientation = this.scale.orientation;
+
+    // Set the player's initial position based on the orientation
+    if (currentOrientation === Phaser.Scale.Orientation.PORTRAIT) {
+        this.player = this.physics.add.sprite(this.playerStartingX, this.playerStartingY, 'player');
+    } else if (currentOrientation === Phaser.Scale.Orientation.LANDSCAPE) {
+        const centerX = this.scale.gameSize.width / 2;
+        const centerY = this.scale.gameSize.height / 2;
+        
+        // Set the player's position to the center of the landscape viewport
+        this.player = this.physics.add.sprite(centerX, centerY, 'player');
+    }
+}
+  
 
   createAnimations() {
     this.anims.create({
