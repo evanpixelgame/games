@@ -1,8 +1,9 @@
-
+const width = window.innerWidth; //800
+const height = window.innerHeight; //600
 const config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: width,
+  height: height,
   parent: 'game-container',
   pixelArt: true,
   scale: {
