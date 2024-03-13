@@ -9,6 +9,9 @@ class StartMenu extends Phaser.Scene {
   }
 
   create() {
+
+    this.cameras.main.setSize(800, 600);
+    
     // Add background image
     const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
