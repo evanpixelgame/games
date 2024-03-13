@@ -68,11 +68,34 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
         }
         this.text.setText(s);
     }
-    update() {
-        
-     this.updateJoystickState();
-        
+
+    
+  update() {
+    // Update game logic here
+    this.updateJoystickState();
+
+    // Use joystick input for movement
+    if (this.lastCursorDirection === "up") {
+        this.player.setVelocityY(-this.speed);
+        this.player.anims.play('walking-up', true);
+    } else if (this.lastCursorDirection === "down") {
+        this.player.setVelocityY(this.speed);
+        this.player.anims.play('walking-down', true);
+    } else {
+        this.player.setVelocityY(0);
     }
+
+    if (this.lastCursorDirection === "left") {
+        this.player.setVelocityX(-this.speed);
+        this.player.anims.play('walking-left', true);
+    } else if (this.lastCursorDirection === "right") {
+        this.player.setVelocityX(this.speed);
+        this.player.anims.play('walking-right', true);
+    } else {
+        this.player.setVelocityX(0);
+    }
+}
+
 
       movePlayer() {
       if (this.lastCursorDirection === "up") {
