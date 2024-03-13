@@ -83,6 +83,8 @@ class OpenWorld extends Phaser.Scene {
     })
     .setScrollFactor(0);
 
+    //MOBILE SPECIFIC UI AND STUFF
+
  //   if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
 
