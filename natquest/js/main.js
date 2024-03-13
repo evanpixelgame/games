@@ -8,8 +8,7 @@ const config = {
   parent: 'game-container',
   pixelArt: true,
   scale: {
-     scale: {
-        orientation: Phaser.Scale.Orientation.LANDSCAPE, // Adjust to your preference
+   orientation: Phaser.Scale.Orientation.LANDSCAPE, // Adjust to your preference
     //mode: Phaser.Scale.RESIZE,
     //autoCenter: Phaser.Scale.CENTER_BOTH
    mode: Phaser.Scale.FIT,
