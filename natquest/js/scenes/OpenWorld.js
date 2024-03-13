@@ -83,8 +83,7 @@ class OpenWorld extends Phaser.Scene {
     );
 
     this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
-    
-//  this.player.setCollideWorldBounds(true);
+    this.player.setCollideWorldBounds(true);
 
      this.speed = 200;
 
