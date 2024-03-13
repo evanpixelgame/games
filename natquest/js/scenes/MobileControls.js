@@ -16,11 +16,11 @@ class MobileControls extends Phaser.Scene {
 
     create() {
         console.log('pleasewritethis');
-            const centerX = this.game.config.width / 2;
-    const centerY = this.game.config.height / 2;
+            const posX = this.game.config.width / 5;
+    const posY = this.game.config.height / 5;
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
-                x: centerX,
-                y: centerY,
+                x: posX,
+                y: posY,
                 radius: 100,
                 base: this.add.circle(0, 0, 100, 0x888888),
                 thumb: this.add.circle(0, 0, 50, 0xcccccc),
