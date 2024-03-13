@@ -40,11 +40,11 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
-        this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+    //    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
 
         // Center game objects (optional)
-        this.scale.pageAlignHorizontally = true;
-        this.scale.pageAlignVertically = true;
+      //  this.scale.pageAlignHorizontally = true;
+      //  this.scale.pageAlignVertically = true;
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
