@@ -47,7 +47,7 @@ class StartMenu extends Phaser.Scene {
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
       // Transition to the main scene when the button is clicked
-      this.scene.start('OpenWorld');
+      this.scene.start('CharSelect');
     }, this);
   }
 }
