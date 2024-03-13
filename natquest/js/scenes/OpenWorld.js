@@ -239,7 +239,7 @@ class OpenWorld extends Phaser.Scene {
       this.player.setVelocityX(0);
     }
     
-    this.cameras.main.startFollow(this.player);
+   // this.cameras.main.startFollow(this.player);
 
 
     
@@ -265,9 +265,10 @@ class OpenWorld extends Phaser.Scene {
     // Set the camera position
     this.cameras.main.scrollX = cameraX;
     this.cameras.main.scrollY = cameraY;
-   this.cameras.main.startFollow(this.player);
+ //  this.cameras.main.startFollow(this.player);
 }
 
+     this.cameras.main.startFollow(this.player);
     
 
 
