@@ -23,6 +23,7 @@ const config = {
     StartMenu,
     CharSelect,
     WelcomePlayer,
+    MobileControls,
     OpenWorld,
   ],
 };
