@@ -25,8 +25,8 @@ class MobileControls extends Phaser.Scene {
                 x: posX,
                 y: posY,
                 radius: 50,
-                base: base,//this.add.circle(0, 0, 100, 0x888888),
-                thumb: thumb,//this.add.circle(0, 0, 50, 0xcccccc),
+                base: this.add.image(0, 0, this.textures.get('base')),//this.add.circle(0, 0, 100, 0x888888),
+                thumb: this.add.image(0, 0, this.textures.get('thumb')),//this.add.circle(0, 0, 50, 0xcccccc),
                 // dir: '8dir',   // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
                 // forceMin: 16,
                 // enable: true
