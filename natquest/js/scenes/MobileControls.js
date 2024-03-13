@@ -123,19 +123,6 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
             direction += key;
           }
       }
-
-      // If no direction if provided then stop 
-      // the player animations and exit the method
-      if(direction.length === 0) { 
-          this.stopPlayerAnimations();
-          return;
-      }
-
-      // If last cursor direction is different
-      //  the stop all player animations
-      if (this.lastCursorDirection !== direction) {
-          this.stopPlayerAnimations();
-      }
       
       // Set the new cursor direction
       this.lastCursorDirection = direction;
