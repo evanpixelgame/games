@@ -10,7 +10,11 @@ class StartMenu extends Phaser.Scene {
 
   create() {
 
-    this.cameras.main.setSize(800, 600);
+  this.game.config.width = 800;
+        this.game.config.height = 600;
+
+        // Restart the scene to apply changes
+        this.scene.restart();
     
     // Add background image
     const background = this.add.image(400, 300, 'background');
