@@ -125,6 +125,23 @@ class OpenWorld extends Phaser.Scene {
      //   if (currentOrientation === Phaser.Scale.Orientation.PORTRAIT) {
        //     this.scale.setOrientation(Phaser.Scale.Orientation.LANDSCAPE);
         //}
+
+      this.setInitialPlayerPosition();
+         setInitialPlayerPosition() {
+        // Check the current orientation
+        const currentOrientation = this.scale.orientation;
+
+        // Set the player's initial position based on the orientation
+        if (currentOrientation === Phaser.Scale.Orientation.PORTRAIT) {
+            this.player = this.physics.add.sprite(this.playerStartingX, this.playerStartingY, 'player');
+        } else if (currentOrientation === Phaser.Scale.Orientation.LANDSCAPE) {
+            // Calculate the landscape dimensions and adjust the player's position
+            const landscapeX = /* Calculate X position for landscape mode */;
+            const landscapeY = /* Calculate Y position for landscape mode */;
+            this.player = this.physics.add.sprite(landscapeX, landscapeY, 'player');
+        }
+
+     
     this.scene.launch('MobileControls');
 
    // this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
