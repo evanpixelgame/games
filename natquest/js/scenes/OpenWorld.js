@@ -148,7 +148,7 @@ class OpenWorld extends Phaser.Scene {
        this.createAnimations();
   }
 
-
+/*
   setInitialPlayerPosition() {
     // Check the current orientation
     const currentOrientation = this.scale.orientation;
@@ -163,7 +163,8 @@ class OpenWorld extends Phaser.Scene {
         // Set the player's position to the center of the landscape viewport
         this.player = this.physics.add.sprite(centerX, centerY, 'player');
     }
-}
+} 
+*/
   
 
   createAnimations() {
@@ -264,6 +265,7 @@ class OpenWorld extends Phaser.Scene {
     // Set the camera position
     this.cameras.main.scrollX = cameraX;
     this.cameras.main.scrollY = cameraY;
+   this.cameras.main.startFollow(this.player);
 }
 
     
