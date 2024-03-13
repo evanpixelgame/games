@@ -139,7 +139,8 @@ class OpenWorld extends Phaser.Scene {
             const landscapeX = /* Calculate X position for landscape mode */;
             const landscapeY = /* Calculate Y position for landscape mode */;
             this.player = this.physics.add.sprite(landscapeX, landscapeY, 'player');
-        }
+        } 
+         }
 
      
     this.scene.launch('MobileControls');
