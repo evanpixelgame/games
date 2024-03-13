@@ -7,19 +7,6 @@ class MobileControls extends Phaser.Scene {
         })
     }
 
-      init() {
-     // super.init();
-      this.staticXJsPos = this.gameWidthMiddle;
-      this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
-      this.playerSpeed = 1;
-      this.lastCursorDirection = "center";
-      this.joystickConfig = {
-        x: this.staticXJsPos,
-        y: this.staticYJsPos,
-        enabled: true
-    };
-  }
-
     preload() {
         var url;
   
@@ -68,73 +55,10 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
         }
         this.text.setText(s);
     }
+    update() {
 
-    
-  update() {
-    // Update game logic here
-    this.updateJoystickState();
-
-    // Use joystick input for movement
-    if (this.lastCursorDirection === "up") {
-        this.player.setVelocityY(-this.speed);
-        this.player.anims.play('walking-up', true);
-    } else if (this.lastCursorDirection === "down") {
-        this.player.setVelocityY(this.speed);
-        this.player.anims.play('walking-down', true);
-    } else {
-        this.player.setVelocityY(0);
+        
     }
-
-    if (this.lastCursorDirection === "left") {
-        this.player.setVelocityX(-this.speed);
-        this.player.anims.play('walking-left', true);
-    } else if (this.lastCursorDirection === "right") {
-        this.player.setVelocityX(this.speed);
-        this.player.anims.play('walking-right', true);
-    } else {
-        this.player.setVelocityX(0);
-    }
-}
-
-
-      movePlayer() {
-      if (this.lastCursorDirection === "up") {
-        this.player.y -= this.playerSpeed;
-    } else if (this.lastCursorDirection === "down") {
-        this.player.y += this.playerSpeed;
-    } else if(this.lastCursorDirection === "right") {
-        this.player.x += this.playerSpeed;
-    } else if (this.lastCursorDirection === "left") {
-        this.player.x -= this.playerSpeed;
-    } else if (this.lastCursorDirection === "upright") {
-        this.player.x += this.playerSpeed;
-        this.player.y -= this.playerSpeed;
-    } else if (this.lastCursorDirection === "downright") {
-        this.player.x += this.playerSpeed;
-        this.player.y += this.playerSpeed;
-    } else if (this.lastCursorDirection === "downleft") {
-        this.player.x -= this.playerSpeed;
-        this.player.y += this.playerSpeed;
-    } else if (this.lastCursorDirection === "upleft") {
-        this.player.x -= this.playerSpeed;
-        this.player.y -= this.playerSpeed;
-    }
-  }
-
-  updateJoystickState() {
-      let direction = '';
-      for (let key in this.cursorKeys) {
-          if (this.cursorKeys[key].isDown) {
-            direction += key;
-          }
-      }
-      
-      // Set the new cursor direction
-      this.lastCursorDirection = direction;
-
-      // Handle the player moving
-      this.movePlayer();
-  }
 }
 
 window.MobileControls = MobileControls;
