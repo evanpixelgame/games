@@ -138,7 +138,8 @@ class OpenWorld extends Phaser.Scene {
         frameRate: 12,
         repeat: -1
     });
-    this.scene.launch('MobileControls');
+      // Launch MobileControls and store a reference to this scene
+    this.scene.launch('MobileControls', { openWorldScene: this });
   } // <=== create() end tag
 
   update(time, delta) {
