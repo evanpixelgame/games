@@ -38,7 +38,7 @@ class OpenWorld extends Phaser.Scene {
       });
     }
   }
-
+// computer specific create ************************************************************************************************************************************************
   create() {
 
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
