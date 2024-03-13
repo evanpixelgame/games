@@ -112,7 +112,7 @@ class OpenWorld extends Phaser.Scene {
 
    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
-  //  this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+   this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
     this.scene.launch('MobileControls');
 
    // this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
