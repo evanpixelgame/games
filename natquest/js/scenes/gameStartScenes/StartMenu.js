@@ -49,14 +49,6 @@ class StartMenu extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive();
 
-    centerGameObjects = () => {
-    this.children.iterate((child) => {
-        if (child.originX !== undefined) {
-            child.x += (this.cameras.main.width - 800) / 2;
-        }
-    });
-};
-
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
       // Transition to the main scene when the button is clicked
