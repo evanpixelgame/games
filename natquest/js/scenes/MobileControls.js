@@ -15,6 +15,7 @@ class MobileControls extends Phaser.Scene {
     }
 
     create() {
+            this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
             const posX = this.game.config.width / 5;
     const posY = this.game.config.height - this.game.config.height / 3;
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
