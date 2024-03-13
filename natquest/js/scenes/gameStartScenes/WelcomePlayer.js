@@ -17,7 +17,7 @@ class WelcomePlayer extends Phaser.Scene {
 
     beginButton.on('pointerdown', function () {
       // Transition to the main scene when the button is clicked
-      this.scene.launch('MobileControls');
+      this.scene.launch('MobileControls'); //ADD IF LOGIC HERE SO IT ONLY LAUNCHES IF RUNNING ON MOBILE?
       this.scene.start('OpenWorld');
     }, this);
 
