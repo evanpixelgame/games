@@ -10,7 +10,7 @@ const config = {
   scale: {
    //orientation: Phaser.Scale.Orientation.LANDSCAPE, // Adjust to your preference
    mode: Phaser.Scale.RESIZE,
-    //autoCenter: Phaser.Scale.CENTER_BOTH
+  autoCenter: Phaser.Scale.CENTER_BOTH
     mode: Phaser.Scale.FIT,
    // autoCenter: Phaser.Scale.CENTER_BOTH
   },
