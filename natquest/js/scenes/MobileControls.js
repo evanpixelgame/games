@@ -8,7 +8,7 @@ class MobileControls extends Phaser.Scene {
     }
 
       init() {
-      super.init();
+     // super.init();
       this.staticXJsPos = this.gameWidthMiddle;
       this.staticYJsPos = this.gameHeightMiddle + (this.gameHeightMiddle / 2) + (this.gameHeightMiddle / 4);
       this.playerSpeed = 1;
