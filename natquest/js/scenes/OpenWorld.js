@@ -40,8 +40,19 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
+
+    // COMPUTER/TV SCREEN SPECIFIC LOGIC 
   if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
      this.scale.setGameSize(window.innerWidth, window.innerHeight); 
+      // Help text
+  this.add
+    .text(16, 16, 'WASD to move', {
+      font: '18px monospace',
+      fill: '#ffffff',
+      padding: { x: 20, y: 10 },
+      backgroundColor: '#000000',
+    })
+    .setScrollFactor(0); 
   }
     //    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
 
@@ -75,7 +86,7 @@ class OpenWorld extends Phaser.Scene {
 
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-
+/* MOVE THIS TO THE CONDITIONAL, UNCOMMENT IF THAT DOESNT WORK
   // Help text
   this.add
     .text(16, 16, 'WASD to move', {
@@ -84,7 +95,7 @@ class OpenWorld extends Phaser.Scene {
       padding: { x: 20, y: 10 },
       backgroundColor: '#000000',
     })
-    .setScrollFactor(0);
+    .setScrollFactor(0); */
 
     //MOBILE SPECIFIC UI AND STUFF
 
