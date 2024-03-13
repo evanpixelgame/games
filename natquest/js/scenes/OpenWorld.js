@@ -72,6 +72,18 @@ class OpenWorld extends Phaser.Scene {
   this.player = this.physics.add.sprite(200, 200, 'player');
 
   // Set world bounds for the player
+
+    // Set world bounds slightly smaller than the map size
+    const boundaryOffset = 32; // Adjust this value as needed
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        map.widthInPixels - 2 * boundaryOffset,
+        map.heightInPixels - 2 * boundaryOffset
+    );
+
+    this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
+    
 //  this.player.setCollideWorldBounds(true);
 
      this.speed = 200;
