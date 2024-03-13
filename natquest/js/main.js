@@ -1,5 +1,5 @@
-const width = window.innerWidth; //800
-const height = window.innerHeight; //600
+const width = 800; //800
+const height = 600; //600
 const config = {
   type: Phaser.AUTO,
   width: width,
