@@ -111,9 +111,6 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
 
       // Handle the player moving
       this.movePlayer();
-
-      // Set debug info about the cursor
-      this.setCursorDebugInfo();
   }
 }
 
