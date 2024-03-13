@@ -10,11 +10,6 @@ class OpenWorld extends Phaser.Scene {
     let selectedCharacter = this.selectedCharacter;
     this.playerCharacter = this.selectedCharacter;
   }
-    init() {
-        this.game.config.width = window.innerWidth;
-        this.game.config.height = window.innerHeight;
-    }
-
       
   preload() {
      // startFrame: 0,   // The first frame to start with (optional)
@@ -45,7 +40,11 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
-  this.cameras.main.setSize(window.innerWidth, window.innerHeight);
+        this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+
+        // Center game objects (optional)
+        this.scale.pageAlignHorizontally = true;
+        this.scale.pageAlignVertically = true;
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
