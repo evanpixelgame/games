@@ -53,3 +53,5 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
         this.text.setText(s);
     }
 }
+
+window.MobileControls = MobileControls;
