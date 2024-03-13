@@ -15,7 +15,7 @@ class MobileControls extends Phaser.Scene {
     }
 
     create() {
-        
+        console.log('pleasewritethis');
         this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
                 x: 400,
                 y: 300,
@@ -56,7 +56,7 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
         this.scene.start('OpenWorld');
     }
     update() {
-        
+        console.log('pleasewritesomething');
     }
 }
 
