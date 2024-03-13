@@ -85,7 +85,7 @@ class OpenWorld extends Phaser.Scene {
 
     //MOBILE SPECIFIC UI AND STUFF
 
- //   if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+   if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
 
          this.scene.launch('MobileControls');
@@ -94,7 +94,7 @@ class OpenWorld extends Phaser.Scene {
         // Portrait mode alert
         alert("Please switch to landscape mode for the best experience.");
       }
-// uncommenttoreutnr   }
+ }
 
     
        this.createAnimations();
