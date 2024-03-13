@@ -20,8 +20,8 @@ class MobileControls extends Phaser.Scene {
     create() {
     
     this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
-    const posX = 120; //this.game.config.width / 5;
-    const posY = 100;
+    const posX = 80; //this.game.config.width / 5;
+    const posY = 80;
 
         const base = this.add.image(0, 0, this.textures.get('base'));
     const thumb = this.add.image(0, 0, this.textures.get('thumb'));
