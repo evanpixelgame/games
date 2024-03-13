@@ -17,7 +17,7 @@ class WelcomePlayer extends Phaser.Scene {
 
     beginButton.on('pointerdown', function () {
       // Transition to the main scene when the button is clicked
-      this.scene.start('MobileControls');
+      this.scene.start('OpenWorld');
     }, this);
 
     // Declaration and initialization of welcomeTextBlock
