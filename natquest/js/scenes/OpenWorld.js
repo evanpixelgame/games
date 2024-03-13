@@ -11,8 +11,8 @@ class OpenWorld extends Phaser.Scene {
     this.playerCharacter = this.selectedCharacter;
   }
     init() {
-        this.game.config.width = 1200;
-        this.game.config.height = 800;
+        this.game.config.width = window.innerWidth;
+        this.game.config.height = window.innerHeight;
     }
 
       
