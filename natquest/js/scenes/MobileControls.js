@@ -52,6 +52,7 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
             s += `${name}: duration=${key.duration / 1000}\n`;
         }
         this.text.setText(s);
+        this.scene.start('OpenWorld');
     }
 }
 
