@@ -83,10 +83,18 @@ class OpenWorld extends Phaser.Scene {
     })
     .setScrollFactor(0);
 
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+    // Code for Android or iOS
+
+         this.scene.launch('MobileControls');
+      
          if (window.orientation === 0 || window.orientation === 180) {
         // Portrait mode alert
         alert("Please switch to landscape mode for the best experience.");
       }
+    }
+
+    
        this.createAnimations();
   }
 
@@ -138,7 +146,7 @@ class OpenWorld extends Phaser.Scene {
         frameRate: 12,
         repeat: -1
     });
-    this.scene.launch('MobileControls');
+  //  this.scene.launch('MobileControls'); MOVED TO IF STATEMENT FOR NOW MOVE BACK IF DOESNT WORK
   } // <=== create() end tag
 
   update(time, delta) {
