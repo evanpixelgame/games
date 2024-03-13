@@ -23,8 +23,8 @@ class MobileControls extends Phaser.Scene {
     const posX = 120; //this.game.config.width / 5;
     const posY = 100;
 
-        const base = this.add.image(0, 0, 'base');
-    const thumb = this.add.image(0, 0, 'thumb');
+        const base = this.add.image(0, 0, this.textures.get('base'));
+    const thumb = this.add.image(0, 0, this.textures.get('thumb'));
 
     // Set the scale for base and thumb images
     base.setScale(0.5); // Adjust the scale as needed
