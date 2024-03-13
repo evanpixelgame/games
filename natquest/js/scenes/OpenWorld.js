@@ -88,7 +88,14 @@ class OpenWorld extends Phaser.Scene {
    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
 
-         this.scene.launch('MobileControls');
+    this.scene.launch('MobileControls');
+
+    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+    // Center game objects (optional)
+    this.scale.pageAlignHorizontally = true;
+    this.scale.pageAlignVertically = true;
+    // Set the size of the game canvas to fill the entire screen
+    this.scale.setGameSize(window.innerWidth, window.innerHeight);
       
          if (window.orientation === 0 || window.orientation === 180) {
         // Portrait mode alert
