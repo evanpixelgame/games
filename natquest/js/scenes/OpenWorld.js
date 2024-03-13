@@ -108,11 +108,11 @@ class OpenWorld extends Phaser.Scene {
     })
     .setScrollFactor(0); */
 
-    //MOBILE SPECIFIC UI AND STUFF
+    //MOBILE SPECIFIC UI AND STUFF ****************************************************************************************************************************************************************
 
    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
-
+    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
     this.scene.launch('MobileControls');
 
    // this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
@@ -127,6 +127,7 @@ class OpenWorld extends Phaser.Scene {
         alert("Please switch to landscape mode for the best experience.");
       }
  }
+    //***********************************************************************************************************************************************************************************
 
     
        this.createAnimations();
