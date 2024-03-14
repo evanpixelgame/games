@@ -27,8 +27,8 @@ const config = {
     CharSelect,
     WelcomePlayer,
     OpenWorld,
-    ComputerControls,
     MobileControls,
+    ComputerControls,
     PlayerAnimations,
   ],
 };
