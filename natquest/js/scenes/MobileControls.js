@@ -94,20 +94,20 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
 
         // Check the joystick input and update player movement
         if (cursorKeys.up.isDown) {
-            openWorldScene.player.setVelocityY(-openWorldScene.speed);
+            openWorldScene.player.setVelocityY(-this.speed);
             openWorldScene.player.anims.play('walking-down', true);
         } else if (cursorKeys.down.isDown) {
-            openWorldScene.player.setVelocityY(openWorldScene.speed);
+            openWorldScene.player.setVelocityY(this.speed);
             openWorldScene.player.anims.play('walking-up', true);
         } else {
             openWorldScene.player.setVelocityY(0);
         }
 
         if (cursorKeys.left.isDown) {
-            openWorldScene.player.setVelocityX(-openWorldScene.speed);
+            openWorldScene.player.setVelocityX(-this.speed);
             openWorldScene.player.anims.play('walking-left', true);
         } else if (cursorKeys.right.isDown) {
-            openWorldScene.player.setVelocityX(openWorldScene.speed);
+            openWorldScene.player.setVelocityX(this.speed);
             openWorldScene.player.anims.play('walking-right', true);
         } else {
             openWorldScene.player.setVelocityX(0);
