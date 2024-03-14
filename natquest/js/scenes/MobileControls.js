@@ -9,12 +9,6 @@ class MobileControls extends Phaser.Scene {
 
     preload() {
         
-    this.load.image('base', 'assets/images/base.png');
-    this.load.image('thumb', 'assets/images/thumb.png');
-        var url;
-  
-        url = 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js';
-        this.load.plugin('rexvirtualjoystickplugin', url, true);
     }
 
     create() {
