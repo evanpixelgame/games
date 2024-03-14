@@ -10,6 +10,8 @@ const config = {
   pixelArt: true,
   scale: {
    // mode: Phaser.Scale.RESIZE,
+    mode: Phaser.Scale.ScaleModes.WIDTH_CONTROLS_HEIGHT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
    // autoCenter: Phaser.Scale.CENTER_BOTH,
     //mode: Phaser.Scale.FIT,
    // autoCenter: Phaser.Scale.CENTER_BOTH
