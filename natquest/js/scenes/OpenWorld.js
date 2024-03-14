@@ -48,57 +48,9 @@ class OpenWorld extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
 
   // Constrain the camera
-//  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
- //   this.cameras.main.startFollow(this.player);
-
-/*
-      // Listen for orientation change events
-    window.addEventListener('resize', () => {
-        // Recalculate camera bounds on orientation change
-        this.calculateCameraBounds();
-    });
-       window.addEventListener('orientationchange', () => {
-        // Recalculate camera bounds on orientation change
-        this.calculateCameraBounds();
-    }); 
-    */
-
-            // Set initial camera bounds to match the game content dimensions
-        this.cameras.main.setBounds(0, 0, this.game.config.width, this.game.config.height);
-        this.cameras.main.startFollow(this.player);
+  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.startFollow(this.player);
   }
-
-/*
-calculateCameraBounds() {
-    const screenWidth = this.sys.game.config.width; // Get screen width
-    const screenHeight = this.sys.game.config.height; // Get screen height
-
-
-  //try this maybe?
-   // this.sys.game.config.width = screenHeightPrev// Get screen width
-   // this.sys.game.config.height = screenWidthPrev; // Get screen height
-  //  const screenWidth =  this.sys.game.config.width;
-  //  const ScreenHeight = this.sys.game.config.height; 
-
-
-  
-    // Calculate camera bounds based on player's position
-    const spriteBounds = this.player.getBounds();
-    const cameraBounds = new Phaser.Geom.Rectangle(
-        spriteBounds.centerX - screenWidth / 2, // Adjusted to keep sprite centered
-        spriteBounds.centerY - screenHeight / 2, // Adjusted to keep sprite centered
-        screenWidth,
-        screenHeight,
-    );
-    console.log('calculatecameraboundstest');
-    // Set camera bounds
-    this.cameras.main.setBounds(cameraBounds.x, cameraBounds.y, cameraBounds.width, cameraBounds.height);
-       this.cameras.main.startFollow(this.player);
-
-}
-*/
-
-  
 
   update(time, delta) {
     this.cameras.main.centerOn(this.player.x, this.player.y);
