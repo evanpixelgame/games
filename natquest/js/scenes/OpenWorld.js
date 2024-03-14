@@ -35,8 +35,9 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
-    
+       if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     this.scene.launch('MobileControls');
+       }
     this.scene.launch('ComputerControls');
     
   const map = this.make.tilemap({ key: 'map' });
