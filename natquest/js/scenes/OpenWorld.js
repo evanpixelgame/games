@@ -5,8 +5,8 @@ class OpenWorld extends Phaser.Scene {
     // Declare controls as a property of the class
     this.controls = null;
     this.map = null;
-    this.player = null; // Declare player as a property of the class
-    this.speed = 200; // Move the speed declaration here
+    this.player = null;
+    this.speed = 200; 
   }
       
   preload() {
@@ -21,6 +21,7 @@ class OpenWorld extends Phaser.Scene {
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
      this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
 
+  //Load map
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
@@ -35,8 +36,6 @@ class OpenWorld extends Phaser.Scene {
   this.player = this.physics.add.sprite(600, 600, 'player');
 
   // Set world bounds for the player
-
-    // Set world bounds slightly smaller than the map size
     const boundaryOffset = 20; // Adjust this value as needed
     const worldBounds = new Phaser.Geom.Rectangle(
         boundaryOffset,
@@ -53,9 +52,9 @@ class OpenWorld extends Phaser.Scene {
     
   }
 
-
   update(time, delta) {
     
   }
+  
 }
 window.OpenWorld = OpenWorld;
