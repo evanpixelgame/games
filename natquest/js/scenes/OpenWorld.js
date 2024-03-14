@@ -53,9 +53,9 @@ class OpenWorld extends Phaser.Scene {
   }
 
   update(time, delta) {
-    this.cameras.main.centerOn(this.player.x, this.player.y);
-       this.game.config.width = window.innerHeight;
-        this.game.config.height = window.innerWidth
+  //  this.cameras.main.centerOn(this.player.x, this.player.y);
+     //  this.game.config.width = window.innerHeight;
+     //   this.game.config.height = window.innerWidth
    // this.cameras.main.scrollY = this.player.y + 200;
 
       const { width, height } = this.game.scale;
@@ -66,7 +66,13 @@ class OpenWorld extends Phaser.Scene {
 
   // Apply the scaling factor to the camera zoom
   this.cameras.main.zoom = scaleFactor;
+
+
+  this.cameras.main.centerOn(this.player.x, this.player.y); 
+
+    
   }
+  
   
 }
 window.OpenWorld = OpenWorld;
