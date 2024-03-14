@@ -29,6 +29,7 @@ const config = {
     OpenWorld,
     ComputerControls,
     MobileControls,
+    PlayerAnimations,
   ],
 };
 
