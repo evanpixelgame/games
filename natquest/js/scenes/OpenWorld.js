@@ -157,10 +157,10 @@ window.addEventListener('orientationchange', () => {
 
     
        this.createAnimations();
-  }
+  }  // <== create func end tag
 
 
-function updateSpritePosition() {
+updateSpritePosition() {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
@@ -248,7 +248,7 @@ function updateSpritePosition() {
         frameRate: 12,
         repeat: -1
     });
-  } // <=== create() end tag
+  } 
 
   update(time, delta) {
 
