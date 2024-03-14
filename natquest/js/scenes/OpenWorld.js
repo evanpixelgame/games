@@ -61,8 +61,8 @@ class OpenWorld extends Phaser.Scene {
    // this.cameras.main.scrollY = this.player.y + 200; DONT NEED 
   
 // Set canvas size to fill the screen
-game.scale.canvas.style.width = '100%';      //Put these in update func
-game.scale.canvas.style.height = '100%';
+this.game.scale.canvas.style.width = '100%';      //Put these in update func
+this.game.scale.canvas.style.height = '100%';
 
     /*  
 // Handle window resize event
