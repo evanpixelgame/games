@@ -24,7 +24,7 @@ class OpenWorld extends Phaser.Scene {
     this.scene.launch('MobileControls');
        }
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
-      const player = this.scene.get('WelcomePlayer').getData('player');
+     // const player = this.scene.get('WelcomePlayer').getData('player');
     
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
