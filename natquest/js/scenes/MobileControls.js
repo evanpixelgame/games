@@ -24,7 +24,6 @@ class MobileControls extends Phaser.Scene {
  //   this.speed = this.openWorldScene.speed;
 
        this.openWorldScene = this.scene.get('OpenWorld');
-        this.comp = this.scene.get('ComputerControls');
         this.player = this.openWorldScene.player;
         this.speed = this.openWorldScene.speed;
         
