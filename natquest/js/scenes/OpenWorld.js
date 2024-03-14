@@ -62,10 +62,10 @@ class OpenWorld extends Phaser.Scene {
    //   const clampedY = Math.max(0, Math.min(this.player.y, height - this.player.height));
    //  this.player.setPosition(clampedX, clampedY);
 
-          const camera = this.cameras.main;
+     //     const camera = this.cameras.main;
           //Clamp player position
-         this.player.x = Phaser.Math.Clamp(this.player.x, camera.worldView.left, camera.worldView.right - this.player.width);
-         this.player.y = Phaser.Math.Clamp(this.player.y, camera.worldView.top, camera.worldView.bottom - this.player.height);
+        // this.player.x = Phaser.Math.Clamp(this.player.x, camera.worldView.left, camera.worldView.right - this.player.width);
+      //   this.player.y = Phaser.Math.Clamp(this.player.y, camera.worldView.top, camera.worldView.bottom - this.player.height);
     
 
     
