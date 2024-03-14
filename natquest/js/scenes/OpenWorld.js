@@ -126,6 +126,7 @@ class OpenWorld extends Phaser.Scene {
 window.addEventListener('orientationchange', () => {
     // Calculate new sprite position based on orientation
     updateSpritePosition();
+  alert("Please switch to landscape mode for the best experience.");
     this.cameras.main.startFollow(this.player);
 });
      
