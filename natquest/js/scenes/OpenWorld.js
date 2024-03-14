@@ -66,8 +66,50 @@ game.scale.canvas.style.height = '100%';
 window.addEventListener('resize', () => {
     // Update canvas size to fill the screen       //PUT THIS IN CREATE FUNC
     game.scale.canvas.style.width = '100%';
-    game.scale.canvas.style.height = '100%'; */
-});
+    game.scale.canvas.style.height = '100%';
+   
+});  
+
+ 
+class YourScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'YourScene' });
+    }
+
+    create() {
+        // Create the sprite at some initial position
+        this.sprite = this.add.sprite(100, 100, 'yourSpriteKey');
+
+        // Listen for input or events that trigger sprite destruction
+        this.input.on('pointerdown', () => {
+            // Destroy the sprite
+            this.destroySprite();
+        });
+    }
+
+    destroySprite() {
+        // Store the position of the sprite before destroying it
+        const xPos = this.sprite.x;
+        const yPos = this.sprite.y;
+
+        // Destroy the sprite
+        this.sprite.destroy();
+
+        // Recreate the sprite at the stored position
+        this.recreateSprite(xPos, yPos);
+    }
+
+    recreateSprite(x, y) {
+        // Recreate the sprite at the specified position
+        this.sprite = this.add.sprite(x, y, 'yourSpriteKey');
+
+        // Additional setup for the recreated sprite (if needed)
+    }
+}
+
+
+
+*/
   }
   
 }
