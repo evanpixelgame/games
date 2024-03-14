@@ -14,7 +14,7 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
-    
+/*    
  this.scene.launch('MobileControls', { player: this.player, speed: this.speed }); //FOR TESTING
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
@@ -51,7 +51,7 @@ class OpenWorld extends Phaser.Scene {
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player);
-
+*/
 // Handle window resize event
 window.addEventListener('resize', () => {
     // Update canvas size to fill the screen       //PUT THIS IN CREATE FUNC
@@ -59,7 +59,35 @@ window.addEventListener('resize', () => {
       this.game.config.height = window.innerWidth;
    this.player = this.scene.get('WelcomePlayer').player;
    this.player = this.physics.add.sprite(600, 600, 'player');
-   
+     const map = this.make.tilemap({ key: 'map' });
+  // Load tileset
+  const tileset = map.addTilesetImage('tilemap1', 'tiles');
+
+  // Create layers
+  const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
+  const worldObjectLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
+  const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+
+  // Create player sprite
+//  this.player = this.scene.get('WelcomePlayer').player;
+ // this.player = this.physics.add.sprite(600, 600, 'player');
+
+  // Set world bounds for the player
+    const boundaryOffset = 20; // Adjust this value as needed
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        map.widthInPixels - 2 * boundaryOffset,
+        map.heightInPixels - 2 * boundaryOffset
+    );
+
+    this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
+    this.player.setCollideWorldBounds(true);
+
+  // Constrain the camera
+  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.startFollow(this.player);
+
 });  
     
   }
