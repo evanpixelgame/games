@@ -119,7 +119,7 @@ window.addEventListener('orientationchange', () => {
   } // <===== end of create function and below is the start of the class method declarations before the update func
 
 //below is start of testing class methods (still part of same section as createAnimations and other class methods)
-handleOrientChange() {
+/*handleOrientChange() {
  if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
   if (this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE) {
   window.addEventListener('orientationchange', () => {
@@ -128,7 +128,21 @@ handleOrientChange() {
 });
   }
  }
+} 
+*/
+
+  handleOrientChange() {
+    window.addEventListener('orientationchange', () => {
+        if (window.orientation === 90 || window.orientation === -90) {
+            // Landscape orientation
+            this.scale.orientation = Phaser.Scale.Orientation.LANDSCAPE;
+        } else {
+            // Portrait orientation
+            this.scale.orientation = Phaser.Scale.Orientation.PORTRAIT;
+        }
+    });
 }
+
   
   
 // below is the start of the class method declarations before the update func
