@@ -53,7 +53,7 @@ class OpenWorld extends Phaser.Scene {
   }
 
   update(time, delta) {
-
+  const { width, height } = this.game.scale;
   this.cameras.main.setViewport(0, 0, width, height);
   this.mySprite.setPosition(width / 2, height / 2);
  //   this.cameras.main.centerOn(this.player.x, this.player.y);
