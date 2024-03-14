@@ -135,10 +135,10 @@ window.addEventListener('orientationchange', () => {
     window.addEventListener('orientationchange', () => {
         if (window.orientation === 90 || window.orientation === -90) {
             // Landscape orientation
-            this.scale.orientation = Phaser.Scale.Orientation.LANDSCAPE;
+           this.scale.mode = Phaser.Scale.ScaleModes.RESIZE;
         } else {
             // Portrait orientation
-            this.scale.orientation = Phaser.Scale.Orientation.PORTRAIT;
+           this.scale.mode = Phaser.Scale.ScaleModes.RESIZE;
         }
     });
 }
