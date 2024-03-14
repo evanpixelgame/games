@@ -55,7 +55,7 @@ class MobileControls extends Phaser.Scene {
            if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
-    this.scene.launch('MobileControls');
+//    this.scene.launch('MobileControls');
       
          if (window.orientation === 0 || window.orientation === 180) {
         // Portrait mode alert
