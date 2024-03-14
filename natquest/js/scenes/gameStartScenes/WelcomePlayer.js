@@ -7,10 +7,23 @@ class WelcomePlayer extends Phaser.Scene {
   preload() {
 
 
+   if (gameManager.selectedCharacter == 'Baby Mouse') {  
+    this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
+          frameWidth: 64,
+          frameHeight: 64
+      }); 
+    } else if (gameManager.selectedCharacter == 'Confused Woman') {
+    
+       this.load.spritesheet("player", "assets/sprites/player/womanPlayer.png", {
+          frameWidth: 64,
+          frameHeight: 64
+      });
+    } else {
        this.load.spritesheet("player", "assets/sprites/player/fatWolf.png", {
           frameWidth: 64,
           frameHeight: 64
       });
+    }
     
   }
 
