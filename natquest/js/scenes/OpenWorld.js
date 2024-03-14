@@ -64,6 +64,11 @@ class OpenWorld extends Phaser.Scene {
         // Recalculate camera bounds on orientation change
         this.calculateCameraBounds();
     });
+
+       window.addEventListener('orientationchange', () => {
+        // Recalculate camera bounds on orientation change
+        this.calculateCameraBounds();
+    });
 }
 
 
