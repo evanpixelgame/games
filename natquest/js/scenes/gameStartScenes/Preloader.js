@@ -16,6 +16,9 @@ class Preloader extends Phaser.Scene {
     this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
       this.load.image('tiles', 'assets/tilesets/tilemap1.png');
     this.load.tilemapTiledJSON('map', 'assets/json/map.json');
+      this.load.image('base', 'assets/images/base.png');
+    this.load.image('thumb', 'assets/images/thumb.png'); 
+ this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
 
     
     //maybe just add a pink background that matches the background color set in StartMenu
