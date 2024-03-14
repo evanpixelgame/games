@@ -74,20 +74,31 @@ class OpenWorld extends Phaser.Scene {
 
 
 calculateCameraBounds() {
-    const screenWidth = this.sys.game.config.width; // Get screen width
-    const screenHeight = this.sys.game.config.height; // Get screen height
+    const screenWidthPrev = this.sys.game.config.width; // Get screen width
+    const screenHeightPrev = this.sys.game.config.height; // Get screen height
 
+
+  //try this maybe?
+    this.sys.game.config.width = screenHeightPrev// Get screen width
+    this.sys.game.config.height = screenWidthPrev; // Get screen height
+    const screenWidth =  this.sys.game.config.width;
+    const ScreenHeight = this.sys.game.config.height;
+
+
+  
     // Calculate camera bounds based on player's position
     const spriteBounds = this.player.getBounds();
     const cameraBounds = new Phaser.Geom.Rectangle(
         spriteBounds.centerX - screenWidth / 2, // Adjusted to keep sprite centered
         spriteBounds.centerY - screenHeight / 2, // Adjusted to keep sprite centered
         screenWidth,
-        screenHeight
+        screenHeight,
     );
     console.log('calculatecameraboundstest');
     // Set camera bounds
     this.cameras.main.setBounds(cameraBounds.x, cameraBounds.y, cameraBounds.width, cameraBounds.height);
+       this.cameras.main.startFollow(this.player);
+
 }
 
   
