@@ -58,17 +58,17 @@ class OpenWorld extends Phaser.Scene {
      //   this.game.config.height = window.innerWidth
    // this.cameras.main.scrollY = this.player.y + 200;
 
-      const { width, height } = this.game.scale;
-  const aspectRatio = this.game.config.width / this.game.config.height;
+//      const { width, height } = this.game.scale;
+//  const aspectRatio = this.game.config.width / this.game.config.height;
 
   // Calculate additional scaling factor to fill the screen height
-  const scaleFactor = height / (width / aspectRatio);
+//  const scaleFactor = height / (width / aspectRatio);
 
   // Apply the scaling factor to the camera zoom
-  this.cameras.main.zoom = scaleFactor;
+//  this.cameras.main.zoom = scaleFactor;
 
 
-  this.cameras.main.centerOn(this.player.x, this.player.y); 
+//  this.cameras.main.centerOn(this.player.x, this.player.y); 
 
     
   }
