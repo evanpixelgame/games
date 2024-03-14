@@ -87,6 +87,8 @@ calculateCameraBounds() {
 
   
   update(time, delta) {
+     this.cameras.main.startFollow(this.player);
+
    // this.cameras.main.centerOn(this.player.x, this.player.y);
   //  this.game.scale.resize(this.game.config.width, this.game.config.height);
   //     this.game.config.width = window.innerHeight;
