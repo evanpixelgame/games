@@ -53,9 +53,10 @@ class OpenWorld extends Phaser.Scene {
   }
 
   update(time, delta) {
-  const { width, height } = this.game.scale;
-  this.cameras.main.setViewport(0, 0, width, height);
-  this.mySprite.setPosition(width / 2, height / 2);
+// Clamp sprite position
+sprite.x = Phaser.Math.Clamp(sprite.x, camera.scrollX, camera.scrollX + camera.width);
+sprite.y = Phaser.Math.Clamp(sprite.y, camera.scrollY, camera.scrollY + camera.height);
+
  //   this.cameras.main.centerOn(this.player.x, this.player.y);
    // this.cameras.main.setSnap(window.innerWidth / 2, window.innerHeight / 2);
    // this.cameras.main.scrollY = this.player.y + 200;
