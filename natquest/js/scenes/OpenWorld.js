@@ -118,6 +118,15 @@ window.addEventListener('orientationchange', () => {
        this.createAnimations();  //<==== last line of create statement thats outside of mobile logic
   } // <===== end of create function and below is the start of the class method declarations before the update func
 
+//below is start of testing class methods (still part of same section as createAnimations and other class methods)
+handleOrientChange() {
+  window.addEventListener('orientationchange', () => {
+    // Calculate new sprite position based on orientation
+  alert("Please switch to landscape mode for the best experience.");
+    this.cameras.main.startFollow(this.player);
+});
+}
+  
   
 // below is the start of the class method declarations before the update func
   createAnimations() {
@@ -172,6 +181,8 @@ window.addEventListener('orientationchange', () => {
 
   update(time, delta) {
 
+this.handleOrientChange();
+    
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
        this.player.anims.play('walking-down', true);
