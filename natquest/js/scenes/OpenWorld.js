@@ -35,7 +35,9 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
-
+    
+    this.scene.launch('MobileControls');
+    
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
   if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
      this.scale.setGameSize(window.innerWidth, window.innerHeight); 
@@ -51,14 +53,11 @@ class OpenWorld extends Phaser.Scene {
   }
 
     
-    
     //    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
-
     
         // Center game objects (optional)
       //  this.scale.pageAlignHorizontally = true;
       //  this.scale.pageAlignVertically = true;
-
 
 
     
@@ -72,7 +71,7 @@ class OpenWorld extends Phaser.Scene {
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
   // Create player sprite
-  this.player = this.physics.add.sprite(200, 200, 'player');
+  this.player = this.physics.add.sprite(600, 600, 'player');
 
   // Set world bounds for the player
 
