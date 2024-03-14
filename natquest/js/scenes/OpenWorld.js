@@ -121,11 +121,10 @@ window.addEventListener('orientationchange', () => {
 //below is start of testing class methods (still part of same section as createAnimations and other class methods)
 handleOrientChange() {
  if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
-  if (this.scale.orientation === Phaser.Scale.Orientation.PORTRAIT) {
+  if (this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE) {
   window.addEventListener('orientationchange', () => {
     // Calculate new sprite position based on orientation
-  alert("Please switch to landscape mode for the best experience.");
-    this.cameras.main.startFollow(this.player);
+   this.scale.orientation = Phaser.Scale.Orientation.PORTRAIT;
 });
   }
  }
