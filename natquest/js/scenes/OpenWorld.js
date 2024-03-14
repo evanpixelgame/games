@@ -120,7 +120,7 @@ window.addEventListener('orientationchange', () => {
 
 //below is start of testing class methods (still part of same section as createAnimations and other class methods)
 handleOrientChange() {
-
+ if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
   if (this.scale.orientation === Phaser.Scale.Orientation.PORTRAIT) {
   window.addEventListener('orientationchange', () => {
     // Calculate new sprite position based on orientation
@@ -128,7 +128,7 @@ handleOrientChange() {
     this.cameras.main.startFollow(this.player);
 });
   }
-  
+ }
 }
   
   
