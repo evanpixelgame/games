@@ -137,7 +137,6 @@ window.addEventListener('orientationchange', () => {
           this.cameras.main.startFollow(this.player);
         }
     });
-}
 
   
   
