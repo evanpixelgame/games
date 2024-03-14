@@ -76,7 +76,7 @@ this.cameras.main.centerOn(this.player.x, this.player.y);
 
 const gameHeight = this.game.scale;
 const spriteHeight = this.player.height; // Get the sprite's height
-this.cameras.main.setY(gameHeight - spriteHeight - this.player.y);
+this.cameras.main.scrollY(gameHeight - spriteHeight - this.player.y);
 
 
 
