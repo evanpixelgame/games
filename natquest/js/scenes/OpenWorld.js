@@ -53,64 +53,11 @@ class OpenWorld extends Phaser.Scene {
     this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
     this.player.setCollideWorldBounds(true);
 
-     this.speed = 200;
-
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     
-  this.createAnimations();
-    
   }
 
-  createAnimations() {
-    this.anims.create({
-        key: 'walking-up',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-              130, 131, 132, 133, 134, 135, 136, 137, 138
-            ]
-        }),
-        yoyo: false,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walking-left',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-              117, 118, 119, 120, 121, 122, 123, 124, 125
-            ]
-        }),
-        yoyo: false,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walking-down',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-                104, 105, 106, 107, 108, 109, 110, 111, 112
-            ]
-        }),
-        yoyo: false,
-        frameRate: 12,
-        repeat: -1
-    });
-
-    this.anims.create({
-        key: 'walking-right',
-        frames: this.anims.generateFrameNames('player', {
-            frames: [
-              143, 144, 145, 146, 147, 148, 149, 150, 151 
-            ]
-        }),
-        yoyo: false,
-        frameRate: 12,
-        repeat: -1
-    });
-  } // <=== create() end tag
 
   update(time, delta) {
     
