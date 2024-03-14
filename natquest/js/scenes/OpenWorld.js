@@ -4,13 +4,9 @@ class OpenWorld extends Phaser.Scene {
     
     // Declare controls as a property of the class
     this.controls = null;
-  //  this.isMobile = null;
-  //  this.isComputer = true;
     this.map = null;
     this.player = null; // Declare player as a property of the class
     this.speed = 200; // Move the speed declaration here
-   // let selectedCharacter = this.selectedCharacter;
-    //this.playerCharacter = this.selectedCharacter;
   }
       
   preload() {
@@ -19,8 +15,7 @@ class OpenWorld extends Phaser.Scene {
 
   create() {
 
-    
-       if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     this.scene.launch('MobileControls');
        }
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
