@@ -53,7 +53,7 @@ class OpenWorld extends Phaser.Scene {
   }
 
   update(time, delta) {
-    
+    this.cameras.main.centerOn(this.player.x, this.player.y);
   }
   
 }
