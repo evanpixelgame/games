@@ -29,6 +29,7 @@ class WelcomePlayer extends Phaser.Scene {
   }
 
   create() {
+    this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
     const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
       fontSize: '48px', 
       fontFamily: 'knewave',
