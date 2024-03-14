@@ -132,19 +132,7 @@ window.addEventListener('orientationchange', () => {
 */
 
   handleOrientChange() {
-  
-
-
-    
     window.addEventListener('orientationchange', () => {
-        if (window.orientation === 90 || window.orientation === -90) {
-            // Landscape orientation
-           //this.scale.mode = Phaser.Scale.ScaleModes.RESIZE;
-          this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
-          this.cameras.main.startFollow(this.player);
-        } else {
-            // Portrait orientation
-          // this.scale.mode = Phaser.Scale.ScaleModes.RESIZE;
           this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
           this.cameras.main.startFollow(this.player);
         }
@@ -207,8 +195,14 @@ window.addEventListener('orientationchange', () => {
   update(time, delta) {
 
 //  if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {  //uncomment this out later, just making it true for both now so i can test it in screenviewer 
-      this.handleOrientChange();
+     // this.handleOrientChange();
    //      }
+
+        window.addEventListener('orientationchange', () => {
+          this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+          this.cameras.main.startFollow(this.player);
+        }
+    });
 
     
     if (this.cursors.up.isDown) {
