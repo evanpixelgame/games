@@ -44,6 +44,17 @@ class MobileControls extends Phaser.Scene {
 
         this.text = this.add.text(0, 0);
         this.dumpJoyStickState();
+
+           if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+    // Code for Android or iOS
+   this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+    this.scene.launch('MobileControls');
+      
+         if (window.orientation === 0 || window.orientation === 180) {
+        // Portrait mode alert
+        alert("Please switch to landscape mode for the best experience.");
+      }
+ }
     }
 
     dumpJoyStickState() {
