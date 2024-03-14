@@ -33,8 +33,8 @@ class OpenWorld extends Phaser.Scene {
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
   // Create player sprite
-  this.player = this.scene.get('WelcomePlayer').player;
-  this.player = this.physics.add.sprite(600, 600, 'player');
+//  this.player = this.scene.get('WelcomePlayer').player;
+ // this.player = this.physics.add.sprite(600, 600, 'player');
 
   // Set world bounds for the player
     const boundaryOffset = 20; // Adjust this value as needed
@@ -56,7 +56,9 @@ class OpenWorld extends Phaser.Scene {
 window.addEventListener('resize', () => {
     // Update canvas size to fill the screen       //PUT THIS IN CREATE FUNC
       this.game.config.width = window.innerHeight;
-      this.game.config.height = window.innerWidth
+      this.game.config.height = window.innerWidth;
+   this.player = this.scene.get('WelcomePlayer').player;
+   this.player = this.physics.add.sprite(600, 600, 'player');
    
 });  
     
