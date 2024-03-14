@@ -116,11 +116,17 @@ class OpenWorld extends Phaser.Scene {
     // Code for Android or iOS
    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
 
-     this.cameras.main.startFollow(this.player);
+   if (window.orientation === 0 || window.orientation === 180) {
+        // Portrait mode alert
+        alert("Please switch to landscape mode for the best experience.");
+      }
+     
+
 
 window.addEventListener('orientationchange', () => {
     // Calculate new sprite position based on orientation
     updateSpritePosition();
+    this.cameras.main.startFollow(this.player);
 });
      
       this.cameras.main.startFollow(this.player);
@@ -148,10 +154,7 @@ window.addEventListener('orientationchange', () => {
     // Set the size of the game canvas to fill the entire screen
  //   this.scale.setGameSize(window.innerWidth, window.innerHeight);
       
-         if (window.orientation === 0 || window.orientation === 180) {
-        // Portrait mode alert
-        alert("Please switch to landscape mode for the best experience.");
-      }
+      
  }
     //***********************************************************************************************************************************************************************************
 
