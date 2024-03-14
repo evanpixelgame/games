@@ -121,7 +121,7 @@ window.addEventListener('orientationchange', () => {
 //below is start of testing class methods (still part of same section as createAnimations and other class methods)
 handleOrientChange() {
 
-  if (orientation === Phaser.Scale.Orientation.PORTRAIT) {
+  if (this.scale.orientation === Phaser.Scale.Orientation.PORTRAIT) {
   window.addEventListener('orientationchange', () => {
     // Calculate new sprite position based on orientation
   alert("Please switch to landscape mode for the best experience.");
