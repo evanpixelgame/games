@@ -54,14 +54,19 @@ class OpenWorld extends Phaser.Scene {
 
   update(time, delta) {
 // Clamp sprite position
-this.player.x = Phaser.Math.Clamp(this.player.x, this.camera.scrollX, this.camera.scrollX + this.camera.width);
-this.player.y = Phaser.Math.Clamp(this.player.y, this.camera.scrollY, this.camera.scrollY + this.camera.height);
+//this.player.x = Phaser.Math.Clamp(this.player.x, this.camera.scrollX, this.camera.scrollX + this.camera.width);
+//this.player.y = Phaser.Math.Clamp(this.player.y, this.camera.scrollY, this.camera.scrollY + this.camera.height);
 //Alt clamp attempt
 
-    //  const clampedX = Math.max(0, Math.min(this.player.x, width - this.player.width));
-    //  const clampedY = Math.max(0, Math.min(this.player.y, height - this.plater.height));
+      const clampedX = Math.max(0, Math.min(this.player.x, width - this.player.width));
+      const clampedY = Math.max(0, Math.min(this.player.y, height - this.player.height));
+     this.player.setPosition(clampedX, clampedY);
 
-    //  this.player.setPosition(clampedX, clampedY);
+          //const camera = this.cameras.main;
+          // Clamp player position
+         // this.player.x = Phaser.Math.Clamp(this.player.x, camera.worldView.left, camera.worldView.right - this.player.width);
+        //  this.player.y = Phaser.Math.Clamp(this.player.y, camera.worldView.top, camera.worldView.bottom - this.player.height);
+    
 
     
 
