@@ -12,13 +12,7 @@ class OpenWorld extends Phaser.Scene {
     this.playerCharacter = this.selectedCharacter;
   }
       
-  preload() {
-     // startFrame: 0,   // The first frame to start with (optional)
-     // endFrame: 272     // The last frame to end with (optional)
-     // this.load.image('base', 'assets/images/base.png');
-     // this.load.image('thumb', 'assets/images/thumb.png');
-    // this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
-    
+  preload() {  
     console.log(this.selectedCharacter);
     
     if (gameManager.selectedCharacter == 'Baby Mouse') {  
@@ -55,11 +49,7 @@ class OpenWorld extends Phaser.Scene {
     })
     .setScrollFactor(0); 
   }
-    //    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
 
-        // Center game objects (optional)
-      //  this.scale.pageAlignHorizontally = true;
-      //  this.scale.pageAlignVertically = true;
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
@@ -98,16 +88,7 @@ class OpenWorld extends Phaser.Scene {
 
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-/* MOVE THIS TO THE CONDITIONAL, UNCOMMENT IF THAT DOESNT WORK
-  // Help text
-  this.add
-    .text(16, 16, 'WASD to move', {
-      font: '18px monospace',
-      fill: '#ffffff',
-      padding: { x: 20, y: 10 },
-      backgroundColor: '#000000',
-    })
-    .setScrollFactor(0); */
+
 
     //MOBILE SPECIFIC UI AND STUFF ****************************************************************************************************************************************************************
 
@@ -129,16 +110,14 @@ window.addEventListener('orientationchange', () => {
   alert("Please switch to landscape mode for the best experience.");
     this.cameras.main.startFollow(this.player);
 });
-
-
-
- }
+ } // <=== closing bracket of mobile if statement
     //***********************************************************************************************************************************************************************************
 
-    
-       this.createAnimations();
-  }
+       this.createAnimations();  //<==== last line of create statement thats outside of mobile logic
+  } // <===== end of create function and below is the start of the class method declarations before the update func
 
+  
+// below is the start of the class method declarations before the update func
   createAnimations() {
     this.anims.create({
         key: 'walking-up',
