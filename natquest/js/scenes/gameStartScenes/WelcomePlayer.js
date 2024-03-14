@@ -2,7 +2,8 @@ class WelcomePlayer extends Phaser.Scene {
   constructor() {
     super({ key: 'WelcomePlayer' });
   }
-      
+
+  
   preload() {
 
    console.log(this.selectedCharacter);
