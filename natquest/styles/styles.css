@@ -6,7 +6,6 @@
       #game-container {
         margin: 0;
         padding: 0;
-        overflow: hidden;
       }
 
         body, #background {
@@ -19,6 +18,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
       }
 
       #game-container > canvas {
