@@ -58,6 +58,8 @@ class OpenWorld extends Phaser.Scene {
 //this.player.y = Phaser.Math.Clamp(this.player.y, this.camera.scrollY, this.camera.scrollY + this.camera.height);
 //Alt clamp attempt
 
+    const { width, height } = this.game.scale;
+    
       const clampedX = Math.max(0, Math.min(this.player.x, width - this.player.width));
       const clampedY = Math.max(0, Math.min(this.player.y, height - this.player.height));
      this.player.setPosition(clampedX, clampedY);
