@@ -53,6 +53,9 @@ class OpenWorld extends Phaser.Scene {
   }
 
   update(time, delta) {
+     const { width, height } = this.game.scale;
+  this.cameras.main.setViewport(0, 0, width, height);
+       this.cameras.main.startFollow(this.player);
  //   this.cameras.main.centerOn(this.player.x, this.player.y);
    // this.cameras.main.setSnap(window.innerWidth / 2, window.innerHeight / 2);
    // this.cameras.main.scrollY = this.player.y + 200;
