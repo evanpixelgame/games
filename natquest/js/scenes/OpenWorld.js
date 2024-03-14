@@ -130,9 +130,23 @@ window.addEventListener('orientationchange', () => {
  }
 } 
 */
+ centerLand() {
+        window.addEventListener('orientationchange', () => {
+        if (this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE) {
+            const viewportWidth = this.scale.gameSize.width;
+            const viewportHeight = this.scale.gameSize.height;
+            const playerX = this.player.x;
+            const playerY = this.player.y;
 
+            const cameraX = playerX - viewportWidth / 2;
+            const cameraY = playerY - viewportHeight / 2;
 
-  
+            console.log('hekkasdf');
+            this.cameras.main.scrollX = cameraX;
+            this.cameras.main.scrollY = cameraY;
+        }
+    });
+ }
   
 // below is the start of the class method declarations before the update func
   createAnimations() {
@@ -200,21 +214,7 @@ window.addEventListener('orientationchange', () => {
     });
     */
 
-        window.addEventListener('orientationchange', () => {
-        if (this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE) {
-            const viewportWidth = this.scale.gameSize.width;
-            const viewportHeight = this.scale.gameSize.height;
-            const playerX = this.player.x;
-            const playerY = this.player.y;
-
-            const cameraX = playerX - viewportWidth / 2;
-            const cameraY = playerY - viewportHeight / 2;
-
-            console.log('hekkasdf');
-            this.cameras.main.scrollX = cameraX;
-            this.cameras.main.scrollY = cameraY;
-        }
-    });
+   centerLand();
 
     
     if (this.cursors.up.isDown) {
