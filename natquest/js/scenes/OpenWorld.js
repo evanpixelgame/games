@@ -64,7 +64,7 @@ class OpenWorld extends Phaser.Scene {
     */
 
             // Set initial camera bounds to match the game content dimensions
-        this.cameras.main.setBounds(0, 0, game.config.width, game.config.height);
+        this.cameras.main.setBounds(0, 0, this.game.config.width, this.game.config.height);
         this.cameras.main.startFollow(player);
   }
 
