@@ -7,7 +7,7 @@ class OpenWorld extends Phaser.Scene {
   //  this.isMobile = null;
   //  this.isComputer = true;
     this.map = null;
-    this.player = null; // Declare player as a property of the class
+    //this.player = welcomePlayer.player; // Declare player as a property of the class
     this.speed = 200; // Move the speed declaration here
    // let selectedCharacter = this.selectedCharacter;
     //this.playerCharacter = this.selectedCharacter;
@@ -33,6 +33,7 @@ class OpenWorld extends Phaser.Scene {
   const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
   // Create player sprite
+  this.player = this.scene.get('WelcomePlayer').player;
   this.player = this.physics.add.sprite(600, 600, 'player');
 
   // Set world bounds for the player
