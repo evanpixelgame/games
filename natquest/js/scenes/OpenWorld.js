@@ -44,14 +44,13 @@ class OpenWorld extends Phaser.Scene {
       boundaryOffset,
       map.widthInPixels - 2 * boundaryOffset,
       map.heightInPixels - 2 * boundaryOffset
-        )
+        );
 
 
    this.logText = this.add.text(10, 10, '', { fill: '#ffffff' });
 
     // Listen for orientation change event
     window.addEventListener('orientationchange', this.handleOrientationChange.bind(this));
-    );
 
     this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
     this.player.setCollideWorldBounds(true);
