@@ -214,7 +214,22 @@ window.addEventListener('orientationchange', () => {
     });
     */
 
-   this.centerLand();
+ //  this.centerLand();
+
+        const canvasWidth = this.scale.canvasBounds.width;
+    const canvasHeight = this.scale.canvasBounds.height;
+
+    // Get the position of the sprite
+    const playerX = this.player.x;
+    const playerY = this.player.y;
+
+    // Calculate the new camera position to keep the sprite centered
+    const cameraX = playerX - canvasWidth / 2;
+    const cameraY = playerY - canvasHeight / 2;
+
+    // Set the camera position
+    this.cameras.main.scrollX = cameraX;
+    this.cameras.main.scrollY = cameraY;
 
     
     if (this.cursors.up.isDown) {
