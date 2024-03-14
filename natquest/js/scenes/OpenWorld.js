@@ -68,6 +68,5 @@ class OpenWorld extends Phaser.Scene {
    // this.cameras.main.setSnap(window.innerWidth / 2, window.innerHeight / 2);
    // this.cameras.main.scrollY = this.player.y + 200;
   }
-  
-}
+
 window.OpenWorld = OpenWorld;
