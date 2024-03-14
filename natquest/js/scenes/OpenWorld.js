@@ -44,7 +44,7 @@ class OpenWorld extends Phaser.Scene {
       boundaryOffset,
       map.widthInPixels - 2 * boundaryOffset,
       map.heightInPixels - 2 * boundaryOffset
-
+        )
 
 
    this.logText = this.add.text(10, 10, '', { fill: '#ffffff' });
