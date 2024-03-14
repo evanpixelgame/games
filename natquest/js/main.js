@@ -5,7 +5,7 @@ const height = window.innerHeight;
 const config = {
   type: Phaser.AUTO,
   width: width,
-  height: height,
+  height: 350,
   parent: 'game-container',
   pixelArt: true,
   scale: {
