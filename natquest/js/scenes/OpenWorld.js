@@ -198,9 +198,27 @@ window.addEventListener('orientationchange', () => {
      // this.handleOrientChange();
    //      }
 
-        window.addEventListener('orientationchange', () => {
+     /*  
+     
+     window.addEventListener('orientationchange', () => {
           this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
           this.cameras.main.startFollow(this.player);
+        }
+    });
+    */
+
+        window.addEventListener('orientationchange', () => {
+        if (this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE) {
+            const viewportWidth = this.scale.gameSize.width;
+            const viewportHeight = this.scale.gameSize.height;
+            const playerX = this.player.x;
+            const playerY = this.player.y;
+
+            const cameraX = playerX - viewportWidth / 2;
+            const cameraY = playerY - viewportHeight / 2;
+
+            this.cameras.main.scrollX = cameraX;
+            this.cameras.main.scrollY = cameraY;
         }
     });
 
