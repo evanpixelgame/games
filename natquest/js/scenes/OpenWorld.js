@@ -64,13 +64,13 @@ window.addEventListener('resize', () => {
 
   update(time, delta) {
    
-this.cameras.main.centerOn(this.player.x, this.player.y);
+// this.cameras.main.centerOn(this.player.x, this.player.y); // CHANGE POSITION TO END
    // this.cameras.main.scrollY = this.player.y + 200; DONT NEED 
   
 // Set canvas size to fill the screen
 this.game.scale.canvas.style.width = '100%';      //Put these in update func
 this.game.scale.canvas.style.height = '100%';
-
+this.cameras.main.centerOn(this.player.x, this.player.y);
 
 
 
