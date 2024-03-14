@@ -88,29 +88,30 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
     update() {
         // Assuming you have access to the OpenWorld scene
         const openWorldScene = this.scene.get('OpenWorld');
+         const comp = this.scene.get('ComputerControls');
 
         // Get the joystick cursor keys
         var cursorKeys = this.joyStick.createCursorKeys();
 
         // Check the joystick input and update player movement
         if (cursorKeys.up.isDown) {
-            this.player.setVelocityY(-this.speed);
-            this.player.anims.play('walking-down', true);
+            comp.player.setVelocityY(-this.speed);
+            comp.player.anims.play('walking-down', true);
         } else if (cursorKeys.down.isDown) {
-            this.player.setVelocityY(this.speed);
-            this.player.anims.play('walking-up', true);
+            comp.player.setVelocityY(this.speed);
+            comp.player.anims.play('walking-up', true);
         } else {
-            this.player.setVelocityY(0);
+            comp.player.setVelocityY(0);
         }
 
         if (cursorKeys.left.isDown) {
-            this.player.setVelocityX(-this.speed);
-            this.player.anims.play('walking-left', true);
+            comp.player.setVelocityX(-this.speed);
+            comp.player.anims.play('walking-left', true);
         } else if (cursorKeys.right.isDown) {
-            this.player.setVelocityX(this.speed);
-            this.player.anims.play('walking-right', true);
+            comp.player.setVelocityX(this.speed);
+            comp.player.anims.play('walking-right', true);
         } else {
-            this.player.setVelocityX(0);
+            comp.player.setVelocityX(0);
         }
     }
 }
