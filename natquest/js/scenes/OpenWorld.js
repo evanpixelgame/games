@@ -50,7 +50,7 @@ class OpenWorld extends Phaser.Scene {
    this.logText = this.add.text(10, 10, '', { fill: '#ffffff' });
 
     // Listen for orientation change event
-    window.addEventListener('orientationchange', this.handleOrientationChange.bind(this));
+
 
     this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
     this.player.setCollideWorldBounds(true);
@@ -60,7 +60,10 @@ class OpenWorld extends Phaser.Scene {
     this.cameras.main.startFollow(this.player);
   }
 
-  update(time, delta) {}
+  update(time, delta) {
+
+        window.addEventListener('orientationchange', this.handleOrientationChange.bind(this));
+  }
 
 handleOrientationChange() {
     // Check if the new orientation is portrait
