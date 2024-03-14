@@ -115,7 +115,18 @@ class OpenWorld extends Phaser.Scene {
    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
     // Code for Android or iOS
    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+
+     this.cameras.main.startFollow(this.player);
+
+window.addEventListener('orientationchange', () => {
+    // Calculate new sprite position based on orientation
+    updateSpritePosition();
+});
+     
       this.cameras.main.startFollow(this.player);
+
+
+    
       //  const centerX = map.width / 2;
    //     const centerY = map.height / 2;
        /// this.player.setPosition(centerX, centerY);
@@ -148,6 +159,28 @@ class OpenWorld extends Phaser.Scene {
        this.createAnimations();
   }
 
+
+function updateSpritePosition() {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    // Get sprite's current position
+    const spriteX = player.x;
+    const spriteY = player.y;
+
+    // Calculate the center of the viewport
+    const centerX = viewportWidth / 2;
+    const centerY = viewportHeight / 2;
+
+    // Calculate the difference between the sprite's current position and the center of the viewport
+    const deltaX = spriteX - centerX;
+    const deltaY = spriteY - centerY;
+
+    // Update the sprite's position to maintain its relative position to the center of the viewport
+    player.x = centerX + deltaX;
+    player.y = centerY + deltaY;
+}
+  
 /*
   setInitialPlayerPosition() {
     // Check the current orientation
