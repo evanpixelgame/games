@@ -80,6 +80,7 @@ handleOrientationChange() {
     const map = this.make.tilemap({ key: 'map' });
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 }
+  
 }
 
 window.OpenWorld = OpenWorld;
