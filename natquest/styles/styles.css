@@ -63,8 +63,3 @@ color: #fff;
     /* Other styles specific to small screens */
 }
 
-#version {
-  position: absolute;
-  left: 75px;
-  top: 75px;
-}
