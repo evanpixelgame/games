@@ -80,7 +80,7 @@ calculateCameraBounds() {
         screenWidth,
         screenHeight
     );
-
+    console.log('calculatecameraboundstest');
     // Set camera bounds
     this.cameras.main.setBounds(cameraBounds.x, cameraBounds.y, cameraBounds.width, cameraBounds.height);
 }
