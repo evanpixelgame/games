@@ -200,9 +200,9 @@ window.addEventListener('orientationchange', () => {
 
   update(time, delta) {
 
-  if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+//  if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {  //uncomment this out later, just making it true for both now so i can test it in screenviewer 
       this.handleOrientChange();
-         }
+   //      }
 
     
     if (this.cursors.up.isDown) {
