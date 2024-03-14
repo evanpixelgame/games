@@ -133,6 +133,7 @@ window.addEventListener('orientationchange', () => {
  centerLand() {
         window.addEventListener('orientationchange', () => {
         if (this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE) {
+           this.scale.setGameSize(window.innerWidth, window.innerHeight);
             const viewportWidth = this.scale.gameSize.width;
             const viewportHeight = this.scale.gameSize.height;
             const playerX = this.player.x;
@@ -144,6 +145,7 @@ window.addEventListener('orientationchange', () => {
             console.log('hekkasdf');
             this.cameras.main.scrollX = cameraX;
             this.cameras.main.scrollY = cameraY;
+          
         }
     });
  }
