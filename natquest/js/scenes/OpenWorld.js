@@ -200,7 +200,10 @@ window.addEventListener('orientationchange', () => {
 
   update(time, delta) {
 
-this.handleOrientChange();
+  if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+      this.handleOrientChange();
+         }
+
     
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
