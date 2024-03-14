@@ -9,7 +9,12 @@ class ComputerControls extends Phaser.Scene {
   }
 
   create() {
+
+    //SCENE & VARIABLE ACCESS TO OPENWORLD SCENE
  this.openWorldScene = this.scene.get('OpenWorld');
+ this.player = this.scene.get('OpenWorld').player;  
+
+    
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
   if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
      this.scale.setGameSize(window.innerWidth, window.innerHeight); 
