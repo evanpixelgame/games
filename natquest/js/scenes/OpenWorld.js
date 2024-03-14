@@ -1,4 +1,3 @@
-
 class OpenWorld extends Phaser.Scene {
   constructor() {
     super({ key: 'OpenWorld' });
@@ -12,7 +11,8 @@ class OpenWorld extends Phaser.Scene {
     this.playerCharacter = this.selectedCharacter;
   }
       
-  preload() {  
+  preload() {
+    
     console.log(this.selectedCharacter);
     
     if (gameManager.selectedCharacter == 'Baby Mouse') {  
@@ -36,8 +36,6 @@ class OpenWorld extends Phaser.Scene {
 
   create() {
 
-this.scene.launch('MobileControls');
-    
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
   if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
      this.scale.setGameSize(window.innerWidth, window.innerHeight); 
@@ -52,6 +50,18 @@ this.scene.launch('MobileControls');
     .setScrollFactor(0); 
   }
 
+    
+    
+    //    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+
+    
+        // Center game objects (optional)
+      //  this.scale.pageAlignHorizontally = true;
+      //  this.scale.pageAlignVertically = true;
+
+
+
+    
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
@@ -91,7 +101,6 @@ this.scene.launch('MobileControls');
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-
     //MOBILE SPECIFIC UI AND STUFF ****************************************************************************************************************************************************************
 
    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
@@ -99,56 +108,24 @@ this.scene.launch('MobileControls');
    this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
     this.scene.launch('MobileControls');
 
-
+   // this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+    // Center game objects (optional)
+  //  this.scale.pageAlignHorizontally = true;
+  //  this.scale.pageAlignVertically = true;
+    // Set the size of the game canvas to fill the entire screen
+ //   this.scale.setGameSize(window.innerWidth, window.innerHeight);
       
          if (window.orientation === 0 || window.orientation === 180) {
         // Portrait mode alert
         alert("Please switch to landscape mode for the best experience.");
       }
-
-window.addEventListener('orientationchange', () => {
-    // Calculate new sprite position based on orientation
-    updateSpritePosition();
-  alert("Please switch to landscape mode for the best experience.");
-    this.cameras.main.startFollow(this.player);
-});
- } // <=== closing bracket of mobile if statement
+ }
     //***********************************************************************************************************************************************************************************
 
-       this.createAnimations();  //<==== last line of create statement thats outside of mobile logic
-  } // <===== end of create function and below is the start of the class method declarations before the update func
-
-//below is start of testing class methods (still part of same section as createAnimations and other class methods)
-/*handleOrientChange() {
- if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
-  if (this.scale.orientation === Phaser.Scale.Orientation.LANDSCAPE) {
-  window.addEventListener('orientationchange', () => {
-    // Calculate new sprite position based on orientation
-   this.scale.orientation = Phaser.Scale.Orientation.PORTRAIT;
-});
+    
+       this.createAnimations();
   }
- }
-} 
-*/
- centerLand() {
-        window.addEventListener('orientationchange', () => {
-            const canvasWidth = this.scale.canvasBounds.width;
-            const canvasHeight = this.scale.canvasBounds.height;
-            const playerX = this.player.x;
-            const playerY = this.player.y;
 
-            // Adjust camera position based on player position and canvas dimensions
-            const cameraX = playerX - canvasWidth / 2;
-            const cameraY = playerY - canvasHeight / 4; // Adjust this value as needed
-
-            // Set the camera position
-            this.cameras.main.scrollX = cameraX;
-            this.cameras.main.scrollY = cameraY;
- 
-    });
- }
-  
-// below is the start of the class method declarations before the update func
   createAnimations() {
     this.anims.create({
         key: 'walking-up',
@@ -201,37 +178,6 @@ window.addEventListener('orientationchange', () => {
 
   update(time, delta) {
 
-//  if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {  //uncomment this out later, just making it true for both now so i can test it in screenviewer 
-     // this.handleOrientChange();
-   //      }
-
-     /*  
-     
-     window.addEventListener('orientationchange', () => {
-          this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
-          this.cameras.main.startFollow(this.player);
-        }
-    });
-    */
-
- //  this.centerLand();
-
-        const canvasWidth = this.scale.canvasBounds.width;
-    const canvasHeight = this.scale.canvasBounds.height;
-
-    // Get the position of the sprite
-    const playerX = this.player.x;
-    const playerY = this.player.y;
-
-    // Calculate the new camera position to keep the sprite centered
-    const cameraX = playerX - canvasWidth / 2;
-    const cameraY = playerY - canvasHeight / 2;
-
-    // Set the camera position
-    this.cameras.main.scrollX = cameraX;
-    this.cameras.main.scrollY = cameraY;
-
-    
     if (this.cursors.up.isDown) {
       this.player.setVelocityY(-this.speed);
        this.player.anims.play('walking-down', true);
