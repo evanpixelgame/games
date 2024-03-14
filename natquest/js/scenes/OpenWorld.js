@@ -44,6 +44,13 @@ class OpenWorld extends Phaser.Scene {
       boundaryOffset,
       map.widthInPixels - 2 * boundaryOffset,
       map.heightInPixels - 2 * boundaryOffset
+
+
+
+   this.logText = this.add.text(10, 10, '', { fill: '#ffffff' });
+
+    // Listen for orientation change event
+    window.addEventListener('orientationchange', this.handleOrientationChange.bind(this));
     );
 
     this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
@@ -56,21 +63,24 @@ class OpenWorld extends Phaser.Scene {
 
   update(time, delta) {}
 
-  handleOrientationChange() {
+handleOrientationChange() {
     // Check if the new orientation is portrait
     this.isPortrait = window.innerHeight > window.innerWidth;
 
+    // Log the orientation to the screen
+    this.logText.setText(`Orientation: ${this.isPortrait ? 'Portrait' : 'Landscape'}`);
+
     // Resize the game and update camera accordingly
     if (this.isPortrait) {
-      this.scale.setGameSize(window.innerWidth, window.innerHeight);
+        this.scale.setGameSize(window.innerWidth, window.innerHeight);
     } else {
-      this.scale.setGameSize(window.innerHeight, window.innerWidth);
+        this.scale.setGameSize(window.innerHeight, window.innerWidth);
     }
 
     // Update camera bounds
     const map = this.make.tilemap({ key: 'map' });
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-  }
+}
 }
 
 window.OpenWorld = OpenWorld;
