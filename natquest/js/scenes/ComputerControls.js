@@ -11,10 +11,14 @@ class ComputerControls extends Phaser.Scene {
   create() {
 
     //SCENE & VARIABLE ACCESS TO OPENWORLD SCENE
- this.openWorldScene = this.scene.get('OpenWorld');
- this.mobileControlsScene = this.scene.get('MobileControls');
- this.player = this.scene.get('OpenWorld').player;  
- this.speed = this.openWorldScene.speed;
+ //this.openWorldScene = this.scene.get('OpenWorld');
+ //this.mobileControlsScene = this.scene.get('MobileControls');
+// this.player = this.scene.get('OpenWorld').player;  
+// this.speed = this.openWorldScene.speed;
+
+        this.openWorldScene = this.scene.get('OpenWorld');
+        this.player = this.openWorldScene.player;
+        this.speed = this.openWorldScene.speed;
 
     
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
