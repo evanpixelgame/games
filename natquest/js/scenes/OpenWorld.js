@@ -7,7 +7,7 @@ class OpenWorld extends Phaser.Scene {
   //  this.isMobile = null;
   //  this.isComputer = true;
     this.map = null;
-    //this.player = welcomePlayer.player; // Declare player as a property of the class
+    this.player = null; // Declare player as a property of the class
     this.speed = 200; // Move the speed declaration here
    // let selectedCharacter = this.selectedCharacter;
     //this.playerCharacter = this.selectedCharacter;
