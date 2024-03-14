@@ -52,28 +52,30 @@ class OpenWorld extends Phaser.Scene {
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player);
+
+// Handle window resize event
+window.addEventListener('resize', () => {
+    // Update canvas size to fill the screen       //PUT THIS IN CREATE FUNC
+      this.game.config.width = window.innerHeight;
+      this.game.config.height = window.innerWidth
+   
+});  
+    
   }
 
   update(time, delta) {
-    this.cameras.main.centerOn(this.player.x, this.player.y);
-       this.game.config.width = window.innerHeight;
-        this.game.config.height = window.innerWidth
+   
+this.cameras.main.centerOn(this.player.x, this.player.y);
    // this.cameras.main.scrollY = this.player.y + 200; DONT NEED 
   
 // Set canvas size to fill the screen
 this.game.scale.canvas.style.width = '100%';      //Put these in update func
 this.game.scale.canvas.style.height = '100%';
 
-    /*  
-// Handle window resize event
-window.addEventListener('resize', () => {
-    // Update canvas size to fill the screen       //PUT THIS IN CREATE FUNC
-    game.scale.canvas.style.width = '100%';
-    game.scale.canvas.style.height = '100%';
-   
-});  
 
- 
+
+
+     /*  
 class YourScene extends Phaser.Scene {
     constructor() {
         super({ key: 'YourScene' });
