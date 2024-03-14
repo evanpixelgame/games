@@ -137,8 +137,8 @@ window.addEventListener('orientationchange', () => {
            this.scale.orientation = Phaser.Scale.Orientation.LANDSCAPE;
           this.cameras.main.startFollow(this.player);
            
-/*
- const viewportWidth = this.scale.gameSize.width;
+
+           const viewportWidth = this.scale.gameSize.width;
             const viewportHeight = this.scale.gameSize.height;
             const playerX = this.player.x;
             const playerY = this.player.y;
@@ -147,7 +147,7 @@ window.addEventListener('orientationchange', () => {
             const cameraY = playerY - viewportHeight / 2;
 
             this.cameras.main.scrollX = cameraX;
-            this.cameras.main.scrollY = cameraY;  */
+            this.cameras.main.scrollY = cameraY; 
  
     });
  }
