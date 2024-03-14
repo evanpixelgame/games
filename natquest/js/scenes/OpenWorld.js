@@ -132,22 +132,18 @@ window.addEventListener('orientationchange', () => {
 */
  centerLand() {
         window.addEventListener('orientationchange', () => {
-            this.scale.setGameSize(window.innerWidth, window.innerHeight);
-             this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
-           this.scale.orientation = Phaser.Scale.Orientation.LANDSCAPE;
-          this.cameras.main.startFollow(this.player);
-           
-
-           const viewportWidth = this.scale.gameSize.width;
-            const viewportHeight = this.scale.gameSize.height;
+            const canvasWidth = this.scale.canvasBounds.width;
+            const canvasHeight = this.scale.canvasBounds.height;
             const playerX = this.player.x;
             const playerY = this.player.y;
 
-            const cameraX = playerX - viewportWidth / 2;
-            const cameraY = playerY - viewportHeight / 2;
+            // Adjust camera position based on player position and canvas dimensions
+            const cameraX = playerX - canvasWidth / 2;
+            const cameraY = playerY - canvasHeight / 4; // Adjust this value as needed
 
+            // Set the camera position
             this.cameras.main.scrollX = cameraX;
-            this.cameras.main.scrollY = cameraY; 
+            this.cameras.main.scrollY = cameraY;
  
     });
  }
