@@ -49,7 +49,7 @@ class OpenWorld extends Phaser.Scene {
 
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    
+    this.cameras.main.startFollow(this.player);
   }
 
   update(time, delta) {
