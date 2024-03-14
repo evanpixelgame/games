@@ -72,6 +72,10 @@ this.game.scale.canvas.style.width = '100%';      //Put these in update func
 this.game.scale.canvas.style.height = '100%';
 this.cameras.main.centerOn(this.player.x, this.player.y);
 
+const gameHeight = this.game.scale;
+const spriteHeight = this.player.height; // Get the sprite's height
+this.cameras.main.setY(gameHeight - spriteHeight - this.player.y);
+
 
 
      /*  
