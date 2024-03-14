@@ -48,8 +48,8 @@ class OpenWorld extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
 
   // Constrain the camera
-  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    this.cameras.main.startFollow(this.player);
+//  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+ //   this.cameras.main.startFollow(this.player);
 
 
       // Listen for orientation change events
@@ -62,7 +62,9 @@ class OpenWorld extends Phaser.Scene {
         this.calculateCameraBounds();
     });
 
-    
+            // Set initial camera bounds to match the game content dimensions
+        this.cameras.main.setBounds(0, 0, game.config.width, game.config.height);
+        this.cameras.main.startFollow(player);
   }
 
 /*
