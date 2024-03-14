@@ -132,15 +132,21 @@ window.addEventListener('orientationchange', () => {
 */
 
   handleOrientChange() {
+  
+
+
+    
     window.addEventListener('orientationchange', () => {
         if (window.orientation === 90 || window.orientation === -90) {
             // Landscape orientation
            //this.scale.mode = Phaser.Scale.ScaleModes.RESIZE;
           this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+          this.cameras.main.startFollow(this.player);
         } else {
             // Portrait orientation
           // this.scale.mode = Phaser.Scale.ScaleModes.RESIZE;
           this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
+          this.cameras.main.startFollow(this.player);
         }
     });
 }
