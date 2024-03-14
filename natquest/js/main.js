@@ -4,8 +4,8 @@ const height = window.innerHeight;
 //const height = 600;
 const config = {
   type: Phaser.AUTO,
-  width: 200,
-  height: 200,
+  width: 800,
+  height: 600,
   parent: 'game-container',
   pixelArt: true,
   scale: {
@@ -13,7 +13,7 @@ const config = {
    // mode: Phaser.Scale.ScaleModes.WIDTH_CONTROLS_HEIGHT,
    // autoCenter: Phaser.Scale.CENTER_VERTICALLY,
    // autoCenter: Phaser.Scale.CENTER_BOTH,
-    mode: Phaser.Scale.FIT,
+    //mode: Phaser.Scale.FIT,
    // autoCenter: Phaser.Scale.CENTER_BOTH
   },
   physics: {
