@@ -131,12 +131,6 @@ window.addEventListener('orientationchange', () => {
 } 
 */
 
-  handleOrientChange() {
-    window.addEventListener('orientationchange', () => {
-          this.scale.scaleMode = Phaser.Scale.ScaleModes.RESIZE;
-          this.cameras.main.startFollow(this.player);
-        }
-    });
 
   
   
