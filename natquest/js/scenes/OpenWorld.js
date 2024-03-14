@@ -210,6 +210,7 @@ window.addEventListener('orientationchange', () => {
             const cameraX = playerX - viewportWidth / 2;
             const cameraY = playerY - viewportHeight / 2;
 
+            console.log('hekkasdf');
             this.cameras.main.scrollX = cameraX;
             this.cameras.main.scrollY = cameraY;
         }
