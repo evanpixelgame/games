@@ -51,7 +51,7 @@ class OpenWorld extends Phaser.Scene {
 //  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
  //   this.cameras.main.startFollow(this.player);
 
-
+/*
       // Listen for orientation change events
     window.addEventListener('resize', () => {
         // Recalculate camera bounds on orientation change
@@ -60,7 +60,8 @@ class OpenWorld extends Phaser.Scene {
        window.addEventListener('orientationchange', () => {
         // Recalculate camera bounds on orientation change
         this.calculateCameraBounds();
-    });
+    }); 
+    */
 
             // Set initial camera bounds to match the game content dimensions
         this.cameras.main.setBounds(0, 0, game.config.width, game.config.height);
