@@ -50,6 +50,7 @@ class StartMenu extends Phaser.Scene {
     if (orientation.includes('landscape')) {
         // Execute event handler code only in landscape mode
         console.log('Click event in landscape mode');
+       window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
       this.scene.start('NameSelect');
     } else {
         // Ignore the click event in portrait mode
