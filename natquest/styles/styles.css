@@ -20,15 +20,7 @@
 
       #game-container {
 
-         position: absolute;
-    bottom: 10vh; /* Adjust the vertical position as needed */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    max-width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    z-index: 1; /* Ensure virtual keyboard appears below the input field */    
+
   /*      min-width: 100%;
         min-height: 100%;
         display: flex;
@@ -36,12 +28,35 @@
         justify-content: center; */
       }
 
+.input-field {
+    position: absolute;
+    top: 10vh; /* Adjust the vertical position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    font-size: 24px;
+    border: 1px solid black;
+    background: cerulean;
+    color: black;
+    z-index: 2; /* Ensure input field appears above the virtual keyboard */
+}
 
 .keyboard-container {
-    max-width: 400px; /* Adjust the maximum width as needed */
+   /*
+      max-width: 400px; /* Adjust the maximum width as needed 
     display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap onto the next line */
+    flex-wrap: wrap; /* Allow buttons to wrap onto the next line 
     justify-content: center; /* Center-align the buttons */
+
+      
+position: absolute;
+    bottom: 10vh; /* Adjust the vertical position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1; /* Ensure virtual keyboard appears below the input field */
 }
 
 .keyboard-button {
