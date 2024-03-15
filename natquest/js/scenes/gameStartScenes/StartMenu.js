@@ -10,7 +10,7 @@ class StartMenu extends Phaser.Scene {
   create() {
 
     // Add background image
-    const background = this.add.image(50vw, 300, 'background');
+    const background = this.add.image(400, 300, 'background');
     background.setOrigin(0.5);
 
     // Add a title
