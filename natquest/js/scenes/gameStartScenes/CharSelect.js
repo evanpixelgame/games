@@ -24,17 +24,17 @@ backdrop.lineStyle(4, 0x000000, 1);
 
     
   // Display character options
-  const character1 = this.add.image(200, 150, 'Baby Mouse').setInteractive();
-  const character2 = this.add.image(400, 150, 'Confused Woman').setInteractive();
-  const character3 = this.add.image(600, 150, 'Fat Wolf').setInteractive();
+  const character1 = this.add.image(100, 100, 'Baby Mouse').setInteractive();
+  const character2 = this.add.image(200, 100, 'Confused Woman').setInteractive();
+  const character3 = this.add.image(300, 100, 'Fat Wolf').setInteractive();
 
-character1.setScale(2.8); // Adjust the scale factor (0.5 scales to half the size)
-character2.setScale(2.8); 
-character3.setScale(2.8);
+character1.setScale(2); // Adjust the scale factor (0.5 scales to half the size)
+character2.setScale(2); 
+character3.setScale(2);
 
     
       // Add some text to the backdrop
-  const instructionText = this.add.text(400, 270, 'Pick a character', {
+  const instructionText = this.add.text(20%, 50%, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'knewave',
     fill: '#c92b23',
@@ -51,7 +51,7 @@ character3.setScale(2.8);
   this.inputElement = document.createElement('input');
   this.inputElement.type = 'text';
   this.inputElement.placeholder = 'Enter your name'; 
-  this.inputElement.style = 'position: absolute; top: 250; left: 300; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
+  this.inputElement.style = 'position: absolute; top: 80%; left: 50%; transform: translateX(-50%); font-size: 14px; border: 1px solid black; background: cerulean; color: black;';
 
   // Append the input element to the document body
   document.body.appendChild(this.inputElement);
@@ -94,7 +94,7 @@ selectCharacter(characterKey, characterImage) {
   console.log(`Selected character: ${this.selectedCharacter}`);
 
   // Continue button
-  const continueButton = this.add.text(300, 250, 'Continue', {
+  const continueButton = this.add.text(60%, 50%, 'Continue', {
     fontSize: '48px',
     fontFamily: 'knewave',
     fill: '#c92b23',
