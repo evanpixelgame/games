@@ -78,7 +78,7 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
       console.log('thisshouldexitfullscreen');
     } else {
            canvas.requestFullscreen();
-      console.log{'thisshouldenterfullscreen');
+      console.log('thisshouldenterfullscreen');
         if (canvas.requestFullscreen) {
             canvas.requestFullscreen();
         } else if (canvas.webkitRequestFullscreen) { /* Safari */
