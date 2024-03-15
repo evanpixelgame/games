@@ -47,7 +47,7 @@ class NameSelect extends Phaser.Scene {
   // Set a callback function for the button click event
   continueButton.on('pointerdown', function () {
   // Check if both character and name are selected
-  if (this.selectedCharacter) {
+  if (this.selectedCharacter !== '') {
     // Transition to the main scene when the conditions are met
     this.scene.start('CharSelect');
     this.inputElement.style = 'display: none;';
@@ -56,7 +56,7 @@ class NameSelect extends Phaser.Scene {
     // Display alert for incomplete conditions
     let alertMessage = '';
 
-    if (!this.selectedCharacter) {
+    if (this.selectedCharacter == '') {
       alertMessage += 'Please choose a name.\n';
     }
 
