@@ -46,9 +46,23 @@ class StartMenu extends Phaser.Scene {
 
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
-      // Transition to the main scene when the button is clicked
+         const orientation = window.screen.orientation.type;
+    // Check if the device is in landscape mode
+    if (orientation.includes('landscape')) {
+        // Execute event handler code only in landscape mode
+        console.log('Click event in landscape mode');
       this.scene.start('WelcomePlayer');
+    } else {
+        // Ignore the click event in portrait mode
+        console.log('Ignoring click event in portrait mode');
+      alert('please enter landscape mode to continue');
+    } 
+      // Transition to the main scene when the button is clicked
+      //this.scene.start('OpenWorld');
     }, this);
+
+
+    
   }
 }
 
