@@ -60,7 +60,7 @@ position: absolute;
 }
 
 .keyboard-button {
-    background-color: #ffffff;
+    background-color: pink;
     color: #a3a4d2;
     border: 1px solid #000000;
     border-radius: 5px;
@@ -73,6 +73,15 @@ position: absolute;
     justify-content: center;
     align-items: center;
 }
+
+.keyboard-button:hover {
+    background-color: #cccccc; /* Fill color on hover */
+}
+
+.keyboard-button:active {
+    background-color: #999999; /* Fill color when pressed */
+}
+
 
 #keyboard-button-space {
     width: 100px; /* Adjust width as needed */
