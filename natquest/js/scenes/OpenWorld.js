@@ -64,7 +64,7 @@ class OpenWorld extends Phaser.Scene {
         */
 
 
-window.addEventListener('orientationchange', handleReorientation);
+//window.addEventListener('orientationchange', handleReorientation);
     
   }
 
