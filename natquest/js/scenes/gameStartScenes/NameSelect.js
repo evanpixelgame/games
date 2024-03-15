@@ -15,7 +15,7 @@ class NameSelect extends Phaser.Scene {
             const xMid = vw * .5;
             const vh = window.innerHeight;
 
-        const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+        const background = this.add.image(xMid, vh * .8, 'background').setOrigin(0.5);
 
         const backdrop = this.add.graphics();
         backdrop.fillStyle(0xE6E6FA, .7);
