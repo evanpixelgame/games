@@ -49,7 +49,7 @@ class NameSelect extends Phaser.Scene {
   // Check if both character and name are selected
   if (this.selectedCharacter) {
     // Transition to the main scene when the conditions are met
-    this.scene.start('WelcomePlayer');
+    this.scene.start('CharSelect');
     this.inputElement.style = 'display: none;';
     gameManager.selectedCharacter = this.selectedCharacter;
   } else {
@@ -57,7 +57,7 @@ class NameSelect extends Phaser.Scene {
     let alertMessage = '';
 
     if (!this.selectedCharacter) {
-      alertMessage += 'Please select a character.\n';
+      alertMessage += 'Please choose a name.\n';
     }
 
     alert(alertMessage);
