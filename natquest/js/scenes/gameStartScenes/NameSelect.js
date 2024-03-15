@@ -36,28 +36,32 @@ class NameSelect extends Phaser.Scene {
     }
 
     createVirtualKeyboard() {
-        // Create virtual keyboard buttons
-        // Example: Create a button for each letter
-        // ID of individual buttons for individual styling follows convention of:
-        //letter "A" button will have the ID keyboard-button-a, the letter "B" button will have the ID keyboard-button-b, and so on.
-        //The space button will have the ID keyboard-button-space, and the backspace button will have the ID keyboard-button-backspace.
-        //The classes for the overall keyboard are 
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const keyboardContainer = document.createElement('div');
-        keyboardContainer.style = 'position: absolute; bottom: 20vh; left: 50vw; transform: translateX(-50%);';
-        document.body.appendChild(keyboardContainer);
+    // Create virtual keyboard buttons
+    // Example: Create a button for each letter
+    // ID of individual buttons for individual styling follows convention of:
+    //letter "A" button will have the ID keyboard-button-a, the letter "B" button will have the ID keyboard-button-b, and so on.
+    //The space button will have the ID keyboard-button-space, and the backspace button will have the ID keyboard-button-backspace.
+    //The classes for the overall keyboard are 
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const keyboardContainer = document.createElement('div');
+    keyboardContainer.style = 'position: absolute; bottom: 20vh; left: 50vw; transform: translateX(-50%);';
+    document.body.appendChild(keyboardContainer);
 
-        for (let letter of letters) {
-            const button = document.createElement('button');
-            button.textContent = letter;
-            button.style = 'font-size: 24px; padding: 10px;';
-            button.addEventListener('touchstart', () => this.updateInputText(letter));
-            keyboardContainer.appendChild(button);
-        }
+    for (let letter of letters) {
+        const button = document.createElement('button');
+        button.textContent = letter;
+        button.id = `keyboard-button-${letter.toLowerCase()}`;
+        button.classList.add('keyboard-button'); // Add class for styling
+        button.style = 'font-size: 24px; padding: 10px;';
+        button.addEventListener('touchstart', () => this.updateInputText(letter));
+        keyboardContainer.appendChild(button);
+    }
 
-          // Create space button
+    // Create space button
     const spaceButton = document.createElement('button');
     spaceButton.textContent = 'Space';
+    spaceButton.id = 'keyboard-button-space';
+    spaceButton.classList.add('keyboard-button'); // Add class for styling
     spaceButton.style = 'font-size: 24px; padding: 10px;';
     spaceButton.addEventListener('touchstart', () => this.updateInputText(' '));
     keyboardContainer.appendChild(spaceButton);
@@ -65,6 +69,8 @@ class NameSelect extends Phaser.Scene {
     // Create backspace button
     const backspaceButton = document.createElement('button');
     backspaceButton.textContent = 'Backspace';
+    backspaceButton.id = 'keyboard-button-backspace';
+    backspaceButton.classList.add('keyboard-button'); // Add class for styling
     backspaceButton.style = 'font-size: 24px; padding: 10px;';
     backspaceButton.addEventListener('touchstart', () => this.handleBackspace());
     keyboardContainer.appendChild(backspaceButton);
