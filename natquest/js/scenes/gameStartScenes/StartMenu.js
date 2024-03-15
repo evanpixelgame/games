@@ -18,6 +18,13 @@ class StartMenu extends Phaser.Scene {
     const background = this.add.image(xMid, vh * .8, 'background');
     background.setOrigin(0.5);
 
+// Add selection menu container
+     const backdrop = this.add.graphics();
+        backdrop.fillStyle(0xE6E6FA, .7);
+        backdrop.lineStyle(4, 0x000000, 1);
+        backdrop.fillRect(20, 20, 100, 300);
+
+    
     // Add a title
     const title = this.add.text(xMid, 200, 'NAT QUEST', {
       fontSize: '68px', 
