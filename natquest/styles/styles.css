@@ -10,6 +10,7 @@
 
         body, #background {
     background-color: #ffd7d7;
+                 overflow: hidden;
       }
 
       #game-container {
@@ -18,7 +19,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-            overflow: hidden;
       }
 
 
