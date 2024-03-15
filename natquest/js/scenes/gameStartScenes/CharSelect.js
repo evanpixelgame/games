@@ -11,6 +11,11 @@ class CharSelect extends Phaser.Scene {
   }
 
   create() {
+  
+      const vw = window.innerWidth;
+    const xMid = vw * .5;
+    const vh = window.innerHeight;
+    
   const background = this.add.image(xMid, vh * .8, 'background').setOrigin(0.5);
 
       const backdrop = this.add.graphics();
