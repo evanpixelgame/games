@@ -28,9 +28,9 @@ backdrop.lineStyle(4, 0x000000, 1);
   const character2 = this.add.image(400, 150, 'Confused Woman').setInteractive();
   const character3 = this.add.image(600, 150, 'Fat Wolf').setInteractive();
 
-character1.setScale(2.8); // Adjust the scale factor (0.5 scales to half the size)
-character2.setScale(2.8); 
-character3.setScale(2.8);
+character1.setScale(2); // Adjust the scale factor (0.5 scales to half the size)
+character2.setScale(2); 
+character3.setScale(2);
 
     
       // Add some text to the backdrop
@@ -46,22 +46,6 @@ character3.setScale(2.8);
   character1.on('pointerdown', () => this.selectCharacter('Baby Mouse', character1));
   character2.on('pointerdown', () => this.selectCharacter('Confused Woman', character2));
   character3.on('pointerdown', () => this.selectCharacter('Fat Wolf', character3));
-
-  // Create an input element
-  this.inputElement = document.createElement('input');
-  this.inputElement.type = 'text';
-  this.inputElement.placeholder = 'Enter your name'; 
-  this.inputElement.style = 'position: absolute; top: 75vh; left: 50%; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
-
-  // Append the input element to the document body
-  document.body.appendChild(this.inputElement);
-
-  // Set focus on the input element
-  this.inputElement.focus();
-
-  // Handle input change event
-  this.inputElement.addEventListener('input', () => this.handleInputChange());
-}
 
 selectCharacter(characterKey, characterImage) {
   // Remove highlight from the previous selected character
@@ -106,11 +90,9 @@ selectCharacter(characterKey, characterImage) {
   // Set a callback function for the button click event
   continueButton.on('pointerdown', function () {
   // Check if both character and name are selected
-  if (this.selectedCharacter && this.inputText.trim() !== '') {
+  if (this.selectedCharacter) {
     // Transition to the main scene when the conditions are met
     this.scene.start('WelcomePlayer');
-    this.inputElement.style = 'display: none;';
-    gameManager.playerName = this.inputText.trim();
     gameManager.selectedCharacter = this.selectedCharacter;
   } else {
     // Display alert for incomplete conditions
@@ -119,25 +101,11 @@ selectCharacter(characterKey, characterImage) {
     if (!this.selectedCharacter) {
       alertMessage += 'Please select a character.\n';
     }
-
-    if (this.inputText.trim() === '') {
-      alertMessage += 'Please enter a valid name.';
-    }
-
-    if (!this.selectedCharacter && this.inputText.trim() === '') {
-      alertMessage = 'Please select a character and enter a valid name.';
-    }
-
     alert(alertMessage);
   }
 }, this);
 }
 
-handleInputChange() {
-  // Update the Phaser Text object with the input value
-  this.inputText = this.inputElement.value;
-  console.log(`Input Text: ${this.inputText}`);
-}
 
 }
 
