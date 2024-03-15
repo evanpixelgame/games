@@ -4,12 +4,10 @@ class StartMenu extends Phaser.Scene {
   }
 
   preload() {
-    // Load background image
-//    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+    
   }
 
   create() {
-    this.game.scale.resize(window.innerWidth, window.innerHeight);
 
     // Add background image
     const background = this.add.image(400, 300, 'background');
@@ -36,16 +34,7 @@ class StartMenu extends Phaser.Scene {
     });
 
     // Add a start button
-/*    const startButton = this.add.text(385, 550, 'Start', {
-      fontSize: '48px', 
-      fontFamily: 'knewave',
-      fill: '#c92b23',
-      padding: { x: 20, y: 20 },
-    })
-      .setOrigin(0.5)
-      .setInteractive(); */
-  // Add a start button
-    const startButton = this.add.text(100, 100, 'Start', {
+    const startButton = this.add.text(385, 550, 'Start', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -54,12 +43,6 @@ class StartMenu extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive();
 
-    // Set a callback function for the button click event
-    startButton.on('pointerdown', function () {
-      // Transition to the main scene when the button is clicked
-      this.scene.start('CharSelect');
-    }, this);
-/*
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
          const orientation = window.screen.orientation.type;
@@ -74,7 +57,6 @@ class StartMenu extends Phaser.Scene {
       alert('please enter landscape mode to continue');
     } 
       // Transition to the main scene when the button is clicked
-      //this.scene.start('OpenWorld');
     }, this);
 
 function handleResizeOnReorientation() {
@@ -84,7 +66,6 @@ location.reload();
 
 window.addEventListener('orientationchange', handleResizeOnReorientation);
     window.addEventListener('resize', handleResizeOnReorientation);
-    */
     
   }
 }
