@@ -35,37 +35,41 @@ class NameSelect extends Phaser.Scene {
         this.inputElement.addEventListener('input', () => this.handleInputChange());
     }
 
-    createVirtualKeyboard() {
-        // Create virtual keyboard buttons
-        // Example: Create a button for each letter
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const keyboardContainer = document.createElement('div');
-        keyboardContainer.style = 'position: absolute; bottom: 20vh; left: 50vw; transform: translateX(-50%);';
-        document.body.appendChild(keyboardContainer);
+  createVirtualKeyboard() {
+    // Create virtual keyboard buttons
+    // Example: Create a button for each letter
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const keyboardContainer = document.createElement('div');
+    keyboardContainer.classList.add('keyboard-container'); // Add class to container
+    document.body.appendChild(keyboardContainer);
 
-        for (let letter of letters) {
-            const button = document.createElement('button');
-            button.textContent = letter;
-            button.style = 'font-size: 24px; padding: 10px;';
-            button.addEventListener('click', () => this.updateInputText(letter));
-            keyboardContainer.appendChild(button);
-        }
+    for (let i = 0; i < letters.length; i++) {
+        const letter = letters[i];
+        const button = document.createElement('button');
+        button.textContent = letter;
+        const buttonId = `keyboard-button-${letter.toLowerCase()}`; // Generate unique ID
+        button.id = buttonId;
+        button.classList.add('keyboard-button'); // Add class to button
+        button.addEventListener('click', () => this.updateInputText(letter));
+        keyboardContainer.appendChild(button);
+    }
 
-          // Create space button
+    // Create space button
     const spaceButton = document.createElement('button');
     spaceButton.textContent = 'Space';
-    spaceButton.style = 'font-size: 24px; padding: 10px;';
+    spaceButton.id = 'keyboard-button-space'; // Assign unique ID
+    spaceButton.classList.add('keyboard-button'); // Add class to button
     spaceButton.addEventListener('click', () => this.updateInputText(' '));
     keyboardContainer.appendChild(spaceButton);
 
     // Create backspace button
     const backspaceButton = document.createElement('button');
     backspaceButton.textContent = 'Backspace';
-    backspaceButton.style = 'font-size: 24px; padding: 10px;';
+    backspaceButton.id = 'keyboard-button-backspace'; // Assign unique ID
+    backspaceButton.classList.add('keyboard-button'); // Add class to button
     backspaceButton.addEventListener('click', () => this.handleBackspace());
     keyboardContainer.appendChild(backspaceButton);
 }
-
 handleBackspace() {
     this.inputText = this.inputText.slice(0, -1);
     this.inputElement.value = this.inputText;
