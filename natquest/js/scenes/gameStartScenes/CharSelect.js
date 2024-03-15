@@ -27,6 +27,7 @@ backdrop.lineStyle(4, 0x000000, 1);
   const character1 = this.add.image(200, 150, 'Baby Mouse').setInteractive();
   const character2 = this.add.image(400, 150, 'Confused Woman').setInteractive();
   const character3 = this.add.image(600, 150, 'Fat Wolf').setInteractive();
+    
 
 character1.setScale(2); // Adjust the scale factor (0.5 scales to half the size)
 character2.setScale(2); 
