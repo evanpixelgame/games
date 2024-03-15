@@ -11,7 +11,7 @@ class CharSelect extends Phaser.Scene {
   }
 
   create() {
-  const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+  const background = this.add.image(xMid, vh * .8, 'background').setOrigin(0.5);
 
       const backdrop = this.add.graphics();
   backdrop.fillStyle(0xE6E6FA, .7); // F8F8FF is the hex code for off-white, and 1 is the opacity
