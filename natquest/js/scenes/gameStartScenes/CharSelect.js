@@ -92,7 +92,6 @@ selectCharacter(characterKey, characterImage) {
   if (this.selectedCharacter) {
     // Transition to the main scene when the conditions are met
     this.scene.start('WelcomePlayer');
-    this.inputElement.style = 'display: none;';
     gameManager.selectedCharacter = this.selectedCharacter;
   } else {
     // Display alert for incomplete conditions
