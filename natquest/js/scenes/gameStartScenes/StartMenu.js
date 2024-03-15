@@ -39,8 +39,8 @@ class StartMenu extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(100, 100, 'Start', {
-      fontSize: '48px', 
+    const startButton = this.add.text(50, 100, 'Start', {
+      fontSize: '28px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
       padding: { x: 20, y: 20 },
