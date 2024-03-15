@@ -1,103 +1,115 @@
-class NameSelect extends Phaser.Scene {
-    constructor() {
-        super({ key: 'NameSelect' });
-        this.playerName = '';
-        this.inputText = '';
-        this.inputElement = null;
-    }
 
-    preload() {}
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap')
 
-    create() {
-        window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
+      html,
+      body,
+      #game-container {
+        margin: 0;
+        padding: 0;
+      }
 
-        const background = this.add.image(400, 300, 'background').setOrigin(0.5);
+        body {
+    background-color: #ffd7d7;
+                 overflow: hidden;
+      }
 
-        const backdrop = this.add.graphics();
-        backdrop.fillStyle(0xE6E6FA, .7);
-        backdrop.lineStyle(4, 0x000000, 1);
-        backdrop.fillRect(100, 150, 600, 150);
+            #background {
+                  background-color: #ffd7d7;
+            }
 
-        // Create an input element
-        this.inputElement = document.createElement('input');
-        this.inputElement.type = 'text';
-        this.inputElement.placeholder = 'Enter your name';
-        this.inputElement.style = 'position: absolute; top: 30vh; left: 20vw; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
-        this.inputElement.readOnly = true; // Prevent native keyboard from appearing
 
-        // Append the input element to the document body
-        document.body.appendChild(this.inputElement);
+      #game-container {
 
-        // Create virtual keyboard
-        this.createVirtualKeyboard();
+         position: absolute;
+    bottom: 10vh; /* Adjust the vertical position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1; /* Ensure virtual keyboard appears below the input field */    
+  /*      min-width: 100%;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center; */
+      }
 
-        // Handle input change event
-        this.inputElement.addEventListener('input', () => this.handleInputChange());
-    }
 
-createVirtualKeyboard() {
-    // Create virtual keyboard buttons
-    // Example: Create a button for each letter
-    // ID of individual buttons for individual styling follows convention of:
-    //letter "A" button will have the ID keyboard-button-a, the letter "B" button will have the ID keyboard-button-b, and so on.
-    //The space button will have the ID keyboard-button-space, and the backspace button will have the ID keyboard-button-backspace.
-    //The classes for the overall keyboard are 
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const keyboardContainer = document.createElement('div');
-    keyboardContainer.style = 'position: absolute; bottom: 20vh; left: 50vw; transform: translateX(-50%);';
-    document.body.appendChild(keyboardContainer);
+.keyboard-container {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap onto the next line */
+    justify-content: center; /* Center-align the buttons */
+}
 
-    for (let letter of letters) {
-        const button = document.createElement('button');
-        button.textContent = letter;
-        button.id = `keyboard-button-${letter.toLowerCase()}`;
-        button.classList.add('keyboard-button'); // Add class for styling
-        button.style = 'font-size: 24px; padding: 10px;';
-        button.addEventListener('touchstart', () => this.updateInputText(letter));
-        button.addEventListener('click', () => this.updateInputText(letter));
-        keyboardContainer.appendChild(button);
-    }
+.keyboard-button {
+    background-color: #ffffff;
+    color: #a3a4d2;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin: 1px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  /*  width: 50px; /* Adjust button width
+    height: 50px; /* Adjust button height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    // Create space button
-    const spaceButton = document.createElement('button');
-    spaceButton.textContent = 'Space';
-    spaceButton.id = 'keyboard-button-space';
-    spaceButton.classList.add('keyboard-button'); // Add class for styling
-    spaceButton.style = 'font-size: 24px; padding: 10px;';
-    spaceButton.addEventListener('touchstart', () => this.updateInputText(' '));
-     spaceButton.addEventListener('click', () => this.updateInputText(' '));
-    keyboardContainer.appendChild(spaceButton);
+#keyboard-button-space {
+    width: 100px; /* Adjust width as needed */
+}
 
-    // Create backspace button
-    const backspaceButton = document.createElement('button');
-    backspaceButton.textContent = 'Backspace';
-    backspaceButton.id = 'keyboard-button-backspace';
-    backspaceButton.classList.add('keyboard-button'); // Add class for styling
-    backspaceButton.style = 'font-size: 24px; padding: 10px;';
-    backspaceButton.addEventListener('touchstart', () => this.handleBackspace());
-     backspaceButton.addEventListener('click', () => this.handleBackspace());
-    keyboardContainer.appendChild(backspaceButton);
+#keyboard-button-backspace {
+    width: 100px; /* Adjust width as needed */
 }
 
 
-    
-handleBackspace() {
-    this.inputText = this.inputText.slice(0, -1);
-    this.inputElement.value = this.inputText;
-    this.inputElement.dispatchEvent(new Event('input'));
+
+
+/*
+      #game-container > canvas {
+        border-radius: 5px;
+      }
+*/
+
+      .knewave-regular {
+  font-family: "Knewave", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
-    updateInputText(letter) {
-        this.inputText += letter;
-        this.inputElement.value = this.inputText;
-        this.inputElement.dispatchEvent(new Event('input'));
-    }
-
-    handleInputChange() {
-        // Update the Phaser Text object with the input value
-        this.inputText = this.inputElement.value;
-        console.log(`Input Text: ${this.inputText}`);
-    }
+      .protest-riot-regular {
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-window.NameSelect = NameSelect;
+#inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; 
+}
+
+#nameInput {
+background-color: #3498db; /* Set to the desired shade of blue */
+color: #fff;
+}
+
+#confirmButton {
+background-color: #3498db; /* Set to the desired shade of blue */
+color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+       width: 100%;
+          height: 100%;
+    }
+/*body,canvas{width:100%}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}body{height:100%}
+    /* Other styles specific to small screens */
+}
