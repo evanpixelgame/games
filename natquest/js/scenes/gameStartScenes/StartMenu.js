@@ -62,7 +62,7 @@ class StartMenu extends Phaser.Scene {
 
 
 window.addEventListener('orientationchange', this.handleResizeOnReorientation);
-    window.addEventListener('resize', this.handleResizeOnReorientation);
+ //   window.addEventListener('resize', this.handleResizeOnReorientation);
     
   }
 
