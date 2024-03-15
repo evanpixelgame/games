@@ -44,14 +44,6 @@ class StartMenu extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive();
 
-
-         const fullscreenButton = this.add.text(100, 200, 'Fullscreen', { fontSize: '24px', fill: 'blue' })
-        .setInteractive()
-        .on('pointerup', () => {
-            this.toggleFullscreen();
-        });
-
-
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
          const orientation = window.screen.orientation.type;
@@ -78,25 +70,6 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
     window.addEventListener('resize', handleResizeOnReorientation);
     
   }
-
-    toggleFullscreen() {
-    const canvas = this.sys.game.canvas;
-    if (document.fullscreenElement) {
-        document.exitFullscreen();
-      console.log('thisshouldexitfullscreen');
-    } else {
-           canvas.requestFullscreen();
-      console.log('thisshouldenterfullscreen');
-        if (canvas.requestFullscreen) {
-            canvas.requestFullscreen();
-        } else if (canvas.webkitRequestFullscreen) { /* Safari */
-            canvas.webkitRequestFullscreen();
-        } else if (canvas.msRequestFullscreen) { /* IE11 */
-            canvas.msRequestFullscreen();
-        }
-    }
-}  
-  
 }
 
 window.StartMenu = StartMenu;
