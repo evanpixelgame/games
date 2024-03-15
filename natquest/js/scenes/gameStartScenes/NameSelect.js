@@ -14,7 +14,7 @@ class NameSelect extends Phaser.Scene {
 
 
 
-  //  window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
+   window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
   
     // window.removeEventListener('resize', this.handleResizeOnReorientation);
 
