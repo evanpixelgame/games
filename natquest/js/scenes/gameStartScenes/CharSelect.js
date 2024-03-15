@@ -47,12 +47,6 @@ character3.setScale(2);
   character2.on('pointerdown', () => this.selectCharacter('Confused Woman', character2));
   character3.on('pointerdown', () => this.selectCharacter('Fat Wolf', character3));
 
-selectCharacter(characterKey, characterImage) {
-  // Remove highlight from the previous selected character
-  if (this.characterHighlight) {
-    this.characterHighlight.destroy();
-  }
-
   // Handle character selection logic
   this.selectedCharacter = characterKey;
 
@@ -105,8 +99,12 @@ selectCharacter(characterKey, characterImage) {
   }
 }, this);
 }
-
-
+  
+selectCharacter(characterKey, characterImage) {
+  // Remove highlight from the previous selected character
+  if (this.characterHighlight) {
+    this.characterHighlight.destroy();
+  }
 }
-
+}
 window.CharSelect = CharSelect;
