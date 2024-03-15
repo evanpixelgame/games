@@ -13,6 +13,10 @@ class CharSelect extends Phaser.Scene {
   }
 
   create() {
+//get rid of virtual keyboard hopefully
+    if (this.keyboardContainer) {
+            this.keyboardContainer.remove();
+            this.keyboardContainer = null;
   const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
       const backdrop = this.add.graphics();
