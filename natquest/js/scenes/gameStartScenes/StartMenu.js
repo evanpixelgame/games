@@ -79,7 +79,7 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
         });
 
 
-function toggleFullscreen() {
+toggleFullscreen() {
     const canvas = this.sys.game.canvas;
     if (document.fullscreenElement) {
         document.exitFullscreen();
@@ -95,11 +95,10 @@ function toggleFullscreen() {
             canvas.msRequestFullscreen();
         }
     }
-}
+}  
+  }
 
     
-    
-  }
 }
 
 window.StartMenu = StartMenu;
