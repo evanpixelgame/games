@@ -15,7 +15,7 @@ class StartMenu extends Phaser.Scene {
       
 
     // Add background image
-    const background = this.add.image(400, 300, 'background');
+    const background = this.add.image(xMid, vh * .5, 'background');
     background.setOrigin(0.5);
 
     // Add a title
@@ -39,7 +39,7 @@ class StartMenu extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(xMid, vh * .9, 'Start', {
+    const startButton = this.add.text(100, 100, 'Start', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
