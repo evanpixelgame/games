@@ -44,6 +44,14 @@ class StartMenu extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive();
 
+
+         const fullscreenButton = this.add.text(100, 200, 'Fullscreen', { fontSize: '24px', fill: 'blue' })
+        .setInteractive()
+        .on('pointerup', () => {
+            this.toggleFullscreen();
+        });
+
+
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
          const orientation = window.screen.orientation.type;
