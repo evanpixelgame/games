@@ -12,27 +12,30 @@
     background-color: #ffd7d7;
               overflow: hidden;
       }
-
+/*
     #game-container {
-            transform: rotate(-90deg); /* Rotate the game container */
-            transform-origin: left top; /* Rotate around the top-left corner */
-            width: 100vh; /* Swap width and height */
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            width: 100vh;
             height: 100vw;
-            position: fixed; /* Keep the game fixed */
+            position: fixed;
             top: 0;
             left: 0;
         }
+*/
 
 
-/*
       #game-container {
         min-width: 100%;
         min-height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+             width: 100vh;
+            height: 100vw;
+            position: fixed;
       }
-*/
+
 
 /*
       #game-container > canvas {
