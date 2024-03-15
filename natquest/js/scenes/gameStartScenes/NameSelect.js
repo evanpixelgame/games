@@ -41,6 +41,7 @@ class NameSelect extends Phaser.Scene {
         // ID of individual buttons for individual styling follows convention of:
         //letter "A" button will have the ID keyboard-button-a, the letter "B" button will have the ID keyboard-button-b, and so on.
         //The space button will have the ID keyboard-button-space, and the backspace button will have the ID keyboard-button-backspace.
+        //The classes for the overall keyboard are 
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const keyboardContainer = document.createElement('div');
         keyboardContainer.style = 'position: absolute; bottom: 20vh; left: 50vw; transform: translateX(-50%);';
