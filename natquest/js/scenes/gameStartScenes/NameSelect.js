@@ -47,7 +47,7 @@ class NameSelect extends Phaser.Scene {
   // Set a callback function for the button click event
   continueButton.on('pointerdown', function () {
   // Check if both character and name are selected
-  if (this.selectedCharacter !== '') {
+  if (this.selectedCharacter) {
     // Transition to the main scene when the conditions are met
     this.inputElement.style = 'display: none;';
     gameManager.playerName = this.inputText.trim();
