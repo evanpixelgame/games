@@ -46,7 +46,7 @@ class StartMenu extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(50, 100, 'Start', {
+    const startButton = this.add.text(75, 100, 'Start', {
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -56,7 +56,7 @@ class StartMenu extends Phaser.Scene {
       .setInteractive();
 
         // Add a start button
-    const settings = this.add.text(50, 150, 'Settings', {
+    const settings = this.add.text(75, 150, 'Settings', {
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
