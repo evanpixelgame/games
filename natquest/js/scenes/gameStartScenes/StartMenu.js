@@ -88,7 +88,7 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
         }
     }
 }  
-  }
+  
 }
 
 window.StartMenu = StartMenu;
