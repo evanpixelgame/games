@@ -44,6 +44,27 @@ class NameSelect extends Phaser.Scene {
     .setOrigin(0.5)
     .setInteractive();
 
+
+          // Set a callback function for the button click event
+  continueButton.on('pointerdown', function () {
+  // Check if both character and name are selected
+  if (this.inputText.trim() !== '') {
+    // Transition to the main scene when the conditions are met
+    this.scene.start('CharSelect');
+    this.inputElement.style = 'display: none;';
+    gameManager.playerName = this.inputText.trim();
+  } else {
+    // Display alert for incomplete conditions
+    let alertMessage = '';
+
+    if (this.inputText.trim() === '') {
+      alertMessage += 'Please enter a valid name.';
+    }
+
+    alert(alertMessage);
+  }
+}, this);
+
   // Set a callback function for the button click event
   continueButton.on('pointerdown', function () {
   // Check if both character and name are selected
