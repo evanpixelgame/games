@@ -62,13 +62,12 @@ class StartMenu extends Phaser.Scene {
     }, this);
 
 function handleResizeOnReorientation() {
-  // Set a timeout to reload the page after 1000 milliseconds (1 second)
-  setTimeout(function() {
-    location.reload();
-  }, 1000);
+location.reload();
+  console.log('thisworksed');
 }
 
 window.addEventListener('orientationchange', handleResizeOnReorientation);
+    window.addEventListener('resize', handleResizeOnReorientation);
     
   }
 }
