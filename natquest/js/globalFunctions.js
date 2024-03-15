@@ -6,4 +6,4 @@ function handleReorientation() {
   game.scale.setScaleMode(Phaser.Scale.ScaleModes.FIT);
 }
 
-window.addEventListener('orientationchange', handleReorientation);
+window.addEventListener('resize', handleReorientation);
