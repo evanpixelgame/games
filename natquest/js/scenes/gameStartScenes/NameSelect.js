@@ -33,6 +33,36 @@ class NameSelect extends Phaser.Scene {
 
         // Handle input change event
         this.inputElement.addEventListener('input', () => this.handleInputChange());
+
+          // Continue button
+  const continueButton = this.add.text(100, 100, 'Continue', {
+    fontSize: '48px',
+    fontFamily: 'knewave',
+    fill: '#c92b23',
+    padding: { x: 20, y: 20 },
+  })
+    .setOrigin(0.5)
+    .setInteractive();
+
+  // Set a callback function for the button click event
+  continueButton.on('pointerdown', function () {
+  // Check if both character and name are selected
+  if (this.selectedCharacter) {
+    // Transition to the main scene when the conditions are met
+    this.scene.start('WelcomePlayer');
+    this.inputElement.style = 'display: none;';
+    gameManager.selectedCharacter = this.selectedCharacter;
+  } else {
+    // Display alert for incomplete conditions
+    let alertMessage = '';
+
+    if (!this.selectedCharacter) {
+      alertMessage += 'Please select a character.\n';
+    }
+
+    alert(alertMessage);
+  }
+}, this);
     }
 
 createVirtualKeyboard() {
