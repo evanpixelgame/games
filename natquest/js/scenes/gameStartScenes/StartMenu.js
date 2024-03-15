@@ -46,10 +46,14 @@ class StartMenu extends Phaser.Scene {
 
 
 
-  startButton.on('pointerdown', function () {
-      this.scene.start('CharSelect');
-  }
-                 
+      const startButton = this.add.text(100, 100, 'Start', { fontSize: '24px', fill: 'red' })
+        .setInteractive()
+        .on('pointerup', () => {
+          this.scene.start('CharSelect');
+        });
+    
+
+          
 /*
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
