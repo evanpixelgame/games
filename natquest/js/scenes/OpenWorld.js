@@ -52,7 +52,7 @@ class OpenWorld extends Phaser.Scene {
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player);
 
-
+/*
     window.addEventListener('orientationchange', () => {
       this.scale.resize(window.innerWidth, window.innerHeight);
             // Reset the scene upon orientation change
@@ -61,6 +61,7 @@ class OpenWorld extends Phaser.Scene {
       this.cameras.main.startFollow(this.player);
       
         });
+        */
     
   }
 
