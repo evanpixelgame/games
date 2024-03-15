@@ -20,7 +20,7 @@ class NameSelect extends Phaser.Scene {
         const backdrop = this.add.graphics();
         backdrop.fillStyle(0xE6E6FA, .7);
         backdrop.lineStyle(4, 0x000000, 1);
-        backdrop.fillRect(100, 150, 600, 150);
+        backdrop.fillRect(20, 20, 100, 300);
 
         // Create an input element
         this.inputElement = document.createElement('input');
