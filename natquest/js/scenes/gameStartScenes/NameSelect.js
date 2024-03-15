@@ -34,10 +34,10 @@ backdrop.lineStyle(4, 0x000000, 1);
 
   // Handle input change event
   this.inputElement.addEventListener('input', () => this.handleInputChange());
-}
 
 
-  // Continue button
+
+     // Continue button
   const continueButton = this.add.text(100, 100, 'Continue', {
     fontSize: '48px',
     fontFamily: 'knewave',
@@ -67,6 +67,10 @@ backdrop.lineStyle(4, 0x000000, 1);
   }
 }, this);
 }
+}
+
+
+ 
 
 handleInputChange() {
   // Update the Phaser Text object with the input value
