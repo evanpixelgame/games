@@ -34,16 +34,18 @@ class NameSelect extends Phaser.Scene {
         // Handle input change event
         this.inputElement.addEventListener('input', () => this.handleInputChange());
 
-          // Continue button
   const continueButton = this.add.text(100, 100, 'Continue', {
-    fontSize: '48px',
-    fontFamily: 'knewave',
-    fill: '#c92b23',
-    padding: { x: 20, y: 20 },
-  })
+        fontSize: '48px',
+        fontFamily: 'knewave',
+        fill: '#c92b23',
+        padding: { x: 20, y: 20 },
+    })
     .setOrigin(0.5)
     .setInteractive();
 
+    // Initially hide the continue button
+    continueButton.visible = false;
+        
 
   // Set a callback function for the button click event
     continueButton.on('pointerdown', function () {
@@ -61,6 +63,13 @@ class NameSelect extends Phaser.Scene {
             alert('Please enter a valid name.');
         }
     }, this);
+
+    // Handle input change event
+    this.inputElement.addEventListener('input', () => {
+        // Toggle visibility of the continue button based on input content
+        continueButton.visible = this.inputText.trim() !== '';
+        this.handleInputChange();
+    });
 
     }
 
