@@ -106,13 +106,6 @@ selectCharacter(characterKey, characterImage) {
   }
 }, this);
 }
-
-handleInputChange() {
-  // Update the Phaser Text object with the input value
-  this.inputText = this.inputElement.value;
-  console.log(`Input Text: ${this.inputText}`);
-}
-
 }
 
 window.CharSelect = CharSelect;
