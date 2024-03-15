@@ -42,26 +42,31 @@ class WelcomePlayer extends Phaser.Scene {
 
 
     
-beginButton.on('pointerdown', function () {
-  const orientation = window.screen.orientation.type;
-
-  // Check if the device is in landscape mode
-  if (orientation.includes('landscape')) {
-    // Execute event handler code only in landscape mode
-    console.log('Click event in landscape mode');
-
-    // Delay the scene transition and resize handling by 200 milliseconds
-    setTimeout(() => {
-      handleResizeOnReorientation();
-    }, 400);
+    // Set a callback function for the button click event
+    beginButton.on('pointerdown', function () {
+         const orientation = window.screen.orientation.type;
+    // Check if the device is in landscape mode
+    if (orientation.includes('landscape')) {
+        // Execute event handler code only in landscape mode
+        console.log('Click event in landscape mode2');
       this.scene.start('OpenWorld');
-  } else {
-    // Ignore the click event in portrait mode
-    console.log('Ignoring click event in portrait mode');
-    alert('Please enter landscape mode to continue');
-  }
-}, this);
+    } else {
+        // Ignore the click event in portrait mode
+        console.log('Ignoring click event in portrait mode2');
+      alert('please enter landscape mode to begin');
+    } 
+      // Transition to the main scene when the button is clicked
+      //this.scene.start('OpenWorld');
+    }, this);
 
+function handleResizeOnReorientation() {
+//location.reload();
+  this.scene.reload();
+  console.log('thisworksed');
+}
+
+window.addEventListener('orientationchange', handleResizeOnReorientation);
+   window.addEventListener('resize', handleResizeOnReorientation);
 
 
     
@@ -76,17 +81,6 @@ beginButton.on('pointerdown', function () {
     })
       .setOrigin(0.5);
 
-
-    function handleResizeOnReorientation() {
-  // Update game canvas dimensions
-  game.scale.resize(window.innerWidth, window.innerHeight);
-  // Set scale mode to FIT to ensure proper scaling
-  game.scale.setScaleMode(Phaser.Scale.ScaleModes.FIT);
-      
-}
-
-window.addEventListener('orientationchange', handleResizeOnReorientation);
-    
     
   }
 }
