@@ -62,9 +62,21 @@ class OpenWorld extends Phaser.Scene {
       
         });
         */
+
+
+window.addEventListener('orientationchange', handleReorientation);
     
   }
 
+
+function handleOrientationChange() {
+  const game = this.game; // Assuming you have a reference to your game instance in this scope
+
+  // Update game canvas dimensions
+  game.canvas.width = Math.min(window.screen.availWidth, 800); // Set a maximum width
+  game.canvas.height = window.screen.availHeight;
+}
+  
   update(time, delta) {
     this.cameras.main.centerOn(this.player.x, this.player.y);
        this.game.config.width = window.innerHeight;
