@@ -63,7 +63,12 @@ class StartMenu extends Phaser.Scene {
       padding: { x: 20, y: 20 },
     })
       .setOrigin(0.5)
-      .setInteractive();
+    //  .setInteractive();
+    // ^^ make interactable later with a Settings page with the proper UI
+    // also include an audio on/off toggle in top right when audio is added
+    //eventually also have a Load Game option when i figure out how to use browser local storage to create saves
+    //should also make a save option that lets people save their file to their local pc/device
+    //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
