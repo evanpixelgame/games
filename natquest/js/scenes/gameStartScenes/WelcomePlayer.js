@@ -28,6 +28,9 @@ class WelcomePlayer extends Phaser.Scene {
   }
 
   create() {
+
+    console.log(gameManager.selectedCharacter + ': should be being displayed');
+    
     //this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
   //  this.openWorldScene = this.scene.get('ComputerControls'); 
  //   const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
