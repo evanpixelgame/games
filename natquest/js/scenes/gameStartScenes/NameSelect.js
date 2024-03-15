@@ -47,7 +47,7 @@ class NameSelect extends Phaser.Scene {
             const button = document.createElement('button');
             button.textContent = letter;
             button.style = 'font-size: 24px; padding: 10px;';
-            button.addEventListener('click', () => this.updateInputText(letter));
+            button.addEventListener('touchstart', () => this.updateInputText(letter));
             keyboardContainer.appendChild(button);
         }
 
@@ -55,14 +55,14 @@ class NameSelect extends Phaser.Scene {
     const spaceButton = document.createElement('button');
     spaceButton.textContent = 'Space';
     spaceButton.style = 'font-size: 24px; padding: 10px;';
-    spaceButton.addEventListener('click', () => this.updateInputText(' '));
+    spaceButton.addEventListener('touchstart', () => this.updateInputText(' '));
     keyboardContainer.appendChild(spaceButton);
 
     // Create backspace button
     const backspaceButton = document.createElement('button');
     backspaceButton.textContent = 'Backspace';
     backspaceButton.style = 'font-size: 24px; padding: 10px;';
-    backspaceButton.addEventListener('click', () => this.handleBackspace());
+    backspaceButton.addEventListener('touchstart', () => this.handleBackspace());
     keyboardContainer.appendChild(backspaceButton);
 }
 
