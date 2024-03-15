@@ -8,10 +8,15 @@
         padding: 0;
       }
 
-        body, #background {
+        body {
     background-color: #ffd7d7;
                  overflow: hidden;
       }
+
+            #background {
+                  background-color: #ffd7d7;
+            }
+
 
       #game-container {
         min-width: 100%;
