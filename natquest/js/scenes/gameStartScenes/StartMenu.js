@@ -61,12 +61,11 @@ class StartMenu extends Phaser.Scene {
       //this.scene.start('OpenWorld');
     }, this);
 
-    function handleResizeOnReorientation() {
-  // Update game canvas dimensions
-  game.scale.resize(window.innerWidth, window.innerHeight);
-  // Set scale mode to FIT to ensure proper scaling
-  game.scale.setScaleMode(Phaser.Scale.ScaleModes.FIT);
-      
+function handleResizeOnReorientation() {
+  // Set a timeout to reload the page after 1000 milliseconds (1 second)
+  setTimeout(function() {
+    location.reload();
+  }, 1000);
 }
 
 window.addEventListener('orientationchange', handleResizeOnReorientation);
