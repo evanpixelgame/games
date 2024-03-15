@@ -80,7 +80,7 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
     
 
     // Declaration and initialization of welcomeTextBlock
-    const welcomeTextBlock = this.add.text(50vw, 30vh, `Welcome to Nat Quest, ${gameManager.playerName}!
+    const welcomeTextBlock = this.add.text(xMid, vh * .3, `Welcome to Nat Quest, ${gameManager.playerName}!
       \nYou have chosen the ${gameManager.selectedCharacter} as your character. \nIt's time to start your adventure!`, {
       fontSize: '24px',
       fontFamily: 'Arial',
