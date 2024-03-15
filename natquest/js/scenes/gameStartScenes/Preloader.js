@@ -13,7 +13,7 @@ class Preloader extends Phaser.Scene {
         this.load.image('Baby Mouse', 'assets/sprites/charSelect/babyMouse64.png');
     this.load.image('Confused Woman', 'assets/sprites/charSelect/confusedWoman64.png');
     this.load.image('Fat Wolf', 'assets/sprites/charSelect/fatWolf64.png');
-    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
+    this.load.image('background', 'assets/backgrounds/startScreenBackgroundLandscape.png');
       this.load.image('tiles', 'assets/tilesets/tilemap1.png');
     this.load.tilemapTiledJSON('map', 'assets/json/map.json');
       this.load.image('base', 'assets/images/base.png');
