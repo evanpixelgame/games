@@ -17,6 +17,7 @@ class OpenWorld extends Phaser.Scene {
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
+       this.cameras.main.setZoom(2);
        }
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
      this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
