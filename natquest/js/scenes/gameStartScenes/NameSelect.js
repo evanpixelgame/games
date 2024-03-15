@@ -111,7 +111,7 @@ createVirtualKeyboard() {
     backspaceButton.textContent = '\u2190';
     backspaceButton.id = 'keyboard-button-backspace';
     backspaceButton.classList.add('keyboard-button'); // Add class for styling
-    backspaceButton.style = 'font-size: 24px; padding: 20px;';
+    backspaceButton.style = 'font-size: 24px; padding: 10px;';
     backspaceButton.addEventListener('touchstart', () => this.handleBackspace());
      backspaceButton.addEventListener('click', () => this.handleBackspace());
     keyboardContainer.appendChild(backspaceButton);
