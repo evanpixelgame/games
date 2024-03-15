@@ -43,13 +43,21 @@ class StartMenu extends Phaser.Scene {
     })
       .setOrigin(0.5)
       .setInteractive(); */
+  // Add a start button
+    const startButton = this.add.text(100, 100, 'Start', {
+      fontSize: '48px', 
+      fontFamily: 'knewave',
+      fill: '#c92b23',
+      padding: { x: 20, y: 20 },
+    })
+      .setOrigin(0.5)
+      .setInteractive();
 
-     const button = this.add.text(400, 300, 'Next', { fontSize: '24px', fill: '#ffffff' })
-            .setInteractive()
-            .on('pointerup', () => {
-                // Switch to the NextScene when the button is clicked
-                this.scene.start('CharSelect');
-            });
+    // Set a callback function for the button click event
+    startButton.on('pointerdown', function () {
+      // Transition to the main scene when the button is clicked
+      this.scene.start('CharSelect');
+    }, this);
 /*
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
