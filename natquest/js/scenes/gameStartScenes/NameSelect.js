@@ -57,11 +57,7 @@ backdrop.lineStyle(4, 0x000000, 1);
     gameManager.playerName = this.inputText.trim();
   } else {
     // Display alert for incomplete conditions
-    let alertMessage = '';
-
-    if (!this.selectedCharacter) {
-      alertMessage += 'Please select a character.\n';
-    }
+    let alertMessage = 'Please choose valid name';
     alert(alertMessage);
   }
 }, this);
