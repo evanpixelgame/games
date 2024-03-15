@@ -54,6 +54,7 @@ createVirtualKeyboard() {
         button.classList.add('keyboard-button'); // Add class for styling
         button.style = 'font-size: 24px; padding: 10px;';
         button.addEventListener('touchstart', () => this.updateInputText(letter));
+        button.addEventListener('click', () => this.updateInputText(letter));
         keyboardContainer.appendChild(button);
     }
 
@@ -64,6 +65,7 @@ createVirtualKeyboard() {
     spaceButton.classList.add('keyboard-button'); // Add class for styling
     spaceButton.style = 'font-size: 24px; padding: 10px;';
     spaceButton.addEventListener('touchstart', () => this.updateInputText(' '));
+     spaceButton.addEventListener('click', () => this.updateInputText(' '));
     keyboardContainer.appendChild(spaceButton);
 
     // Create backspace button
@@ -73,6 +75,7 @@ createVirtualKeyboard() {
     backspaceButton.classList.add('keyboard-button'); // Add class for styling
     backspaceButton.style = 'font-size: 24px; padding: 10px;';
     backspaceButton.addEventListener('touchstart', () => this.handleBackspace());
+     backspaceButton.addEventListener('click', () => this.handleBackspace());
     keyboardContainer.appendChild(backspaceButton);
 }
 
