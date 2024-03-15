@@ -68,7 +68,7 @@ class OpenWorld extends Phaser.Scene {
     this.cameras.main.centerOn(this.player.x, this.player.y);
        this.game.config.width = window.innerHeight;
         this.game.config.height = window.innerWidth
-       this.cameras.main.scrollY = this.player.y + 200;
+     //  this.cameras.main.scrollY = this.player.y + 200;
   }
   
 }
