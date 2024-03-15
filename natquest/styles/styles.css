@@ -95,50 +95,19 @@
   height: 200px; 
 }
 
-#name-input {
-    position: absolute;
-    top: 10vh; /* Adjust the vertical position as needed */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    font-size: 24px;
-    border: 1px solid black;
-    background: cerulean;
-    color: black;
-    z-index: 2; /* Ensure input field appears above the virtual keyboard */
+#nameInput {
+background-color: #3498db; /* Set to the desired shade of blue */
+color: #fff;
 }
 
-.keyboard-container {
-   /*
-      max-width: 400px; /* Adjust the maximum width as needed 
-    display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap onto the next line 
-    justify-content: center; /* Center-align the buttons */
-
-      
-position: absolute;
-    bottom: 10vh; /* Adjust the vertical position as needed */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    max-width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    z-index: 1; /* Ensure virtual keyboard appears below the input field */
-}
 
 .keyboard-button {
-    background-color: pink;
+    background-color: #ffd7d7; /* Default fill color */
     color: #a3a4d2;
     border: 1px solid #000000;
     border-radius: 5px;
     margin: 1px;
     cursor: pointer;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
-  /*  width: 50px; /* Adjust button width
-    height: 50px; /* Adjust button height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .keyboard-button:hover {
@@ -148,6 +117,15 @@ position: absolute;
 .keyboard-button:active {
     background-color: #999999; /* Fill color when pressed */
 }
+
+#keyboard-button-space {
+    width: 100px; /* Adjust width as needed */
+}
+
+#keyboard-button-backspace {
+    width: 100px; /* Adjust width as needed */
+}
+
 
 
 #confirmButton {
