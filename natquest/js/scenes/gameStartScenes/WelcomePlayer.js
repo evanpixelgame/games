@@ -42,22 +42,26 @@ class WelcomePlayer extends Phaser.Scene {
 
 
     
+beginButton.on('pointerdown', function () {
+  const orientation = window.screen.orientation.type;
 
-    beginButton.on('pointerdown', function () {
-       const orientation = window.screen.orientation.type;
-    // Check if the device is in landscape mode
-    if (orientation.includes('landscape')) {
-        // Execute event handler code only in landscape mode
-        console.log('Click event in landscape mode');
+  // Check if the device is in landscape mode
+  if (orientation.includes('landscape')) {
+    // Execute event handler code only in landscape mode
+    console.log('Click event in landscape mode');
+
+    // Delay the scene transition and resize handling by 200 milliseconds
+    setTimeout(() => {
+      handleResizeOnReorientation();
+    }, 400);
       this.scene.start('OpenWorld');
-    } else {
-        // Ignore the click event in portrait mode
-        console.log('Ignoring click event in portrait mode');
-      alert('please enter landscape mode to continue');
-    } 
-      // Transition to the main scene when the button is clicked
-      //this.scene.start('OpenWorld');
-    }, this);
+  } else {
+    // Ignore the click event in portrait mode
+    console.log('Ignoring click event in portrait mode');
+    alert('Please enter landscape mode to continue');
+  }
+}, this);
+
 
 
     
