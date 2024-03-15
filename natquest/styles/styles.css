@@ -27,13 +27,26 @@
       }
 
 
+.keyboard-container {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap onto the next line */
+    justify-content: center; /* Center-align the buttons */
+}
+
 .keyboard-button {
     background-color: #ffffff;
-    color: #000000;
+    color: #a3a4d2;
     border: 1px solid #000000;
     border-radius: 5px;
-    margin: 5px;
+    margin: 1px;
     cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  /*  width: 50px; /* Adjust button width
+    height: 50px; /* Adjust button height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #keyboard-button-space {
@@ -43,6 +56,7 @@
 #keyboard-button-backspace {
     width: 100px; /* Adjust width as needed */
 }
+
 
 
 
