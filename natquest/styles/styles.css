@@ -19,11 +19,21 @@
 
 
       #game-container {
-        min-width: 100%;
+
+         position: absolute;
+    bottom: 10vh; /* Adjust the vertical position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1; /* Ensure virtual keyboard appears below the input field */    
+  /*      min-width: 100%;
         min-height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
       }
 
 
