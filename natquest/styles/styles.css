@@ -21,9 +21,12 @@
         justify-content: center;
       }
 
+
+/*
       #game-container > canvas {
         border-radius: 5px;
       }
+*/
 
       .knewave-regular {
   font-family: "Knewave", system-ui;
