@@ -47,7 +47,7 @@ this.load.on('complete', () => {
     });
 
     this.load.on('complete', () => {
-      this.scene.start('WelcomePlayer');
+      this.scene.start('StartMenu');
     });
 
   }
