@@ -59,15 +59,19 @@ class StartMenu extends Phaser.Scene {
       // Transition to the main scene when the button is clicked
     }, this);
 
-function handleResizeOnReorientation() {
+
+
+window.addEventListener('orientationchange', this.handleResizeOnReorientation);
+    window.addEventListener('resize', this.handleResizeOnReorientation);
+    
+  }
+
+handleResizeOnReorientation() {
 location.reload();
   console.log('thisworksed');
 }
 
-window.addEventListener('orientationchange', handleResizeOnReorientation);
-    window.addEventListener('resize', handleResizeOnReorientation);
-    
-  }
+  
 }
 
 window.StartMenu = StartMenu;
