@@ -68,6 +68,33 @@ location.reload();
 
 window.addEventListener('orientationchange', handleResizeOnReorientation);
     window.addEventListener('resize', handleResizeOnReorientation);
+
+
+
+    // Display a button or UI element to allow users to enter fullscreen mode
+    const fullscreenButton = this.add.text(100, 300, 'Fullscreen', { fontSize: '24px', fill: '#ffffff' })
+        .setInteractive()
+        .on('pointerup', () => {
+            this.toggleFullscreen();
+        });
+
+
+function toggleFullscreen() {
+    const canvas = this.sys.game.canvas;
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    } else {
+        if (canvas.requestFullscreen) {
+            canvas.requestFullscreen();
+        } else if (canvas.webkitRequestFullscreen) { /* Safari */
+            canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) { /* IE11 */
+            canvas.msRequestFullscreen();
+        }
+    }
+}
+
+    
     
   }
 }
