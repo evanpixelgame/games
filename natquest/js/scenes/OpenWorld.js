@@ -17,7 +17,7 @@ class OpenWorld extends Phaser.Scene {
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
-       this.cameras.main.setZoom(2);
+     //  this.cameras.main.setZoom(2);
        }
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
      this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
@@ -51,6 +51,13 @@ class OpenWorld extends Phaser.Scene {
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player);
+
+
+    window.addEventListener('orientationchange', () => {
+            // Reset the scene upon orientation change
+            this.scene.restart();
+        });
+    
   }
 
   update(time, delta) {
