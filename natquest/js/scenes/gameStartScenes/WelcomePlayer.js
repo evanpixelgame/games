@@ -59,6 +59,7 @@ class WelcomePlayer extends Phaser.Scene {
       //this.scene.start('OpenWorld');
     }, this);
 
+    /*
 function handleResizeOnReorientation() {
 //location.reload();
   this.scene.reload();
@@ -68,7 +69,7 @@ function handleResizeOnReorientation() {
 window.addEventListener('orientationchange', handleResizeOnReorientation);
    window.addEventListener('resize', handleResizeOnReorientation);
 
-
+*/
     
 
     // Declaration and initialization of welcomeTextBlock
