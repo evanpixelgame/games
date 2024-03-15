@@ -54,8 +54,11 @@ class OpenWorld extends Phaser.Scene {
 
 
     window.addEventListener('orientationchange', () => {
+      this.scale.resize(window.innerWidth, window.innerHeight);
             // Reset the scene upon orientation change
             this.scene.restart();
+      this.cameras.main.startFollow(this.player);
+      
         });
     
   }
