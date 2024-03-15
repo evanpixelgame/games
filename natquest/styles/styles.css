@@ -28,7 +28,7 @@
         justify-content: center; */
       }
 
-.input-field {
+#name-input {
     position: absolute;
     top: 10vh; /* Adjust the vertical position as needed */
     left: 50%; /* Center horizontally */
