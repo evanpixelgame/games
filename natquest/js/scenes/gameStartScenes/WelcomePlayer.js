@@ -71,6 +71,19 @@ class WelcomePlayer extends Phaser.Scene {
       align: 'center',
     })
       .setOrigin(0.5);
+
+
+    function handleResizeOnReorientation() {
+  // Update game canvas dimensions
+  game.scale.resize(window.innerWidth, window.innerHeight);
+  // Set scale mode to FIT to ensure proper scaling
+  game.scale.setScaleMode(Phaser.Scale.ScaleModes.FIT);
+      
+}
+
+window.addEventListener('orientationchange', handleResizeOnReorientation);
+    
+    
   }
 }
 
