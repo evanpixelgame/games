@@ -38,6 +38,9 @@ class NameSelect extends Phaser.Scene {
     createVirtualKeyboard() {
         // Create virtual keyboard buttons
         // Example: Create a button for each letter
+        // ID of individual buttons for individual styling follows convention of:
+        //letter "A" button will have the ID keyboard-button-a, the letter "B" button will have the ID keyboard-button-b, and so on.
+        //The space button will have the ID keyboard-button-space, and the backspace button will have the ID keyboard-button-backspace.
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const keyboardContainer = document.createElement('div');
         keyboardContainer.style = 'position: absolute; bottom: 20vh; left: 50vw; transform: translateX(-50%);';
