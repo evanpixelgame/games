@@ -15,7 +15,8 @@ const config = {
  autoCenter: Phaser.Scale.CENTER_BOTH,
   // autoCenter: Phaser.Scale.CENTER_VERTICALLY,
   //  autoCenter: Phaser.Scale.CENTER_BOTH,
-   mode: Phaser.Scale.FIT,
+ //  mode: Phaser.Scale.FIT,
+    mode: Phaser.Scale.RESIZE,
    // autoCenter: Phaser.Scale.CENTER_BOTH
   },
   physics: {
