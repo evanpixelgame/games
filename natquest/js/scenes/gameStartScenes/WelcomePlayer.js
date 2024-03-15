@@ -40,10 +40,27 @@ class WelcomePlayer extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive();
 
+
+    
+
     beginButton.on('pointerdown', function () {
-      // Transition to the main scene when the button is clicked
+       const orientation = window.screen.orientation.type;
+    // Check if the device is in landscape mode
+    if (orientation.includes('landscape')) {
+        // Execute event handler code only in landscape mode
+        console.log('Click event in landscape mode');
       this.scene.start('OpenWorld');
+    } else {
+        // Ignore the click event in portrait mode
+        console.log('Ignoring click event in portrait mode');
+      alert('please enter landscape mode to continue');
+    } 
+      // Transition to the main scene when the button is clicked
+      //this.scene.start('OpenWorld');
     }, this);
+
+
+    
 
     // Declaration and initialization of welcomeTextBlock
     const welcomeTextBlock = this.add.text(400, 300, `Welcome to Nat Quest, ${gameManager.playerName}!
