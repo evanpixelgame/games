@@ -9,6 +9,7 @@ class StartMenu extends Phaser.Scene {
   }
 
   create() {
+    this.game.scale.resize(window.innerWidth, window.innerHeight);
 
     // Add background image
     const background = this.add.image(400, 300, 'background');
