@@ -54,7 +54,7 @@ class NameSelect extends Phaser.Scene {
         const buttonId = `keyboard-button-${letter.toLowerCase()}`; // Generate unique ID
         button.id = buttonId;
         button.classList.add('keyboard-button'); // Add class to button
-        button.addEventListener('click', () => this.updateInputText(letter));
+        button.addEventListener('touchstart', () => this.updateInputText(letter));
         keyboardContainer.appendChild(button);
     }
 
@@ -63,7 +63,7 @@ class NameSelect extends Phaser.Scene {
     spaceButton.textContent = 'Space';
     spaceButton.id = 'keyboard-button-space'; // Assign unique ID
     spaceButton.classList.add('keyboard-button'); // Add class to button
-    spaceButton.addEventListener('click', () => this.updateInputText(' '));
+    spaceButton.addEventListener('touchstart', () => this.updateInputText(' '));
     keyboardContainer.appendChild(spaceButton);
 
     // Create backspace button
@@ -71,7 +71,7 @@ class NameSelect extends Phaser.Scene {
     backspaceButton.textContent = 'Backspace';
     backspaceButton.id = 'keyboard-button-backspace'; // Assign unique ID
     backspaceButton.classList.add('keyboard-button'); // Add class to button
-    backspaceButton.addEventListener('click', () => this.handleBackspace());
+    backspaceButton.addEventListener('touchstart', () => this.handleBackspace());
     keyboardContainer.appendChild(backspaceButton);
 }
 handleBackspace() {
