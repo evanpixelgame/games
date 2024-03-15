@@ -72,7 +72,7 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
 
 
     // Display a button or UI element to allow users to enter fullscreen mode
-    const fullscreenButton = this.add.text(100, 300, 'Fullscreen', { fontSize: '24px', fill: '#ffffff' })
+    const fullscreenButton = this.add.text(100, 300, 'Fullscreen', { fontSize: '24px', fill: 'blue+' })
         .setInteractive()
         .on('pointerup', () => {
             this.toggleFullscreen();
@@ -83,7 +83,10 @@ function toggleFullscreen() {
     const canvas = this.sys.game.canvas;
     if (document.fullscreenElement) {
         document.exitFullscreen();
+      console.log('thisshouldexitfullscreen');
     } else {
+           canvas.requestFullscreen();
+      console.log{'thisshouldenterfullscreen');
         if (canvas.requestFullscreen) {
             canvas.requestFullscreen();
         } else if (canvas.webkitRequestFullscreen) { /* Safari */
