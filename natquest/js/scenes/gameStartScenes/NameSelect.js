@@ -66,8 +66,6 @@ class NameSelect extends Phaser.Scene {
     keyboardContainer.appendChild(backspaceButton);
 }
 
-    }
-
 handleBackspace() {
     this.inputText = this.inputText.slice(0, -1);
     this.inputElement.value = this.inputText;
