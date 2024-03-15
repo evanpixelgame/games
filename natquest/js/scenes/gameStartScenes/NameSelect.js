@@ -46,7 +46,7 @@ backdrop.lineStyle(4, 0x000000, 1);
 
 
      // Continue button
-  const continueButton = this.add.text(100, 100, 'Continue', {
+  const continueButton = this.add.text(400, 100, 'Continue', {
     fontSize: '48px',
     fontFamily: 'knewave',
     fill: '#c92b23',
