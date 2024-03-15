@@ -77,9 +77,11 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
         .on('pointerup', () => {
             this.toggleFullscreen();
         });
+    
+}
+  
 
-
-toggleFullscreen() {
+  toggleFullscreen() {
     const canvas = this.sys.game.canvas;
     if (document.fullscreenElement) {
         document.exitFullscreen();
@@ -97,8 +99,7 @@ toggleFullscreen() {
     }
 }  
   }
-
-    
+  
 }
 
 window.StartMenu = StartMenu;
