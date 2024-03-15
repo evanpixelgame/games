@@ -11,6 +11,10 @@ class NameSelect extends Phaser.Scene {
     create() {
         window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
 
+            const vw = window.innerWidth;
+            const xMid = vw * .5;
+            const vh = window.innerHeight;
+
         const background = this.add.image(400, 300, 'background').setOrigin(0.5);
 
         const backdrop = this.add.graphics();
@@ -34,7 +38,7 @@ class NameSelect extends Phaser.Scene {
         // Handle input change event
         this.inputElement.addEventListener('input', () => this.handleInputChange());
 
-  const continueButton = this.add.text(50vw, 90vw, 'Continue', {
+  const continueButton = this.add.text(xMid, vw * .9, 'Continue', {
         fontSize: '48px',
         fontFamily: 'knewave',
         fill: '#c92b23',
