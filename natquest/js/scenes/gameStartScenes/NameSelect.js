@@ -22,7 +22,7 @@ class NameSelect extends Phaser.Scene {
         this.inputElement = document.createElement('input');
         this.inputElement.type = 'text';
         this.inputElement.placeholder = 'Enter your name';
-        this.inputElement.style = 'position: absolute; top: 30vh; left: 20vw; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
+        this.inputElement.style = 'position: absolute; top: 20vh; left: 50vw; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
         this.inputElement.readOnly = true; // Prevent native keyboard from appearing
 
         // Append the input element to the document body
@@ -44,7 +44,7 @@ createVirtualKeyboard() {
     //The classes for the overall keyboard are 
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const keyboardContainer = document.createElement('div');
-    keyboardContainer.style = 'position: absolute; bottom: 20vh; left: 50vw; transform: translateX(-50%);';
+    keyboardContainer.style = 'position: absolute; bottom: 10vh; left: 50vw; transform: translateX(-50%);';
     document.body.appendChild(keyboardContainer);
 
     for (let letter of letters) {
