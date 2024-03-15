@@ -52,7 +52,7 @@ class NameSelect extends Phaser.Scene {
     // Transition to the main scene when the conditions are met
     this.scene.start('CharSelect');
     this.inputElement.style = 'display: none;';
-    this.keyboardContainer.style.display = 'none';
+    this.keyboardContainer.style = 'display: none';
     gameManager.playerName = this.inputText.trim();
   } else {
     // Display alert for incomplete conditions
