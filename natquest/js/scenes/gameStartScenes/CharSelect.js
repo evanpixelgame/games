@@ -51,7 +51,7 @@ character3.setScale(2.8);
   this.inputElement = document.createElement('input');
   this.inputElement.type = 'text';
   this.inputElement.placeholder = 'Enter your name'; 
-  this.inputElement.style = 'position: absolute; top: 75vh; left: 50%; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
+  this.inputElement.style = 'position: absolute; top: 250; left: 300; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
 
   // Append the input element to the document body
   document.body.appendChild(this.inputElement);
@@ -94,7 +94,7 @@ selectCharacter(characterKey, characterImage) {
   console.log(`Selected character: ${this.selectedCharacter}`);
 
   // Continue button
-  const continueButton = this.add.text(385, 550, 'Continue', {
+  const continueButton = this.add.text(300, 250, 'Continue', {
     fontSize: '48px',
     fontFamily: 'knewave',
     fill: '#c92b23',
