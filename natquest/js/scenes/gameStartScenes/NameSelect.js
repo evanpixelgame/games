@@ -55,7 +55,6 @@ backdrop.lineStyle(4, 0x000000, 1);
     this.scene.start('CharSelect');
     this.inputElement.style = 'display: none;';
     gameManager.playerName = this.inputText.trim();
-    gameManager.selectedCharacter = this.selectedCharacter;
   } else {
     // Display alert for incomplete conditions
     let alertMessage = '';
