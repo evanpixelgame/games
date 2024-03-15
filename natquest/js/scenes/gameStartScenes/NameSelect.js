@@ -32,7 +32,7 @@ backdrop.lineStyle(4, 0x000000, 1);
   this.inputElement = document.createElement('input');
   this.inputElement.type = 'text';
   this.inputElement.placeholder = 'Enter your name'; 
-  this.inputElement.style = 'position: absolute; top: 25vh; left: 50vw; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
+  this.inputElement.style = 'position: absolute; top: 25vh; left: 50; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
 
   // Append the input element to the document body
   document.body.appendChild(this.inputElement);
