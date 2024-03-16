@@ -29,9 +29,9 @@ class CompUI extends Phaser.Scene {
         const zoomOutIcon = this.add.sprite(7.5 * vw / 9, 50, 'zoomOutIcon').setInteractive();   //was at 7.5 vw changed temp for diagnosis
         const fullscreenIcon = this.add.sprite(8.1 * vw/ 9, 50, 'fullscreenIcon').setInteractive();
 
-       infoIcon.setScale(.2);
+       infoIcon.setScale(.18);
        settingsIcon.setScale(0.1);
-        zoomInIcon.setScale(0.2);
+        zoomInIcon.setScale(0.23);
         zoomOutIcon.setScale(0.2);
         fullscreenIcon.setScale(.12);
 
