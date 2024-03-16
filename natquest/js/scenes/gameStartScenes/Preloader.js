@@ -23,7 +23,7 @@ class Preloader extends Phaser.Scene {
     });
 
 
-    this.load.image('background', 'assets/backgrounda/startScreenBackground.png');
+    this.load.image('background', 'assets/backgrounds/startScreenBackground.png');
 
     // Create backdrop
     const backdrop = this.add.graphics();
@@ -43,10 +43,10 @@ class Preloader extends Phaser.Scene {
     this.load.image('base', 'assets/images/base.png');
     this.load.image('thumb', 'assets/images/thumb.png');
     this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
-    this.load.image('zoomInIcon', 'assets/images/icons/zoom-icon.png');
-     this.load.image('zoomOutIcon', 'assets/images/icons/zoom-out-icon.png');
-     this.load.image('settingsIcon', 'assets/images/icons/settings-icon.png');
-     this.load.image('fullscreenIcon', 'assets/images/icons/fullscreen-icon.png');
+    this.load.image('zoomInIcon', 'assets/UI/icons/zoom-icon.png');
+     this.load.image('zoomOutIcon', 'assets/UI/icons/zoom-out-icon.png');
+     this.load.image('settingsIcon', 'assets/UI/images/icons/settings-icon.png');
+     this.load.image('fullscreenIcon', 'assets/UI/images/icons/fullscreen-icon.png');
     
     
     this.load.on('complete', () => {
