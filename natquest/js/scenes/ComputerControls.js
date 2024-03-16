@@ -43,6 +43,9 @@ class ComputerControls extends Phaser.Scene {
     right: Phaser.Input.Keyboard.KeyCodes.D,
   });
 
+    
+     const startMenuScene = this.scene.get('StartMenu');
+    
      const fullscreenButton = this.add.text(100, 20, 'Fullscreen', {
       fontSize: '15px', 
       fontFamily: 'Roboto',
