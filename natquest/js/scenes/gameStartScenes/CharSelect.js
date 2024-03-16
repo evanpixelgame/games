@@ -42,9 +42,7 @@ character3.setScale(2.8);
   const instructionText = this.add.text(xMid, 50, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'knewave',
-    fill: '#ba76d2',
-    stroke: '#a9ccd2',  // Outline color
-    strokeThickness: 3, // Outline thickness
+    fill: '#c92b23',
     align: 'center',
   })
     .setOrigin(0.5);
@@ -89,7 +87,7 @@ selectCharacter(characterKey, characterImage) {
   const continueButton = this.add.text(400, 280, 'Continue', {
     fontSize: '26px',
     fontFamily: 'knewave',
-    fill: '#c92b23',
+    fill: '#ba76d2',
     padding: { x: 20, y: 20 },
   })
     .setOrigin(0.5)
