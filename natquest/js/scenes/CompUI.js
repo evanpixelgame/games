@@ -38,21 +38,57 @@ class CompUI extends Phaser.Scene {
             console.log('Settings icon clicked');
         });
 
-        zoomInIcon.on('pointerdown', () => {
-            // Handle zoom in icon click
-            console.log('Zoom in icon clicked');
-        });
-
         zoomOutIcon.on('pointerdown', () => {
             // Handle zoom out icon click
             console.log('Zoom out icon clicked');
+              }
         });
+          
+
+        // Set click event handler for the zoom in icon
+        zoomInIcon.on('pointerdown', () => {
+            // Check if the current zoom level is less than the maximum allowed
+            if (this.zoomLevel < 5) {
+                // Increase the zoom level
+                this.zoomLevel++;
+                console.log('Zoom in clicked. Zoom level:', this.zoomLevel);
+
+                // Perform zoom operation here, e.g., adjust camera zoom, scale game objects, etc.
+                this.cameras.main.zoom *= 1.1; // Increase zoom by 10%
+            } else {
+                console.log('Maximum zoom level reached.');
+            }
+        });
+
+            // Set click event handler for the zoom in icon
+        zoomOutIcon.on('pointerdown', () => {
+            // Check if the current zoom level is less than the maximum allowed
+            if (this.zoomOutLevel < 5) {
+                // Increase the zoom level
+                this.zoomLevel++;
+                console.log('Zoom out clicked. Zoom level:', this.zoomLevel);
+
+                // Perform zoom operation here, e.g., adjust camera zoom, scale game objects, etc.
+                this.cameras.main.zoom /= 1.1; // Increase zoom by 10%
+            } else {
+                console.log('Maximum zoom out level reached.');
+            }
+        });
+
+
 
         fullscreenIcon.on('pointerdown', () => {
             // Handle fullscreen icon click
             console.log('Fullscreen icon clicked');
-            this.toggleFullscreen(); // Call your fullscreen method here
-        });
+              if (this.isFullScreen()) {
+              this.exitFullScreen();
+                } else {
+              this.requestFullScreen();
+                }
+                    });
+
+            
+
     
 
     // ****************************************************************FULL SCREEN BUTTON*************************************************************
