@@ -46,8 +46,8 @@ class ComputerControls extends Phaser.Scene {
     
      const startMenuScene = this.scene.get('StartMenu');
     
-     const fullscreenButton = this.add.text(100, 20, 'Fullscreen', {
-      fontSize: '15px', 
+     const fullscreenButton = this.add.text(120, 30, 'Fullscreen', {
+      fontSize: '22px', 
       fontFamily: 'Roboto',
       fill: '#ffffff',
       padding: { x: 20, y: 20 },
