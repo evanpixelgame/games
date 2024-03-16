@@ -48,20 +48,19 @@ settingsIcon.on('pointerdown', () => {
     const { x, y } = settingsIcon;
     
     // Toggle the visibility of the dropdown menu
-    dropdownContainer.setVisible(!isDropdownVisible);
+    this.dropdownContainer.setVisible(!isDropdownVisible); // Use "this.dropdownContainer" to access the class property
     
     if (!isDropdownVisible) {
         // If the dropdown menu is not visible, create and display it
         this.createDropdownMenu(x, y + settingsIcon.displayHeight);
     } else {
         // If the dropdown menu is already visible, hide it
-        dropdownContainer.clear(true, true);
+        this.dropdownContainer.clear(true, true);
     }
 
     // Update the flag to reflect the new visibility state
     isDropdownVisible = !isDropdownVisible;
 });
-
 
     //*****************************************************************************************************************************
 
