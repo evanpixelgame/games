@@ -47,10 +47,6 @@ class WelcomePlayer extends Phaser.Scene {
         backdrop.lineStyle(4, 0x000000, 1);
         backdrop.fillRect(vw * .05, vh * .05, vw * .9, vh * .85);
 
-    
-    //this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
-  //  this.openWorldScene = this.scene.get('ComputerControls'); 
- //   const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
      const beginButton = this.add.text(xMid, vh * .8, 'Start', {
       fontSize: '48px', 
       fontFamily: 'knewave',
@@ -75,22 +71,8 @@ class WelcomePlayer extends Phaser.Scene {
         console.log('Ignoring click event in portrait mode2');
       alert('please enter landscape mode to begin');
     } 
-      // Transition to the main scene when the button is clicked
-      //this.scene.start('OpenWorld');
     }, this);
 
-    /*
-function handleResizeOnReorientation() {
-//location.reload();
-  this.scene.reload();
-  console.log('thisworksed');
-}
-
-window.addEventListener('orientationchange', handleResizeOnReorientation);
-   window.addEventListener('resize', handleResizeOnReorientation);
-
-*/
-    
 
     // Declaration and initialization of welcomeTextBlock
     const welcomeTextBlock = this.add.text(xMid, vh * .3, `Welcome to Nat Quest, ${gameManager.playerName}!
