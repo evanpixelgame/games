@@ -42,6 +42,19 @@ class ComputerControls extends Phaser.Scene {
     left: Phaser.Input.Keyboard.KeyCodes.A,
     right: Phaser.Input.Keyboard.KeyCodes.D,
   });
+
+     const fullscreenButton = this.add.text(100, 20, 'Fullscreen', {
+      fontSize: '15px', 
+      fontFamily: 'Roboto',
+      fill: '#ffffff',
+      padding: { x: 20, y: 20 },
+    })
+      .setOrigin(0.5)
+      .setInteractive();
+
+ //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
+    this.scale.on('resize', startMenuScene.handleFullscreenChange, this);
+
   }
 
   update(time, delta) {
