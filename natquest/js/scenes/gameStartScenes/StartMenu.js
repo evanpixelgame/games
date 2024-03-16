@@ -126,7 +126,8 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
         });
 
 
-
+this.scale.on('fullscreenchange', this.handleFullscreenChange, this);
+this.scale.on('resize', this.resizeGame, this);
  window.addEventListener('orientationchange', this.handleResizeOnReorientation);
  //   window.addEventListener('resize', this.handleResizeOnReorientation);
     
@@ -160,6 +161,30 @@ isPortraitMode() {
         element.msRequestFullscreen();
     }
 }
+
+      handleFullscreenChange() {
+        if (this.scale.isFullscreen) {
+            // Call your resize function when entering fullscreen
+            this.resizeFunction();
+        } else {
+           console.log('Handle exiting fullscreen if needed');
+       }
+    }
+
+      resizeGame(gameSize) {
+        const { width, height } = gameSize;
+
+        // Resize the game canvas
+        this.sys.game.canvas.style.width = width + 'px';
+        this.sys.game.canvas.style.height = height + 'px';
+
+        // Resize the game config to match the new size
+        this.sys.game.config.width = width;
+        this.sys.game.config.height = height;
+
+        // Call resize events on all scenes
+        this.events.emit('resize', gameSize);
+    }
 
   isFullScreen() {
     return (
