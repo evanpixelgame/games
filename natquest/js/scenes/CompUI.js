@@ -122,15 +122,16 @@ settingsIcon.on('pointerdown', () => {
     
 
     // ****************************************************************FULL SCREEN BUTTON*************************************************************
-      const fullscreenButton = this.add.text(xMid/3, 50, 'Fullscreen', {
+  /*    const fullscreenButton = this.add.text(xMid/3, 50, 'Fullscreen', {
       fontSize: '26px', 
       fontFamily: 'Roboto',
       fill: '#ffffff',  //'#c92b23',
       padding: { x: 20, y: 20 },
     })
       .setOrigin(0.5)
-      .setInteractive();
-
+      .setInteractive(); 
+      
+      */  //hopefully this just gets rid of the white text that says fullscreen and just leaves the icons
 
      fullscreenButton.on('pointerdown', () => {
     if (this.isFullScreen()) {
