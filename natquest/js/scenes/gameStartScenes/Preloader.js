@@ -52,6 +52,13 @@ this.load.on('complete', () => {
 
   }
    create() {
+
+          const graphics = this.add.graphics();
+
+    // Fill the background with a solid color
+    graphics.fillStyle(0xfdd5d5); // Specify the color (black in this case)
+    graphics.fillRect(0, 0, this.game.config.width, this.game.config.height);
+
          const background = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.8, 'background');
     background.setOrigin(0.5);
 }
