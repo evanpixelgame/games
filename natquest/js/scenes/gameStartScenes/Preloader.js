@@ -23,7 +23,7 @@ class Preloader extends Phaser.Scene {
     
     //maybe just add a pink background that matches the background color set in StartMenu
  //also sometimes it still seems to glitch a little bit, i bet more stuff just needs to be loaded onto this screen for it to work properly
-    
+ /*   
     const progressBar = this.add.rectangle(200, 200, 300, 50, 0xcccccc);
     const desiredFontFamily = 'Knewave';
   const progressText = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.8, 'Loading...', {
@@ -49,17 +49,46 @@ this.load.on('complete', () => {
     this.load.on('complete', () => {
       this.scene.start('StartMenu');
     });
-
+*/
+    
   }
-   create() {
+  
+create() {
+    console.log('startedCreate');
 
-   //  const graphics = this.add.graphics();
-    // Fill the background with a solid color
- //   graphics.fillStyle(0xfdd5d5); // Specify the color (black in this case)
-  //  graphics.fillRect(0, 0, this.game.config.width, this.game.config.height);
+    const vw = window.innerWidth;
+    const xMid = vw * .5;
+    const vh = window.innerHeight;
 
-         const background = this.add.image(this.game.config.width * 0.5, this.game.config.height * 0.8, 'background');
+    const backdrop = this.add.graphics();
+    backdrop.fillStyle(0xE6E6FA, .7);
+    backdrop.lineStyle(4, 0x000000, 1);
+    backdrop.fillRect(vw * .05, vh * .05, vw * .9, vh * .85);
+
+    const background = this.add.image(xMid, vh * 0.8, 'background');
     background.setOrigin(0.5);
+
+    const progressBar = this.add.rectangle(xMid, vh * 0.8, 300, 50, 0x00ff00); // Green color
+    progressBar.setOrigin(0.5, 0.5);
+
+    const progressText = this.add.text(xMid, vh * 0.8, 'Loading...', {
+        fontFamily: 'Knewave',
+        color: '#ffffff', // White color
+        fontSize: '32px'
+    });
+    progressText.setOrigin(0.5, 0.5);
+
+    this.load.on('complete', () => {
+        console.log('Load complete');
+        this.scene.start('StartMenu');
+    });
+
+    this.load.on('progress', (percent) => {
+        progressBar.setScale(percent, 1);
+        progressText.setText(`Loading: ${Math.floor(percent * 100)}%`);
+    });
+
+    console.log('finishedCreate');
 }
 }
 
