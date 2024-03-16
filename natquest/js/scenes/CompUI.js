@@ -128,33 +128,54 @@ settingsIcon.on('pointerdown', () => {
      // ****************************************************************INFO ICON FUNC*************************************************************
 
 
-            infoIcon.on('pointerdown', () => {
-            // Handle fullscreen icon click
-            console.log('info icon clicked');
-              if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
-                 this.scale.setGameSize(window.innerWidth, window.innerHeight); //can probably delete this line  as its handled elsewhere but lets keep for now to be safe
-                // Help text for PC 
-                  this.add
-                 .text(16, 40, 'WASD to move', {
-                font: '12px monospace',
-                 fill: '#ffffff',
-                padding: { x: 20, y: 10 },
-                backgroundColor: '#000000', //maybe add some transparency and change color
-                    })
-                  .setScrollFactor(0); 
-                        } else {
-                     this.add
-                 .text(16, 40, 'virtual joystick\nto move', {
-                font: '12px monospace',
-                 fill: '#ffffff',
-                padding: { x: 20, y: 10 },
-                backgroundColor: '#000000', //maybe add some transparency and change color
-                    })
-                  .setScrollFactor(0); 
-           
-                        } 
-                    });
+    let isMessageDisplayed = false;
+    const desktopInfoMsg = 'WASD to move';
+    const mobileInfoMsg = 'virtual joystick\nto move';
+    
 
+// Add event listener to the info icon
+infoIcon.on('pointerdown', () => {
+    // Toggle message visibility
+    isMessageDisplayed = !isMessageDisplayed;
+
+    // Check if the message is currently displayed
+    if (isMessageDisplayed) {
+        // Handle info icon click when the message is displayed
+        console.log('info icon clicked');
+
+        if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
+            this.scale.setGameSize(window.innerWidth, window.innerHeight);
+            // Help text for PC
+            this.add
+                .text(16, 40, desktopInfoMsg, {
+                    font: '12px monospace',
+                    fill: '#ffffff',
+                    padding: { x: 20, y: 10 },
+                    backgroundColor: '#000000', //maybe add some transparency and change color
+                })
+                .setScrollFactor(0);
+        } else {
+            this.add
+                .text(16, 40, mobileInfoMsg, {
+                    font: '12px monospace',
+                    fill: '#ffffff',
+                    padding: { x: 20, y: 10 },
+                    backgroundColor: '#000000', //maybe add some transparency and change color
+                })
+                .setScrollFactor(0);
+        }
+    } else {
+        // Handle info icon click when the message is not displayed
+        console.log('info icon clicked - Message hidden');
+        
+        // Remove the message from the scene
+        this.children.each(child => {
+            if (child instanceof Phaser.GameObjects.Text) {
+                child.destroy();
+            }
+        });
+    }
+});
             
 
     
