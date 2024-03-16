@@ -60,7 +60,7 @@ class OpenWorld extends Phaser.Scene {
         const startMenuScene = this.scene.get('StartMenu');
 
         this.player.setScale(0.5); 
-    
+        this.cameras.main.zoom(2);
 
   } // <==== create func end tag    
 
@@ -73,7 +73,7 @@ class OpenWorld extends Phaser.Scene {
 
   //**************************************************************ZOOM IN/OUT METHODS***************************************************
  zoomIn() {
-        if (this.cameras.main.zoom < 2) {
+        if (this.cameras.main.zoom < 3) {
             this.cameras.main.zoom *= 1.1; // Increase zoom by 10%
         } else {
             console.log('Maximum zoom level reached.');
@@ -81,7 +81,7 @@ class OpenWorld extends Phaser.Scene {
     }
 
    zoomOut() {
-        if (this.cameras.main.zoom > 0.8) { // Set a minimum zoom level (0.2 is just an example)
+        if (this.cameras.main.zoom > 1) { // Set a minimum zoom level (0.2 is just an example)
             this.cameras.main.zoom /= 1.1; // Decrease zoom by 10%
         } else {
             console.log('Minimum zoom level reached.');
