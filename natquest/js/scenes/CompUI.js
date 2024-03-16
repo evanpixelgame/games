@@ -34,15 +34,41 @@ class CompUI extends Phaser.Scene {
 
         // Set click event handlers for each icon
         settingsIcon.on('pointerdown', () => {
-            // Handle settings icon click
-            console.log('Settings icon clicked');
+            const dropdownButton = this.add.text(100, 100, 'Dropdown', { fill: '#ffffff' })
+            .setInteractive();
+
+        // Create a dropdown container group
+        const dropdownContainer = this.add.group();
+
+        // Add dropdown options
+        const options = ['Option 1', 'Option 2', 'Option 3'];
+        options.forEach((option, index) => {
+            const optionText = this.add.text(100, 150 + index * 50, option, { fill: '#ffffff' })
+                .setInteractive();
+            dropdownContainer.add(optionText);
+
+            // Set up click event for each option
+            optionText.on('pointerdown', () => {
+                console.log(`Selected: ${option}`);
+                // Handle option selection logic here
+            });
         });
 
-        zoomOutIcon.on('pointerdown', () => {
+        // Hide dropdown container initially
+        dropdownContainer.setVisible(false);
+
+        // Set up click event for dropdown button
+        dropdownButton.on('pointerdown', () => {
+            dropdownContainer.setVisible(!dropdownContainer.visible);
+        });
+    }
+      //  });
+
+  /*      zoomOutIcon.on('pointerdown', () => {
             // Handle zoom out icon click
             console.log('Zoom out icon clicked');
               }
-        });
+        }); */
           
 
         // Set click event handler for the zoom in icon
