@@ -42,7 +42,9 @@ character3.setScale(2.8);
   const instructionText = this.add.text(xMid, 50, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'knewave',
-    fill: '#a9ccd2',
+    fill: '#ba76d2',
+    stroke: '#a9ccd2',  // Outline color
+    strokeThickness: 3, // Outline thickness
     align: 'center',
   })
     .setOrigin(0.5);
