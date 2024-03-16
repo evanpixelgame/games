@@ -210,20 +210,6 @@ handleFullscreenChange() {
     }
 }
 
-  
- /*
- handleFullscreenChange() {
-     console.log('before if logic');
-        if (this.scale.isFullscreen) {
-            console.log('Entering fullscreen mode');
-            this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
-        } else {
-            console.log('Exiting fullscreen mode');
-            this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
-        }
-    }
-    */
-
       resizeGame(gameSize) {
         console.log('attempting resize with resizeGame method');
         const { width, height } = gameSize;
