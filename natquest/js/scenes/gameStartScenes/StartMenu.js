@@ -112,9 +112,14 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
       // Transition to the main scene when the button is clicked
     }, this);
 
-      fullscreenButton.on('pointerdown', () => {
-            this.requestFullScreen();
-        });
+     fullscreenButton.on('pointerdown', () => {
+    if (this.isFullScreen()) {
+        this.exitFullScreen();
+    } else {
+        this.requestFullScreen();
+    }
+});
+
 
       settingsButton.on('pointerdown', () => {
             this.scene.start('Settings');
@@ -155,6 +160,28 @@ isPortraitMode() {
         element.msRequestFullscreen();
     }
 }
+
+  isFullScreen() {
+    return (
+        document.fullscreenElement ||
+        document.mozFullScreenElement ||
+        document.webkitFullscreenElement ||
+        document.msFullscreenElement
+    );
+}
+
+exitFullScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+}
+
 
   
 }
