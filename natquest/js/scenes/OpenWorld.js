@@ -126,7 +126,7 @@ function handleOrientationChange() {
     }
 
    zoomOut() {
-        if (this.cameras.main.zoom > 0.2) { // Set a minimum zoom level (0.2 is just an example)
+        if (this.cameras.main.zoom > 0.8) { // Set a minimum zoom level (0.2 is just an example)
             this.cameras.main.zoom /= 1.1; // Decrease zoom by 10%
         } else {
             console.log('Minimum zoom level reached.');
