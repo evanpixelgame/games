@@ -25,7 +25,7 @@ class CompUI extends Phaser.Scene {
     const settingsIcon = this.add.sprite(6.5 * vw / 9, 50, 'settingsIcon').setInteractive();
         const zoomInIcon = this.add.sprite(7 * vw / 9, 50, 'zoomInIcon').setInteractive();
         const zoomOutIcon = this.add.sprite(7.5 * vw / 9, 50, 'zoomOutIcon').setInteractive();
-        const fullscreenIcon = this.add.sprite(8 * vw/ 9, 50, 'fullscreenIcon').setInteractive();
+        const fullscreenIcon = this.add.sprite(8.1 * vw/ 9, 50, 'fullscreenIcon').setInteractive();
 
        settingsIcon.setScale(0.1);
         zoomInIcon.setScale(0.2);
