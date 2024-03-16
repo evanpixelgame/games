@@ -37,40 +37,31 @@ class CompUI extends Phaser.Scene {
 
     // ****************************************************************SETTINGS ICON FUNC*************************************************************
   
+let isDropdownVisible = false;
+
 settingsIcon.on('pointerdown', () => {
-  console.log('opensettingsattempt');
+    console.log('opensettingsattempt');
+    
     // Get the position of the settings icon
     const { x, y } = settingsIcon;
-      
-    // Offset the dropdown menu position based on the settings icon
-    const dropdownButton = this.add.text(x, y + settingsIcon.displayHeight, 'settingsIcon', { fill: '#ffffff' })
-        .setInteractive();
+    
+    // Toggle the visibility of the dropdown menu
+    dropdownContainer.setVisible(!isDropdownVisible);
+    
+    if (!isDropdownVisible) {
+        // If the dropdown menu is not visible, create and display it
+        this.createDropdownMenu(x, y + settingsIcon.displayHeight);
+    } else {
+        // If the dropdown menu is already visible, hide it
+        dropdownContainer.clear(true, true);
+    }
 
-        // Create a dropdown container group
-        const dropdownContainer = this.add.group();
+    // Update the flag to reflect the new visibility state
+    isDropdownVisible = !isDropdownVisible;
+});
 
-        // Add dropdown options
-        const options = ['Option 1', 'Option 2', 'Option 3'];
-        options.forEach((option, index) => {
-            const optionText = this.add.text(100, 150 + index * 50, option, { fill: '#ffffff' })
-                .setInteractive();
-            dropdownContainer.add(optionText);
 
-            // Set up click event for each option
-            optionText.on('pointerdown', () => {
-                console.log(`Selected: ${option}`);
-                // Handle option selection logic here
-            });
-        });
-
-        // Hide dropdown container initially
-        dropdownContainer.setVisible(false);
-
-        // Set up click event for dropdown button
-        dropdownButton.on('pointerdown', () => {
-            dropdownContainer.setVisible(!dropdownContainer.visible);
-        });
-          });
+    //*****************************************************************************************************************************
 
   /*      zoomOutIcon.on('pointerdown', () => {
             // Handle zoom out icon click
@@ -307,8 +298,40 @@ exitFullScreen() {
     }
 }
 
-  
+// ****************************************************************DROP DOWN SCREEN BUTTON METHODS*************************************************************
 
+
+createDropdownMenu(x, y) {
+    // Create a dropdown container group
+    dropdownContainer = this.add.group();
+
+    // Add dropdown options
+    const options = ['Option 1', 'Option 2', 'Option 3'];
+    options.forEach((option, index) => {
+        const optionText = this.add.text(x, y + index * 50, option, { fill: '#ffffff' })
+            .setInteractive();
+        dropdownContainer.add(optionText);
+
+        // Set up click event for each option
+        optionText.on('pointerdown', () => {
+            console.log(`Selected: ${option}`);
+            // Handle option selection logic here
+        });
+    });
+    
+    // Set up click event for dropdown button to close the dropdown menu
+    dropdownContainer.on('pointerdown', () => {
+        dropdownContainer.clear(true, true);
+        isDropdownVisible = false;
+    });
+    
+    // Make the dropdown container visible
+    dropdownContainer.setVisible(true);
+}
+
+          
+          
+ // ****************************************************************END OF METHODS START OF UPDATE FUNC*************************************************************
   update(time, delta) {
 
   }
