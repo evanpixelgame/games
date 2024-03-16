@@ -23,7 +23,7 @@ class CharSelect extends Phaser.Scene {
 // Set the line style for the border (black color with 2 pixels width)
 backdrop.lineStyle(4, 0x000000, 1);
 //  backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
-  backdrop.fillRect(100, 150, 600, 150);
+  backdrop.fillRect(100, 150, 600, 200);
 
     
   // Display character options
