@@ -68,20 +68,8 @@ settingsIcon.on('pointerdown', () => {
     isDropdownVisible = !isDropdownVisible;
 });
 
-    //*****************************************************************************************************************************
-
-  /*      zoomOutIcon.on('pointerdown', () => {
-            // Handle zoom out icon click
-            console.log('Zoom out icon clicked');
-              }
-        }); */
 
      // ****************************************************************ZOOM IN ICON FUNC*************************************************************
-
-    
-   
-
-    
 
             zoomInIcon.on('pointerdown', () => {
             console.log('zoominattempt');
@@ -91,25 +79,6 @@ settingsIcon.on('pointerdown', () => {
         this.openWorldScene.zoomIn();
     }
         });
-
-    /*
-        // Set click event handler for the zoom in icon
-        zoomInIcon.on('pointerdown', () => {
-          console.log('zoominattempt');
-            // Check if the current zoom level is less than the maximum allowed
-            if (this.zoomLevel < 5) {
-                // Increase the zoom level
-                this.zoomLevel++;
-                console.log('Zoom in clicked. Zoom level:', this.zoomLevel);
-
-                // Perform zoom operation here, e.g., adjust camera zoom, scale game objects, etc.
-                this.OpenWorld.cameras.main.zoom *= 1.1; // Increase zoom by 10%
-            } else {
-                console.log('Maximum zoom level reached.');
-            }
-        });
-        */
-
 
      // ****************************************************************ZOOM OUT ICON FUNC*************************************************************
  
@@ -186,30 +155,6 @@ infoIcon.on('pointerdown', () => {
         });
     }
 });
-            
-
-    
-
-    // ****************************************************************FULL SCREEN BUTTON (OLD DELETE LATER once sure no longer needed) *************************************************************
-  /*    const fullscreenButton = this.add.text(xMid/3, 50, 'Fullscreen', {
-      fontSize: '26px', 
-      fontFamily: 'Roboto',
-      fill: '#ffffff',  //'#c92b23',
-      padding: { x: 20, y: 20 },
-    })
-      .setOrigin(0.5)
-      .setInteractive(); 
-      
-    
-     fullscreenButton.on('pointerdown', () => {
-    if (this.isFullScreen()) {
-        this.exitFullScreen();
-    } else {
-        this.requestFullScreen();
-    }
-});
-
-  */  //hopefully this just gets rid of the white text that says fullscreen and just leaves the icons
 
  // ****************************************************************EVENT LISTENERS*************************************************************
     
