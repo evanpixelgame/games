@@ -23,11 +23,11 @@ class StartMenu extends Phaser.Scene {
      const backdrop = this.add.graphics();
         backdrop.fillStyle(0xE6E6FA, .7);
         backdrop.lineStyle(4, 0x000000, 1);
-        backdrop.fillRect(10, 20, 150, 300);
+        backdrop.fillRect(vw / 5, 20, 150, 300);
 
     
     // Add a title
-    const title = this.add.text(xMid, 200, 'NAT QUEST', {
+    const title = this.add.text(xMid, vh / 2, 'NAT QUEST', {
       fontSize: '68px', 
       fontFamily: 'Knewave',
       fill: '#ba76d2',
@@ -47,7 +47,7 @@ class StartMenu extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(75, 100, 'Start', {
+    const startButton = this.add.text(vw / 5, 100, 'Start', {
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -57,7 +57,7 @@ class StartMenu extends Phaser.Scene {
       .setInteractive();
 
         // Add a settings button
-    const settingsButton = this.add.text(75, 150, 'Settings', {
+    const settingsButton = this.add.text(vw / 5, 150, 'Settings', {
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -72,7 +72,7 @@ class StartMenu extends Phaser.Scene {
     //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
         // Add a fullscreen button
-    const fullscreenButton = this.add.text(75, 200, 'Fullscreen', {
+    const fullscreenButton = this.add.text(vw / 5, 200, 'Fullscreen', {
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
