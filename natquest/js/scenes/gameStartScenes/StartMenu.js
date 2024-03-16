@@ -162,15 +162,14 @@ isPortraitMode() {
     }
 }
 
-      handleFullscreenChange() {
+   handleFullscreenChange() {
         if (this.scale.isFullscreen) {
-          console.log('resizing need recognized');
-            // Call your resize function when entering fullscreen
-            this.resizeFunction();
-          console.log('resizing hopefully accomplished');
+            console.log('Entering fullscreen mode');
+            this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
         } else {
-           console.log('Handle exiting fullscreen if needed');
-       }
+            console.log('Exiting fullscreen mode');
+            this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
+        }
     }
 
       resizeGame(gameSize) {
