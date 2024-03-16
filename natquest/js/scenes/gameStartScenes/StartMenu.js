@@ -125,7 +125,7 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
             this.scene.start('Settings');
         });
 
-
+// **************************************************************************EVENT LISTENERS BELOW *****************************************************************
 this.scale.on('fullscreenchange', this.handleFullscreenChange, this);
 //this.scale.on('resize', this.resizeGame, this);
  window.addEventListener('orientationchange', this.handleResizeOnReorientation);
