@@ -24,8 +24,8 @@ class CharSelect extends Phaser.Scene {
 backdrop.lineStyle(4, 0x000000, 1);
 //  backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
   backdrop.fillRect(100, 150, 600, 200);
-
-    const char1pos = vw / 4;
+  
+    const char1pos = vw / 3;
     const char3pos =  3 * vw / 4;
     
   // Display character options
