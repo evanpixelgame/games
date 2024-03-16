@@ -21,6 +21,7 @@ class OpenWorld extends Phaser.Scene {
        }
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
      this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
+     this.scene.launch('CompUI', { player: this.player, speed: this.speed });
 
   //Load map
   const map = this.make.tilemap({ key: 'map' });
