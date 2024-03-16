@@ -1,5 +1,6 @@
 body {
    background-color: pink;
+   overflow: hidden;
 }
 
 #game-container {
