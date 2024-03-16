@@ -24,7 +24,7 @@ class CompUI extends Phaser.Scene {
       const fullscreenButton = this.add.text(xMid/3, 50, 'Fullscreen', {
       fontSize: '26px', 
       fontFamily: 'Roboto',
-      fill: '#ffffff'//'#c92b23',
+      fill: '#ffffff',  //'#c92b23',
       padding: { x: 20, y: 20 },
     })
       .setOrigin(0.5)
