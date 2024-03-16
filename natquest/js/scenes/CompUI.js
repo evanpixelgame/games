@@ -44,7 +44,7 @@ class CompUI extends Phaser.Scene {
         fullscreenIcon.setScale(.12);
 
     // ****************************************************************SETTINGS ICON FUNC*************************************************************
-  
+this.dropdownContainer = this.add.group();
 let isDropdownVisible = false;
 
 settingsIcon.on('pointerdown', () => {
