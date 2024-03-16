@@ -96,7 +96,7 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
     const welcomeTextBlock = this.add.text(xMid, vh * .3, `Welcome to Nat Quest, ${gameManager.playerName}!
       \nYou have chosen the ${gameManager.selectedCharacter} as your character. \nIt's time to start your adventure!`, {
       fontSize: '24px',
-      fontFamily: 'Arial',
+      fontFamily: 'Roboto, sans-serif',
       fill: '#0d1117',
       align: 'center',
     })
