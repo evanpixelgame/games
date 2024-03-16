@@ -35,6 +35,7 @@ if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
     })
     .setScrollFactor(0); 
   }
+  */
 
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
