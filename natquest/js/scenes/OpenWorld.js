@@ -58,10 +58,10 @@ class OpenWorld extends Phaser.Scene {
     this.cameras.main.startFollow(this.player);
 
         const startMenuScene = this.scene.get('StartMenu');
-
+        this.cameras.main.setZoom(2);
         this.player.setScale(0.5); 
-        this.cameras.main.zoom(2);
 
+    
   } // <==== create func end tag    
 
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
