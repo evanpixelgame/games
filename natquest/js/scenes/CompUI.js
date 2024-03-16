@@ -61,6 +61,7 @@ class CompUI extends Phaser.Scene {
         dropdownButton.on('pointerdown', () => {
             dropdownContainer.setVisible(!dropdownContainer.visible);
         });
+          });
 
   /*      zoomOutIcon.on('pointerdown', () => {
             // Handle zoom out icon click
@@ -138,7 +139,7 @@ class CompUI extends Phaser.Scene {
  //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
     this.scale.on('resize', this.handleFullscreenChange, this);
 
-  } }
+});
   // ^^^closing brackets of create func
 
    // ****************************************************************FULL SCREEN BUTTON METHODS*************************************************************
