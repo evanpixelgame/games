@@ -23,7 +23,7 @@ class StartMenu extends Phaser.Scene {
      const backdrop = this.add.graphics();
         backdrop.fillStyle(0xE6E6FA, .7);
         backdrop.lineStyle(4, 0x000000, 1);
-        backdrop.fillRect(vw / 10, 20, 150, 300);/////////////////////////////////////////////
+        backdrop.fillRect(vw / 10, 20, vw / 8, 300);/////////////////////////////////////////////
 
     
     // Add a title
