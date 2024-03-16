@@ -57,7 +57,7 @@ class OpenWorld extends Phaser.Scene {
         // Call the handleFullscreenChange method from StartMenu scene
     //    startMenuScene.handleFullscreenChange();
 
-       const fullscreenButton = this.add.text(40, 10, 'Fullscreen', {
+       const fullscreenButton = this.add.text(100, 10, 'Fullscreen', {
       fontSize: '15px', 
       fontFamily: 'Roboto',
       fill: '#ffffff',
