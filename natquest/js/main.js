@@ -38,6 +38,7 @@ const config = {
     MobileControls,
     ComputerControls,
     PlayerAnimations,
+    CompUI,
   ],
 };
 
