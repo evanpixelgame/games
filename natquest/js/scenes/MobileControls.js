@@ -77,7 +77,7 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
             var key = cursorKeys[name];
             s += `${name}: duration=${key.duration / 1000}\n`;
         }
-        this.text.setText(s);
+       // this.text.setText(s); // <================attempt at removing diagnostic test data from screen
     }
     update() {
             const openWorldScene = this.scene.get('OpenWorld');
