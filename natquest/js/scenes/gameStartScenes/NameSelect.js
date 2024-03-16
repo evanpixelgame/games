@@ -86,7 +86,7 @@ createVirtualKeyboard() {
     //The classes for the overall keyboard are 
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const keyboardContainer = document.createElement('div');
-    keyboardContainer.style = 'position: absolute; bottom: 10vh; left: 50vw; transform: translateX(-50%);';
+    keyboardContainer.style = 'position: absolute; bottom: 5vh; left: 50vw; transform: translateX(-50%);';
     document.body.appendChild(keyboardContainer);
 
     for (let letter of letters) {
