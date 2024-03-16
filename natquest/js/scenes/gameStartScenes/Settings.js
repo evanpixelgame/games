@@ -38,7 +38,7 @@ class Settings extends Phaser.Scene {
     
     // Set a callback function for the button click event
     backButton.on('pointerdown', function () {
-      this.scene.start('startMenu');
+      this.scene.start('StartMenu');
     }, this);
 
 
