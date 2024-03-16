@@ -87,7 +87,8 @@ selectCharacter(characterKey, characterImage) {
   const continueButton = this.add.text(400, 280, 'Continue', {
     fontSize: '26px',
     fontFamily: 'knewave',
-    fill: '#ba76d2',
+    fill: '#c92b23',  //deep red
+   // fill: '#ba76d2', //purple
     padding: { x: 20, y: 20 },
   })
     .setOrigin(0.5)
