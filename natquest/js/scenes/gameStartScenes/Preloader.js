@@ -46,7 +46,7 @@ class Preloader extends Phaser.Scene {
     this.load.image('zoomInIcon', 'assets/UI/icons/zoom-icon.png');
      this.load.image('zoomOutIcon', 'assets/UI/icons/zoom-out-icon.png');
      this.load.image('settingsIcon', 'assets/UI/icons/settings-icon.png');
-     this.load.image('fullscreenIcon', 'assets/UI/icons/fullscreen-icon.png');
+     this.load.image('fullscreenIcon', 'assets/UI/icons/full-screen-icon.png');
     
     
     this.load.on('complete', () => {
