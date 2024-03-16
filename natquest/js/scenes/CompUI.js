@@ -38,9 +38,10 @@ class CompUI extends Phaser.Scene {
     // ****************************************************************SETTINGS ICON FUNC*************************************************************
   
 settingsIcon.on('pointerdown', () => {
+  console.log('opensettingsattempt');
     // Get the position of the settings icon
     const { x, y } = settingsIcon;
-
+      
     // Offset the dropdown menu position based on the settings icon
     const dropdownButton = this.add.text(x, y + settingsIcon.displayHeight, 'settingsIcon', { fill: '#ffffff' })
         .setInteractive();
