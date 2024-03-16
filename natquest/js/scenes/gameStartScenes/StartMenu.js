@@ -70,6 +70,18 @@ class StartMenu extends Phaser.Scene {
     //should also make a save option that lets people save their file to their local pc/device
     //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
+
+if (isMobileDevice() && isPortraitMode()) {
+            // Add some text to the backdrop
+  const instructionText = this.add.text(xMid, 50, 'Please set your\nmobile device\nto landscape mode\nto continue', {
+    fontSize: '26px',
+    fontFamily: 'knewave',
+    fill: '#c92b23',
+    align: 'center',
+  })
+    .setOrigin(0.5);
+}
+    
     // Set a callback function for the button click event
     startButton.on('pointerdown', function () {
          const orientation = window.screen.orientation.type;
@@ -98,6 +110,16 @@ handleResizeOnReorientation() {
 location.reload();
   console.log('thisworksed');
 }
+
+ isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+// Check if the device is in portrait mode
+isPortraitMode() {
+    return window.innerHeight > window.innerWidth;
+}
+
 
   
 }
