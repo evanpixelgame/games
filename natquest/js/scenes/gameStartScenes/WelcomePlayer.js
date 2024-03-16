@@ -40,6 +40,13 @@ class WelcomePlayer extends Phaser.Scene {
     // Fill the background with a solid color
     graphics.fillStyle(0xfdd5d5); // Specify the color (black in this case)
     graphics.fillRect(0, 0, this.game.config.width, this.game.config.height);
+
+      
+       const backdrop = this.add.graphics();
+        backdrop.fillStyle(0xE6E6FA, .7);
+        backdrop.lineStyle(4, 0x000000, 1);
+        backdrop.fillRect(vw * .15, vh * .05, vw * .7, vh * .85);
+
     
     //this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
   //  this.openWorldScene = this.scene.get('ComputerControls'); 
@@ -90,7 +97,7 @@ window.addEventListener('orientationchange', handleResizeOnReorientation);
       \nYou have chosen the ${gameManager.selectedCharacter} as your character. \nIt's time to start your adventure!`, {
       fontSize: '24px',
       fontFamily: 'Arial',
-      fill: '#ffffff',
+      fill: '#0d1117',
       align: 'center',
     })
       .setOrigin(0.5);
