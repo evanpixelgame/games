@@ -45,7 +45,7 @@ class WelcomePlayer extends Phaser.Scene {
        const backdrop = this.add.graphics();
         backdrop.fillStyle(0xE6E6FA, .7);
         backdrop.lineStyle(4, 0x000000, 1);
-        backdrop.fillRect(vw * .15, vh * .05, vw * .7, vh * .85);
+        backdrop.fillRect(vw * .05, vh * .05, vw * .9, vh * .85);
 
     
     //this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
