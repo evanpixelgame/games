@@ -1,6 +1,6 @@
-class WelcomePlayer extends Phaser.Scene {
+class Settings extends Phaser.Scene {
   constructor() {
-    super({ key: 'WelcomePlayer' });
+    super({ key: 'Settings' });
   }
 
   
@@ -51,7 +51,7 @@ class WelcomePlayer extends Phaser.Scene {
     //this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
   //  this.openWorldScene = this.scene.get('ComputerControls'); 
  //   const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
-     const beginButton = this.add.text(xMid, vh * .8, 'Start', {
+     const backButton = this.add.text(xMid, vh * .8, 'Back', {
       fontSize: '48px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -63,20 +63,8 @@ class WelcomePlayer extends Phaser.Scene {
 
     
     // Set a callback function for the button click event
-    beginButton.on('pointerdown', function () {
-         const orientation = window.screen.orientation.type;
-    // Check if the device is in landscape mode
-    if (orientation.includes('landscape')) {
-        // Execute event handler code only in landscape mode
-        console.log('Click event in landscape mode2');
-      this.scene.start('OpenWorld');
-    } else {
-        // Ignore the click event in portrait mode
-        console.log('Ignoring click event in portrait mode2');
-      alert('please enter landscape mode to begin');
-    } 
-      // Transition to the main scene when the button is clicked
-      //this.scene.start('OpenWorld');
+    backButton.on('pointerdown', function () {
+      this.scene.start('startMenu');
     }, this);
 
 
@@ -94,7 +82,7 @@ class WelcomePlayer extends Phaser.Scene {
   }
 }
 
-window.WelcomePlayer = WelcomePlayer;
+window.Settings = Settings;
 
 
 
