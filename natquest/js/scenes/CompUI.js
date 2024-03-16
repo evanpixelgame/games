@@ -73,6 +73,13 @@ settingsIcon.on('pointerdown', () => {
 
      // ****************************************************************ZOOM IN ICON FUNC*************************************************************
 
+
+            zoomInIcon.on('pointerdown', () => {
+            console.log('zoominattempt');
+            this.OpenWorld.zoomIn(); // Call the zoomIn method in the OpenWorld scene
+        });
+
+    /*
         // Set click event handler for the zoom in icon
         zoomInIcon.on('pointerdown', () => {
           console.log('zoominattempt');
@@ -88,6 +95,7 @@ settingsIcon.on('pointerdown', () => {
                 console.log('Maximum zoom level reached.');
             }
         });
+        */
 
 
      // ****************************************************************ZOOM OUT ICON FUNC*************************************************************
