@@ -55,7 +55,7 @@ class OpenWorld extends Phaser.Scene {
 
         const startMenuScene = this.scene.get('StartMenu');
 
-         this.cameras.main.setZoom(2);
+      //   this.cameras.main.setZoom(2); zoom test for zoom icon
  
 
   } // <==== create func end tag    
