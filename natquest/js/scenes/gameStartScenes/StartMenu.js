@@ -127,7 +127,7 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
 
 
 this.scale.on('fullscreenchange', this.handleFullscreenChange, this);
-this.scale.on('resize', this.resizeGame, this);
+//this.scale.on('resize', this.resizeGame, this);
  window.addEventListener('orientationchange', this.handleResizeOnReorientation);
  //   window.addEventListener('resize', this.handleResizeOnReorientation);
     
