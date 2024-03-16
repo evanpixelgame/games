@@ -44,7 +44,7 @@ class ComputerControls extends Phaser.Scene {
   });
 
     
-     const startMenuScene = this.scene.get('StartMenu');
+/*     const startMenuScene = this.scene.get('StartMenu');
     
      const fullscreenButton = this.add.text(120, 30, 'Fullscreen', {
       fontSize: '22px', 
@@ -57,6 +57,9 @@ class ComputerControls extends Phaser.Scene {
 
  //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
     this.scale.on('resize', startMenuScene.handleFullscreenChange, this);
+    
+    */
+    
 
   }
 
