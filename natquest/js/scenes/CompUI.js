@@ -3,7 +3,6 @@ class CompUI extends Phaser.Scene {
   constructor() {
     super({ key: 'CompUI' });
 
-
      this.dropdownContainer = null;
   }
       
