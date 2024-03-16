@@ -16,7 +16,7 @@ class CompUI extends Phaser.Scene {
 
      const startMenuScene = this.scene.get('StartMenu');
     
-     const fullscreenButton = this.add.text(120, 50, 'Fullscreen', {
+     const fullscreenButton = this.add.text(100, 100, 'Fullscreen', {
       fontSize: '22px', 
       fontFamily: 'Roboto',
       fill: '#ffffff',
