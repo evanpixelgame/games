@@ -61,8 +61,6 @@ class CompUI extends Phaser.Scene {
         dropdownButton.on('pointerdown', () => {
             dropdownContainer.setVisible(!dropdownContainer.visible);
         });
-    }
-       });
 
   /*      zoomOutIcon.on('pointerdown', () => {
             // Handle zoom out icon click
