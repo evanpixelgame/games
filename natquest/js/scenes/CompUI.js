@@ -32,10 +32,13 @@ class CompUI extends Phaser.Scene {
         zoomOutIcon.setScale(0.2);
         fullscreenIcon.setScale(.12);
 
-        // Set click event handlers for each icon
-        settingsIcon.on('pointerdown', () => {
-            const dropdownButton = this.add.text(100, 100, 'settingsIcon', { fill: '#ffffff' })
-            .setInteractive();
+settingsIcon.on('pointerdown', () => {
+    // Get the position of the settings icon
+    const { x, y } = settingsIcon;
+
+    // Offset the dropdown menu position based on the settings icon
+    const dropdownButton = this.add.text(x, y + settingsIcon.displayHeight, 'settingsIcon', { fill: '#ffffff' })
+        .setInteractive();
 
         // Create a dropdown container group
         const dropdownContainer = this.add.group();
