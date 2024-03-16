@@ -20,6 +20,7 @@ class CompUI extends Phaser.Scene {
     const xMid = vw * .5;
     const vh = window.innerHeight;
 
+    // ****************************************************************FULL SCREEN BUTTON*************************************************************
       const fullscreenButton = this.add.text(xMid, 50, 'Fullscreen', {
       fontSize: '26px', 
       fontFamily: 'knewave',
@@ -37,12 +38,15 @@ class CompUI extends Phaser.Scene {
         this.requestFullScreen();
     }
 });
-
+ // ****************************************************************EVENT LISTENERS*************************************************************
     
  //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
     this.scale.on('resize', this.handleFullscreenChange, this);
 
-  }
+  } 
+  // ^^^closing brackets of create func
+
+   // ****************************************************************FULL SCREEN BUTTON METHODS*************************************************************
 
  requestFullScreen() {
     const element = document.documentElement;
