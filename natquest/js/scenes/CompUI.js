@@ -29,8 +29,8 @@ class CompUI extends Phaser.Scene {
         const zoomOutIcon = this.add.sprite(7.5 * vw / 9, 50, 'zoomOutIcon').setInteractive();   //was at 7.5 vw changed temp for diagnosis
         const fullscreenIcon = this.add.sprite(8.1 * vw/ 9, 50, 'fullscreenIcon').setInteractive();
 
-       infoIcon.setScale(.12);
-       settingsIcon.setScale(0.2);
+       infoIcon.setScale(.2);
+       settingsIcon.setScale(0.1);
         zoomInIcon.setScale(0.2);
         zoomOutIcon.setScale(0.2);
         fullscreenIcon.setScale(.12);
@@ -124,6 +124,28 @@ settingsIcon.on('pointerdown', () => {
             infoIcon.on('pointerdown', () => {
             // Handle fullscreen icon click
             console.log('info icon clicked');
+              if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
+                 this.scale.setGameSize(window.innerWidth, window.innerHeight); //can probably delete this line  as its handled elsewhere but lets keep for now to be safe
+                // Help text for PC 
+                  this.add
+                 .text(16, 40, 'WASD to move', {
+                font: '12px monospace',
+                 fill: '#ffffff',
+                padding: { x: 20, y: 10 },
+                backgroundColor: '#000000', //maybe add some transparency and change color
+                    })
+                  .setScrollFactor(0); 
+                        } else {
+                     this.add
+                 .text(16, 40, 'virtual joystick\nto move', {
+                font: '12px monospace',
+                 fill: '#ffffff',
+                padding: { x: 20, y: 10 },
+                backgroundColor: '#000000', //maybe add some transparency and change color
+                    })
+                  .setScrollFactor(0); 
+           
+                        } 
                     });
 
             
