@@ -66,7 +66,7 @@ class OpenWorld extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive();
 
-    this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
+ //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
     this.scale.on('resize', startMenuScene.handleFullscreenChange, this);
 
 
