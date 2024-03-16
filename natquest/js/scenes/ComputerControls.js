@@ -10,32 +10,12 @@ class ComputerControls extends Phaser.Scene {
 
   create() {
 
-    //SCENE & VARIABLE ACCESS TO OPENWORLD SCENE
- //this.openWorldScene = this.scene.get('OpenWorld');
- //this.mobileControlsScene = this.scene.get('MobileControls');
-// this.player = this.scene.get('OpenWorld').player;  
-// this.speed = this.openWorldScene.speed;
-
         this.openWorldScene = this.scene.get('OpenWorld');
         this.player = this.openWorldScene.player;
         this.speed = this.openWorldScene.speed;
 
     
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
-/* wasd movement message currently handled by info icon
-if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
-     this.scale.setGameSize(window.innerWidth, window.innerHeight); 
-      // Help text
-  this.add
-    .text(16, 16, 'WASD to move', {
-      font: '18px monospace',
-      fill: '#ffffff',
-      padding: { x: 20, y: 10 },
-      backgroundColor: '#000000',
-    })
-    .setScrollFactor(0); 
-  }
-  */
 
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
@@ -45,23 +25,6 @@ if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
     right: Phaser.Input.Keyboard.KeyCodes.D,
   });
 
-    
-/*     const startMenuScene = this.scene.get('StartMenu');
-    
-     const fullscreenButton = this.add.text(120, 30, 'Fullscreen', {
-      fontSize: '22px', 
-      fontFamily: 'Roboto',
-      fill: '#ffffff',
-      padding: { x: 20, y: 20 },
-    })
-      .setOrigin(0.5)
-      .setInteractive();
-
- //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
-    this.scale.on('resize', startMenuScene.handleFullscreenChange, this);
-    
-    */
-    
 
   }
 
