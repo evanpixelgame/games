@@ -62,7 +62,39 @@ class CompUI extends Phaser.Scene {
     }
 }
 
-   handleFullscreenChange() {
+handleFullscreenChange() {
+    console.log('Fullscreen change detected');
+
+    // Check if the game is running on a mobile device
+    const isMobile = /Mobi|Android|iOS/i.test(navigator.userAgent);
+
+    // Apply delay only if on a mobile device was running into problem where it would capture resize zone too early and cut off the canvas
+    if (isMobile) {
+        // Wait for a short delay before resizing
+        setTimeout(() => {
+            if (this.scale.isFullscreen) {
+                console.log('Entering fullscreen mode');
+                this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
+            } else {
+                console.log('Exiting fullscreen mode');
+                this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
+            }
+        }, 1000); // Adjust the delay time as needed
+    } else {
+        // Resize immediately without delay for desktop
+        if (this.scale.isFullscreen) {
+            console.log('Entering fullscreen mode');
+            this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
+        } else {
+            console.log('Exiting fullscreen mode');
+            this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
+        }
+    }
+}
+
+  
+ /*
+ handleFullscreenChange() {
      console.log('before if logic');
         if (this.scale.isFullscreen) {
             console.log('Entering fullscreen mode');
@@ -72,6 +104,7 @@ class CompUI extends Phaser.Scene {
             this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
         }
     }
+    */
 
       resizeGame(gameSize) {
         console.log('attempting resize with resizeGame method');
