@@ -3,7 +3,6 @@ class CharSelect extends Phaser.Scene {
     super({ key: 'CharSelect' });
     this.selectedCharacter = null;
     this.characterHighlight = null;
-  //  this.inputElement = null;
   }
 
   preload() {
