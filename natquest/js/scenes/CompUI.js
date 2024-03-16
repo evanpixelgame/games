@@ -4,6 +4,7 @@ class CompUI extends Phaser.Scene {
     super({ key: 'CompUI' });
 
      this.dropdownContainer = null;
+     this.openWorldScene = data.OpenWorld;
   }
       
   preload() {
@@ -72,10 +73,18 @@ settingsIcon.on('pointerdown', () => {
 
      // ****************************************************************ZOOM IN ICON FUNC*************************************************************
 
+    
+   
+
+    
 
             zoomInIcon.on('pointerdown', () => {
             console.log('zoominattempt');
-            this.OpenWorld.zoomIn(); // Call the zoomIn method in the OpenWorld scene
+            //this.OpenWorld.zoomIn(); // Call the zoomIn method in the OpenWorld scene
+
+               if (this.openWorldScene) {
+        this.openWorldScene.zoomIn();
+    }
         });
 
     /*
