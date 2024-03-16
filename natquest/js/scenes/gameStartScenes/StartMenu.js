@@ -104,6 +104,7 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
         // Execute event handler code only in landscape mode
         console.log('Click event in landscape mode');
        window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
+      this.lockScreenOrientation();
       this.scene.start('NameSelect');
     } else {
         // Ignore the click event in portrait mode
@@ -208,6 +209,20 @@ exitFullScreen() {
         document.webkitExitFullscreen();
     } else if (document.msExitFullscreen) {
         document.msExitFullscreen();
+    }
+}
+
+    lockScreenOrientation() {
+    if (screen.orientation.lock) {
+        screen.orientation.lock('landscape');
+    } else if (screen.lockOrientation) {
+        screen.lockOrientation('landscape');
+    } else if (screen.mozLockOrientation) {
+        screen.mozLockOrientation('landscape');
+    } else if (screen.msLockOrientation) {
+        screen.msLockOrientation('landscape');
+    } else {
+        console.log('Screen orientation locking not supported.');
     }
 }
 
