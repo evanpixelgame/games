@@ -34,7 +34,9 @@ class CompUI extends Phaser.Scene {
         zoomInIcon.setScale(0.2);
         zoomOutIcon.setScale(0.2);
         fullscreenIcon.setScale(.12);
-    
+
+    // ****************************************************************SETTINGS ICON FUNC*************************************************************
+  
 settingsIcon.on('pointerdown', () => {
     // Get the position of the settings icon
     const { x, y } = settingsIcon;
@@ -74,7 +76,8 @@ settingsIcon.on('pointerdown', () => {
             console.log('Zoom out icon clicked');
               }
         }); */
-          
+
+     // ****************************************************************ZOOM IN ICON FUNC*************************************************************
 
         // Set click event handler for the zoom in icon
         zoomInIcon.on('pointerdown', () => {
@@ -92,6 +95,8 @@ settingsIcon.on('pointerdown', () => {
             }
         });
 
+
+     // ****************************************************************ZOOM OUT ICON FUNC*************************************************************
             // Set click event handler for the zoom in icon
         zoomOutIcon.on('pointerdown', () => {
           console.log('zoomoutattempt');
@@ -108,7 +113,7 @@ settingsIcon.on('pointerdown', () => {
             }
         });
 
-
+ // ****************************************************************FULLSCREEN ICON FUNC*************************************************************
 
         fullscreenIcon.on('pointerdown', () => {
             // Handle fullscreen icon click
@@ -119,6 +124,8 @@ settingsIcon.on('pointerdown', () => {
               this.requestFullScreen();
                 }
                     });
+
+     // ****************************************************************INFO ICON FUNC*************************************************************
 
 
             infoIcon.on('pointerdown', () => {
@@ -152,7 +159,7 @@ settingsIcon.on('pointerdown', () => {
 
     
 
-    // ****************************************************************FULL SCREEN BUTTON*************************************************************
+    // ****************************************************************FULL SCREEN BUTTON (OLD DELETE LATER once sure no longer needed) *************************************************************
   /*    const fullscreenButton = this.add.text(xMid/3, 50, 'Fullscreen', {
       fontSize: '26px', 
       fontFamily: 'Roboto',
