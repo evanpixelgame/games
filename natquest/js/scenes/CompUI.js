@@ -27,6 +27,11 @@ class CompUI extends Phaser.Scene {
         const zoomOutIcon = this.add.sprite(250, 50, 'zoomOutIcon').setInteractive();
         const fullscreenIcon = this.add.sprite(350, 50, 'fullscreenIcon').setInteractive();
 
+       settingsIcon.setScale(0.2);
+        zoomInIcon.setScale(0.2);
+        zoomOutIcon.setScale(0.2);
+        fullscreenIcon.setScale(0.2);
+
         // Set click event handlers for each icon
         settingsIcon.on('pointerdown', () => {
             // Handle settings icon click
