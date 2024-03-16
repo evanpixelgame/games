@@ -47,7 +47,7 @@ class Preloader extends Phaser.Scene {
      this.load.image('zoomOutIcon', 'assets/UI/icons/zoom-out-icon.png');
      this.load.image('settingsIcon', 'assets/UI/icons/settings-icon.png');
      this.load.image('fullscreenIcon', 'assets/UI/icons/full-screen-icon.png');
-    
+    this.load.image('infoIcon', 'assets/UI/icons/info-icon.png');
     
     this.load.on('complete', () => {
         progressText.destroy(); // Remove the progress text when loading is complete
