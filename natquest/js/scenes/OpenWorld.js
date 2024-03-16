@@ -3,12 +3,15 @@ class OpenWorld extends Phaser.Scene {
     super({ key: 'OpenWorld' });
     
     // Declare controls as a property of the class
-    this.openWorldScene = data.OpenWorld;
     this.controls = null;
     this.map = null;
     this.player = null;
     this.speed = 200; 
   }
+
+  init(data) {
+        this.openWorldScene = data.OpenWorld;
+    }
       
   preload() {
     
