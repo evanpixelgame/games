@@ -62,7 +62,7 @@ class CompUI extends Phaser.Scene {
             dropdownContainer.setVisible(!dropdownContainer.visible);
         });
     }
-      //  });
+       });
 
   /*      zoomOutIcon.on('pointerdown', () => {
             // Handle zoom out icon click
