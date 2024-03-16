@@ -52,6 +52,25 @@ class OpenWorld extends Phaser.Scene {
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player);
 
+        const startMenuScene = this.scene.get('StartMenu');
+
+        // Call the handleFullscreenChange method from StartMenu scene
+    //    startMenuScene.handleFullscreenChange();
+
+       const fullscreenButton = this.add.text(40, 10, 'Fullscreen', {
+      fontSize: '15px', 
+      fontFamily: 'Roboto',
+      fill: '#c92b23',
+      padding: { x: 20, y: 20 },
+    })
+      .setOrigin(0.5)
+      .setInteractive();
+
+    this.scale.on('resize', startMenuScene.handleFullscreenChange, this);
+
+
+    
+
 /*
     window.addEventListener('orientationchange', () => {
       this.scale.resize(window.innerWidth, window.innerHeight);
