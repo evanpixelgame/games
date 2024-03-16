@@ -164,8 +164,10 @@ isPortraitMode() {
 
       handleFullscreenChange() {
         if (this.scale.isFullscreen) {
+          console.log('resizing need recognized');
             // Call your resize function when entering fullscreen
             this.resizeFunction();
+          console.log('resizing hopefully accomplished');
         } else {
            console.log('Handle exiting fullscreen if needed');
        }
