@@ -23,7 +23,7 @@ class CompUI extends Phaser.Scene {
     // ****************************************************************TOP BAR UI ICONS*************************************************************
       
     
-        const infoIcon = this.add.sprite(5 * vw/ 9, 50, 'infoIcon').setInteractive();
+        const infoIcon = this.add.sprite(1 * vw/ 11, 50, 'infoIcon').setInteractive();
         const settingsIcon = this.add.sprite(6.5 * vw / 9, 50, 'settingsIcon').setInteractive();
         const zoomInIcon = this.add.sprite(7 * vw / 9, 50, 'zoomInIcon').setInteractive();
         const zoomOutIcon = this.add.sprite(7.5 * vw / 9, 50, 'zoomOutIcon').setInteractive();   //was at 7.5 vw changed temp for diagnosis
@@ -147,8 +147,8 @@ infoIcon.on('pointerdown', () => {
             this.scale.setGameSize(window.innerWidth, window.innerHeight);
             // Help text for PC
             this.add
-                .text(16, 40, desktopInfoMsg, {
-                    font: '12px monospace',
+                .text(2.5 * vw/ 11, 30, desktopInfoMsg, {
+                    font: '18px monospace',
                     fill: '#ffffff',
                     padding: { x: 20, y: 10 },
                     backgroundColor: '#000000', //maybe add some transparency and change color
@@ -156,7 +156,7 @@ infoIcon.on('pointerdown', () => {
                 .setScrollFactor(0);
         } else {
             this.add
-                .text(16, 40, mobileInfoMsg, {
+                .text(2.5 * vw/ 11, 30, mobileInfoMsg, {
                     font: '12px monospace',
                     fill: '#ffffff',
                     padding: { x: 20, y: 10 },
