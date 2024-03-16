@@ -45,8 +45,8 @@ class Preloader extends Phaser.Scene {
     this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
     this.load.image('zoomInIcon', 'assets/UI/icons/zoom-icon.png');
      this.load.image('zoomOutIcon', 'assets/UI/icons/zoom-out-icon.png');
-     this.load.image('settingsIcon', 'assets/UI/images/icons/settings-icon.png');
-     this.load.image('fullscreenIcon', 'assets/UI/images/icons/fullscreen-icon.png');
+     this.load.image('settingsIcon', 'assets/UI/icons/settings-icon.png');
+     this.load.image('fullscreenIcon', 'assets/UI/icons/fullscreen-icon.png');
     
     
     this.load.on('complete', () => {
