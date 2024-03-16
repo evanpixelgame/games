@@ -131,8 +131,7 @@ settingsIcon.on('pointerdown', () => {
       .setOrigin(0.5)
       .setInteractive(); 
       
-      */  //hopefully this just gets rid of the white text that says fullscreen and just leaves the icons
-
+    
      fullscreenButton.on('pointerdown', () => {
     if (this.isFullScreen()) {
         this.exitFullScreen();
@@ -140,6 +139,9 @@ settingsIcon.on('pointerdown', () => {
         this.requestFullScreen();
     }
 });
+
+  */  //hopefully this just gets rid of the white text that says fullscreen and just leaves the icons
+
  // ****************************************************************EVENT LISTENERS*************************************************************
     
  //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
