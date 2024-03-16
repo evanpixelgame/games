@@ -37,7 +37,7 @@ character3.setScale(2.8);
 
     
       // Add some text to the backdrop
-  const instructionText = this.add.text(400, 270, 'Pick a character', {
+  const instructionText = this.add.text(400, 50, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'knewave',
     fill: '#c92b23',
@@ -82,8 +82,8 @@ selectCharacter(characterKey, characterImage) {
   console.log(`Selected character: ${this.selectedCharacter}`);
 
   // Continue button
-  const continueButton = this.add.text(100, 100, 'Continue', {
-    fontSize: '48px',
+  const continueButton = this.add.text(400, 280, 'Continue', {
+    fontSize: '26px',
     fontFamily: 'knewave',
     fill: '#c92b23',
     padding: { x: 20, y: 20 },
