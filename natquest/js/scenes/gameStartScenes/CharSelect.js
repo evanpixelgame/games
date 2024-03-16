@@ -42,7 +42,7 @@ character3.setScale(2.8);
   const instructionText = this.add.text(xMid, 50, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'knewave',
-    fill: '#a3a4d2',
+    fill: '#a9ccd2',
     align: 'center',
   })
     .setOrigin(0.5);
