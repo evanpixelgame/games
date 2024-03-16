@@ -25,11 +25,14 @@ backdrop.lineStyle(4, 0x000000, 1);
 //  backdrop.fillStyle(0x000000, 0.7); // Black color with 70% opacity
   backdrop.fillRect(100, 150, 600, 200);
 
+const char1pos = vw / 4;
+    const char1pos = vw / 2;
+    const char3pos =  3 * vw / 4;
     
   // Display character options
-  const character1 = this.add.image(200, 150, 'Baby Mouse').setInteractive();
-  const character2 = this.add.image(400, 150, 'Confused Woman').setInteractive();
-  const character3 = this.add.image(600, 150, 'Fat Wolf').setInteractive();
+  const character1 = this.add.image((char1pos / 3), 150, 'Baby Mouse').setInteractive();
+  const character2 = this.add.image(xMid, 150, 'Confused Woman').setInteractive();
+  const character3 = this.add.image(char3pos, 150, 'Fat Wolf').setInteractive();
 
 character1.setScale(2.8); // Adjust the scale factor (0.5 scales to half the size)
 character2.setScale(2.8); 
@@ -37,10 +40,10 @@ character3.setScale(2.8);
 
     
       // Add some text to the backdrop
-  const instructionText = this.add.text(400, 50, 'Pick a character', {
+  const instructionText = this.add.text(xMid, 50, 'Pick a character', {
     fontSize: '32px',
     fontFamily: 'knewave',
-    fill: '#c92b23',
+    fill: '#a3a4d2',
     align: 'center',
   })
     .setOrigin(0.5);
