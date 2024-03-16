@@ -34,7 +34,7 @@ class CompUI extends Phaser.Scene {
 
         // Set click event handlers for each icon
         settingsIcon.on('pointerdown', () => {
-            const dropdownButton = this.add.text(100, 100, 'Dropdown', { fill: '#ffffff' })
+            const dropdownButton = this.add.text(100, 100, 'settingsIcon', { fill: '#ffffff' })
             .setInteractive();
 
         // Create a dropdown container group
