@@ -55,7 +55,7 @@ class StartMenu extends Phaser.Scene {
       .setOrigin(0.5)
       .setInteractive();
 
-        // Add a start button
+        // Add a settings button
     const settings = this.add.text(75, 150, 'Settings', {
       fontSize: '26px', 
       fontFamily: 'knewave',
@@ -70,7 +70,17 @@ class StartMenu extends Phaser.Scene {
     //should also make a save option that lets people save their file to their local pc/device
     //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
+        // Add a fullscreen button
+    const fullscreenButton = this.add.text(75, 200, 'Fullscreen', {
+      fontSize: '26px', 
+      fontFamily: 'knewave',
+      fill: '#c92b23',
+      padding: { x: 20, y: 20 },
+    })
+      .setOrigin(0.5)
+      .setInteractive();
 
+    
 if (this.isMobileDevice() && this.isPortraitMode()) {
             // Add some text to the backdrop
   const instructionText = this.add.text(xMid, 200, 'Please set your\nmobile device\nto landscape mode\nto continue', {
@@ -99,6 +109,10 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
       // Transition to the main scene when the button is clicked
     }, this);
 
+      fullscreenButton.on('pointerdown', () => {
+            this.requestFullScreen();
+        });
+
 
 
  window.addEventListener('orientationchange', this.handleResizeOnReorientation);
@@ -120,6 +134,20 @@ isPortraitMode() {
     return window.innerHeight > window.innerWidth;
 }
 
+
+  requestFullScreen() {
+    const element = document.documentElement;
+
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { /* Firefox */
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { /* IE/Edge */
+        element.msRequestFullscreen();
+    }
+}
 
   
 }
