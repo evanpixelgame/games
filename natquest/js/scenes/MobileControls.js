@@ -12,10 +12,6 @@ class MobileControls extends Phaser.Scene {
     }
 
     create() {
-    //this.computerControlsScene = this.scene.get('ComputerControls');
-  //  this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
- //   this.player = this.scene.get('OpenWorld').player;  
- //   this.speed = this.openWorldScene.speed;
 
        this.openWorldScene = this.scene.get('OpenWorld');
         this.player = this.openWorldScene.player;
@@ -35,8 +31,8 @@ class MobileControls extends Phaser.Scene {
                 x: posX,
                 y: posY,
                 radius: 50,
-                base: base,//this.add.image(0, 0, this.textures.get('base')),//this.add.circle(0, 0, 100, 0x888888),
-                thumb: thumb,//this.add.image(0, 0, this.textures.get('thumb')),//this.add.circle(0, 0, 50, 0xcccccc),
+                base: base,
+                thumb: thumb,
                 // dir: '8dir',   // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
                 // forceMin: 16,
                 // enable: true
@@ -77,7 +73,7 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
             var key = cursorKeys[name];
             s += `${name}: duration=${key.duration / 1000}\n`;
         }
-       // this.text.setText(s); // <================attempt at removing diagnostic test data from screen
+       // this.text.setText(s); // <================diagnostic test data
     }
     update() {
             const openWorldScene = this.scene.get('OpenWorld');
