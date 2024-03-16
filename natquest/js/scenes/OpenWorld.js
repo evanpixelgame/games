@@ -3,6 +3,7 @@ class OpenWorld extends Phaser.Scene {
     super({ key: 'OpenWorld' });
     
     // Declare controls as a property of the class
+    this.openWorldScene = data.OpenWorld;
     this.controls = null;
     this.map = null;
     this.player = null;
@@ -21,7 +22,7 @@ class OpenWorld extends Phaser.Scene {
        }
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
      this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
-     this.scene.launch('CompUI', { player: this.player, speed: this.speed });
+     this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed });
 
   //Load map
   const map = this.make.tilemap({ key: 'map' });
@@ -106,6 +107,32 @@ function handleOrientationChange() {
   game.canvas.width = Math.min(window.screen.availWidth, 800); // Set a maximum width
   game.canvas.height = window.screen.availHeight;
 } */
+
+//*************************************************************OPEN WORLD METHODS*****************************************************
+
+
+
+
+  //**************************************************************ZOOM IN/OUT METHODS***************************************************
+ zoomIn() {
+        if (this.cameras.main.zoom < 2) {
+            this.cameras.main.zoom *= 1.1; // Increase zoom by 10%
+        } else {
+            console.log('Maximum zoom level reached.');
+        }
+    }
+
+   zoomOut() {
+        if (this.cameras.main.zoom > 0.2) { // Set a minimum zoom level (0.2 is just an example)
+            this.cameras.main.zoom /= 1.1; // Decrease zoom by 10%
+        } else {
+            console.log('Minimum zoom level reached.');
+        }
+    }
+
+
+  //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
+  
   
   update(time, delta) {
   //  this.cameras.main.centerOn(this.player.x, this.player.y);
