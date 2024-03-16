@@ -5,31 +5,10 @@ class Settings extends Phaser.Scene {
 
   
   preload() {
-
-
-   if (gameManager.selectedCharacter == 'Baby Mouse') {  
-    this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
-          frameWidth: 64,
-          frameHeight: 64
-      }); 
-    } else if (gameManager.selectedCharacter == 'Confused Woman') {
-    
-       this.load.spritesheet("player", "assets/sprites/player/womanPlayer.png", {
-          frameWidth: 64,
-          frameHeight: 64
-      });
-    } else {
-       this.load.spritesheet("player", "assets/sprites/player/fatWolf.png", {
-          frameWidth: 64,
-          frameHeight: 64
-      });
-    }
     
   }
 
   create() {
-
-    console.log(gameManager.selectedCharacter + ': should be being displayed');
 
         const vw = window.innerWidth;
         const xMid = vw * .5;
@@ -47,10 +26,6 @@ class Settings extends Phaser.Scene {
         backdrop.lineStyle(4, 0x000000, 1);
         backdrop.fillRect(vw * .05, vh * .05, vw * .9, vh * .85);
 
-    
-    //this.openWorldScene = this.scene.get('OpenWorld'); //DELETE IF THIS DOESNT WORK
-  //  this.openWorldScene = this.scene.get('ComputerControls'); 
- //   const beginButton = this.add.text(385, 550, 'Click Here To Begin Game!', {
      const backButton = this.add.text(xMid, vh * .8, 'Back', {
       fontSize: '48px', 
       fontFamily: 'knewave',
@@ -59,7 +34,6 @@ class Settings extends Phaser.Scene {
     })
       .setOrigin(0.5)
       .setInteractive();
-
 
     
     // Set a callback function for the button click event
@@ -83,9 +57,6 @@ class Settings extends Phaser.Scene {
 }
 
 window.Settings = Settings;
-
-
-
 
 
 /*
