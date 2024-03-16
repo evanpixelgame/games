@@ -30,6 +30,7 @@ const config = {
   scene: [
     Preloader,
     StartMenu,
+    Settings,
     NameSelect,
     CharSelect,
     WelcomePlayer,
