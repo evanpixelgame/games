@@ -55,6 +55,13 @@ class OpenWorld extends Phaser.Scene {
 
         const startMenuScene = this.scene.get('StartMenu');
 
+         this.cameras.main.setZoom(2);
+ 
+
+  } // <==== create func end tag    
+
+//*****************************************************END OF CREATE FUNC ABOVE*******************************************************
+  
         // Call the handleFullscreenChange method from StartMenu scene
     //    startMenuScene.handleFullscreenChange();
 
@@ -89,7 +96,7 @@ class OpenWorld extends Phaser.Scene {
 
 //window.addEventListener('orientationchange', handleReorientation);
     
-  }
+ 
 
 /*
 function handleOrientationChange() {
