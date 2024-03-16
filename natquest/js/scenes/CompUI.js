@@ -4,8 +4,13 @@ class CompUI extends Phaser.Scene {
     super({ key: 'CompUI' });
 
      this.dropdownContainer = null;
-     this.openWorldScene = data.OpenWorld;
   }
+
+     init(data) {
+        this.openWorldScene = data.OpenWorld;
+        this.player = data.player;
+        this.speed = data.speed;
+    }
       
   preload() {
 
