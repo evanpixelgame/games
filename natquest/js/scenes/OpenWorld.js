@@ -59,57 +59,12 @@ class OpenWorld extends Phaser.Scene {
 
         const startMenuScene = this.scene.get('StartMenu');
 
-      //   this.cameras.main.setZoom(2); zoom test for zoom icon
- 
+        this.player.setScale(0.5); 
+    
 
   } // <==== create func end tag    
 
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
-  
-        // Call the handleFullscreenChange method from StartMenu scene
-    //    startMenuScene.handleFullscreenChange();
-
-
-    /*  gonna try and put the full screen button in computer controls
-    const fullscreenButton = this.add.text(100, 10, 'Fullscreen', {
-      fontSize: '15px', 
-      fontFamily: 'Roboto',
-      fill: '#ffffff',
-      padding: { x: 20, y: 20 },
-    })
-      .setOrigin(0.5)
-      .setInteractive();
-
- //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
-    this.scale.on('resize', startMenuScene.handleFullscreenChange, this);
-
-*/
-    
-
-/*
-    window.addEventListener('orientationchange', () => {
-      this.scale.resize(window.innerWidth, window.innerHeight);
-            // Reset the scene upon orientation change
-      this.scale.setMode(Phaser.Scale.ScaleModes.FIT);
-            this.scene.restart();
-      this.cameras.main.startFollow(this.player);
-      
-        });
-        */
-
-
-//window.addEventListener('orientationchange', handleReorientation);
-    
- 
-
-/*
-function handleOrientationChange() {
-  const game = this.game; // Assuming you have a reference to your game instance in this scope
-
-  // Update game canvas dimensions
-  game.canvas.width = Math.min(window.screen.availWidth, 800); // Set a maximum width
-  game.canvas.height = window.screen.availHeight;
-} */
 
 //*************************************************************OPEN WORLD METHODS*****************************************************
 
