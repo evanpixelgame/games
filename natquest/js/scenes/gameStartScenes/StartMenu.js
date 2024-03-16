@@ -163,6 +163,7 @@ isPortraitMode() {
 }
 
    handleFullscreenChange() {
+     console.log('before if logic');
         if (this.scale.isFullscreen) {
             console.log('Entering fullscreen mode');
             this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
@@ -173,6 +174,7 @@ isPortraitMode() {
     }
 
       resizeGame(gameSize) {
+        console.log('attempting resize with resizeGame method');
         const { width, height } = gameSize;
 
         // Resize the game canvas
