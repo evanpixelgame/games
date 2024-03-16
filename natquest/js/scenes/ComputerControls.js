@@ -22,7 +22,8 @@ class ComputerControls extends Phaser.Scene {
 
     
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
-  if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
+/* wasd movement message currently handled by info icon
+if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
      this.scale.setGameSize(window.innerWidth, window.innerHeight); 
       // Help text
   this.add
