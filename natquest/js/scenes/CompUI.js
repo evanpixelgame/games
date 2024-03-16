@@ -30,7 +30,7 @@ class CompUI extends Phaser.Scene {
        settingsIcon.setScale(0.1);
         zoomInIcon.setScale(0.2);
         zoomOutIcon.setScale(0.2);
-        fullscreenIcon.setScale(2);
+        fullscreenIcon.setScale(.2);
 
         // Set click event handlers for each icon
         settingsIcon.on('pointerdown', () => {
