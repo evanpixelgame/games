@@ -75,6 +75,7 @@ settingsIcon.on('pointerdown', () => {
 
         // Set click event handler for the zoom in icon
         zoomInIcon.on('pointerdown', () => {
+          console.log('zoominattempt');
             // Check if the current zoom level is less than the maximum allowed
             if (this.zoomLevel < 5) {
                 // Increase the zoom level
@@ -90,6 +91,7 @@ settingsIcon.on('pointerdown', () => {
 
             // Set click event handler for the zoom in icon
         zoomOutIcon.on('pointerdown', () => {
+          console.log('zoomoutattempt');
             // Check if the current zoom level is less than the maximum allowed
             if (this.zoomOutLevel < 5) {
                 // Increase the zoom level
