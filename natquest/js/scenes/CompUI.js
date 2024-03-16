@@ -89,7 +89,7 @@ settingsIcon.on('pointerdown', () => {
                 console.log('Zoom in clicked. Zoom level:', this.zoomLevel);
 
                 // Perform zoom operation here, e.g., adjust camera zoom, scale game objects, etc.
-                this.cameras.main.zoom *= 1.1; // Increase zoom by 10%
+                this.OpenWorld.cameras.main.zoom *= 1.1; // Increase zoom by 10%
             } else {
                 console.log('Maximum zoom level reached.');
             }
@@ -101,13 +101,13 @@ settingsIcon.on('pointerdown', () => {
         zoomOutIcon.on('pointerdown', () => {
           console.log('zoomoutattempt');
             // Check if the current zoom level is less than the maximum allowed
-            if (this.zoomOutLevel < 5) {
+            if (this.zoomOutLevel > 5) {
                 // Increase the zoom level
                 this.zoomLevel++;
                 console.log('Zoom out clicked. Zoom level:', this.zoomLevel);
 
                 // Perform zoom operation here, e.g., adjust camera zoom, scale game objects, etc.
-                this.cameras.main.zoom /= 1.1; // Increase zoom by 10%
+                this.OpenWorld.cameras.main.zoom /= 1.1; // Increase zoom by 10%
             } else {
                 console.log('Maximum zoom out level reached.');
             }
