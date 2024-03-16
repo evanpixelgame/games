@@ -63,7 +63,7 @@ class StartMenu extends Phaser.Scene {
       padding: { x: 20, y: 20 },
     })
       .setOrigin(0.5)
-    //  .setInteractive();
+      .setInteractive();
     // ^^ make interactable later with a Settings page with the proper UI
     // also include an audio on/off toggle in top right when audio is added
     //eventually also have a Load Game option when i figure out how to use browser local storage to create saves
@@ -114,6 +114,10 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
 
       fullscreenButton.on('pointerdown', () => {
             this.requestFullScreen();
+        });
+
+      settingsButton.on('pointerdown', () => {
+            this.scene.start('Settings');
         });
 
 
