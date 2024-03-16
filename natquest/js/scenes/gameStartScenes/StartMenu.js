@@ -57,7 +57,7 @@ class StartMenu extends Phaser.Scene {
 
         // Add a settings button
     const settings = this.add.text(75, 150, 'Settings', {
-      fontSize: '36px', 
+      fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
       padding: { x: 20, y: 20 },
