@@ -51,18 +51,6 @@ character3.setScale(2.8);
   character1.on('pointerdown', () => this.selectCharacter('Baby Mouse', character1));
   character2.on('pointerdown', () => this.selectCharacter('Confused Woman', character2));
   character3.on('pointerdown', () => this.selectCharacter('Fat Wolf', character3));
-
-  // Continue button
-  const continueButton = this.add.text(xMid, 280, 'Continue', {
-    fontSize: '26px',
-    fontFamily: 'knewave',
-    fill: '#c92b23',  //deep red
-   // fill: '#ba76d2', //purple
-    padding: { x: 20, y: 20 },
-  })
-    .setOrigin(0.5)
-    .setInteractive();
-    
 }
 
 selectCharacter(characterKey, characterImage) {
@@ -95,6 +83,16 @@ selectCharacter(characterKey, characterImage) {
 
   console.log(`Selected character: ${this.selectedCharacter}`);
 
+  // Continue button
+  const continueButton = this.add.text(window.innerWidth/2, 280, 'Continue', {
+    fontSize: '26px',
+    fontFamily: 'knewave',
+    fill: '#c92b23',  //deep red
+   // fill: '#ba76d2', //purple
+    padding: { x: 20, y: 20 },
+  })
+    .setOrigin(0.5)
+    .setInteractive();
 
   // Set a callback function for the button click event
   continueButton.on('pointerdown', function () {
