@@ -71,9 +71,9 @@ class StartMenu extends Phaser.Scene {
     //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
 
-if (isMobileDevice() && isPortraitMode()) {
+if (this.isMobileDevice() && this.isPortraitMode()) {
             // Add some text to the backdrop
-  const instructionText = this.add.text(xMid, 50, 'Please set your\nmobile device\nto landscape mode\nto continue', {
+  const instructionText = this.add.text(xMid, 200, 'Please set your\nmobile device\nto landscape mode\nto continue', {
     fontSize: '26px',
     fontFamily: 'knewave',
     fill: '#c92b23',
