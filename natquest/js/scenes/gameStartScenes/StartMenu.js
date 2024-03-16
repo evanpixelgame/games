@@ -1,6 +1,7 @@
 class StartMenu extends Phaser.Scene {
   constructor() {
     super({ key: 'StartMenu' });
+    this.handleFullscreenChange = this.handleFullscreenChange.bind(this);
   }
 
   preload() {
