@@ -318,7 +318,7 @@ exitFullScreen() {
 
 // ****************************************************************DROP DOWN SCREEN BUTTON METHODS*************************************************************
 
-
+/*
 createDropdownMenu(x, y) {
     // Create a dropdown container group
     dropdownContainer = this.add.group();
@@ -346,7 +346,35 @@ createDropdownMenu(x, y) {
     // Make the dropdown container visible
     dropdownContainer.setVisible(true);
 }
+*/
 
+  createDropdownMenu(x, y) {
+    // Create a dropdown container group
+    this.dropdownContainer = this.add.group(); // Use "this.dropdownContainer" to access the class property
+
+    // Add dropdown options
+    const options = ['Option 1', 'Option 2', 'Option 3'];
+    options.forEach((option, index) => {
+        const optionText = this.add.text(x, y + index * 50, option, { fill: '#ffffff' })
+            .setInteractive();
+        this.dropdownContainer.add(optionText);
+        
+        // Set up click event for each option
+        optionText.on('pointerdown', () => {
+            console.log(`Selected: ${option}`);
+            // Handle option selection logic here
+        });
+    });
+    
+    // Set up click event for dropdown button to close the dropdown menu
+    this.dropdownContainer.on('pointerdown', () => {
+        this.dropdownContainer.clear(true, true);
+        isDropdownVisible = false;
+    });
+    
+    // Make the dropdown container visible
+    this.dropdownContainer.setVisible(true);
+}
           
           
  // ****************************************************************END OF METHODS START OF UPDATE FUNC*************************************************************
