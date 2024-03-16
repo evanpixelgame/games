@@ -21,10 +21,10 @@ class CompUI extends Phaser.Scene {
     const vh = window.innerHeight;
 
     // ****************************************************************FULL SCREEN BUTTON*************************************************************
-      const fullscreenButton = this.add.text(xMid, 50, 'Fullscreen', {
+      const fullscreenButton = this.add.text(xMid/3, 50, 'Fullscreen', {
       fontSize: '26px', 
-      fontFamily: 'knewave',
-      fill: '#c92b23',
+      fontFamily: 'Roboto',
+      fill: '#ffffff'//'#c92b23',
       padding: { x: 20, y: 20 },
     })
       .setOrigin(0.5)
