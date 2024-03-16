@@ -83,7 +83,7 @@ class StartMenu extends Phaser.Scene {
     
 if (this.isMobileDevice() && this.isPortraitMode()) {
             // Add some text to the backdrop
-  const instructionText = this.add.text(xMid, 200, 'Please set your\nmobile device\nto landscape mode\nto continue', {
+  const instructionText = this.add.text(xMid, 2*vh/3, 'Please set your\nmobile device\nto landscape mode\nto continue', {
     fontSize: '26px',
     fontFamily: 'knewave',
     fill: '#c92b23',
