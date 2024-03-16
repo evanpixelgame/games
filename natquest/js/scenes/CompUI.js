@@ -20,6 +20,36 @@ class CompUI extends Phaser.Scene {
     const xMid = vw * .5;
     const vh = window.innerHeight;
 
+    // ****************************************************************TOP BAR UI ICONS*************************************************************
+
+    const settingsIcon = this.add.sprite(50, 50, 'settingsIcon').setInteractive();
+        const zoomInIcon = this.add.sprite(150, 50, 'zoomInIcon').setInteractive();
+        const zoomOutIcon = this.add.sprite(250, 50, 'zoomOutIcon').setInteractive();
+        const fullscreenIcon = this.add.sprite(350, 50, 'fullscreenIcon').setInteractive();
+
+        // Set click event handlers for each icon
+        settingsIcon.on('pointerdown', () => {
+            // Handle settings icon click
+            console.log('Settings icon clicked');
+        });
+
+        zoomInIcon.on('pointerdown', () => {
+            // Handle zoom in icon click
+            console.log('Zoom in icon clicked');
+        });
+
+        zoomOutIcon.on('pointerdown', () => {
+            // Handle zoom out icon click
+            console.log('Zoom out icon clicked');
+        });
+
+        fullscreenIcon.on('pointerdown', () => {
+            // Handle fullscreen icon click
+            console.log('Fullscreen icon clicked');
+            this.toggleFullscreen(); // Call your fullscreen method here
+        });
+    
+
     // ****************************************************************FULL SCREEN BUTTON*************************************************************
       const fullscreenButton = this.add.text(xMid/3, 50, 'Fullscreen', {
       fontSize: '26px', 
