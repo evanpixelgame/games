@@ -84,7 +84,7 @@ selectCharacter(characterKey, characterImage) {
   console.log(`Selected character: ${this.selectedCharacter}`);
 
   // Continue button
-  const continueButton = this.add.text(400, 280, 'Continue', {
+  const continueButton = this.add.text(xMid, 280, 'Continue', {
     fontSize: '26px',
     fontFamily: 'knewave',
     fill: '#c92b23',  //deep red
