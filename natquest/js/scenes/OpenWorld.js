@@ -60,7 +60,7 @@ class OpenWorld extends Phaser.Scene {
        const fullscreenButton = this.add.text(40, 10, 'Fullscreen', {
       fontSize: '15px', 
       fontFamily: 'Roboto',
-      fill: '#c92b23',
+      fill: '#ffffff',
       padding: { x: 20, y: 20 },
     })
       .setOrigin(0.5)
