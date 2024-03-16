@@ -12,7 +12,7 @@ body {
          background-color: pink;
       }
 
-
+/* *****************************************VIRTUAL KEYBOARD BUTTONS ************************************************* */
 .keyboard-button {
     background-color: pink;
     color: #a3a4d2;
@@ -24,9 +24,9 @@ body {
 }
 
 #keyboard-button-space {
-    width: 100px; /* Adjust width as needed */
+    width: 100px; 
 }
 
 #keyboard-button-backspace {
-    width: 100px; /* Adjust width as needed */
+    width: 100px;
 }
