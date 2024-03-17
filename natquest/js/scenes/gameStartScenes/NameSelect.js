@@ -39,7 +39,7 @@ class NameSelect extends Phaser.Scene {
         this.inputElement.addEventListener('input', () => this.handleInputChange());
 
   const continueButton = this.add.text(xMid, vh * .3, 'Continue', {
-        fontSize: '26px',
+        fontSize: '36px',
         fontFamily: 'knewave',
         fill: '#c92b23',
         padding: { x: 20, y: 20 },
