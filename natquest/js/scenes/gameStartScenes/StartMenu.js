@@ -49,7 +49,7 @@ class StartMenu extends Phaser.Scene {
     });
 
     // Add a start button
-    const startButton = this.add.text(vw / 5, 100, 'Start', { ////////////////////////////////////////////////////////
+    const startButton = this.add.text(vw / 5, vh / 8, 'Start', { ////////////////////////////////////////////////////////
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -59,7 +59,7 @@ class StartMenu extends Phaser.Scene {
       .setInteractive();
 
         // Add a settings button
-    const settingsButton = this.add.text(vw / 5, 150, 'Settings', {///////////////////////////////////////////////////////////
+    const settingsButton = this.add.text(vw / 5, vh / 7, 'Settings', {///////////////////////////////////////////////////////////
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -74,7 +74,7 @@ class StartMenu extends Phaser.Scene {
     //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
         // Add a fullscreen button
-    const fullscreenButton = this.add.text(vw / 5, 200, 'Fullscreen', {///////////////////////////////////////////////////////////////
+    const fullscreenButton = this.add.text(vw / 5, vh / 6, 'Fullscreen', {///////////////////////////////////////////////////////////////
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
