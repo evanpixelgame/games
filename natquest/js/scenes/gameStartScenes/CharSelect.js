@@ -11,7 +11,7 @@ class CharSelect extends Phaser.Scene {
 
   create() {
   
-      const vw = window.innerWidth;
+    const vw = window.innerWidth;
     const xMid = vw * .5;
     const vh = window.innerHeight;
     
@@ -83,7 +83,7 @@ selectCharacter(characterKey, characterImage) {
   console.log(`Selected character: ${this.selectedCharacter}`);
 
   // Continue button
-  const continueButton = this.add.text(window.innerWidth/2, vh * 2 / 3, 'Continue', {
+  const continueButton = this.add.text(window.innerWidth/2, window.innerHeight * 2 / 3, 'Continue', {
     fontSize: '36px',
     fontFamily: 'knewave',
     fill: '#c92b23',  //deep red
