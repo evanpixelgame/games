@@ -31,7 +31,7 @@ class StartMenu extends Phaser.Scene {
       fontSize: '68px', 
       fontFamily: 'Knewave',
       fill: '#ba76d2',
-      stroke: '#e78986', // Stroke color
+      stroke: '#fce5a1', // Stroke color
       strokeThickness: 6, 
       padding: { x: 20, y: 10 },
     })
