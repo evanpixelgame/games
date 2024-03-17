@@ -1,4 +1,7 @@
 
+start off every scene with attempt to launch it in fullscreen mode (and possibly also landscape perspective),
+especially start Open World scene in fullscreen mode, have the option to turn off auto fullscreen mode in settings
+
 have option to switch between joystick and d-pad, possibly switch off diagonal movement see how stardew does it
 
 consolidate all of the preload stuff into the preload scene (maybe except the sprite since that can wait after character selection so
