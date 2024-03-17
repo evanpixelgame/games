@@ -74,7 +74,7 @@ class StartMenu extends Phaser.Scene {
     //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
         // Add a fullscreen button
-    const fullscreenButton = this.add.text(vw / 5, vh / 3, 'Fullscreen', {///////////////////////////////////////////////////////////////
+    const fullscreenButton = this.add.text(vw / 5, vh / 4, 'Fullscreen', {///////////////////////////////////////////////////////////////
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
