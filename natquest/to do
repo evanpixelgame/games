@@ -1,3 +1,6 @@
+
+have option to switch between joystick and d-pad, possibly switch off diagonal movement see how stardew does it
+
 consolidate all of the preload stuff into the preload scene (maybe except the sprite since that can wait after character selection so
   unceessary extra ones arent added
 
