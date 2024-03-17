@@ -16,7 +16,7 @@ class StartMenu extends Phaser.Scene {
       
 
     // Add background image
-    const background = this.add.image(xMid, vh * .5, 'background');//////////was vh * .8/////////////////////////////////////
+    const background = this.add.image(xMid, vh * .8, 'background');//////////was vh * .8/////////////////////////////////////
     background.setOrigin(0.5);
 
 // Add selection menu container
@@ -28,7 +28,7 @@ class StartMenu extends Phaser.Scene {
     
     // Add a title
     const title = this.add.text(xMid, vh / 2, 'NAT QUEST', {//////////////////////////////////////////////
-      fontSize: '68px', 
+      fontSize: '72px', 
       fontFamily: 'Knewave',
       fill: '#ba76d2',
       stroke: '#fce5a1', // Stroke color
