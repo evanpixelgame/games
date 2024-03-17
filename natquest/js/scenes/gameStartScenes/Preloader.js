@@ -59,8 +59,6 @@ class Preloader extends Phaser.Scene {
   
    create() {
 
-   graphics.fillStyle(0xfdd5d5); // Specify the color (black in this case)
-   graphics.fillRect(0, 0, this.game.config.width, this.game.config.height);
 }
 }
 
