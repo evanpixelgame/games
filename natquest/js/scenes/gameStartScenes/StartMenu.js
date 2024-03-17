@@ -16,7 +16,7 @@ class StartMenu extends Phaser.Scene {
       
 
     // Add background image
-    const background = this.add.image(xMid, vh * .8, 'background');///////////////////////////////////////////////
+    const background = this.add.image(xMid, vh * .5, 'background');//////////was vh * .8/////////////////////////////////////
     background.setOrigin(0.5);
 
 // Add selection menu container
