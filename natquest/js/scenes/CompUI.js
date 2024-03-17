@@ -157,6 +157,8 @@ infoIcon.on('pointerdown', () => {
 });
 
  // ****************************************************************EVENT LISTENERS*************************************************************
+
+      this.requestFullScreen(); //JUST ADDED THIS AS TEST TO SEE IF IT WORKS TO START OFF IN AUTOFULLSCREEN
     
  //   this.scale.on('fullscreenchange', this.handleFullscreenChange.bind(this));
     this.scale.on('resize', this.handleFullscreenChange, this);
