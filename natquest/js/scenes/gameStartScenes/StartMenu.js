@@ -59,7 +59,7 @@ class StartMenu extends Phaser.Scene {
       .setInteractive();
 
         // Add a settings button
-    const settingsButton = this.add.text(vw / 5, vh / 5 - 50, 'Settings', {///////////////////////////////////////////////////////////
+    const settingsButton = this.add.text(vw / 5, vh / 5 + 50, 'Settings', {///////////////////////////////////////////////////////////
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
@@ -74,7 +74,7 @@ class StartMenu extends Phaser.Scene {
     //so that they can continue their game without fear of it being solely held in a browser that might get wiped
 
         // Add a fullscreen button
-    const fullscreenButton = this.add.text(vw / 5, vh / 5 - 100, 'Fullscreen', {///////////////////////////////////////////////////////////////
+    const fullscreenButton = this.add.text(vw / 5, vh / 5 + 100, 'Fullscreen', {///////////////////////////////////////////////////////////////
       fontSize: '26px', 
       fontFamily: 'knewave',
       fill: '#c92b23',
