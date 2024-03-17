@@ -26,7 +26,7 @@ class NameSelect extends Phaser.Scene {
         this.inputElement = document.createElement('input');
         this.inputElement.type = 'text';
         this.inputElement.placeholder = 'Enter your name';
-        this.inputElement.style = 'position: absolute; top: 10vh; left: 50vw; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
+        this.inputElement.style = 'position: absolute; top: 10vh; left: 50vw; width: 50%; transform: translateX(-50%); font-size: 24px; border: 1px solid black; background: cerulean; color: black;';
         this.inputElement.readOnly = true; // Prevent native keyboard from appearing
 
         // Append the input element to the document body
