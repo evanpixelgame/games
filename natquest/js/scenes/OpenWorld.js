@@ -36,7 +36,7 @@ class OpenWorld extends Phaser.Scene {
   // Create layers
   const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
-  const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+ // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
   // Create player sprite
   this.player = this.scene.get('WelcomePlayer').player;
@@ -154,7 +154,7 @@ handleOverlap(player, collisionObject) {
         // Vertical collision, stop vertical movement
         this.player.setVelocityY(0);
     }
-} */
+} 
 
   handleOverlap(player, collisionObject) {
     // Check the direction of the collision
@@ -167,7 +167,29 @@ handleOverlap(player, collisionObject) {
         // Vertical collision: Stop vertical movement
         this.player.setVelocityY(0);
     }
+} */
+
+  handleBarrierCollision(player, barrier) {
+    const playerCenterX = this.player.x + this.player.displayWidth / 2;
+    const playerCenterY = this.player.y + this.player.displayHeight / 2;
+
+    const barrierCenterX = barrier.x + barrier.displayWidth / 2;
+    const barrierCenterY = barrier.y + barrier.displayHeight / 2;
+
+    const overlapX = playerCenterX - barrierCenterX;
+    const overlapY = playerCenterY - barrierCenterY;
+
+    // Calculate the angle of the overlap vector
+    const angle = Math.atan2(overlapY, overlapX);
+
+    // Calculate the new velocity components to move the player away from the barrier
+    const newVelocityX = Math.cos(angle) * this.player.body.speed;
+    const newVelocityY = Math.sin(angle) * this.player.body.speed;
+
+    // Update player's velocity to move them away from the barrier
+    this.player.setVelocity(newVelocityX, newVelocityY);
 }
+
 
 
 
@@ -196,7 +218,7 @@ handleOverlap(player, collisionObject) {
   
   update(time, delta) {
     
- this.physics.overlap(this.player, this.collisionObjects, this.handleOverlap, null, this);
+ this.physics.overlap(this.player, this.collisionObjects, this.handleBarrierCollisions, null, this);
     
   }
   
