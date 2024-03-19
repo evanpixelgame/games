@@ -206,14 +206,12 @@ handleBarrierCollision(player, barrier) {
   //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
   
   
-  update(time, delta) {
+update(time, delta) {
+    // Cast rays in the desired direction(s)
+    const ray = new Phaser.Geom.Line(this.player.x, this.player.y, this.player.x + this.rayLength * Math.cos(this.player.rotation), this.player.y + this.rayLength * Math.sin(this.player.rotation));
     
- this.physics.overlap(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
-       // Cast rays in the desired direction(s)
-//    const ray = new Phaser.Geom.Line(this.player.x, this.player.y, this.player.x + rayLength * Math.cos(this.player.rotation), this.player.y + rayLength * Math.sin(this.player.rotation));
- const ray = new Phaser.Geom.Line(this.player.x, this.player.y, this.player.x + this.rayLength * Math.cos(this.player.rotation), this.player.y + this.rayLength * Math.sin(this.player.rotation));
-    // Check for collisions with tilemap layers
-    const tileHits = this.collisionObjects.getTilesWithinShape(ray);
+    // Check for collisions with the object layer
+    const tileHits = this.map.getObjectLayer('Object Layer 1').getTilesWithinShape(ray);
     if (tileHits.length > 0) {
         // Handle collision with tiles (e.g., adjust player's movement)
         // Example: reduce player's speed as they approach a collision
@@ -226,9 +224,9 @@ handleBarrierCollision(player, barrier) {
     // player.setVelocityY(playerSpeed * Math.sin(player.rotation));
 
     // Update regular collision handling logic
-    this.physics.collide(player, collisionObjects); // Example: collide player with obstacles layer
-    
-  }
+    this.physics.collide(this.player, this.collisionObjects); // Example: collide player with collision objects
+}
+
   
 }
 window.OpenWorld = OpenWorld;
