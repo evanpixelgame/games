@@ -8,7 +8,6 @@ class OpenWorld extends Phaser.Scene {
     this.player = null;
     this.speed = 150; 
     this.collisionObjects = null; 
-    this.rayLength = 100; 
   }
 
   init(data) {
@@ -206,27 +205,11 @@ handleBarrierCollision(player, barrier) {
   //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
   
   
-update(time, delta) {
-    // Cast rays in the desired direction(s)
-    const ray = new Phaser.Geom.Line(this.player.x, this.player.y, this.player.x + this.rayLength * Math.cos(this.player.rotation), this.player.y + this.rayLength * Math.sin(this.player.rotation));
+  update(time, delta) {
     
-    // Check for collisions with the object layer
-    const tileHits = this.map.getObjectLayer('Object Layer 1').getTilesWithinShape(ray);
-    if (tileHits.length > 0) {
-        // Handle collision with tiles (e.g., adjust player's movement)
-        // Example: reduce player's speed as they approach a collision
-        playerSpeed *= 0.5; // Reduce player speed by half
-    }
-
-    // Update player's movement based on input or other logic
-    // Example: move the player based on input controls
-    // player.setVelocityX(playerSpeed * Math.cos(player.rotation));
-    // player.setVelocityY(playerSpeed * Math.sin(player.rotation));
-
-    // Update regular collision handling logic
-    this.physics.collide(this.player, this.collisionObjects); // Example: collide player with collision objects
-}
-
+ this.physics.overlap(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
+    
+  }
   
 }
 window.OpenWorld = OpenWorld;
