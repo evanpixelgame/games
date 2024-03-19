@@ -102,6 +102,7 @@ objectLayer.objects.forEach(object => {
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
 
 //*************************************************************OPEN WORLD METHODS*****************************************************
+/*   BOUNCE BACK COLLISION BOUNDARY
 handleOverlap(player, collisionObject) {
     // Calculate the overlap depth between the player and the collision object
     const overlapX = Math.abs(player.x - collisionObject.x);
@@ -126,7 +127,12 @@ handleOverlap(player, collisionObject) {
     // Stop the player's movement
     this.player.setVelocity(0, 0);
 }
+*/
 
+  handleOverlap(player, collisionObject) {
+    // Stop the player's movement
+    this.player.setVelocity(0, 0);
+}
 
 
 
