@@ -54,13 +54,12 @@ class OpenWorld extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
 
 
-    // Assuming you have already loaded your tilemap and created layers
-// Load the object layer from Tiled
-const objectLayer = map.getObjectLayer('Object Layer 1'); // Replace 'Collision Layer' with the name of your object layer
+// Get the object layer from the tilemap
+const objectLayer = map.getObjectLayer('Object Layer 1');
 
 // Enable physics on each object in the object layer
 objectLayer.objects.forEach(object => {
-    // Create a physics sprite for each rectangle and add it to the scene
+    // Create a rectangle sprite for each object and add it to the scene
     const collisionObject = this.add.rectangle(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
     
     // Enable physics on the collision object
