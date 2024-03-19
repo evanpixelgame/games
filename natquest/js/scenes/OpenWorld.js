@@ -53,6 +53,34 @@ class OpenWorld extends Phaser.Scene {
     this.physics.world.setBounds(worldBounds.x, worldBounds.y, worldBounds.width, worldBounds.height);
     this.player.setCollideWorldBounds(true);
 
+
+    // Assuming you have already loaded your tilemap and created layers
+
+// Get the object layer from the tilemap
+const objectLayer = map.getObjectLayer('Object Layer 1');
+
+// Enable physics on each object in the object layer
+objectLayer.objects.forEach(object => {
+    // Check if the object has a rectangle shape
+    if (object.rectangle) {
+        // Create a physics sprite for the object and add it to the scene
+        const sprite = this.physics.add.sprite(object.x, object.y, null); // null for no texture
+        sprite.setOrigin(0, 0); // Adjust origin as needed
+
+        // Enable physics on the sprite
+        this.physics.world.enable(sprite);
+
+        // Set collision properties if needed
+        sprite.body.setCollideWorldBounds(true); // Adjust collision properties as needed
+        sprite.body.immovable = true; // Adjust immovable property as needed
+    } else {
+        console.warn(`Object with non-rectangle shape found at (${object.x}, ${object.y}). Physics not enabled.`);
+    }
+});
+
+
+
+    //*****************************************CAMERA CONTROLS****************************************************
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player);
