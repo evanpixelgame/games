@@ -19,6 +19,11 @@ class OpenWorld extends Phaser.Scene {
   }
 
   create() {
+        // Create Matter.js engine
+    this.matterEngine = this.matter.world;
+    // Set gravity (optional)
+    this.matterEngine.gravity.y = 0.5;
+    // Other initialization code...
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
@@ -58,28 +63,13 @@ class OpenWorld extends Phaser.Scene {
 // Get the object layer from the tilemap
 const objectLayer = map.getObjectLayer('Object Layer 1');
 
-      // Store reference to collision objects
-        this.collisionObjects = this.physics.add.staticGroup();
-        objectLayer.objects.forEach(object => {
-            const collisionObject = this.add.rectangle(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
-            this.physics.world.enable(collisionObject, Phaser.Physics.Arcade.STATIC_BODY);
-            collisionObject.setOrigin(0, 0);
-            collisionObject.setVisible(false);
-            this.collisionObjects.add(collisionObject); // Add collision object to group
-        });
-    
-
-// Enable physics on each object in the object layer
+// Store reference to collision objects
+this.collisionObjects = this.matter.add.group();
 objectLayer.objects.forEach(object => {
-    // Create a rectangle sprite for each object and add it to the scene
-    const collisionObject = this.add.rectangle(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
-    
-    // Enable physics on the collision object
-    this.physics.world.enable(collisionObject, Phaser.Physics.Arcade.STATIC_BODY);
-    
-    // Optionally, you can set additional properties for the collision object
-    collisionObject.setOrigin(0, 0); // Adjust origin as needed
+    const collisionObject = this.matter.add.rectangle(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height, { isStatic: true });
+    collisionObject.setOrigin(0.5, 0.5); // Adjust origin as needed
     collisionObject.setVisible(false); // Optionally hide the collision object
+    this.collisionObjects.add(collisionObject); // Add collision object to group
 });
     
 
@@ -209,7 +199,7 @@ handleBarrierCollision(player, barrier) {
   
   update(time, delta) {
     
-   this.physics.collide(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
+   this.matter.collide(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
     
   }
   
