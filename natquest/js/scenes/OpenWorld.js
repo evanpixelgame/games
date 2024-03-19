@@ -213,7 +213,7 @@ handleBarrierCollision(player, barrier) {
 //    const ray = new Phaser.Geom.Line(this.player.x, this.player.y, this.player.x + rayLength * Math.cos(this.player.rotation), this.player.y + rayLength * Math.sin(this.player.rotation));
  const ray = new Phaser.Geom.Line(this.player.x, this.player.y, this.player.x + this.rayLength * Math.cos(this.player.rotation), this.player.y + this.rayLength * Math.sin(this.player.rotation));
     // Check for collisions with tilemap layers
-    const tileHits = this.mapLayer.getTilesWithinShape(ray);
+    const tileHits = this.collisionObjects.getTilesWithinShape(ray);
     if (tileHits.length > 0) {
         // Handle collision with tiles (e.g., adjust player's movement)
         // Example: reduce player's speed as they approach a collision
