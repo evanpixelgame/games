@@ -232,7 +232,7 @@ handleOverlap(player, collisionObject) {
   
   update(time, delta) {
     
- this.physics.overlap(this.player, this.collisionObjects, this.handleBarrierCollisions, null, this);
+ this.physics.overlap(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
     
   }
   
