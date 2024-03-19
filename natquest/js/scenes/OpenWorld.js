@@ -39,7 +39,7 @@ class OpenWorld extends Phaser.Scene {
 
   // Create player sprite
   this.player = this.scene.get('WelcomePlayer').player;
-  this.player = this.physics.add.sprite(600, 600, 'player');
+  this.player = this.physics.add.sprite(15, 15, 'player');
 
   // Set world bounds for the player
     const boundaryOffset = 20; // Adjust this value as needed
