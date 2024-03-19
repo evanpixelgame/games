@@ -89,7 +89,7 @@ objectLayer.objects.forEach(object => {
     //*****************************************CAMERA CONTROLS****************************************************
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    this.cameras.main.startFollow(this.player);
+    this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
