@@ -7,6 +7,7 @@ class OpenWorld extends Phaser.Scene {
     this.map = null;
     this.player = null;
     this.speed = 200; 
+    this.collisionObjects = null; 
   }
 
   init(data) {
