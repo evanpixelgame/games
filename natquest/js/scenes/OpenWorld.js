@@ -93,7 +93,14 @@ objectLayer.objects.forEach(object => {
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
-        this.player.setScale(0.5); 
+        this.player.setScale(0.5);
+
+    
+        const scaledWidth = this.player.width * 0.5; // Scale the width
+        const scaledHeight = this.player.height * 0.5; // Scale the height
+
+          // Set the size of the player's collision body
+        this.player.setSize(scaledWidth, scaledHeight);
 
     
   } // <==== create func end tag    
