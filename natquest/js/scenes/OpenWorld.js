@@ -131,12 +131,12 @@ handleOverlap(player, collisionObject) {
 
   handleOverlap(player, collisionObject) {
     // Calculate the overlap depth between the player and the collision object
-    const overlapX = Math.abs(player.x - collisionObject.x);
-    const overlapY = Math.abs(player.y - collisionObject.y);
+    const overlapX = Math.abs(this.player.x - collisionObject.x);
+    const overlapY = Math.abs(this.player.y - collisionObject.y);
 
     // Determine the direction of overlap
-    const directionX = player.x < collisionObject.x ? -1 : 1;
-    const directionY = player.y < collisionObject.y ? -1 : 1;
+    const directionX = this.player.x < collisionObject.x ? -1 : 1;
+    const directionY = this.player.y < collisionObject.y ? -1 : 1;
 
     // Calculate the push amount based on the direction of overlap
     const pushX = overlapX * directionX;
@@ -149,10 +149,10 @@ handleOverlap(player, collisionObject) {
     // Stop the player's movement in the direction of the collision
     if (overlapX > overlapY) {
         // Horizontal collision, stop horizontal movement
-        player.setVelocityX(0);
+        this.player.setVelocityX(0);
     } else {
         // Vertical collision, stop vertical movement
-        player.setVelocityY(0);
+        this.player.setVelocityY(0);
     }
 }
 
