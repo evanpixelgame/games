@@ -56,7 +56,7 @@ class OpenWorld extends Phaser.Scene {
 
     // Assuming you have already loaded your tilemap and created layers
 // Load the object layer from Tiled
-const objectLayer = map.getObjectLayer('Collision Layer'); // Replace 'Collision Layer' with the name of your object layer
+const objectLayer = map.getObjectLayer('Object Layer 1'); // Replace 'Collision Layer' with the name of your object layer
 
 // Enable physics on each object in the object layer
 objectLayer.objects.forEach(object => {
