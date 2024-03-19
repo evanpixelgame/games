@@ -156,7 +156,6 @@ objectLayer.objects.forEach(object => {
     this.player.y -= moveY;
 }
 */
-
 handleBarrierCollision(player, barrier) {
     // Calculate the overlap between the player and the barrier
     const overlapX = this.player.x - barrier.x;
@@ -165,22 +164,25 @@ handleBarrierCollision(player, barrier) {
     // Check if the player is moving towards the barrier along the X-axis
     if (this.player.body.velocity.x > 0 && overlapX < 0) {
         // Player is moving right and overlapping on the left side of the barrier
+        this.player.body.velocity.x = 0; // Stop horizontal movement
         this.player.x = barrier.x - this.player.width / 2;
     } else if (this.player.body.velocity.x < 0 && overlapX > 0) {
         // Player is moving left and overlapping on the right side of the barrier
+        this.player.body.velocity.x = 0; // Stop horizontal movement
         this.player.x = barrier.x + barrier.width + this.player.width / 2;
     }
 
     // Check if the player is moving towards the barrier along the Y-axis
     if (this.player.body.velocity.y > 0 && overlapY < 0) {
         // Player is moving down and overlapping on the top side of the barrier
+        this.player.body.velocity.y = 0; // Stop vertical movement
         this.player.y = barrier.y - this.player.height / 2;
     } else if (this.player.body.velocity.y < 0 && overlapY > 0) {
         // Player is moving up and overlapping on the bottom side of the barrier
+        this.player.body.velocity.y = 0; // Stop vertical movement
         this.player.y = barrier.y + barrier.height + this.player.height / 2;
     }
 }
-
 
 
 
