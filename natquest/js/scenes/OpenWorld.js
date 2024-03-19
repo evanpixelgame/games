@@ -187,6 +187,7 @@ handleOverlap(player, collisionObject) {
 
     // Update player's velocity to move them away from the barrier
     this.player.setVelocity(newVelocityX, newVelocityY);
+    console.log('attemptingtohandlecollision');
 }
 
 /*
