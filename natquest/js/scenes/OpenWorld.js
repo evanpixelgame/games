@@ -88,6 +88,30 @@ objectLayer.objects.forEach(object => {
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
 
 //*************************************************************OPEN WORLD METHODS*****************************************************
+handleOverlap(player, collisionObject) {
+    // Calculate the overlap depth between the player and the collision object
+    const overlapX = Math.abs(player.x - collisionObject.x);
+    const overlapY = Math.abs(player.y - collisionObject.y);
+
+    // Determine which direction the player should be pushed back based on the overlap
+    let pushX = 0;
+    let pushY = 0;
+
+    if (overlapX > overlapY) {
+        // Push the player horizontally
+        pushX = this.player.x < collisionObject.x ? -overlapX : overlapX;
+    } else {
+        // Push the player vertically
+        pushY = this.player.y < collisionObject.y ? -overlapY : overlapY;
+    }
+
+    // Update player's position to move them outside the collision object
+    player.x += pushX;
+    player.y += pushY;
+
+    // Stop the player's movement
+    this.player.setVelocity(0, 0);
+}
 
 
 
@@ -114,7 +138,9 @@ objectLayer.objects.forEach(object => {
   
   
   update(time, delta) {
-
+    
+ this.physics.overlap(this.player, this.collisionObjects, this.handleOverlap, null, this);
+    
   }
   
 }
