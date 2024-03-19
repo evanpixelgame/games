@@ -41,6 +41,7 @@ const config = {
     PlayerAnimations,
     CompUI,
   ],
+   interpolation: true,
 };
 
 const game = new Phaser.Game(config);
