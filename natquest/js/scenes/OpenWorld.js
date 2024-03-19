@@ -57,7 +57,14 @@ class OpenWorld extends Phaser.Scene {
 
 // Get the object layer from the tilemap
 const objectLayer = map.getObjectLayer('Object Layer 1');
-
+    const collisionObjects = objectLayer.objects.map(object => {
+  const collisionObject = this.physics.add.sprite(object.x + object.width / 2, object.y + object.height / 2, 'invisible'); // Replace 'invisible' with a blank sprite key (if needed)
+  collisionObject.body.setSize(object.width, object.height); // Set the size of the physics body
+  collisionObject.setOrigin(0, 0);
+  return collisionObject;
+});
+    
+    /*
       // Store reference to collision objects
         this.collisionObjects = this.physics.add.staticGroup();
         objectLayer.objects.forEach(object => {
@@ -81,7 +88,7 @@ objectLayer.objects.forEach(object => {
     collisionObject.setOrigin(0, 0); // Adjust origin as needed
     collisionObject.setVisible(false); // Optionally hide the collision object
 });
-
+*/
     
 
 
