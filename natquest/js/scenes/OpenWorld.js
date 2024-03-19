@@ -42,7 +42,7 @@ class OpenWorld extends Phaser.Scene {
   this.player = this.physics.add.sprite(15, 15, 'player');
 
   // Set world bounds for the player
-    const boundaryOffset = 20; // Adjust this value as needed
+    const boundaryOffset = 2; // Adjust this value as needed
     const worldBounds = new Phaser.Geom.Rectangle(
         boundaryOffset,
         boundaryOffset,
