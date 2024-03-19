@@ -39,7 +39,7 @@ class Preloader extends Phaser.Scene {
     this.load.image('Fat Wolf', 'assets/sprites/charSelect/fatWolf64.png');
     this.load.image('backgroundLandscape', 'assets/backgrounds/startScreenBackgroundLandscape.png');
     this.load.image('tiles', 'assets/tilesets/tilemap1.png');
-    this.load.tilemapTiledJSON('map', 'assets/json/map.json');
+    this.load.tilemapTiledJSON('map', 'assets/json/maptest2.json');
     this.load.image('base', 'assets/images/base.png');
     this.load.image('thumb', 'assets/images/thumb.png');
     this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
