@@ -22,7 +22,7 @@ const config = {
         // autoCenter: Phaser.Scale.CENTER_BOTH,
   },
   physics: {
-    default: "arcade",
+    default: "matter",
     arcade: {
       gravity: { y: 0 },
       debug: true,
