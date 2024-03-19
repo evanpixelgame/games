@@ -23,7 +23,7 @@ const config = {
   },
   physics: {
     default: "matter",
-    arcade: {
+    matter: {
       gravity: { y: 0 },
       debug: true,
     },
