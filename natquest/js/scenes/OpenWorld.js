@@ -101,33 +101,8 @@ objectLayer.objects.forEach(object => {
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
 
 //*************************************************************OPEN WORLD METHODS*****************************************************
-/*   BOUNCE BACK COLLISION BOUNDARY
-handleOverlap(player, collisionObject) {
-    // Calculate the overlap depth between the player and the collision object
-    const overlapX = Math.abs(player.x - collisionObject.x);
-    const overlapY = Math.abs(player.y - collisionObject.y);
-
-    // Determine which direction the player should be pushed back based on the overlap
-    let pushX = 0;
-    let pushY = 0;
-
-    if (overlapX > overlapY) {
-        // Push the player horizontally
-        pushX = this.player.x < collisionObject.x ? -overlapX : overlapX;
-    } else {
-        // Push the player vertically
-        pushY = this.player.y < collisionObject.y ? -overlapY : overlapY;
-    }
-
-    // Update player's position to move them outside the collision object
-    player.x += pushX;
-    player.y += pushY;
-
-    // Stop the player's movement
-    this.player.setVelocity(0, 0);
-}
-
-//BETTER BOUNCE/PUSHBACK BOUNDARY RESPONSE HERE
+/*
+  //BETTER BOUNCE/PUSHBACK BOUNDARY RESPONSE HERE
   handleOverlap(player, collisionObject) {
     // Calculate the overlap depth between the player and the collision object
     const overlapX = Math.abs(this.player.x - collisionObject.x);
@@ -155,40 +130,6 @@ handleOverlap(player, collisionObject) {
     }
 } 
 
-  handleOverlap(player, collisionObject) {
-    // Check the direction of the collision
-    const horizontalCollision = Math.abs(this.player.x - collisionObject.x) > Math.abs(this.player.y - collisionObject.y);
-
-    if (horizontalCollision) {
-        // Horizontal collision: Stop horizontal movement
-        this.player.setVelocityX(0);
-    } else {
-        // Vertical collision: Stop vertical movement
-        this.player.setVelocityY(0);
-    }
-} 
-
-  handleBarrierCollision(player, barrier) {
-    const playerCenterX = this.player.x + this.player.displayWidth / 2;
-    const playerCenterY = this.player.y + this.player.displayHeight / 2;
-
-    const barrierCenterX = barrier.x + barrier.displayWidth / 2;
-    const barrierCenterY = barrier.y + barrier.displayHeight / 2;
-
-    const overlapX = playerCenterX - barrierCenterX;
-    const overlapY = playerCenterY - barrierCenterY;
-
-    // Calculate the angle of the overlap vector
-    const angle = Math.atan2(overlapY, overlapX);
-
-    // Calculate the new velocity components to move the player away from the barrier
-    const newVelocityX = Math.cos(angle) * this.player.body.speed;
-    const newVelocityY = Math.sin(angle) * this.player.body.speed;
-
-    // Update player's velocity to move them away from the barrier
-    this.player.setVelocity(newVelocityX, newVelocityY);
-    console.log('attemptingtohandlecollision');
-} */
 
   handleBarrierCollision(player, barrier) {
     // Calculate the overlap between the player and the barrier
@@ -207,26 +148,31 @@ handleOverlap(player, collisionObject) {
     this.player.x -= moveX;
     this.player.y -= moveY;
 }
+*/
 
-
-/*
-  handleBarrierCollision(player, barrier) {
+handleBarrierCollision(player, barrier) {
     // Calculate the overlap between the player and the barrier
     const overlapX = this.player.x - barrier.x;
     const overlapY = this.player.y - barrier.y;
 
-    // Adjust the player's velocity based on the overlap
-    if (Math.abs(overlapX) > Math.abs(overlapY)) {
-        // Horizontal collision, stop horizontal movement
-        this.player.setVelocityX(0);
-    } else {
-        // Vertical collision, stop vertical movement
-        this.player.setVelocityY(0);
+    // Check if the player is moving towards the barrier along the X-axis
+    if (this.player.body.velocity.x > 0 && overlapX < 0) {
+        // Player is moving right and overlapping on the left side of the barrier
+        this.player.x = barrier.x - this.player.width / 2;
+    } else if (this.player.body.velocity.x < 0 && overlapX > 0) {
+        // Player is moving left and overlapping on the right side of the barrier
+        this.player.x = barrier.x + barrier.width + this.player.width / 2;
     }
-} 
-*/
 
-
+    // Check if the player is moving towards the barrier along the Y-axis
+    if (this.player.body.velocity.y > 0 && overlapY < 0) {
+        // Player is moving down and overlapping on the top side of the barrier
+        this.player.y = barrier.y - this.player.height / 2;
+    } else if (this.player.body.velocity.y < 0 && overlapY > 0) {
+        // Player is moving up and overlapping on the bottom side of the barrier
+        this.player.y = barrier.y + barrier.height + this.player.height / 2;
+    }
+}
 
 
 
