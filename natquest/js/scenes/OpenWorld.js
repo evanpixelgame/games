@@ -206,19 +206,8 @@ handleBarrierCollision(player, barrier) {
   
   
   update(time, delta) {
-        const overlapX = this.player.x - barrier.x;
-    const overlapY = this.player.y - barrier.y;
- this.physics.overlap(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
-    // ... existing overlap and direction checks ...
     
-
-// Increase friction as the overlap distance gets smaller (closer to barrier)
-const frictionModifier = Math.min(Math.abs(overlapX) / this.player.width, 1); // Normalize between 0 and 1
-this.player.body.setFrictionX(frictionModifier);
-
-// Optionally, apply friction to Y-axis as well for vertical barriers
-this.player.body.setFrictionY(frictionModifier);
-
+ this.physics.overlap(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
     
   }
   
