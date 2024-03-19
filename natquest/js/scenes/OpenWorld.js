@@ -167,7 +167,7 @@ handleOverlap(player, collisionObject) {
         this.player.setVelocityY(0);
     }
 } 
-*/
+
   handleBarrierCollision(player, barrier) {
     const playerCenterX = this.player.x + this.player.displayWidth / 2;
     const playerCenterY = this.player.y + this.player.displayHeight / 2;
@@ -188,7 +188,26 @@ handleOverlap(player, collisionObject) {
     // Update player's velocity to move them away from the barrier
     this.player.setVelocity(newVelocityX, newVelocityY);
     console.log('attemptingtohandlecollision');
+} */
+
+  handleBarrierCollision(player, barrier) {
+    // Calculate the overlap between the player and the barrier
+    const overlapX = this.player.x - barrier.x;
+    const overlapY = this.player.y - barrier.y;
+
+    // Determine the direction of overlap
+    const directionX = overlapX > 0 ? 1 : -1;
+    const directionY = overlapY > 0 ? 1 : -1;
+
+    // Calculate the amount to move the player to avoid overlap
+    const moveX = Math.abs(overlapX) > Math.abs(overlapY) ? overlapX : 0;
+    const moveY = Math.abs(overlapY) > Math.abs(overlapX) ? overlapY : 0;
+
+    // Move the player to avoid overlap
+    this.player.x -= moveX;
+    this.player.y -= moveY;
 }
+
 
 /*
   handleBarrierCollision(player, barrier) {
