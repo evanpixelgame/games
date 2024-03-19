@@ -58,6 +58,17 @@ class OpenWorld extends Phaser.Scene {
 // Get the object layer from the tilemap
 const objectLayer = map.getObjectLayer('Object Layer 1');
 
+      // Store reference to collision objects
+        this.collisionObjects = this.physics.add.staticGroup();
+        objectLayer.objects.forEach(object => {
+            const collisionObject = this.add.rectangle(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
+            this.physics.world.enable(collisionObject, Phaser.Physics.Arcade.STATIC_BODY);
+            collisionObject.setOrigin(0, 0);
+            collisionObject.setVisible(false);
+            this.collisionObjects.add(collisionObject); // Add collision object to group
+        });
+    
+
 // Enable physics on each object in the object layer
 objectLayer.objects.forEach(object => {
     // Create a rectangle sprite for each object and add it to the scene
@@ -70,6 +81,8 @@ objectLayer.objects.forEach(object => {
     collisionObject.setOrigin(0, 0); // Adjust origin as needed
     collisionObject.setVisible(false); // Optionally hide the collision object
 });
+
+    
 
 
 
