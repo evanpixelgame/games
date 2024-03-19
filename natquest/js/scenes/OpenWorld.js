@@ -127,8 +127,8 @@ handleOverlap(player, collisionObject) {
     // Stop the player's movement
     this.player.setVelocity(0, 0);
 }
-*/
 
+//BETTER BOUNCE/PUSHBACK BOUNDARY RESPONSE HERE
   handleOverlap(player, collisionObject) {
     // Calculate the overlap depth between the player and the collision object
     const overlapX = Math.abs(this.player.x - collisionObject.x);
@@ -154,7 +154,21 @@ handleOverlap(player, collisionObject) {
         // Vertical collision, stop vertical movement
         this.player.setVelocityY(0);
     }
+} */
+
+  handleOverlap(player, collisionObject) {
+    // Check the direction of the collision
+    const horizontalCollision = Math.abs(this.player.x - collisionObject.x) > Math.abs(this.player.y - collisionObject.y);
+
+    if (horizontalCollision) {
+        // Horizontal collision: Stop horizontal movement
+        this.player.setVelocityX(0);
+    } else {
+        // Vertical collision: Stop vertical movement
+        this.player.setVelocityY(0);
+    }
 }
+
 
 
 
