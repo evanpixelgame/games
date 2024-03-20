@@ -1,4 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
+import { createCollisionObjects, handleBarrierCollision } from './collisionhandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -68,22 +69,9 @@ export default class OpenWorld extends Phaser.Scene {
 
    this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
-
-// Get the object layer from the tilemap
-const objectLayer = map.getObjectLayer('Object Layer 1');
-
-// Create an empty array to store collision objects
-this.collisionObjects = [];
-
-objectLayer.objects.forEach(object => {
-    const centerX = object.x + object.width / 2;
-    const centerY = object.y + object.height / 2;
-
-    const collisionObject = this.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-    //collisionObject.setVisible(false); // Optionally hide the collision object
-    this.collisionObjects.push(collisionObject); // Add collision object to the array
-});
-
+    
+    // Create collision objects
+    this.collisionObjects = createCollisionObjects(this, map);
 
 
 
@@ -99,52 +87,20 @@ objectLayer.objects.forEach(object => {
 
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
 
-//*************************************************************OPEN WORLD METHODS*****************************************************
-
-handleBarrierCollision(player, barrier) {
-    // Calculate the overlap between the player and the barrier
-    const overlapX = this.player.x - barrier.x;
-    const overlapY = this.player.y - barrier.y;
-
-    // Check if the player is moving towards the barrier along the X-axis
-    if (this.player.body.velocity.x > 0 && overlapX < 0) {
-        // Player is moving right and overlapping on the left side of the barrier
-        this.player.body.velocity.x = 0; // Stop horizontal movement
-        this.player.x = barrier.x - this.player.width / 2;
-    } else if (this.player.body.velocity.x < 0 && overlapX > 0) {
-        // Player is moving left and overlapping on the right side of the barrier
-        this.player.body.velocity.x = 0; // Stop horizontal movement
-        this.player.x = barrier.x + barrier.width + this.player.width / 2;
-    }
-
-    // Check if the player is moving towards the barrier along the Y-axis
-    if (this.player.body.velocity.y > 0 && overlapY < 0) {
-        // Player is moving down and overlapping on the top side of the barrier
-        this.player.body.velocity.y = 0; // Stop vertical movement
-        this.player.y = barrier.y - this.player.height / 2;
-    } else if (this.player.body.velocity.y < 0 && overlapY > 0) {
-        // Player is moving up and overlapping on the bottom side of the barrier
-        this.player.body.velocity.y = 0; // Stop vertical movement
-        this.player.y = barrier.y + barrier.height + this.player.height / 2;
-    }
-}
-
   //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
   
   
-  update(time, delta) {
-    
-        Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+update(time, delta) {
+    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
         event.pairs.forEach((pair) => {
             if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
                 if (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB)) {
-                    this.handleBarrierCollision();
+                    handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
                 }
             }
         });
     });
-  
-  }
+}
   
 }
 window.OpenWorld = OpenWorld;
