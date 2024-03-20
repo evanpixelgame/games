@@ -95,33 +95,33 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
             velocityX = this.speed;
         }
 
-        // Normalize velocity to prevent faster movement diagonally
-        if (velocityX !== 0 && velocityY !== 0) {
-            const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-            velocityX *= this.speed / magnitude;
-            velocityY *= this.speed / magnitude;
-        }
 
-        // Set the velocity of the player sprite
-        this.player.setVelocity(velocityX, velocityY);
+         // Normalize velocity to prevent faster movement diagonally
+    if (velocityX !== 0 && velocityY !== 0) {
+        const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+        velocityX *= this.speed / magnitude;
+        velocityY *= this.speed / magnitude;
+    }     
+          
+    // Set the velocity of the player sprite
+    this.player.setVelocity(velocityX, velocityY);
 
-        // Play appropriate animation based on movement direction
-        if (velocityX !== 0 || velocityY !== 0) {
-            if (velocityX > 0) {
-                this.player.anims.play('walking-right', true);
-            } else if (velocityX < 0) {
-                this.player.anims.play('walking-left', true);
-            } else if (velocityY < 0) {
-                this.player.anims.play('walking-down', true);
-            } else if (velocityY > 0) {
-                this.player.anims.play('walking-up', true);
-            }
-        } else {
-            // Stop animation when no movement
-            this.player.anims.stop();
+    // Play appropriate animation based on movement direction
+    if (velocityX !== 0 || velocityY !== 0) {
+        if (velocityX > 0) {
+            this.player.anims.play('walking-right', true);
+        } else if (velocityX < 0) {
+            this.player.anims.play('walking-left', true);
+        } else if (velocityY < 0) {
+            this.player.anims.play('walking-down', true);
+        } else if (velocityY > 0) {
+            this.player.anims.play('walking-up', true);
         }
-        this.player.setRotation(0);
+    } else {
+        // Stop animation when no movement
+        this.player.anims.stop();
     }
+   this.player.setRotation(0);
 }
 
 window.MobileControls = MobileControls;
