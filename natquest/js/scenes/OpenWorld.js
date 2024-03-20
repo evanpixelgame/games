@@ -53,8 +53,8 @@ const playerHeight = this.player.height;
 
     this.player.setBody({
     type: 'rectangle', // Set the body type as a rectangle
-    width: playerWidth,/* Width of your player sprite */
-    height: playerHeight,/* Height of your player sprite */
+    width: playerWidth / 2,/* Width of your player sprite */
+    height: playerHeight / 2,/* Height of your player sprite */
     isStatic: false, // Set to true if your player shouldn't move
     restitution: 0, // Bounce (0 = no bounce, 1 = full bounce)
     friction: .1, // Friction (0 = no friction, 1 = full friction)
@@ -114,54 +114,7 @@ objectLayer.objects.forEach(object => {
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
 
 //*************************************************************OPEN WORLD METHODS*****************************************************
-/*
-  //BETTER BOUNCE/PUSHBACK BOUNDARY RESPONSE HERE
-  handleOverlap(player, collisionObject) {
-    // Calculate the overlap depth between the player and the collision object
-    const overlapX = Math.abs(this.player.x - collisionObject.x);
-    const overlapY = Math.abs(this.player.y - collisionObject.y);
 
-    // Determine the direction of overlap
-    const directionX = this.player.x < collisionObject.x ? -1 : 1;
-    const directionY = this.player.y < collisionObject.y ? -1 : 1;
-
-    // Calculate the push amount based on the direction of overlap
-    const pushX = overlapX * directionX;
-    const pushY = overlapY * directionY;
-
-    // Update player's position to move them outside the collision object
-    player.x += pushX;
-    player.y += pushY;
-
-    // Stop the player's movement in the direction of the collision
-    if (overlapX > overlapY) {
-        // Horizontal collision, stop horizontal movement
-        this.player.setVelocityX(0);
-    } else {
-        // Vertical collision, stop vertical movement
-        this.player.setVelocityY(0);
-    }
-} 
-
-
-  handleBarrierCollision(player, barrier) {
-    // Calculate the overlap between the player and the barrier
-    const overlapX = this.player.x - barrier.x;
-    const overlapY = this.player.y - barrier.y;
-
-    // Determine the direction of overlap
-    const directionX = overlapX > 0 ? 1 : -1;
-    const directionY = overlapY > 0 ? 1 : -1;
-
-    // Calculate the amount to move the player to avoid overlap
-    const moveX = Math.abs(overlapX) > Math.abs(overlapY) ? overlapX : 0;
-    const moveY = Math.abs(overlapY) > Math.abs(overlapX) ? overlapY : 0;
-
-    // Move the player to avoid overlap
-    this.player.x -= moveX;
-    this.player.y -= moveY;
-}
-*/
 handleBarrierCollision(player, barrier) {
     // Calculate the overlap between the player and the barrier
     const overlapX = this.player.x - barrier.x;
