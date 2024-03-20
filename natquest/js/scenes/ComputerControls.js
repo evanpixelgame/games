@@ -45,6 +45,13 @@ update(time, delta) {
         velocityX = this.speed;
     }
 
+    // Normalize velocity to prevent faster movement diagonally
+    if (velocityX !== 0 && velocityY !== 0) {
+        const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+        velocityX *= this.speed / magnitude;
+        velocityY *= this.speed / magnitude;
+    }
+
     // Set the velocity of the player sprite
     this.player.setVelocity(velocityX, velocityY);
 
@@ -63,9 +70,6 @@ update(time, delta) {
         // Stop animation when no movement
         this.player.anims.stop();
     }
-
-    // Reset rotation
-    this.player.setRotation(0);
 }
 }
 window.ComputerControls = ComputerControls;
