@@ -35,6 +35,7 @@ const config = {
     NameSelect,
     CharSelect,
     WelcomePlayer,
+    Player,
     OpenWorld,
     MobileControls,
     ComputerControls,
