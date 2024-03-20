@@ -123,5 +123,6 @@ Angle: ${Math.floor(this.joyStick.angle * 100) / 100}
     }
    this.player.setRotation(0);
 }
+}
 
 window.MobileControls = MobileControls;
