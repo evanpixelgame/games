@@ -28,27 +28,44 @@ class ComputerControls extends Phaser.Scene {
 
   }
 
-  update(time, delta) {
+update(time, delta) {
+    let velocityX = 0;
+    let velocityY = 0;
 
+    // Determine velocity based on key presses
     if (this.cursors.up.isDown) {
-      this.player.setVelocityY(-this.speed);
-       this.player.anims.play('walking-down', true);
+        velocityY = -this.speed;
     } else if (this.cursors.down.isDown) {
-      this.player.setVelocityY(this.speed);
-       this.player.anims.play('walking-up', true);
-    } else {
-      this.player.setVelocityY(0);
+        velocityY = this.speed;
     }
 
     if (this.cursors.left.isDown) {
-      this.player.setVelocityX(-this.speed);
-      this.player.anims.play('walking-left', true);
+        velocityX = -this.speed;
     } else if (this.cursors.right.isDown) {
-      this.player.setVelocityX(this.speed);
-      this.player.anims.play('walking-right', true);
-    } else {
-      this.player.setVelocityX(0);
+        velocityX = this.speed;
     }
-  }
+
+    // Set the velocity of the player sprite
+    this.player.setVelocity(velocityX, velocityY);
+
+    // Play appropriate animation based on movement direction
+    if (velocityX !== 0 || velocityY !== 0) {
+        if (velocityX > 0) {
+            this.player.anims.play('walking-right', true);
+        } else if (velocityX < 0) {
+            this.player.anims.play('walking-left', true);
+        } else if (velocityY < 0) {
+            this.player.anims.play('walking-up', true);
+        } else if (velocityY > 0) {
+            this.player.anims.play('walking-down', true);
+        }
+    } else {
+        // Stop animation when no movement
+        this.player.anims.stop();
+    }
+
+    // Reset rotation
+    this.player.setRotation(0);
+}
 }
 window.ComputerControls = ComputerControls;
