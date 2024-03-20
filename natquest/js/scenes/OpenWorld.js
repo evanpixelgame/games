@@ -24,29 +24,21 @@ export default class OpenWorld extends Phaser.Scene {
   create() {
         // Create Matter.js engine
     this.matterEngine = this.matter.world;
-    // Set gravity (optional)
-  //  this.matterEngine.gravity.y = 0.5;
-    // Other initialization code...
-
-
-    
+ //  this.matterEngine.gravity.y = 0.5;
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
-     //  this.cameras.main.setZoom(2);
        }
       this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
      this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
    this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
-
-    
 
   //Load map
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
 
-  // Create layers
+  // Create layers ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
   const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
