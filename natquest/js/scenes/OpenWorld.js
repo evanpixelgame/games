@@ -51,7 +51,7 @@ export default class OpenWorld extends Phaser.Scene {
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
 
-    this.player = new PlayerSprite(this, 15, 15, player); // Create the player object
+    this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
     // Access player properties or methods as needed after it's created
     const playerX = this.player.x;
