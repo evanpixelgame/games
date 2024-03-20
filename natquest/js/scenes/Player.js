@@ -51,4 +51,4 @@ const playerHeight = this.player.height;
 
   
       }
-window.OpenWorld = OpenWorld;
+window.Player = Player;
