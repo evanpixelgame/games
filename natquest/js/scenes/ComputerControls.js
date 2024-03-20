@@ -60,17 +60,17 @@ update(time, delta) {
     // Play appropriate animation based on movement direction
     if (velocityX !== 0 || velocityY !== 0) {
         if (velocityX > 0) {
-            this.player.anims.play('walking-right', true);
+            this.playerTexture.anims.play('walking-right', true);
         } else if (velocityX < 0) {
-            this.player.anims.play('walking-left', true);
+            this.playerTexture.anims.play('walking-left', true);
         } else if (velocityY < 0) {
-            this.player.anims.play('walking-down', true);
+            this.playerTexture.anims.play('walking-down', true);
         } else if (velocityY > 0) {
-            this.player.anims.play('walking-up', true);
+            this.playerTexture.anims.play('walking-up', true);
         }
     } else {
         // Stop animation when no movement
-        this.player.anims.stop();
+        this.playerTexture.anims.stop();
     }
    this.player.setRotation(0);
 }
