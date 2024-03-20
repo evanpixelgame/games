@@ -22,7 +22,7 @@ class OpenWorld extends Phaser.Scene {
         // Create Matter.js engine
     this.matterEngine = this.matter.world;
     // Set gravity (optional)
-    this.matterEngine.gravity.y = 0.5;
+  //  this.matterEngine.gravity.y = 0.5;
     // Other initialization code...
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
