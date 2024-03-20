@@ -11,6 +11,7 @@ class CompUI extends Phaser.Scene {
         this.openWorldScene = data.OpenWorld;
         this.player = data.player;
         this.speed = data.speed;
+       this.map = data.map;
     }
       
   preload() {
