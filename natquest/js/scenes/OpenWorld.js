@@ -1,4 +1,4 @@
-import { Player } from './Player.js';
+import { PlayerSprite } from './PlayerSprite.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
