@@ -7,6 +7,11 @@ class MobileControls extends Phaser.Scene {
         })
     }
 
+       init(data) {
+    this.player = data.player;
+    this.speed = data.speed;
+  }
+
     preload() {
         
     }
