@@ -85,11 +85,9 @@ objectLayer.objects.forEach(object => {
     const centerY = object.y + object.height / 2;
 
     const collisionObject = this.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-    collisionObject.setPosition(centerX, centerY); // Set the position of the body to the center
     collisionObject.setVisible(false); // Optionally hide the collision object
     this.collisionObjects.push(collisionObject); // Add collision object to the array
 });
-    
 
 
 
