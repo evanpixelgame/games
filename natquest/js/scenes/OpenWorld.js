@@ -57,7 +57,7 @@ const playerHeight = this.player.height;
     height: playerHeight,/* Height of your player sprite */
     isStatic: false, // Set to true if your player shouldn't move
     restitution: 0, // Bounce (0 = no bounce, 1 = full bounce)
-    friction: 1, // Friction (0 = no friction, 1 = full friction)
+    friction: .1, // Friction (0 = no friction, 1 = full friction)
     frictionAir: 0.02, // Air friction (drag)
     // Other optional properties...
 });
