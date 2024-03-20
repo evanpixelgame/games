@@ -81,8 +81,11 @@ const objectLayer = map.getObjectLayer('Object Layer 1');
 this.collisionObjects = [];
 
 objectLayer.objects.forEach(object => {
-    const collisionObject = this.matter.add.rectangle(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height, { isStatic: true });
-    collisionObject.setOrigin(0.5, 0.5); // Adjust origin as needed
+    const centerX = object.x + object.width / 2;
+    const centerY = object.y + object.height / 2;
+
+    const collisionObject = this.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
+    collisionObject.setPosition(centerX, centerY); // Set the position of the body to the center
     collisionObject.setVisible(false); // Optionally hide the collision object
     this.collisionObjects.push(collisionObject); // Add collision object to the array
 });
