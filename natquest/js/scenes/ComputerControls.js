@@ -28,12 +28,11 @@ class ComputerControls extends Phaser.Scene {
 
   }
 
-  update(time, delta) {
-
-   update(time, delta) {
+update(time, delta) {
     let velocityX = 0;
     let velocityY = 0;
 
+    // Determine velocity based on key presses
     if (this.cursors.up.isDown) {
         velocityY = -this.speed;
     } else if (this.cursors.down.isDown) {
@@ -63,6 +62,13 @@ class ComputerControls extends Phaser.Scene {
     } else {
         // Stop animation when no movement
         this.player.anims.stop();
+    }
+
+    // Reset rotation
+    this.player.setRotation(0);
+}
+
+  
     }
      
 window.ComputerControls = ComputerControls;
