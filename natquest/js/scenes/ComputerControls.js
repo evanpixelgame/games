@@ -2,8 +2,19 @@
 class ComputerControls extends Phaser.Scene {
   constructor() {
     super({ key: 'ComputerControls' });
+
+    this.player = null; // Initialize player reference
+    this.speed = 0; // Initialize speed
   }
-      
+
+
+    init(data) {
+    // Retrieve player reference and speed from the data object
+    this.player = data.player;
+    this.speed = data.speed;
+  }
+
+  
   preload() {
 
   }
