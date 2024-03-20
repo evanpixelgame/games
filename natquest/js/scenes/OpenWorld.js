@@ -1,4 +1,6 @@
-class OpenWorld extends Phaser.Scene {
+import ComputerControls from 'js/Player.js';
+
+export default class OpenWorld extends Phaser.Scene {
   constructor() {
     super({ key: 'OpenWorld' });
     
@@ -25,6 +27,14 @@ class OpenWorld extends Phaser.Scene {
   //  this.matterEngine.gravity.y = 0.5;
     // Other initialization code...
 
+
+        this.playerScene = this.scene.get('Player');
+    
+    // Access player scene properties or methods as needed
+    const playerX = this.playerScene.player.x;
+    const playerY = this.playerScene.player.y;
+    
+
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
      //  this.cameras.main.setZoom(2);
@@ -43,24 +53,7 @@ class OpenWorld extends Phaser.Scene {
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
-  // Create player sprite
-  this.player = this.scene.get('WelcomePlayer').player;
-this.player = this.matter.add.sprite(15, 15, 'player');
-
-    const playerWidth = this.player.width;
-const playerHeight = this.player.height;
-
-
-    this.player.setBody({
-    type: 'rectangle', // Set the body type as a rectangle
-    width: playerWidth / 2,/* Width of your player sprite */
-    height: playerHeight / 2,/* Height of your player sprite */
-    isStatic: false, // Set to true if your player shouldn't move
-    restitution: 0, // Bounce (0 = no bounce, 1 = full bounce)
-    friction: .1, // Friction (0 = no friction, 1 = full friction)
-    frictionAir: 0.02, // Air friction (drag)
-    // Other optional properties...
-});
+ this.player = new Player(this, 15, 15, 'player');
 
   // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
@@ -168,6 +161,8 @@ handleBarrierCollision(player, barrier) {
   
   update(time, delta) {
 
+  
+    
         Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
         event.pairs.forEach((pair) => {
             if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
