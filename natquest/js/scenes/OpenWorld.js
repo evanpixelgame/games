@@ -33,6 +33,9 @@ export default class OpenWorld extends Phaser.Scene {
     // Access player scene properties or methods as needed
     const playerX = this.playerScene.player.x;
     const playerY = this.playerScene.player.y;
+
+        const player = new Player(this, 15, 15, 'player');
+    player.create();
     
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
@@ -92,15 +95,6 @@ objectLayer.objects.forEach(object => {
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
-        this.player.setScale(0.5);
-
-    
-        const scaledWidth = this.player.width * 0.5; // Scale the width
-        const scaledHeight = this.player.height * 0.5; // Scale the height
-
-          // Set the size of the player's collision body
-        this.player.setSize(scaledWidth, scaledHeight);
-
     
   } // <==== create func end tag    
 
