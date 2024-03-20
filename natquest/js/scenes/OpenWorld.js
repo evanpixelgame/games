@@ -85,7 +85,7 @@ objectLayer.objects.forEach(object => {
     const centerY = object.y + object.height / 2;
 
     const collisionObject = this.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-    collisionObject.setVisible(false); // Optionally hide the collision object
+    //collisionObject.setVisible(false); // Optionally hide the collision object
     this.collisionObjects.push(collisionObject); // Add collision object to the array
 });
 
