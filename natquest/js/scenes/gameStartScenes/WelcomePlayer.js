@@ -8,18 +8,18 @@ class WelcomePlayer extends Phaser.Scene {
 
 
    if (gameManager.selectedCharacter == 'Baby Mouse') {  
-    this.load.spritesheet("playerTexture", "assets/sprites/player/babyMouse.png", {
+    this.load.spritesheet("player", "assets/sprites/player/babyMouse.png", {
           frameWidth: 64,
           frameHeight: 64
       }); 
     } else if (gameManager.selectedCharacter == 'Confused Woman') {
     
-       this.load.spritesheet("playerTexture", "assets/sprites/player/womanPlayer.png", {
+       this.load.spritesheet("player", "assets/sprites/player/womanPlayer.png", {
           frameWidth: 64,
           frameHeight: 64
       });
     } else {
-       this.load.spritesheet("playerTexture", "assets/sprites/player/fatWolf.png", {
+       this.load.spritesheet("player", "assets/sprites/player/fatWolf.png", {
           frameWidth: 64,
           frameHeight: 64
       });
@@ -65,7 +65,7 @@ class WelcomePlayer extends Phaser.Scene {
     if (orientation.includes('landscape')) {
         // Execute event handler code only in landscape mode
         console.log('Click event in landscape mode2');
-      this.scene.start('OpenWorld', { playerTexture: 'playerTexture' });
+      this.scene.start('OpenWorld');
     } else {
         // Ignore the click event in portrait mode
         console.log('Ignoring click event in portrait mode2');
