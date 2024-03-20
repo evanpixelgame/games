@@ -3,9 +3,12 @@ export class Player extends Phaser.Physics.Matter.Sprite {
         super(scene.matter.world, x, y, texture);
         scene.add.existing(this);
         this.scene = scene;
+
+        // Call the initialization method
+        this.init();
     }
 
-    create() {
+    init() {
         const playerWidth = this.width;
         const playerHeight = this.height;
 
@@ -28,4 +31,5 @@ export class Player extends Phaser.Physics.Matter.Sprite {
     }
 }
 
-window.player = Player;
+// Avoid exporting variables to the global scope if possible
+// window.player = Player;
