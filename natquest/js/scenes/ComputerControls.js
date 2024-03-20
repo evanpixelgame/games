@@ -70,7 +70,7 @@ update(time, delta) {
         }
     } else {
         // Stop animation when no movement
-        this.playerTexture.anims.stop();
+        this.player.anims.stop();
     }
    this.player.setRotation(0);
 }
