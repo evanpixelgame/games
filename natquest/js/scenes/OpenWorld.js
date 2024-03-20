@@ -1,4 +1,4 @@
-import ComputerControls from 'js/scenes/Player.js';
+import ComputerControls from './Player.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
