@@ -129,18 +129,10 @@ handleBarrierCollision(player, barrier) {
     }
 }
 
-
-
-  //**************************************************************ZOOM IN/OUT METHODS***************************************************
-
-
-
   //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
   
   
   update(time, delta) {
-
-  
     
         Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
         event.pairs.forEach((pair) => {
@@ -151,7 +143,6 @@ handleBarrierCollision(player, barrier) {
             }
         });
     });
-
   
   }
   
