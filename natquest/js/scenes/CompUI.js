@@ -76,22 +76,17 @@ settingsIcon.on('pointerdown', () => {
 
             zoomInIcon.on('pointerdown', () => {
             console.log('zoominattempt');
-            //this.OpenWorld.zoomIn(); // Call the zoomIn method in the OpenWorld scene
 
-               if (this.openWorldScene) {
-        this.openWorldScene.zoomIn();
-    }
+        this.zoomIn();
         });
 
      // ****************************************************************ZOOM OUT ICON FUNC*************************************************************
  
             zoomOutIcon.on('pointerdown', () => {
             console.log('zoomoutattempt');
-            //this.OpenWorld.zoomIn(); // Call the zoomIn method in the OpenWorld scene
 
-               if (this.openWorldScene) {
-        this.openWorldScene.zoomOut();
-    }
+        this.zoomOut();
+
         });
 
 
