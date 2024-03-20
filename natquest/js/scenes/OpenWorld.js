@@ -27,12 +27,7 @@ export default class OpenWorld extends Phaser.Scene {
   //  this.matterEngine.gravity.y = 0.5;
     // Other initialization code...
 
-    this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
-    // Access player properties or methods as needed after it's created
-    const playerX = this.player.x;
-    const playerY = this.player.y;
-    
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
@@ -42,6 +37,13 @@ export default class OpenWorld extends Phaser.Scene {
      this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
      this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed });
 
+    this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
+
+    // Access player properties or methods as needed after it's created
+    const playerX = this.player.x;
+    const playerY = this.player.y;
+    
+    
   //Load map
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
