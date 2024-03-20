@@ -279,7 +279,24 @@ exitFullScreen() {
     // Make the dropdown container visible
     this.dropdownContainer.setVisible(true);
 }
-          
+
+
+//**********************************************************************ZOOM METHODS****************************************************************
+   zoomIn() {
+        if (this.cameras.main.zoom < 3) {
+            this.cameras.main.zoom *= 1.1; // Increase zoom by 10%
+        } else {
+            console.log('Maximum zoom level reached.');
+        }
+    }
+
+   zoomOut() {
+        if (this.cameras.main.zoom > 1) { // Set a minimum zoom level (0.2 is just an example)
+            this.cameras.main.zoom /= 1.1; // Decrease zoom by 10%
+        } else {
+            console.log('Minimum zoom level reached.');
+        }
+    }
           
  // ****************************************************************END OF METHODS START OF UPDATE FUNC*************************************************************
   update(time, delta) {
