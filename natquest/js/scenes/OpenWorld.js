@@ -47,10 +47,14 @@ class OpenWorld extends Phaser.Scene {
   this.player = this.scene.get('WelcomePlayer').player;
 this.player = this.matter.add.sprite(15, 15, 'player');
 
+    const playerWidth = this.player.width;
+const playerHeight = this.player.height;
+
+
     this.player.setBody({
     type: 'rectangle', // Set the body type as a rectangle
-    width: /* Width of your player sprite */,
-    height: /* Height of your player sprite */,
+    width: playerWidth,/* Width of your player sprite */,
+    height: playerHeight,/* Height of your player sprite */,
     isStatic: false, // Set to true if your player shouldn't move
     restitution: 0, // Bounce (0 = no bounce, 1 = full bounce)
     friction: 1, // Friction (0 = no friction, 1 = full friction)
