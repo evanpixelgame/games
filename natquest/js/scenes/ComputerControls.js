@@ -70,6 +70,7 @@ update(time, delta) {
         // Stop animation when no movement
         this.player.anims.stop();
     }
+   this.player.setRotation(0);
 }
 }
 window.ComputerControls = ComputerControls;
