@@ -27,7 +27,7 @@ export default class OpenWorld extends Phaser.Scene {
   //  this.matterEngine.gravity.y = 0.5;
     // Other initialization code...
 
-    this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
+    this.player = new PlayerSprite(this, 15, 15, player); // Create the player object
 
     // Access player properties or methods as needed after it's created
     const playerX = this.player.x;
