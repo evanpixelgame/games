@@ -214,9 +214,18 @@ handleBarrierCollision(player, barrier) {
   
   
   update(time, delta) {
-    
-   this.matter.collide(this.player, this.collisionObjects, this.handleBarrierCollision, null, this);
-    
+
+        Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+        event.pairs.forEach((pair) => {
+            if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
+                if (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB)) {
+                    this.handleBarrierCollision();
+                }
+            }
+        });
+    });
+
+  
   }
   
 }
