@@ -1,6 +1,6 @@
-export class Player extends Phaser.Physics.Matter.Sprite {
+export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, texture) {
-         super({ key: 'Player' });
+         super({ key: 'PlayerSprite' });
         super(scene.matter.world, x, y, texture);
         scene.add.existing(this);
         this.scene = scene;
