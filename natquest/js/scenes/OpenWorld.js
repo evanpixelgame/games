@@ -27,15 +27,11 @@ export default class OpenWorld extends Phaser.Scene {
   //  this.matterEngine.gravity.y = 0.5;
     // Other initialization code...
 
+    this.player = new Player(this, 15, 15, 'player'); // Create the player object
 
-        this.playerScene = this.scene.get('Player');
-    
-    // Access player scene properties or methods as needed
-    const playerX = this.playerScene.player.x;
-    const playerY = this.playerScene.player.y;
-
-        const player = new Player(this, 15, 15, 'player');
-    player.create();
+    // Access player properties or methods as needed after it's created
+    const playerX = this.player.x;
+    const playerY = this.player.y;
     
 
      if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
@@ -56,7 +52,6 @@ export default class OpenWorld extends Phaser.Scene {
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
- this.player = new Player(this, 15, 15, 'player');
 
   // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
