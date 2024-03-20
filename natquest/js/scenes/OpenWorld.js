@@ -77,13 +77,14 @@ const playerHeight = this.player.height;
 // Get the object layer from the tilemap
 const objectLayer = map.getObjectLayer('Object Layer 1');
 
-// Store reference to collision objects
-this.collisionObjects = this.matter.add.group();
+// Create an empty array to store collision objects
+this.collisionObjects = [];
+
 objectLayer.objects.forEach(object => {
     const collisionObject = this.matter.add.rectangle(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height, { isStatic: true });
     collisionObject.setOrigin(0.5, 0.5); // Adjust origin as needed
     collisionObject.setVisible(false); // Optionally hide the collision object
-    this.collisionObjects.add(collisionObject); // Add collision object to group
+    this.collisionObjects.push(collisionObject); // Add collision object to the array
 });
     
 
