@@ -3,6 +3,15 @@ class ComputerControls extends Phaser.Scene {
   constructor() {
     super({ key: 'ComputerControls' });
 
+    this.player = null; // Initialize player reference
+    this.speed = 0; // Initialize speed
+  }
+
+
+    init(data) {
+    // Retrieve player reference and speed from the data object
+    this.player = data.player;
+    this.speed = data.speed;
   }
 
   
@@ -60,13 +69,13 @@ update(time, delta) {
     // Play appropriate animation based on movement direction
     if (velocityX !== 0 || velocityY !== 0) {
         if (velocityX > 0) {
-            this.playerTexture.anims.play('walking-right', true);
+            this.player.anims.play('walking-right', true);
         } else if (velocityX < 0) {
-            this.playerTexture.anims.play('walking-left', true);
+            this.player.anims.play('walking-left', true);
         } else if (velocityY < 0) {
-            this.playerTexture.anims.play('walking-down', true);
+            this.player.anims.play('walking-down', true);
         } else if (velocityY > 0) {
-            this.playerTexture.anims.play('walking-up', true);
+            this.player.anims.play('walking-up', true);
         }
     } else {
         // Stop animation when no movement
