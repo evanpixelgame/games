@@ -47,6 +47,17 @@ class OpenWorld extends Phaser.Scene {
   this.player = this.scene.get('WelcomePlayer').player;
 this.player = this.matter.add.sprite(15, 15, 'player');
 
+    this.player.setBody({
+    type: 'rectangle', // Set the body type as a rectangle
+    width: /* Width of your player sprite */,
+    height: /* Height of your player sprite */,
+    isStatic: false, // Set to true if your player shouldn't move
+    restitution: 0, // Bounce (0 = no bounce, 1 = full bounce)
+    friction: 1, // Friction (0 = no friction, 1 = full friction)
+    frictionAir: 0.02, // Air friction (drag)
+    // Other optional properties...
+});
+
   // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
     const worldBounds = new Phaser.Geom.Rectangle(
@@ -57,7 +68,6 @@ this.player = this.matter.add.sprite(15, 15, 'player');
     );
 
    this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
-    this.player.setCollideWorldBounds(true);
 
 
 // Get the object layer from the tilemap
