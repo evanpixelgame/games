@@ -62,9 +62,9 @@ update(time, delta) {
         } else if (velocityX < 0) {
             this.player.anims.play('walking-left', true);
         } else if (velocityY < 0) {
-            this.player.anims.play('walking-up', true);
-        } else if (velocityY > 0) {
             this.player.anims.play('walking-down', true);
+        } else if (velocityY > 0) {
+            this.player.anims.play('walking-up', true);
         }
     } else {
         // Stop animation when no movement
