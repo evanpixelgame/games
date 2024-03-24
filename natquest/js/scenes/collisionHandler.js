@@ -7,8 +7,8 @@ export function createCollisionObjects(scene, map) {
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
 
-        if (object.polygon) {
-  const polygonVertices = object.polygon.map(vertex => {
+        if (objects.polygon) {
+  const polygonVertices = objects.polygon.map(vertex => {
     return { x: vertex.x + object.x, y: vertex.y + object.y };
   });
   const collisionObject = scene.matter.add.polygon(centerX, centerY, polygonVertices, { isStatic: true });
