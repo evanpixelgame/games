@@ -47,21 +47,21 @@ export default class OpenWorld extends Phaser.Scene {
      const tileset6 = map.addTilesetImage('tilesheetFlourishes', 'tilesheetFlourishes');
 
   // Create layers ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
-  const worldLayer = map.createLayer('Tile Layer 1', tileset1, 0, 0);
-     const layer2 = map.createLayer('Tile Layer 2', [tileset2, tileset3, tileset4, tileset5, tileset6], 0, 0);
-     const layer3 = map.createLayer('Tile Layer 3', tileset3, 0, 0);
+//  const worldLayer = map.createLayer('Tile Layer 1', tileset1, 0, 0);
+ //    const layer2 = map.createLayer('Tile Layer 2', [tileset2, tileset3, tileset4, tileset5, tileset6], 0, 0);
+//     const layer3 = map.createLayer('Tile Layer 3', tileset3, 0, 0);
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
 
-/*    
+//  /*    
 const tilesetsData = [tileset1, tileset2, tileset3, tileset4, tileset5, tileset6];
 
 const tilesets = [];
 tilesetsData.forEach(tileset => {
     tilesets.push(map.addTilesetImage(tileset, tileset));
 });
-*/
+//  */
 
     this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
