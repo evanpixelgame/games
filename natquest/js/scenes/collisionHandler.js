@@ -22,45 +22,17 @@ export function createCollisionObjects(scene, map) {
                 };
             });
 
-            const collisionObject = Matter.Bodies.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
-            Matter.World.add(scene.matter.world, collisionObject);
+            const collisionObject = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
             collisionObjects.push(collisionObject);
-        } else if (object.polyline) {
-            // Handle polylines
-            const polylineVertices = object.polyline.map(vertex => {
-                return { x: object.x + vertex.x, y: object.y + vertex.y };
-            });
-
-            for (let i = 0; i < polylineVertices.length - 1; i++) {
-                const segmentStart = polylineVertices[i];
-                const segmentEnd = polylineVertices[i + 1];
-                
-                const segmentLength = Phaser.Math.Distance.Between(segmentStart.x, segmentStart.y, segmentEnd.x, segmentEnd.y);
-                const segmentAngle = Phaser.Math.Angle.Between(segmentStart.x, segmentStart.y, segmentEnd.x, segmentEnd.y);
-
-                const rectangleWidth = 1;
-                const rectangleHeight = segmentLength;
-                const rectangleX = (segmentStart.x + segmentEnd.x) / 2;
-                const rectangleY = (segmentStart.y + segmentEnd.y) / 2;
-
-                const collisionObject = Matter.Bodies.rectangle(rectangleX, rectangleY, rectangleWidth, rectangleHeight, {
-                    angle: segmentAngle,
-                    isStatic: true
-                });
-                Matter.World.add(scene.matter.world, collisionObject);
-                collisionObjects.push(collisionObject);
-            }
         } else {
             // Handle rectangles
-            const collisionObject = Matter.Bodies.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-            Matter.World.add(scene.matter.world, collisionObject);
-                collisionObjects.push(collisionObject);
+            const collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
+            collisionObjects.push(collisionObject);
         }
     });
 
     return collisionObjects;
 }
-
 
 // Function to calculate centroid of a polygon
 function calculateCentroid(vertices) {
