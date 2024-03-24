@@ -24,32 +24,9 @@ export function createCollisionObjects(scene, map) {
     return collisionObjects;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export function handleBarrierCollision(player, barrier) {
-    const overlapX = player.x - barrier.x;
-    const overlapY = player.y - barrier.y;
+    const overlapX = player.body.position.x - barrier.body.position.x;
+    const overlapY = player.body.position.y - barrier.body.position.y;
 
     if (player.body.velocity.x > 0 && overlapX < 0) {
         player.body.velocity.x = 0;
