@@ -40,7 +40,7 @@ create() {
     const worldLayer = this.map.createLayer('Tile Layer 1', tileset, 0, 0);
 
     // Convert tilemap to Matter.js physics bodies
-    this.matterEngine.convertTilemap(this.map);
+    this.matterEngine.convertTilemap(this.map, 'Object Layer 1');
 
     this.player = new PlayerSprite(this, 15, 15, 'player');
 
