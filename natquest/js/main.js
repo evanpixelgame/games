@@ -41,6 +41,7 @@ const config = {
     ComputerControls,
     PlayerAnimations,
     CompUI,
+    InsideRoom,
   ],
    interpolation: true,
 };
