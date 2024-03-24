@@ -24,8 +24,14 @@ export function createCollisionObjects(scene, map) {
 }
 
 export function handleBarrierCollision(player, barrier) {
-    const overlapX = player.x - barrier.x;
-    const overlapY = player.y - barrier.y;
+  let overlapX, overlapY;
+
+  // Use Matter.Query for collision detection with any shape
+  const collisionPairs = Matter.Query.overlaps(player.body, barrier);
+  if (collisionPairs.length > 0) {
+    const collisionPair = collisionPairs[0];
+    overlapX = collisionPair.overlap.x;
+    overlapY = collisionPair.overlap.y;
 
     if (player.body.velocity.x > 0 && overlapX < 0) {
         player.body.velocity.x = 0;
