@@ -55,14 +55,19 @@ export default class OpenWorld extends Phaser.Scene {
 */
     // Get all tilesets from the map
 // Get all tilesets from the map by their keys
-const tilesetKeys = map.tilesets.map(tileset => tileset.name);
+const tilesetsData = [
+    { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
+    { name: 'tilesheetInterior', key: 'tilesheetInterior' },
+    { name: 'tilesheetBuildings', key: 'tilesheetBuildings' },
+    { name: 'tilesheetWalls', key: 'tilesheetWalls' },
+    { name: 'tilesheetObjects', key: 'tilesheetObjects' },
+    { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
+];
 
-// Create layers using all tilesets
-const layers = [];
-for (let i = 0; i < map.layers.length; i++) {
-    layers.push(map.createLayer(i, tilesetKeys, 0, 0));
-}
-
+const tilesets = [];
+tilesetsData.forEach(tilesetData => {
+    tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
+});
 
     this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
