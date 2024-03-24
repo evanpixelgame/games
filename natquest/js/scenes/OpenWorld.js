@@ -46,9 +46,9 @@ export default class OpenWorld extends Phaser.Scene {
 
 
   // Create layers ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
-  const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
-      const worldLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
-      const worldLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
+  const layer1 = map.createLayer('Tile Layer 1', tileset, 0, 0);
+      const layer2 = map.createLayer('Tile Layer 2', tileset, 0, 0);
+      const layer3 = map.createLayer('Tile Layer 3', tileset, 0, 0);
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
