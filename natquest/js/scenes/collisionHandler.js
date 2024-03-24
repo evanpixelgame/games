@@ -30,9 +30,14 @@ export function createCollisionObjects(scene, map) {
                 return { x: object.x + vertex.x, y: object.y + vertex.y };
             });
 
-            const collisionObject = scene.matter.add.chain(centerX, centerY, polylineVertices, false, { isStatic: true });
-
-            collisionObjects.push(collisionObject);
+            for (let i = 0; i < polylineVertices.length - 1; i++) {
+                const segment = [
+                    { x: polylineVertices[i].x, y: polylineVertices[i].y },
+                    { x: polylineVertices[i + 1].x, y: polylineVertices[i + 1].y }
+                ];
+                const collisionObject = scene.matter.add.line(centerX, centerY, segment[0], segment[1], { isStatic: true });
+                collisionObjects.push(collisionObject);
+            }
         } else {
             // Handle rectangles
             const collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
