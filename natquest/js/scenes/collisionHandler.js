@@ -22,7 +22,7 @@ export function createCollisionObjects(scene, map) {
                 };
             });
 
-            const collisionObject = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
+            const collisionObject = scene.matter.add.fromVertices(centerX, centerY, polygonVertices, { isStatic: true });
             collisionObjects.push(collisionObject);
         } else if (object.ellipse) {
             // Handle circles
