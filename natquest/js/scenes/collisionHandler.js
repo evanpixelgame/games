@@ -10,6 +10,15 @@ export function createCollisionObjects(scene, map) {
         const collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
         collisionObjects.push(collisionObject);
     });
+    
+    if (object.polygon) {
+      const polygonVertices = object.polygon.map(vertex => {
+        return { x: vertex.x + object.x, y: vertex.y + object.y };
+  });
+        
+  const collisionObject = scene.matter.add.polygon(centerX, centerY, polygonVertices, { isStatic: true });
+  collisionObjects.push(collisionObject);
+}
 
     return collisionObjects;
 }
