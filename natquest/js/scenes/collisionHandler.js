@@ -24,6 +24,14 @@ export function createCollisionObjects(scene, map) {
 
             const collisionObject = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
             collisionObjects.push(collisionObject);
+        } else if (object.polyline) {
+            // Handle polylines
+            const polylineVertices = object.polyline.map(vertex => {
+                return { x: object.x + vertex.x, y: object.y + vertex.y };
+            });
+
+            const collisionObject = scene.matter.add.fromVertices(centerX, centerY, polylineVertices, { isStatic: true });
+            collisionObjects.push(collisionObject);
         } else {
             // Handle rectangles
             const collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
@@ -33,6 +41,7 @@ export function createCollisionObjects(scene, map) {
 
     return collisionObjects;
 }
+
 
 // Function to calculate centroid of a polygon
 function calculateCentroid(vertices) {
