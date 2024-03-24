@@ -12,12 +12,16 @@ export function createCollisionObjects(scene, map) {
         if (object.type === 'rectangle') {
             collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
         } else if (object.type === 'ellipse') {
-            collisionObject = scene.matter.add.circle(centerX, centerY, Math.max(object.width, object.height) / 2, { isStatic: true });
+            // Read radius property for circles
+            collisionObject = scene.matter.add.circle(centerX, centerY, object.radius, { isStatic: true });
         } else if (object.type === 'polygon') {
+            // Read vertices property for polygons
             const vertices = object.polygon.map(point => ({ x: point.x, y: point.y }));
             collisionObject = scene.matter.add.polygon(centerX, centerY, vertices, { isStatic: true });
         }
 
+        // Store additional properties in the collision object
+        collisionObject.type = object.type; // Store the type of the object (e.g., rectangle, ellipse, polygon)
         collisionObjects.push(collisionObject);
     });
 
