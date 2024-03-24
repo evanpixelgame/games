@@ -37,9 +37,18 @@ export default class OpenWorld extends Phaser.Scene {
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
   const tileset = map.addTilesetImage('tilemap1', 'tiles');
+     const tileset = map.addTilesetImage('interiorTiles', 'interiorTiles');
+    const tileset = map.addTilesetImage('terrainTiles', 'terrainTiles');
+    const tileset = map.addTilesetImage('buildingTiles', 'buildingTiles');
+    const tileset = map.addTilesetImage('wallsTiles', 'wallsTiles');
+    const tileset = map.addTilesetImage('objectsTiles', 'objectsTiles');
+    const tileset = map.addTilesetImage('flourishesTiles', 'flourishesTiles');
+
 
   // Create layers ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
   const worldLayer = map.createLayer('Tile Layer 1', tileset, 0, 0);
+      const worldLayer = map.createLayer('Tile Layer 2', tileset, 0, 0);
+      const worldLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
