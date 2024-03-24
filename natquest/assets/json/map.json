@@ -165,7 +165,7 @@
         {
          "columns":15,
          "firstgid":1,
-         "image":"Evans Tilesheets\/tilesheetTerrain.png",
+         "image":"tilesheetTerrain.png",
          "imageheight":480,
          "imagewidth":480,
          "margin":0,
@@ -178,7 +178,7 @@
         {
          "columns":20,
          "firstgid":226,
-         "image":"Evans Tilesheets\/tilesheetWalls.png",
+         "image":"tilesheetWalls.png",
          "imageheight":672,
          "imagewidth":640,
          "margin":0,
@@ -191,7 +191,7 @@
         {
          "columns":30,
          "firstgid":646,
-         "image":"Evans Tilesheets\/tilesheetObjects.png",
+         "image":"tilesheetObjects.png",
          "imageheight":960,
          "imagewidth":960,
          "margin":0,
@@ -204,7 +204,7 @@
         {
          "columns":30,
          "firstgid":1546,
-         "image":"Evans Tilesheets\/tilesheetInterior.png",
+         "image":"tilesheetInterior.png",
          "imageheight":960,
          "imagewidth":960,
          "margin":0,
@@ -217,7 +217,7 @@
         {
          "columns":30,
          "firstgid":2446,
-         "image":"Evans Tilesheets\/tilesheetFlourishes.png",
+         "image":"tilesheetFlourishes.png",
          "imageheight":960,
          "imagewidth":960,
          "margin":0,
@@ -230,7 +230,7 @@
         {
          "columns":30,
          "firstgid":3346,
-         "image":"Evans Tilesheets\/tilesheetBuildings.png",
+         "image":"tilesheetBuildings.png",
          "imageheight":960,
          "imagewidth":960,
          "margin":0,
