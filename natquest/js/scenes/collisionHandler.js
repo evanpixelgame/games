@@ -25,7 +25,7 @@ export function createCollisionObjects(scene, map) {
             const collisionObject = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
             collisionObjects.push(collisionObject);
         } else if (object.polyline) {
-            // Handle polylines
+                      // Handle polylines
             const polylineVertices = object.polyline.map(vertex => {
                 return { x: object.x + vertex.x, y: object.y + vertex.y };
             });
@@ -35,7 +35,8 @@ export function createCollisionObjects(scene, map) {
                     { x: polylineVertices[i].x, y: polylineVertices[i].y },
                     { x: polylineVertices[i + 1].x, y: polylineVertices[i + 1].y }
                 ];
-                const collisionObject = scene.matter.add.line(centerX, centerY, segment[0], segment[1], { isStatic: true });
+                const collisionObject = Matter.Bodies.line(centerX, centerY, segment[0], segment[1], { isStatic: true });
+                Matter.World.add(scene.matter.world, collisionObject);
                 collisionObjects.push(collisionObject);
             }
         } else {
