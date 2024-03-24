@@ -66,6 +66,7 @@ const tilesetsData = [
 
 const tilesets = [];
 tilesetsData.forEach(tilesetData => {
+  console.log('LayerLoadattempthopeful');
     tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
 });
 
