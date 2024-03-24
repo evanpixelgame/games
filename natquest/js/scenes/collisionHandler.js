@@ -32,11 +32,21 @@ export function createCollisionObjects(scene, map) {
             });
 
             for (let i = 0; i < polylineVertices.length - 1; i++) {
-                const segment = [
-                    { x: polylineVertices[i].x, y: polylineVertices[i].y },
-                    { x: polylineVertices[i + 1].x, y: polylineVertices[i + 1].y }
-                ];
-                const collisionObject = Matter.Bodies.rectangle((segment[0].x + segment[1].x) / 2, (segment[0].y + segment[1].y) / 2, Matter.Vector.magnitude(Matter.Vector.sub(segment[1], segment[0])), 1, { angle: Math.atan2(segment[1].y - segment[0].y, segment[1].x - segment[0].x), isStatic: true });
+                const segmentStart = polylineVertices[i];
+                const segmentEnd = polylineVertices[i + 1];
+                
+                const segmentLength = Phaser.Math.Distance.Between(segmentStart.x, segmentStart.y, segmentEnd.x, segmentEnd.y);
+                const segmentAngle = Phaser.Math.Angle.Between(segmentStart.x, segmentStart.y, segmentEnd.x, segmentEnd.y);
+
+                const rectangleWidth = 1;
+                const rectangleHeight = segmentLength;
+                const rectangleX = (segmentStart.x + segmentEnd.x) / 2;
+                const rectangleY = (segmentStart.y + segmentEnd.y) / 2;
+
+                const collisionObject = Matter.Bodies.rectangle(rectangleX, rectangleY, rectangleWidth, rectangleHeight, {
+                    angle: segmentAngle,
+                    isStatic: true
+                });
                 Matter.World.add(scene.matter.world, collisionObject);
                 collisionObjects.push(collisionObject);
             }
