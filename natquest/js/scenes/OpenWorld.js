@@ -1,4 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
+import { createCollisionObjects, handleBarrierCollision } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -42,11 +43,6 @@ export default class OpenWorld extends Phaser.Scene {
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
-    
-const collisionLayer = map.getLayer('Object Layer 1'); // Replace with your actual collision layer name
-this.matter.world.convertTilemapLayer(collisionLayer);
-
-
 
     this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
@@ -54,6 +50,25 @@ this.matter.world.convertTilemapLayer(collisionLayer);
     const playerX = this.player.x;
     const playerY = this.player.y;
     
+  // Set world bounds for the player
+    const boundaryOffset = 2; // Adjust this value as needed
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        map.widthInPixels - 2 * boundaryOffset,
+        map.heightInPixels - 2 * boundaryOffset
+    );
+
+   this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
+
+    
+    // Create collision objects
+
+const collisionLayer = map.getLayer('Object Layer 1'); // Replace with your actual collision layer name
+this.matter.world.convertTilemapLayer(collisionLayer);
+
+
+
     //*****************************************CAMERA CONTROLS****************************************************
   // Constrain the camera
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
@@ -70,7 +85,15 @@ this.matter.world.convertTilemapLayer(collisionLayer);
   
   
 update(time, delta) {
-  
+    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+        event.pairs.forEach((pair) => {
+            if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
+                if (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB)) {
+                    handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+                }
+            }
+        });
+    });
 }
   
 }
