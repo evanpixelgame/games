@@ -25,8 +25,15 @@ export function createCollisionObjects(scene, map) {
 }
 
 export function handleBarrierCollision(player, barrier) {
-    const overlapX = player.body.position.x - barrier.body.position.x;
-    const overlapY = player.body.position.y - barrier.body.position.y;
+    let overlapX, overlapY;
+    if (barrier.type === 'rectangle') {
+        overlapX = player.body.position.x - barrier.bounds.min.x;
+        overlapY = player.body.position.y - barrier.bounds.min.y;
+    } else if (barrier.type === 'polygon') {
+        // For polygons, barrier.bounds is not available
+        overlapX = player.body.position.x - barrier.position.x;
+        overlapY = player.body.position.y - barrier.position.y;
+    }
 
     if (player.body.velocity.x > 0 && overlapX < 0) {
         player.body.velocity.x = 0;
