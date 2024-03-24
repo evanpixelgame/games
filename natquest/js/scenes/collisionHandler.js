@@ -7,23 +7,12 @@ export function createCollisionObjects(scene, map) {
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
 
-        if (object.polygon) {
-            // Handle polygons
-            const polygonVertices = object.polygon.map(vertex => {
-                return { x: object.x + vertex.x, y: object.y + vertex.y };
-            });
-            const collisionObject = scene.matter.add.fromVertices(centerX, centerY, polygonVertices, { isStatic: true });
-            collisionObjects.push(collisionObject);
-        } else {
-            // Handle rectangles
-            const collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-            collisionObjects.push(collisionObject);
-        }
+        const collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
+        collisionObjects.push(collisionObject);
     });
 
     return collisionObjects;
 }
-
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
