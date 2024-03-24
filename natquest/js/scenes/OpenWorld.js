@@ -54,12 +54,13 @@ export default class OpenWorld extends Phaser.Scene {
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 */
     // Get all tilesets from the map
-const tilesets = map.tilesets.map(tileset => tileset.name);
+// Get all tilesets from the map by their keys
+const tilesetKeys = map.tilesets.map(tileset => tileset.name);
 
 // Create layers using all tilesets
 const layers = [];
 for (let i = 0; i < map.layers.length; i++) {
-    layers.push(map.createLayer(i, tilesets, 0, 0));
+    layers.push(map.createLayer(i, tilesetKeys, 0, 0));
 }
 
 
