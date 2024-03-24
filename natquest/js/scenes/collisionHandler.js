@@ -12,7 +12,7 @@ export function createCollisionObjects(scene, map) {
             const polygonVertices = object.polygon.map(vertex => {
                 return { x: object.x + vertex.x, y: object.y + vertex.y };
             });
-
+/*
             // Adjust the centroid of the polygon
             const centroid = calculateCentroid(polygonVertices);
             const adjustedVertices = polygonVertices.map(vertex => {
@@ -20,7 +20,8 @@ export function createCollisionObjects(scene, map) {
                     x: vertex.x - centroid.x + centerX,
                     y: vertex.y - centroid.y + centerY
                 };
-            });
+            }); 
+            */
 
             const collisionObject = scene.matter.add.fromVertices(centerX, centerY, polygonVertices, { isStatic: true });
             collisionObjects.push(collisionObject);
@@ -40,7 +41,7 @@ export function createCollisionObjects(scene, map) {
     return collisionObjects;
 }
 
-
+/*
 // Function to calculate centroid of a polygon
 function calculateCentroid(vertices) {
     let centroidX = 0;
@@ -58,7 +59,7 @@ function calculateCentroid(vertices) {
 
     return { x: centroidX, y: centroidY };
 }
-
+*/
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
