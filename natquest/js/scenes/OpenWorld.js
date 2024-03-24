@@ -71,7 +71,7 @@ for (let i = 0; i < map.layers.length; i++) {
     layers.push(map.createLayer(i, tilesets, 0, 0));
 }
 
-    this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
+    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
 
     // Access player properties or methods as needed after it's created
     const playerX = this.player.x;
