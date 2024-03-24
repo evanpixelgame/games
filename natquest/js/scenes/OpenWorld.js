@@ -36,14 +36,14 @@ export default class OpenWorld extends Phaser.Scene {
   //Load map
   const map = this.make.tilemap({ key: 'map' });
   // Load tileset
-  const tileset = map.addTilesetImage('tilemap1', 'tiles');
+  const tileset = map.addTilesetImage('tilemap2', 'tiles');
     
-       const tileset2 = map.addTilesetImage('terrainTiles', 'tileSheetTerrain');
-     const tileset3 = map.addTilesetImage('buildingTiles', 'tileSheetBuilding');
-    const tileset1 = map.addTilesetImage('interiorTiles', 'tileSheetInterior');
-    const tileset4 = map.addTilesetImage('wallsTiles', 'tileSheetWalls');
-     const tileset6 = map.addTilesetImage('flourishesTiles', 'tileSheetFlourishes');
-    const tileset5 = map.addTilesetImage('objectsTiles', 'tileSheetObjects');
+      // const tileset2 = map.addTilesetImage('terrainTiles', 'tileSheetTerrain');
+  //   const tileset3 = map.addTilesetImage('buildingTiles', 'tileSheetBuilding');
+//    const tileset1 = map.addTilesetImage('interiorTiles', 'tileSheetInterior');
+ //   const tileset4 = map.addTilesetImage('wallsTiles', 'tileSheetWalls');
+//     const tileset6 = map.addTilesetImage('flourishesTiles', 'tileSheetFlourishes');
+  //  const tileset5 = map.addTilesetImage('objectsTiles', 'tileSheetObjects');
    
 
 
