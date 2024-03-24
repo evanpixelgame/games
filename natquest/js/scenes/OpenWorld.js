@@ -43,8 +43,6 @@ export default class OpenWorld extends Phaser.Scene {
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
-const collisionLayer = map.getLayer('Object Layer 1'); // Replace with your actual collision layer name
-this.matter.world.convertTilemapLayer(collisionLayer);
 
     this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
@@ -65,7 +63,7 @@ this.matter.world.convertTilemapLayer(collisionLayer);
 
     
     // Create collision objects
-
+    this.collisionObjects = createCollisionObjects(this, map);
 
 
 
