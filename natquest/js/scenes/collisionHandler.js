@@ -28,7 +28,7 @@ export function createCollisionObjects(scene, map) {
     return collisionObjects;
 }
 
-export function handleBarrierCollision(player, barrier) {
+export function handleBarrierCollision(player, barrier): void {
     if (Phaser.Geom.Rectangle.Contains(barrier.getBounds(), player.x, player.y)) {
         // Handle collision with a rectangle barrier
         // Adjust player's position or velocity accordingly
