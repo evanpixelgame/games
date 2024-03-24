@@ -52,8 +52,7 @@ export default class OpenWorld extends Phaser.Scene {
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
 
-
-//  /*    
+   
 const tilesetsData = [
     { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
     { name: 'tilesheetInterior', key: 'tilesheetInterior' },
@@ -67,7 +66,6 @@ const tilesets = [];
 tilesetsData.forEach(tilesetData => {
     tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
 });
-//  */
 
 // Create layers using all tilesets
 const layers = [];
