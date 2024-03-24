@@ -46,6 +46,7 @@ class Preloader extends Phaser.Scene {
      this.load.image('tilesheetObjects', 'assets/tilesets/tilesheetObjects.png');
      this.load.image('tilesheetFlourishes', 'assets/tilesets/tilesheetFlourishes.png');
     this.load.tilemapTiledJSON('map', 'assets/json/map.json');
+        this.load.tilemapTiledJSON('map', 'assets/json/insidemap.json');
     this.load.image('base', 'assets/images/base.png');
     this.load.image('thumb', 'assets/images/thumb.png');
     this.load.plugin('rexvirtualjoystickplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexvirtualjoystickplugin.min.js', true);
