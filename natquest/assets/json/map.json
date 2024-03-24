@@ -342,15 +342,15 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"assets/tilesets/tilesheetTerrain.png"
+         "source":"tilesheetTerrain.png"
         }, 
         {
          "firstgid":226,
-         "source":"assets/tilesets/tilesheetBuildings.png"
+         "source":"tilesheetBuildings.png"
         }, 
         {
          "firstgid":1126,
-         "source":"assets/tilesets/tilesheetWalls.png"
+         "source":"tilesheetWalls.png"
         }],
  "tilewidth":32,
  "type":"map",
