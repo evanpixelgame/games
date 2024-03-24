@@ -54,7 +54,7 @@ export function createCollisionObjects(scene, map) {
             // Handle rectangles
             const collisionObject = Matter.Bodies.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
             Matter.World.add(scene.matter.world, collisionObject);
-            collisionObjects.push(collisionObject);
+                collisionObjects.push(collisionObject);
         }
     });
 
