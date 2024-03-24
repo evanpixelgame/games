@@ -36,7 +36,7 @@ export default class OpenWorld extends Phaser.Scene {
   //Load map
   const map = this.make.tilemap({ key: 'map' });
 
-    /*
+    
     // Load tileset
 //  const tileset = map.addTilesetImage('tilemap2', 'tiles');
      const tileset1 = map.addTilesetImage('tilesheetTerrain', 'tilesheetTerrain');
@@ -52,7 +52,9 @@ export default class OpenWorld extends Phaser.Scene {
      const layer3 = map.createLayer('Tile Layer 3', tileset3, 0, 0);
 //  const worldObjectLayer = map.createLayer('Object Layer 1', tileset, 0, 0);
  // const worldCollisionObjectLayer = map.createLayer('Tile Layer 3', tileset, 0, 0);
-*/
+
+
+/*    
     // Get all tilesets from the map
 // Get all tilesets from the map by their keys
 const tilesetsData = [
@@ -64,11 +66,13 @@ const tilesetsData = [
     { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
 ];
 
+
 const tilesets = [];
 tilesetsData.forEach(tilesetData => {
   console.log('LayerLoadattempthopeful');
     tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
 });
+*/
 
     this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
