@@ -39,12 +39,12 @@ class Preloader extends Phaser.Scene {
     this.load.image('Fat Wolf', 'assets/sprites/charSelect/fatWolf64.png');
     this.load.image('backgroundLandscape', 'assets/backgrounds/startScreenBackgroundLandscape.png');
     this.load.image('tiles', 'assets/tilesets/tilemap2.png');
-    this.load.image('interiorTiles', 'assets/tilesets/tilesheetInterior.png');
-     this.load.image('terrainTiles', 'assets/tilesets/tilesheetTerrain.png');
-     this.load.image('buildingTiles', 'assets/tilesets/tilesheetBuildings.png');
-     this.load.image('wallsTiles', 'assets/tilesets/tilesheetWalls.png');
-     this.load.image('objectsTiles', 'assets/tilesets/tilesheetObjects.png');
-     this.load.image('flourishesTiles', 'assets/tilesets/tilesheetFlourishes.png');
+    this.load.image('tilesheetInterior', 'assets/tilesets/tilesheetInterior.png');
+     this.load.image('tilesheetTerrain', 'assets/tilesets/tilesheetTerrain.png');
+     this.load.image('tilesheetBuildings', 'assets/tilesets/tilesheetBuildings.png');
+     this.load.image('tilesheetWalls', 'assets/tilesets/tilesheetWalls.png');
+     this.load.image('tilesheetObjects', 'assets/tilesets/tilesheetObjects.png');
+     this.load.image('tilesheetFlourishes', 'assets/tilesets/tilesheetFlourishes.png');
     this.load.tilemapTiledJSON('map', 'assets/json/map.json');
     this.load.image('base', 'assets/images/base.png');
     this.load.image('thumb', 'assets/images/thumb.png');
