@@ -38,7 +38,6 @@ export default class OpenWorld extends Phaser.Scene {
 
     
     // Load tileset
-//  const tileset = map.addTilesetImage('tilemap2', 'tiles');
      const tileset1 = map.addTilesetImage('tilesheetTerrain', 'tilesheetTerrain');
      const tileset2 = map.addTilesetImage('tilesheetInterior', 'tilesheetInterior');
      const tileset3 = map.addTilesetImage('tilesheetBuildings', 'tilesheetBuildings');
@@ -55,13 +54,26 @@ export default class OpenWorld extends Phaser.Scene {
 
 
 //  /*    
-const tilesetsData = [tileset1, tileset2, tileset3, tileset4, tileset5, tileset6];
+const tilesetsData = [
+    { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
+    { name: 'tilesheetInterior', key: 'tilesheetInterior' },
+    { name: 'tilesheetBuildings', key: 'tilesheetBuildings' },
+    { name: 'tilesheetWalls', key: 'tilesheetWalls' },
+    { name: 'tilesheetObjects', key: 'tilesheetObjects' },
+    { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
+];
 
 const tilesets = [];
-tilesetsData.forEach(tileset => {
-    tilesets.push(map.addTilesetImage(tileset, tileset));
+tilesetsData.forEach(tilesetData => {
+    tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
 });
 //  */
+
+// Create layers using all tilesets
+const layers = [];
+for (let i = 0; i < map.layers.length; i++) {
+    layers.push(map.createLayer(i, tilesets, 0, 0));
+}
 
     this.player = new PlayerSprite(this, 15, 15, 'player'); // Create the player object
 
