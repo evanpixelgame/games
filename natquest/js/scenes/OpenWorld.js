@@ -91,6 +91,8 @@ for (let i = 0; i < map.layers.length; i++) {
     
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
+    const transitionLayer = map.getObjectLayer('Object Layer 2');
+    
  //    this.collisionObjects2 = createCollisionObjectsLayer2(this, map);
 
 
@@ -110,7 +112,7 @@ for (let i = 0; i < map.layers.length; i++) {
             if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
                 (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
                 handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
-            }
+            });
 
           
   } // <==== create func end tag    
