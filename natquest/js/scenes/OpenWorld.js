@@ -26,8 +26,8 @@ export default class OpenWorld extends Phaser.Scene {
   create() {
     // Create Matter.js engine
     this.matterEngine = this.matter.world;
-    const engine = Matter.Engine.create();
-    const world = engine.world;
+    this.engine = Matter.Engine.create();
+    this.world = engine.world;
 
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
