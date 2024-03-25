@@ -87,7 +87,8 @@ export function createTransitionSensors(scene, map) {
         // Push the sensor to the transitionSensors array
         transitionSensors.push(sensor);
     });
-
+    console.log(sensor);
+    console.log(transitionSensors);
     return transitionSensors;
 }
 
