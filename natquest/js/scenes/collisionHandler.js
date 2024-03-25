@@ -99,18 +99,22 @@ export function createTransitionSensors(scene, map) {
 
 
 export function TransitionSensorHandler(scene, player, transitionSensors) {
-    // Check player's position against transition sensors
-    scene.matterCollision.addOnCollideStart({
-        objectA: player,
-        callback: function (eventData) {
-            const { bodyB } = eventData;
-            if (transitionSensors.includes(bodyB)) {
-                // Perform scene transition
-                scene.scene.start('InsideRoom');
-            }
+    // Listen for collisionstart event
+    scene.physics.world.on('collisionstart', (eventData) => {
+        const { bodyA, bodyB } = eventData;
+        
+        // Check if player (bodyA) collides with a transition sensor (bodyB)
+        if (bodyA === player.body && transitionSensors.includes(bodyB)) {
+            // Perform scene transition
+            scene.scene.start('InsideRoom');
+        } else if (bodyB === player.body && transitionSensors.includes(bodyA)) {
+            // Perform scene transition (handle the case where player is bodyB)
+            scene.scene.start('InsideRoom');
         }
     });
 }
+
+
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
