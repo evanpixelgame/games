@@ -111,20 +111,16 @@ for (let i = 0; i < map.layers.length; i++) {
   
   
 update(time, delta) {
-    // Handle collisions with Object Layer 1
+    // Handle collisions with Object Layer 1 and Object Layer 2
     Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
         event.pairs.forEach((pair) => {
+            // Collision with Object Layer 1
             if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
                 (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
                 handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
             }
-        });
-    });
-
-    // Handle collisions with Object Layer 2
-    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
-        event.pairs.forEach((pair) => {
-            if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
+            // Collision with Object Layer 2
+            else if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
                 (this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB))) {
                 // Call the handler function to transition to the InsideRoom scene
                 console.log('should be transitioning scenes msg coming from open world scene');
@@ -133,6 +129,7 @@ update(time, delta) {
         });
     });
 }
+
 
 
   
