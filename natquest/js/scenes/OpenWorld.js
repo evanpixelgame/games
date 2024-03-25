@@ -67,7 +67,11 @@ create() {
     );
 
     this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
+ 
+  
+  console.log(this.player.body);
 
+  
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
     this.transitionSensors = createTransitionSensors(this, map, this.player); // Pass player object to createTransitionSensors
@@ -82,16 +86,7 @@ create() {
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
 
-  try {
-    console.log(this.player.body);
-} catch (error) {
-    console.error('Error accessing player body from openworld:', error);
-}
-  try {
-    console.log(player.body);
-} catch (error) {
-    console.error('Error accessing player body from openworld:', error);
-}
+   
 }
 
 
