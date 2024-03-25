@@ -101,7 +101,7 @@ export function createTransitionSensors(scene, map) {
 
 
 
-export function TransitionSensorHandler(player, map, this) {
+export function TransitionSensorHandler(this, player, map) {
      console.log('outsidecollisionstartlistener');
  // Check player's proximity to the sensor zone
 this.physics.world.on('overlap', (player, sensor) => {
