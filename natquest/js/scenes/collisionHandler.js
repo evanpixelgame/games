@@ -94,11 +94,7 @@ export function createTransitionSensors(scene, map) {
             transitionSensors.push(transitionSensor);
         }
     });
-for (const sensorData of transitionSensors) {
-  const sensorBody = Matter.Bodies.rectangle(sensorData.x, sensorData.y, sensorData.width, sensorData.height, { isSensor: true });
-  transitionSensors.push(sensorBody);
-  Matter.World.add(world, sensorBody); // Add the sensor body to the Matter.js world
-}
+
     return transitionSensors;
 }
 
