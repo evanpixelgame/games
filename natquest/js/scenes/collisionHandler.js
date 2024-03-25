@@ -101,7 +101,7 @@ export function createTransitionSensors(scene, map) {
 
 
 
-export function TransitionSensorHandler(scene, player, transitionSensors) {
+export function TransitionSensorHandler(scene, map, player, transitionSensors) {
      console.log('outsidecollisionstartlistener');
     // Add a single collision event listener to handle collisions between player and sensors
     Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
