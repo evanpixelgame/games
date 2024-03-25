@@ -22,7 +22,7 @@ export default class OpenWorld extends Phaser.Scene {
     
   }
 
-  create() {
+create() {
     // Create Matter.js engine
     this.matterEngine = this.matter.world;
     const engine = Matter.Engine.create();
@@ -37,6 +37,7 @@ export default class OpenWorld extends Phaser.Scene {
 
     // Load map
     const map = this.make.tilemap({ key: 'map' });
+    this.map = map; // Assign map to class property
 
     // Load tileset
     const tilesetsData = [
@@ -53,13 +54,8 @@ export default class OpenWorld extends Phaser.Scene {
         tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
     });
 
-    // Create layers using all tilesets
-    const layers = [];
-    for (let i = 0; i < map.layers.length; i++) {
-        layers.push(map.createLayer(i, tilesets, 0, 0));
-    }
-
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
+    // ^^^ Moved player creation before calling createTransitionSensors
 
     // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
@@ -74,7 +70,7 @@ export default class OpenWorld extends Phaser.Scene {
 
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-   this.transitionSensors = createTransitionSensors(this, map, this.player);
+    this.transitionSensors = createTransitionSensors(this, map, this.player); // Pass player object to createTransitionSensors
 
     // Use TransitionSensorHandler to handle collision events with transition sensors
     TransitionSensorHandler(this, this.player, this.transitionSensors);
@@ -85,8 +81,8 @@ export default class OpenWorld extends Phaser.Scene {
 
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
+}
 
-  }
 
   update(time, delta) {
     // Update method code here
