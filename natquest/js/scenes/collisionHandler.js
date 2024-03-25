@@ -94,28 +94,22 @@ export function createTransitionSensors(scene, map) {
 
 
 export function TransitionSensorHandler(scene, player, transitionSensors) {
-
-Matter.Events.on(world, 'collisionStart', (event) => {
-    const pairs = event.pairs;
-
-    // Iterate through the collision pairs
-    for (let i = 0; i < pairs.length; i++) {
-        const pair = pairs[i];
-
-        // Check if the sensor is involved in the collision
-        if (pair.bodyA === sensor || pair.bodyB === sensor) {
-            // Perform your desired action when colliding with the sensor
-            console.log('Collision detected with sensor');
-            
-            // Call your callback function here
-            // For example, you can start a new scene:
-            // scene.scene.start('InsideRoom');
-            
-            // Break out of the loop if you only want to handle the first collision
-            break;
+    // Add a single collision event listener to handle collisions between player and sensors
+    Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
+        const pairs = event.pairs;
+        for (let i = 0; i < pairs.length; i++) {
+            const pair = pairs[i];
+            // Check if one of the colliding bodies is a sensor
+            if (transitionSensors.includes(pair.bodyA) || transitionSensors.includes(pair.bodyB)) {
+                // Debug statement to check if the collision callback is triggered
+                console.log('Collision detected with transition sensor');
+                // Optionally, perform any actions or scene transitions upon collision
+                // For example, transition to a new scene upon collision
+                scene.scene.start('InsideRoom');
+                break; // Exit loop after the first collision detection
+            }
         }
-    }
-});
+    });
 }
 
 
