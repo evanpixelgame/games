@@ -92,7 +92,7 @@ export default class OpenWorld extends Phaser.Scene {
 
   update(time, delta) {
     // Update method code here
-    Matter.Engine.run(engine);
+    Matter.Engine.run(this.engine);
   }
 }
 
