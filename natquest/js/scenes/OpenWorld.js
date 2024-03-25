@@ -137,6 +137,7 @@ transitionLayer.objects.forEach(object => {
       }
     }
   });
+    });
           
   } // <==== create func end tag    
 
