@@ -97,7 +97,7 @@ export function createTransitionSensors(scene, map) {
 }
 
 
-
+/*
 export function TransitionSensorHandler(scene, player, transitionSensors, world) {
     // Listen for collisionstart event
     scene.physics.world.on('collisionstart', (eventData) => {
@@ -113,7 +113,7 @@ export function TransitionSensorHandler(scene, player, transitionSensors, world)
         }
     });
 }
-
+*/
 
 
 export function handleBarrierCollision(player, barrier) {
