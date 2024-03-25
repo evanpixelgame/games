@@ -25,7 +25,7 @@ export default class OpenWorld extends Phaser.Scene {
   preload() {
     
   }
-        console.log(this.world);
+       
     // Move TransitionSensorHandler inside the class
     TransitionSensorHandler(player, transitionSensors) {
         // Listen for collisionstart event on the world property of the class
@@ -99,12 +99,15 @@ console.log('Player GameObject:', this.player.gameObject);
 
     this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
+
+           console.log(this.world);
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
     this.transitionSensors = createTransitionSensors(this, map, this.player); 
 
   // Use TransitionSensorHandler to handle collision events with transition sensors
 this.TransitionSensorHandler(this.player, this.transitionSensors);
+          
 
 
     // Constrain the camera
