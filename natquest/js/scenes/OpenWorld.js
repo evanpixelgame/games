@@ -65,10 +65,13 @@ tilesetsData.forEach(tilesetData => {
     tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
 });
 
-// Create layers using all tilesets ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
 const layers = [];
 for (let i = 0; i < map.layers.length; i++) {
-    layers.push(map.createLayer(i, tilesets, 0, 0));
+    const layer = map.layers[i];
+    if (layer.type === 'tilelayer') {
+        // Only create layers for tile layers
+        layers.push(map.createLayer(i, tilesets, 0, 0));
+    }
 }
 
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
