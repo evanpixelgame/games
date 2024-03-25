@@ -112,6 +112,7 @@ export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects)
             objectB: object,
             callback: () => {
                 // Transition to a new scene upon collision
+                console.log('should be transitioning scenes from collisionhandler file');
                 scene.scene.start('InsideRoom');
             }
         });
