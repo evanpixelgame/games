@@ -68,7 +68,7 @@ create() {
     this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
  
   
-  console.log(this.player.body);
+
 
   
     // Create collision objects
@@ -80,6 +80,7 @@ create() {
   
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
     // ^^^ Moved player creation before calling createTransitionSensors
+    console.log(this.player.body);
   
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
