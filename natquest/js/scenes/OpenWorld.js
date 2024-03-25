@@ -86,7 +86,7 @@ export default class OpenWorld extends Phaser.Scene {
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
 
-
+/*
     // Listen for collision events on the Matter.js world
 Matter.Events.on(world, 'collisionStart', (event) => {
     const pairs = event.pairs;
@@ -109,6 +109,7 @@ Matter.Events.on(world, 'collisionStart', (event) => {
         }
     }
 });
+*/
 
   }
 
