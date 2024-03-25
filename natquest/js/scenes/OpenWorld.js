@@ -85,6 +85,31 @@ export default class OpenWorld extends Phaser.Scene {
 
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
+
+
+    // Listen for collision events on the Matter.js world
+Matter.Events.on(world, 'collisionStart', (event) => {
+    const pairs = event.pairs;
+
+    // Iterate through the collision pairs
+    for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i];
+
+        // Check if the sensor is involved in the collision
+        if (pair.bodyA === sensor || pair.bodyB === sensor) {
+            // Perform your desired action when colliding with the sensor
+            console.log('Collision detected with sensor');
+            
+            // Call your callback function here
+            // For example, you can start a new scene:
+            // scene.scene.start('InsideRoom');
+            
+            // Break out of the loop if you only want to handle the first collision
+            break;
+        }
+    }
+});
+
   }
 
   update(time, delta) {
