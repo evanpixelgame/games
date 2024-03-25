@@ -93,7 +93,7 @@ export function createTransitionSensors(scene, map) {
 
     // Log all transition sensors
     console.log(transitionSensors);
-
+    console.log(player.body);
     return transitionSensors;
 }
 
@@ -109,23 +109,6 @@ export function TransitionSensorHandler(scene, player, transitionSensors) {
         // Your existing collision handling logic
     }
 });
-/*
-    Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
-        const pairs = event.pairs;
-        for (let i = 0; i < pairs.length; i++) {
-            const pair = pairs[i];
-            // Check if one of the colliding bodies is a sensor
-            if (transitionSensors.includes(pair.bodyA) || transitionSensors.includes(pair.bodyB)) {
-                // Debug statement to check if the collision callback is triggered
-                console.log('Collision detected with transition sensor');
-                // Optionally, perform any actions or scene transitions upon collision
-                // For example, transition to a new scene upon collision
-                scene.scene.start('InsideRoom');
-                break; // Exit loop after the first collision detection
-            }
-        }
-    });
-    */
 }
 
 
