@@ -99,23 +99,23 @@ export function createTransitionSensors(scene, map) {
 
 
 export function TransitionSensorHandler(scene, player, transitionSensors) {
-    // Add a single collision event listener to handle collisions between player and sensors
-    Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
-        const pairs = event.pairs;
-        for (let i = 0; i < pairs.length; i++) {
-            const pair = pairs[i];
-            // Check if the collision involves the player and a sensor
-            if (transitionSensors.includes(pair.bodyA) || transitionSensors.includes(pair.bodyB)) {
-                // Log the collision event
-                console.log('Collision detected with transition sensor');
-                // Perform any necessary actions or scene transitions
-                // For example, transition to a new scene upon collision
-                scene.scene.start('InsideRoom');
-            }
-        }
+    const sensorZones = [];
+
+    // Create sensor zones for each transition sensor
+    transitionSensors.forEach(sensor => {
+        const sensorZone = scene.add.rectangle(sensor.x, sensor.y, sensor.width, sensor.height);
+        sensorZones.push(sensorZone);
+    });
+
+    // Check player's position against sensor zones
+    scene.physics.add.overlap(player, sensorZones, (player, sensorZone) => {
+        // Log the collision event
+        console.log('Collision detected with sensor zone');
+        
+        // Perform scene transition
+        scene.scene.start('InsideRoom');
     });
 }
-
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
