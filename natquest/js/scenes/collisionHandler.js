@@ -99,6 +99,9 @@ export function createTransitionSensors(scene, map) {
 }
 export function TransitionSensorHandler(scene, player, transitionSensors) {
     console.log('transitionsensorhandlerbeingaccessedoncollide');
+    const overlapX = player.x - transitionSensor.x;
+    const overlapY = player.y - transitionSensor.y;
+    console.log(overlapX);
 
     // Add a single collision event listener to handle collisions between player and sensors
     Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
