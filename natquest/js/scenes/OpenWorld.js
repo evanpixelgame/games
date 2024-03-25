@@ -22,7 +22,7 @@ export default class OpenWorld extends Phaser.Scene {
     
   }
 
-create() {
+  create() {
     // Create Matter.js engine
     this.matterEngine = this.matter.world;
     const engine = Matter.Engine.create();
@@ -37,7 +37,6 @@ create() {
 
     // Load map
     const map = this.make.tilemap({ key: 'map' });
-    this.map = map; // Assign map to class property
 
     // Load tileset
     const tilesetsData = [
@@ -54,9 +53,13 @@ create() {
         tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
     });
 
+    // Create layers using all tilesets
+    const layers = [];
+    for (let i = 0; i < map.layers.length; i++) {
+        layers.push(map.createLayer(i, tilesets, 0, 0));
+    }
+
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
-    // ^^^ Moved player creation before calling createTransitionSensors
-    console.log(this.player.body);
 
     // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
@@ -68,20 +71,14 @@ create() {
     );
 
     this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
- 
-  
 
-
-  
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-    this.transitionSensors = createTransitionSensors(this, map, this.player); // Pass player object to createTransitionSensors
+    this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
 
     // Use TransitionSensorHandler to handle collision events with transition sensors
     TransitionSensorHandler(this, this.player, this.transitionSensors);
-  
 
-  
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
@@ -89,9 +86,7 @@ create() {
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
 
-   
-}
-
+  }
 
   update(time, delta) {
     // Update method code here
