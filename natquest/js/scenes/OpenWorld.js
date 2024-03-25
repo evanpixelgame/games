@@ -66,10 +66,8 @@ export default class OpenWorld extends Phaser.Scene {
     }
 
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object, just took away this.world as 2nd argument
-          this.events.on('create', () => {
-    const playerBodyWorld = this.player.getBodyWorld();
+const playerBodyWorld = this.player.getBodyWorld();
     console.log(playerBodyWorld);
-});
     console.log(this.player.body);
     console.log('Player World:', this.player.body.world);
     console.log('Player Body:', this.player.body);
