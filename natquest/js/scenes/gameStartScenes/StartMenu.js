@@ -108,7 +108,7 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
         console.log('Click event in landscape mode');
        window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
       this.lockScreenOrientation();
-      this.scene.start('NameSelect');
+      this.scene.start('WelcomePlayer');
     } else {
         // Ignore the click event in portrait mode
         console.log('Ignoring click event in portrait mode');
