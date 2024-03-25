@@ -89,29 +89,31 @@ export function createTransitionSensors(scene, map) {
 
         // Log sensor properties
         console.log(sensor);
-        
     });
 
     // Log all transition sensors
     console.log(transitionSensors);
-    //console.log('Sensor World:', transitionSensors[0].body.world);
-  //  console.log('Sensor Layer Index:', transitionSensors[0].gameObject.layer.index);
     return transitionSensors;
 }
 
 
 
-export function TransitionSensorHandler(this, player, map) {
-     console.log('outsidecollisionstartlistener');
- // Check player's proximity to the sensor zone
-this.physics.world.on('overlap', (player, sensor) => {
-    if (sensor.name === 'transitionZone') {
-        // Transition to the new scene
-        this.scene.start('InsideRoom');
-    }
-});
-
-
+export function TransitionSensorHandler(scene, player, transitionSensors) {
+    // Add a single collision event listener to handle collisions between player and sensors
+    Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
+        const pairs = event.pairs;
+        for (let i = 0; i < pairs.length; i++) {
+            const pair = pairs[i];
+            // Check if the collision involves the player and a sensor
+            if (transitionSensors.includes(pair.bodyA) || transitionSensors.includes(pair.bodyB)) {
+                // Log the collision event
+                console.log('Collision detected with transition sensor');
+                // Perform any necessary actions or scene transitions
+                // For example, transition to a new scene upon collision
+                scene.scene.start('InsideRoom');
+            }
+        }
+    });
 }
 
 
@@ -135,3 +137,20 @@ export function handleBarrierCollision(player, barrier) {
         player.y = barrier.y + barrier.height + player.height / 2;
     }
 }
+
+
+
+
+
+/*
+export function TransitionSensorHandler(this, player, map) {
+     console.log('outsidecollisionstartlistener');
+ // Check player's proximity to the sensor zone
+this.physics.world.on('overlap', (player, sensor) => {
+    if (sensor.name === 'transitionZone') {
+        // Transition to the new scene
+        this.scene.start('InsideRoom');
+    }
+});
+}
+*/
