@@ -81,6 +81,17 @@ create() {
 
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
+
+  try {
+    console.log(this.player.body);
+} catch (error) {
+    console.error('Error accessing player body from openworld:', error);
+}
+  try {
+    console.log(player.body);
+} catch (error) {
+    console.error('Error accessing player body from openworld:', error);
+}
 }
 
 
