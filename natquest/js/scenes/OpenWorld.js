@@ -93,8 +93,21 @@ for (let i = 0; i < map.layers.length; i++) {
     this.collisionObjects = createCollisionObjects(this, map);
      //this.collisionObjects2 = createTransitionSensors(this, map);
      this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
+   
+    
+    this.transitionSensors.forEach(sensor => {
+  this.physics.arcade.overlap(this.player, sensor, (player, sensor) => {
+    console.log('Collision detected with transition sensor');
 
-    // Set up collision events between the player and transition sensors
+    // Perform actions or scene transitions here
+    // For example:
+    this.scene.start('InsideRoom');
+  });
+});
+
+
+ /*
+ // Set up collision events between the player and transition sensors
     this.transitionSensors.forEach(sensor => {
         this.matterCollision.addOnCollideStart({
             objectA: this.player,
@@ -107,7 +120,7 @@ for (let i = 0; i < map.layers.length; i++) {
             }
         });
     });
-
+*/
 
     //*****************************************CAMERA CONTROLS****************************************************
   // Constrain the camera
