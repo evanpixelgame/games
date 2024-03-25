@@ -107,7 +107,7 @@ export function TransitionSensorHandler(scene, map, player, sensor, transitionSe
 this.physics.world.on('overlap', function (player, sensor) {
     if (sensor.name === 'transitionZone') {
         // Transition to the new scene
-        this.scene.start('NewScene');
+        this.scene.start('InsideRoom');
     }
 }, this);
 
