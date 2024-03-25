@@ -103,7 +103,7 @@ for (let i = 0; i < map.layers.length; i++) {
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
 
-Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+/* Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
     event.pairs.forEach((pair) => {
         if (
             (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))
@@ -116,7 +116,7 @@ Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
         }
     });
 });
-
+*/
 
     
   } // <==== create func end tag    
