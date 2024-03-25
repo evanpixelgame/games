@@ -60,7 +60,7 @@ export default class OpenWorld extends Phaser.Scene {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-    this.player = new PlayerSprite(this.matter.world, this, 495, 325, 'player'); // Create the player object
+    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
     console.log(this.player.body);
 
     // Set world bounds for the player
