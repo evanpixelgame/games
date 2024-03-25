@@ -113,7 +113,27 @@ for (let i = 0; i < map.layers.length; i++) {
                 (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
                 handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
             });
+       }
 
+         const transitionZones = [];
+transitionLayer.objects.forEach(object => {
+  const shape = object.gid ? this.getTileShape(object) : this.getObjectShape(object); // Get shape based on tile or object data
+  const transitionZoneBody = Matter.Bodies.fromVertices(object.x, object.y, shape, { isSensor: true });
+  Matter.World.add(world, transitionZoneBody);
+  transitionZones.push(transitionZoneBody);
+});
+         Matter.World.on(world, 'collisionStart', (event) => {
+  const pairs = event.pairs;
+
+  for (let i = 0; i < pairs.length; i++) {
+    const pair = pairs[i];
+    if (pair.bodyA === player || pair.bodyB === player) {
+      // Check collision with a transition zone
+      if (transitionZones.includes(pair.bodyA) || transitionZones.includes(pair.bodyB)) {
+        this.handleSceneTransition();
+      }
+    }
+  });
           
   } // <==== create func end tag    
 
