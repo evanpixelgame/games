@@ -111,13 +111,15 @@ export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects)
             objectA: player,
             objectB: object,
             callback: () => {
+                // Debug statement to check if the collision callback is triggered
+                console.log('Collision detected with object from Object Layer 2');
                 // Transition to a new scene upon collision
-                console.log('should be transitioning scenes from collisionhandler file');
                 scene.scene.start('InsideRoom');
             }
         });
     });
 }
+
 
 
 export function handleBarrierCollision(player, barrier) {
