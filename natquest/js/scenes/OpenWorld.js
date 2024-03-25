@@ -91,7 +91,8 @@ for (let i = 0; i < map.layers.length; i++) {
     
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-     this.collisionObjects2 = createTransitionSensors(this, map);
+     //this.collisionObjects2 = createTransitionSensors(this, map);
+     this.transitionSensors = createTransitionSensors(this, map);
 
 
 
