@@ -145,6 +145,10 @@ transitionLayer.objects.forEach(object => {
   } // <==== create func end tag    
 
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
+getObjectShape(object) {
+  // Assuming rectangle objects
+  return Matter.Bodies.rectangle(object.width, object.height);
+}
 
   //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
   
