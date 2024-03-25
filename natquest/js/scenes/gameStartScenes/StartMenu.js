@@ -140,7 +140,6 @@ this.scale.on('resize', this.handleFullscreenChange, this);//this.resizeGame, th
 
 handleResizeOnReorientation() {
 location.reload();
-  console.log('thisworksed');
 }
 
  isMobileDevice() {
@@ -168,18 +167,18 @@ isPortraitMode() {
 }
 
    handleFullscreenChange() {
-     console.log('before if logic');
+    
         if (this.scale.isFullscreen) {
-            console.log('Entering fullscreen mode');
+         
             this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
         } else {
-            console.log('Exiting fullscreen mode');
+         
             this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
         }
     }
 
       resizeGame(gameSize) {
-        console.log('attempting resize with resizeGame method');
+      
         const { width, height } = gameSize;
 
         // Resize the game canvas
