@@ -66,9 +66,14 @@ export default class OpenWorld extends Phaser.Scene {
     }
 
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object, just took away this.world as 2nd argument
-  this.player.body.once('created', () => {
+  // Listen for the 'created' event on the player sprite
+    this.player.once('body-created', () => {
         // Now the body is fully initialized, you can safely access its properties
         console.log('Player Body World:', this.player.body.world);
+        
+        // Alternatively, you can use your existing method to get the body world
+        const playerBodyWorld = this.player.getBodyWorld();
+        console.log('Player Body World (via getBodyWorld method):', playerBodyWorld);
     });
 const playerBodyWorld = this.player.getBodyWorld();
     console.log(playerBodyWorld);
