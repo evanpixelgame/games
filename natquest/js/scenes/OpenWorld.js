@@ -87,10 +87,6 @@ export default class OpenWorld extends Phaser.Scene {
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
 
-    Matter.Events.on(engine, 'collisionStart', handleSensorCollision {
-  // Handle sensor interaction here
-      console.log('didasensorcollision');
-});
   }
 
   update(time, delta) {
