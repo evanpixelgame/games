@@ -12,8 +12,6 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         this.world = scene.matter.world;
         this.body = this.body;
         this.gameObject = this;
-        // Access the body property of the sprite itself
-        // No need for this.player.body
     }
     
     getBodyWorld() {
@@ -40,6 +38,9 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
 
-                console.log('Player Body World:', this.body.world);
+        // Emit 'body-created' event when the body is fully initialized
+        this.once('body-created', () => {
+            console.log('Player Body World:', this.body.world);
+        });
     }
 }
