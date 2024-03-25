@@ -102,10 +102,12 @@ export function TransitionSensorHandler(scene, player, transitionSensors) {
     const sensorZones = [];
 
     // Create sensor zones for each transition sensor
-    transitionSensors.forEach(sensor => {
-        const sensorZone = scene.add.rectangle(sensor.position.x, sensor.position.y, sensor.width, sensor.height);
-        sensorZones.push(sensorZone);
-    });
+transitionSensors.forEach(sensor => {
+  // Code to execute for each sensor object
+  const sensorZone = scene.add.rectangle(sensor.position.x, sensor.position.y, sensor.width, sensor.height);
+  sensorZones.push(sensorZone);
+});
+
 
     // Check player's position against sensor zones
     scene.physics.add.overlap(player, sensorZones, (player, sensorZone) => {
