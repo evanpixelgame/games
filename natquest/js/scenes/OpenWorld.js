@@ -65,13 +65,10 @@ tilesetsData.forEach(tilesetData => {
     tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
 });
 
+// Create layers using all tilesets ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
 const layers = [];
 for (let i = 0; i < map.layers.length; i++) {
-    const layer = map.layers[i];
-    if (layer.type === 'tilelayer') {
-        // Only create layers for tile layers
-        layers.push(map.createLayer(i, tilesets, 0, 0));
-    }
+    layers.push(map.createLayer(i, tilesets, 0, 0));
 }
 
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
@@ -94,7 +91,7 @@ for (let i = 0; i < map.layers.length; i++) {
     
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-    this.collisionObjects2 = createCollisionObjectsLayer2(this, map);
+     this.collisionObjects2 = createCollisionObjectsLayer2(this, map);
 
 
 
@@ -105,17 +102,6 @@ for (let i = 0; i < map.layers.length; i++) {
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
-
-// Handle collisions with Object Layer 1
-Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
-    event.pairs.forEach((pair) => {
-        if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
-            this.collisionObjects.includes(pair.bodyA) && this.collisionObjects.includes(pair.bodyB)) {
-            handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
-        }
-    });
-});
-
     
   } // <==== create func end tag    
 
@@ -125,7 +111,23 @@ Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
   
   
 update(time, delta) {
-
+    // Handle collisions with Object Layer 1 and Object Layer 2
+    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+        event.pairs.forEach((pair) => {
+            // Collision with Object Layer 1
+            if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
+                (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
+                handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+            }
+            // Collision with Object Layer 2
+            else if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
+                (this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB))) {
+                // Call the handler function to transition to the InsideRoom scene
+                console.log('should be transitioning scenes msg coming from open world scene');
+                ObjectLayer2Handler(this, this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+            }
+        });
+    });
 }
 
 
