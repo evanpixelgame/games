@@ -94,8 +94,8 @@ export function createTransitionSensors(scene, map) {
 
     // Log all transition sensors
     console.log(transitionSensors);
-    console.log('Sensor World:', transitionSensors[0].body.world);
-    console.log('Sensor Layer Index:', transitionSensors[0].gameObject.layer.index);
+    //console.log('Sensor World:', transitionSensors[0].body.world);
+  //  console.log('Sensor Layer Index:', transitionSensors[0].gameObject.layer.index);
     return transitionSensors;
 }
 
