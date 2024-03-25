@@ -60,24 +60,20 @@ function calculateCentroid(vertices) {
 }
 
 
-export function createCollisionObjectsLayer2(scene, map) {
-    const collisionObjects2 = [];
+export function createTransitionSensors(scene, map) {
+    const transitionSensors = [];
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
-        // Create Matter.js bodies for collision objects in Object Layer 2
-        // Implement the logic similar to createCollisionObjects function for Object Layer 1
-                const centerX = object.x + object.width / 2;
+        const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
 
         if (object.polygon) {
-            // Handle polygons
             const polygonVertices = object.polygon.map(vertex => {
                 return { x: object.x + vertex.x, y: object.y + vertex.y };
             });
 
-            // Adjust the centroid of the polygon
             const centroid = calculateCentroid(polygonVertices);
             const adjustedVertices = polygonVertices.map(vertex => {
                 return {
@@ -86,22 +82,20 @@ export function createCollisionObjectsLayer2(scene, map) {
                 };
             });
 
-            const collisionObject2 = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
-            collisionObjects2.push(collisionObject2);
+            const transitionSensor = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isSensor: true });
+            transitionSensors.push(transitionSensor);
         } else if (object.ellipse) {
-            // Handle circles
             const radiusX = object.width / 2;
             const radiusY = object.height / 2;
-            const collisionObject2 = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isStatic: true });
-            collisionObjects2.push(collisionObject2);
+            const transitionSensor = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isSensor: true });
+            transitionSensors.push(transitionSensor);
         } else {
-            // Handle rectangles
-            const collisionObject2 = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-            collisionObjects2.push(collisionObject2);
+            const transitionSensor = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isSensor: true });
+            transitionSensors.push(transitionSensor);
         }
     });
 
-    return collisionObjects2;
+    return transitionSensors;
 }
 
 export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects) {
