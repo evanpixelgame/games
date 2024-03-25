@@ -37,7 +37,9 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         const scaledWidth = playerWidth * 0.5;
         const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
-
+        
+            console.log(this.body);
+            console.log(this.world);
             console.log('Player Body World:', this.body.world);
  
     }
