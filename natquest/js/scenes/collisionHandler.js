@@ -105,7 +105,7 @@ export function createCollisionObjectsLayer2(scene, map) {
 }
 
 export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects) {
-    // Check for collisions between the player and objects in Object Layer 2 only
+    // Check for collisions between the player and objects in Object Layer 2
     objectLayer2CollisionObjects.forEach(object => {
         scene.matterCollision.addOnCollideStart({
             objectA: player,
