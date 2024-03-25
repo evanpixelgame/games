@@ -68,35 +68,30 @@ export function createTransitionSensors(scene, map) {
     objectLayer2.objects.forEach(object => {
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
+        
+        // Calculate sensor dimensions
+        const width = object.width;
+        const height = object.height;
 
-        if (object.polygon) {
-            const polygonVertices = object.polygon.map(vertex => {
-                return { x: object.x + vertex.x, y: object.y + vertex.y };
-            });
+        // Create the rectangle sensor body
+        const sensor = Matter.Bodies.rectangle(centerX, centerY, width, height, {
+            isSensor: true, // Set to true to make it a sensor
+            render: {
+                fillStyle: 'transparent', // Optional: make the sensor invisible
+                strokeStyle: 'red' // Optional: set a stroke color for debugging
+            }
+        });
 
-            const centroid = calculateCentroid(polygonVertices);
-            const adjustedVertices = polygonVertices.map(vertex => {
-                return {
-                    x: vertex.x - centroid.x + centerX,
-                    y: vertex.y - centroid.y + centerY
-                };
-            });
+        // Add the sensor to your Matter.js world
+        Matter.World.add(scene.matter.world, sensor);
 
-            const transitionSensor = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isSensor: true });
-            transitionSensors.push(transitionSensor);
-        } else if (object.ellipse) {
-            const radiusX = object.width / 2;
-            const radiusY = object.height / 2;
-            const transitionSensor = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isSensor: true });
-            transitionSensors.push(transitionSensor);
-        } else {
-            const transitionSensor = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isSensor: true });
-            transitionSensors.push(transitionSensor);
-        }
+        // Push the sensor to the transitionSensors array
+        transitionSensors.push(sensor);
     });
 
     return transitionSensors;
 }
+
 export function TransitionSensorHandler(scene, player, transitionSensors) {
     console.log('transitionsensorhandlerbeingaccessedoncollide');
 
