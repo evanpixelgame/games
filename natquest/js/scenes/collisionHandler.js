@@ -86,12 +86,17 @@ export function createTransitionSensors(scene, map) {
 
         // Push the sensor to the transitionSensors array
         transitionSensors.push(sensor);
+
+        // Log sensor properties
+        console.log(sensor);
     });
-    console.log(sensor);
+
+    // Log all transition sensors
     console.log(transitionSensors);
-    console.log(player.body); 
+
     return transitionSensors;
 }
+
 
 
 export function TransitionSensorHandler(scene, player, transitionSensors) {
