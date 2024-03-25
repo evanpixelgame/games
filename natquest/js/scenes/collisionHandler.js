@@ -60,6 +60,8 @@ function calculateCentroid(vertices) {
 }
 
 
+
+
 export function createTransitionSensors(scene, map) {
     const transitionSensors = [];
 
@@ -86,11 +88,17 @@ export function createTransitionSensors(scene, map) {
         Matter.World.add(scene.matter.world, sensor);
 
         // Push the sensor to the transitionSensors array
-        transitionSensors.push(sensor);
+        if (transitionSensors) { // Check if transitionSensors is defined
+            transitionSensors.push(sensor);
+        } else {
+            console.error("transitionSensors is undefined"); // Log an error if transitionSensors is undefined
+        }
     });
 
     return transitionSensors;
 }
+
+
 
 export function TransitionSensorHandler(scene, player, transitionSensors) {
     console.log('transitionsensorhandlerbeingaccessedoncollide');
