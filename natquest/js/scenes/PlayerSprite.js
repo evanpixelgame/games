@@ -1,6 +1,6 @@
 export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, texture) {
-        super(scene.matter.world, x, y, 'player');
+        super(scene.matter.world, x, y, texture);
         scene.add.existing(this);
         this.scene = scene;
 
@@ -9,14 +9,12 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
     }
 
     init() {
-        const playerWidth = this.width;
-        const playerHeight = this.height;
-
+        // Set up the body type based on the actual shape of the sprite
         this.setBody({
-            type: 'rectangle',
-            width: playerWidth / 2,
-            height: playerHeight / 2,
-            isStatic: false,
+            type: 'rectangle', // Adjust this based on the shape of your sprite
+            width: this.width,
+            height: this.height,
+            isStatic: false, // Adjust this based on whether the sprite should be movable by physics
             restitution: 0,
             friction: 0.1,
             frictionAir: 0.02,
@@ -24,12 +22,9 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
 
         this.setScale(0.5);
 
+        // Resize the physics body if needed
         const scaledWidth = this.width * 0.5;
         const scaledHeight = this.height * 0.5;
-
         this.setSize(scaledWidth, scaledHeight);
     }
 }
-
-// Avoid exporting variables to the global scope if possible
-// window.player = Player;
