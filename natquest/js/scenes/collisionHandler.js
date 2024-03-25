@@ -70,13 +70,13 @@ export function createTransitionSensors(scene, map) {
     objectLayer2.objects.forEach(object => {
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
-        
+
         // Calculate sensor dimensions
         const width = object.width;
         const height = object.height;
 
         // Create the rectangle sensor body
-        const sensor = Matter.Bodies.rectangle(centerX, centerY, width, height, {
+        const sensor = scene.matter.add.rectangle(centerX, centerY, width, height, {
             isSensor: true, // Set to true to make it a sensor
             render: {
                 fillStyle: 'transparent', // Optional: make the sensor invisible
@@ -84,15 +84,8 @@ export function createTransitionSensors(scene, map) {
             }
         });
 
-        // Add the sensor to your Matter.js world
-        Matter.World.add(scene.matter.world, sensor);
-
         // Push the sensor to the transitionSensors array
-        if (transitionSensors) { // Check if transitionSensors is defined
-            transitionSensors.push(sensor);
-        } else {
-            console.error("transitionSensors is undefined"); // Log an error if transitionSensors is undefined
-        }
+        transitionSensors.push(sensor);
     });
 
     return transitionSensors;
