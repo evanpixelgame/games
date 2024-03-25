@@ -51,7 +51,7 @@ this.dropdownContainer = this.add.group();
 let isDropdownVisible = false;
 
 settingsIcon.on('pointerdown', () => {
-    console.log('opensettingsattempt');
+  
     
     // Get the position of the settings icon
     const { x, y } = settingsIcon;
@@ -75,7 +75,7 @@ settingsIcon.on('pointerdown', () => {
      // ****************************************************************ZOOM IN ICON FUNC*************************************************************
 
             zoomInIcon.on('pointerdown', () => {
-            console.log('zoominattempt');
+          
 
         this.zoomIn();
         });
@@ -83,7 +83,7 @@ settingsIcon.on('pointerdown', () => {
      // ****************************************************************ZOOM OUT ICON FUNC*************************************************************
  
             zoomOutIcon.on('pointerdown', () => {
-            console.log('zoomoutattempt');
+       
 
         this.zoomOut();
 
@@ -94,7 +94,7 @@ settingsIcon.on('pointerdown', () => {
 
         fullscreenIcon.on('pointerdown', () => {
             // Handle fullscreen icon click
-            console.log('Fullscreen icon clicked');
+          
               if (this.isFullScreen()) {
               this.exitFullScreen();
                 } else {
@@ -118,7 +118,7 @@ infoIcon.on('pointerdown', () => {
     // Check if the message is currently displayed
     if (isMessageDisplayed) {
         // Handle info icon click when the message is displayed
-        console.log('info icon clicked');
+      
 
         if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS) {
             this.scale.setGameSize(window.innerWidth, window.innerHeight);
@@ -181,7 +181,7 @@ infoIcon.on('pointerdown', () => {
 }
 
 handleFullscreenChange() {
-    console.log('Fullscreen change detected');
+   
 
     // Check if the game is running on a mobile device
     const isMobile = /Mobi|Android|iOS/i.test(navigator.userAgent);
@@ -191,27 +191,27 @@ handleFullscreenChange() {
         // Wait for a short delay before resizing
         setTimeout(() => {
             if (this.scale.isFullscreen) {
-                console.log('Entering fullscreen mode');
+              
                 this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
             } else {
-                console.log('Exiting fullscreen mode');
+              
                 this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
             }
         }, 1000); // Adjust the delay time as needed
     } else {
         // Resize immediately without delay for desktop
         if (this.scale.isFullscreen) {
-            console.log('Entering fullscreen mode');
+          
             this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
         } else {
-            console.log('Exiting fullscreen mode');
+       
             this.resizeGame({ width: window.innerWidth, height: window.innerHeight });
         }
     }
 }
 
       resizeGame(gameSize) {
-        console.log('attempting resize with resizeGame method');
+
         const { width, height } = gameSize;
 
         // Resize the game canvas
