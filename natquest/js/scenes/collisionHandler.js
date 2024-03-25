@@ -60,62 +60,29 @@ function calculateCentroid(vertices) {
 }
 
 
-export function createCollisionObjectsLayer2(scene, map) {
-    const collisionObjects2 = [];
+export function createTriggerZones(scene, map) {
+    const triggerZones = [];
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
-        // Create Matter.js bodies for collision objects in Object Layer 2
-        // Implement the logic similar to createCollisionObjects function for Object Layer 1
-                const centerX = object.x + object.width / 2;
-        const centerY = object.y + object.height / 2;
-
-        if (object.polygon) {
-            // Handle polygons
-            const polygonVertices = object.polygon.map(vertex => {
-                return { x: object.x + vertex.x, y: object.y + vertex.y };
-            });
-
-            // Adjust the centroid of the polygon
-            const centroid = calculateCentroid(polygonVertices);
-            const adjustedVertices = polygonVertices.map(vertex => {
-                return {
-                    x: vertex.x - centroid.x + centerX,
-                    y: vertex.y - centroid.y + centerY
-                };
-            });
-
-            const collisionObject2 = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
-            collisionObjects2.push(collisionObject2);
-        } else if (object.ellipse) {
-            // Handle circles
-            const radiusX = object.width / 2;
-            const radiusY = object.height / 2;
-            const collisionObject2 = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isStatic: true });
-            collisionObjects2.push(collisionObject2);
-        } else {
-            // Handle rectangles
-            const collisionObject2 = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-            collisionObjects2.push(collisionObject2);
-        }
+        const triggerZone = scene.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
+        triggerZone.name = object.name; // Optionally, you can set a name for the trigger zone
+        triggerZone.setOrigin(0.5);
+        scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
+        triggerZones.push(triggerZone);
     });
 
-    return collisionObjects2;
+    return triggerZones;
 }
 
-export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects) {
-    // Check for collisions between the player and objects in Object Layer 2
-    objectLayer2CollisionObjects.forEach(object => {
-        scene.matterCollision.addOnCollideStart({
-            objectA: player,
-            objectB: object,
-            callback: () => {
-                // Debug statement to check if the collision callback is triggered
-                console.log('Collision detected with object from Object Layer 2');
-                // Transition to a new scene upon collision
-                scene.scene.start('InsideRoom');
-            }
+export function ObjectLayer2Handler(scene, player, triggerZones) {
+    // Check for collisions between the player and trigger zones in Object Layer 2
+    triggerZones.forEach(triggerZone => {
+        scene.physics.add.overlap(player, triggerZone, () => {
+            // Trigger the event when the player overlaps with the trigger zone
+            console.log(`Collision detected with trigger zone: ${triggerZone.name}`);
+            scene.scene.start('InsideRoom');
         });
     });
 }
