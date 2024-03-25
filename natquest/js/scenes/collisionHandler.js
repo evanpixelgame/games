@@ -60,13 +60,15 @@ function calculateCentroid(vertices) {
 }
 
 
-export function createTriggerZones(scene, map) {
-    const triggerZones = [];
+export function createCollisionObjectsLayer2(scene, map) {
+    const collisionObjects2 = [];
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
-        const centerX = object.x + object.width / 2;
+        // Create Matter.js bodies for collision objects in Object Layer 2
+        // Implement the logic similar to createCollisionObjects function for Object Layer 1
+                const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
 
         if (object.polygon) {
@@ -84,37 +86,38 @@ export function createTriggerZones(scene, map) {
                 };
             });
 
-            const triggerZone = scene.add.polygon(centerX, centerY, adjustedVertices);
-            triggerZone.visible = false; // Make the trigger zone invisible
-            scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
-            triggerZones.push(triggerZone);
+            const collisionObject2 = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
+            collisionObjects2.push(collisionObject2);
         } else if (object.ellipse) {
             // Handle circles
             const radiusX = object.width / 2;
             const radiusY = object.height / 2;
-            const triggerZone = scene.add.circle(centerX, centerY, Math.max(radiusX, radiusY));
-            triggerZone.visible = false; // Make the trigger zone invisible
-            scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
-            triggerZones.push(triggerZone);
+            const collisionObject2 = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isStatic: true });
+            collisionObjects2.push(collisionObject2);
         } else {
             // Handle rectangles
-            const triggerZone = scene.add.rectangle(centerX, centerY, object.width, object.height);
-            triggerZone.visible = false; // Make the trigger zone invisible
-            scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
-            triggerZones.push(triggerZone);
+            const collisionObject2 = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
+            collisionObjects2.push(collisionObject2);
         }
     });
 
-    return triggerZones;
+    return collisionObjects2;
 }
 
-
-export function ObjectLayer2Handler(scene, player, triggerZones) {
-    // Check for collisions between the player and trigger zones in Object Layer 2
-  // Create trigger zones
-this.triggerZones.forEach(triggerZone => {
-    this.physics.add.existing(triggerZones, true); // Enable physics for the trigger zone
-});
+export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects) {
+    // Check for collisions between the player and objects in Object Layer 2
+    objectLayer2CollisionObjects.forEach(object => {
+        scene.matterCollision.addOnCollideStart({
+            objectA: player,
+            objectB: object,
+            callback: () => {
+                // Debug statement to check if the collision callback is triggered
+                console.log('Collision detected with object from Object Layer 2');
+                // Transition to a new scene upon collision
+                scene.scene.start('InsideRoom');
+            }
+        });
+    });
 }
 
 
