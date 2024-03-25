@@ -98,54 +98,23 @@ for (let i = 0; i < map.layers.length; i++) {
      this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
 
     
-    Matter.Events.on(world, 'collisionStart', (event) => {
+  Matter.Events.on(world, 'collisionActive', (event) => {
     const pairs = event.pairs;
 
     for (let i = 0; i < pairs.length; i++) {
         const pair = pairs[i];
         if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
             if (this.transitionSensors.includes(pair.bodyA) || this.transitionSensors.includes(pair.bodyB)) {
-                // Player collided with a transition zone
-                console.log('Collision detected with transition sensor');
+                // Player is overlapping with a transition sensor
+                console.log('Overlap detected with transition sensor');
                 // Perform actions or scene transitions here
                 this.scene.start('InsideRoom'); // Example scene transition
             }
         }
     }
 });
-    /*  
-Matter.Events.on(world, 'collisionStart', (event) => {
-  const pairs = event.pairs;
 
-  for (let i = 0; i < pairs.length; i++) {
-    const pair = pairs[i];
-    if (pair.bodyA === player || pair.bodyB === player) {
-      if (transitionSensors.includes(pair.bodyA) || transitionSensors.includes(pair.bodyB)) {
-        // Player collided with a transition zone
-        console.log('Collision detected with transition sensor');
-        // Perform actions or scene transitions here
-        this.scene.start('InsideRoom'); // Example scene transition
-      }
-    }
-  }
-});
-
-
-
- // Set up collision events between the player and transition sensors
-    this.transitionSensors.forEach(sensor => {
-        this.matterCollision.addOnCollideStart({
-            objectA: this.player,
-            objectB: sensor,
-            callback: () => {
-                console.log('Collision detected with transition sensor');
-                // Optionally, perform any actions or scene transitions upon collision
-                // For example, transition to a new scene upon collision
-                this.scene.start('InsideRoom');
-            }
-        });
-    });
-*/
+  
 
     //*****************************************CAMERA CONTROLS****************************************************
   // Constrain the camera
