@@ -89,10 +89,12 @@ export function createTransitionSensors(scene, map) {
 
         // Log sensor properties
         console.log(sensor);
+        
     });
 
     // Log all transition sensors
     console.log(transitionSensors);
+    console.log('Sensor World:', transitionSensors[0].body.world);
     return transitionSensors;
 }
 
