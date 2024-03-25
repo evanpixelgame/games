@@ -10,6 +10,7 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
          this.world = scene.matter.world;
         this.body = this.body;
         this.gameObject = this;
+        console.log(this.world);
        
     }
 
