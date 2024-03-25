@@ -107,9 +107,7 @@ for (let i = 0; i < map.layers.length; i++) {
 Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
     event.pairs.forEach((pair) => {
         if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
-            (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB)) &&
-            !(this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB))) {
-            // Ensure the collision is with Object Layer 1 only, not Object Layer 2
+            this.collisionObjects.includes(pair.bodyA) && this.collisionObjects.includes(pair.bodyB)) {
             handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
         }
     });
