@@ -101,10 +101,10 @@ export function createTransitionSensors(scene, map) {
 
 
 
-export function TransitionSensorHandler(map, player, sensor, transitionSensors, world, this) {
+export function TransitionSensorHandler(player, map, this) {
      console.log('outsidecollisionstartlistener');
  // Check player's proximity to the sensor zone
-this.physics.world.on('overlap', (player, scene, sensor, transitionSensors, world, this) => {
+this.physics.world.on('overlap', (player, sensor) => {
     if (sensor.name === 'transitionZone') {
         // Transition to the new scene
         this.scene.start('InsideRoom');
