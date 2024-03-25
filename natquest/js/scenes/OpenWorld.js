@@ -54,7 +54,9 @@ create() {
         tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
     });
 
-
+    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
+    // ^^^ Moved player creation before calling createTransitionSensors
+    console.log(this.player.body);
 
     // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
@@ -78,9 +80,7 @@ create() {
     // Use TransitionSensorHandler to handle collision events with transition sensors
     TransitionSensorHandler(this, this.player, this.transitionSensors);
   
-    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
-    // ^^^ Moved player creation before calling createTransitionSensors
-    console.log(this.player.body);
+
   
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
