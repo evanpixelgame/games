@@ -1,101 +1,141 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { createCollisionObjects, createCollisionObjectsLayer2, ObjectLayer2Handler } from './collisionHandler.js';
+import { createCollisionObjects, createCollisionObjectsLayer2, ObjectLayer2handler, handleBarrierCollision,  } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
-    constructor() {
-        super({ key: 'OpenWorld' });
-        
-        // Declare controls as a property of the class
-        this.controls = null;
-        this.map = null;
-        this.player = null;
-        this.speed = 2; 
-        this.collisionObjects = null;
-        this.collisionObjects2 = null;
-    }
+  constructor() {
+    super({ key: 'OpenWorld' });
+    
+    // Declare controls as a property of the class (should I delete these and put in the init func?
+    this.controls = null;
+    this.map = null;
+    this.player = null;
+    this.speed = 2; 
+    this.collisionObjects = null; 
+  }
 
-    init(data) {
+  init(data) {
         this.openWorldScene = data.OpenWorld;
     }
-        
-    preload() {
-        // Preload assets if needed
-    }
+      
+  preload() {
+    
+  }
 
-    create() {
+  create() {
         // Create Matter.js engine
-        this.matterEngine = this.matter.world;
+    this.matterEngine = this.matter.world;
+ //  this.matterEngine.gravity.y = 0.5;
 
-        // Load map
-        this.map = this.make.tilemap({ key: 'map' });
+    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
+        this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
+      }
+     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+     this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
+   this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
 
-        // Create tilesets
-        const tilesetsData = [
-            { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
-            { name: 'tilesheetInterior', key: 'tilesheetInterior' },
-            { name: 'tilesheetBuildings', key: 'tilesheetBuildings' },
-            { name: 'tilesheetWalls', key: 'tilesheetWalls' },
-            { name: 'tilesheetObjects', key: 'tilesheetObjects' },
-            { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
-        ];
+  //Load map
+  const map = this.make.tilemap({ key: 'map' });
 
-        const tilesets = tilesetsData.map(tilesetData => {
-            return this.map.addTilesetImage(tilesetData.name, tilesetData.key);
-        });
+    
+    // Load tileset
+     const tileset1 = map.addTilesetImage('tilesheetTerrain', 'tilesheetTerrain');
+     const tileset2 = map.addTilesetImage('tilesheetInterior', 'tilesheetInterior');
+     const tileset3 = map.addTilesetImage('tilesheetBuildings', 'tilesheetBuildings');
+     const tileset4 = map.addTilesetImage('tilesheetWalls', 'tilesheetWalls');
+     const tileset5 = map.addTilesetImage('tilesheetObjects', 'tilesheetObjects');
+     const tileset6 = map.addTilesetImage('tilesheetFlourishes', 'tilesheetFlourishes');
 
-        // Create layers using all tilesets
-        const layers = [];
-        for (let i = 0; i < this.map.layers.length; i++) {
-            layers.push(this.map.createLayer(i, tilesets, 0, 0));
-        }
+  // Create layers 
+//  const worldLayer = map.createLayer('Tile Layer 1', tileset1, 0, 0);
+ //  const layer2 = map.createLayer('Tile Layer 2', [tileset2, tileset3, tileset4, tileset5, tileset6], 0, 0);
+//   const layer3 = map.createLayer('Tile Layer 3', tileset3, 0, 0);
 
-        // Create the player object
-        this.player = new PlayerSprite(this, 495, 325, 'player');
+   
+const tilesetsData = [
+    { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
+    { name: 'tilesheetInterior', key: 'tilesheetInterior' },
+    { name: 'tilesheetBuildings', key: 'tilesheetBuildings' },
+    { name: 'tilesheetWalls', key: 'tilesheetWalls' },
+    { name: 'tilesheetObjects', key: 'tilesheetObjects' },
+    { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
+];
 
-        // Set world bounds for the player
-        const boundaryOffset = 2;
-        const worldBounds = new Phaser.Geom.Rectangle(
-            boundaryOffset,
-            boundaryOffset,
-            this.map.widthInPixels - 2 * boundaryOffset,
-            this.map.heightInPixels - 2 * boundaryOffset
-        );
-        this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
+const tilesets = [];
+tilesetsData.forEach(tilesetData => {
+    tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
+});
 
-        // Create collision objects for Object Layer 1 and Object Layer 2
-        this.collisionObjects = createCollisionObjects(this, this.map);
-        this.collisionObjects2 = createCollisionObjectsLayer2(this, this.map);
-
-        // Set up collision event handlers for Object Layer 1
-        this.matterCollision.addOnCollideStart({
-            objectA: this.player,
-            callback: (eventData) => {
-                eventData.bodyB.gameObject && this.handleCollisionWithObjectLayer1(eventData.bodyB.gameObject);
-            }
-        });
-
-        // Set up collision event handlers for Object Layer 2
-        this.matterCollision.addOnCollideStart({
-            objectA: this.player,
-            callback: (eventData) => {
-                eventData.bodyB.gameObject && this.handleCollisionWithObjectLayer2(eventData.bodyB.gameObject);
-            }
-        });
-
-        // Configure camera
-        this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-        this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
-        this.cameras.main.setZoom(2);
-    }
-
-    update(time, delta) {
-        // Update logic if needed
-    }
-
-    handleCollisionWithObjectLayer2() {
-        // Handle collision with Object Layer 2
-        // Transition to the InsideRoom scene or perform any other necessary actions here
-        console.log('Transitioning to InsideRoom scene');
-        this.scene.start('InsideRoom');
-    }
+// Create layers using all tilesets ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
+const layers = [];
+for (let i = 0; i < map.layers.length; i++) {
+    layers.push(map.createLayer(i, tilesets, 0, 0));
 }
+
+    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
+
+    // Access player properties or methods as needed after it's created
+    const playerX = this.player.x;
+    const playerY = this.player.y;
+    
+  // Set world bounds for the player
+    const boundaryOffset = 2; // Adjust this value as needed
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        map.widthInPixels - 2 * boundaryOffset,
+        map.heightInPixels - 2 * boundaryOffset
+    );
+
+   this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
+
+    
+    // Create collision objects
+    this.collisionObjects = createCollisionObjects(this, map);
+     this.collisionObjects2 = createCollisionObjectsLayer2(this, map);
+
+
+
+    //*****************************************CAMERA CONTROLS****************************************************
+  // Constrain the camera
+  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+
+        const startMenuScene = this.scene.get('StartMenu');
+        this.cameras.main.setZoom(2);
+    
+  } // <==== create func end tag    
+
+//*****************************************************END OF CREATE FUNC ABOVE*******************************************************
+
+  //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
+  
+  
+update(time, delta) {
+    // Handle collisions with Object Layer 1
+    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+        event.pairs.forEach((pair) => {
+            if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
+                if (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB)) {
+                    handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+                }
+            }
+        });
+    });
+
+    // Handle collisions with Object Layer 2
+    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+        event.pairs.forEach((pair) => {
+            if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
+                // Assuming Object Layer 2 collision objects are stored in this.collisionObjects2
+                if (this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB)) {
+                    // Call the handler function to transition to the InsideRoom scene
+                    ObjectLayer2Handler(this);
+                }
+            }
+        });
+    });
+}
+
+  
+}
+window.OpenWorld = OpenWorld;
