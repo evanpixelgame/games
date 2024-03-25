@@ -94,15 +94,20 @@ for (let i = 0; i < map.layers.length; i++) {
      //this.collisionObjects2 = createTransitionSensors(this, map);
      this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
    
-    
-    this.transitionSensors.forEach(sensor => {
-  this.physics.arcade.overlap(this.player, sensor, (player, sensor) => {
-    console.log('Collision detected with transition sensor');
+Matter.World.on(world, 'collisionStart', (event) => {
+  const pairs = event.pairs;
 
-    // Perform actions or scene transitions here
-    // For example:
-    this.scene.start('InsideRoom');
-  });
+  for (let i = 0; i < pairs.length; i++) {
+    const pair = pairs[i];
+    if (pair.bodyA === player || pair.bodyB === player) {
+      if (transitionZones.includes(pair.bodyA) || transitionZones.includes(pair.bodyB)) {
+        // Player collided with a transition zone
+        console.log('Collision detected with transition sensor');
+        // Perform actions or scene transitions here
+        this.scene.start('InsideRoom'); // Example scene transition
+      }
+    }
+  }
 });
 
 
