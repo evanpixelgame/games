@@ -38,9 +38,7 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
 
-        // Emit 'body-created' event when the body is fully initialized
-        this.once('body-created', () => {
             console.log('Player Body World:', this.body.world);
-        });
+ 
     }
 }
