@@ -121,7 +121,6 @@ export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects)
 }
 
 
-
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
     const overlapY = player.y - barrier.y;
