@@ -96,7 +96,24 @@ for (let i = 0; i < map.layers.length; i++) {
     this.collisionObjects = createCollisionObjects(this, map);
      //this.collisionObjects2 = createTransitionSensors(this, map);
      this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
-   
+
+    
+    Matter.Events.on(world, 'collisionStart', (event) => {
+    const pairs = event.pairs;
+
+    for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i];
+        if (pair.bodyA === this.player.body || pair.bodyB === this.player.body) {
+            if (this.transitionSensors.includes(pair.bodyA) || this.transitionSensors.includes(pair.bodyB)) {
+                // Player collided with a transition zone
+                console.log('Collision detected with transition sensor');
+                // Perform actions or scene transitions here
+                this.scene.start('InsideRoom'); // Example scene transition
+            }
+        }
+    }
+});
+    /*  
 Matter.Events.on(world, 'collisionStart', (event) => {
   const pairs = event.pairs;
 
@@ -114,7 +131,7 @@ Matter.Events.on(world, 'collisionStart', (event) => {
 });
 
 
- /*
+
  // Set up collision events between the player and transition sensors
     this.transitionSensors.forEach(sensor => {
         this.matterCollision.addOnCollideStart({
