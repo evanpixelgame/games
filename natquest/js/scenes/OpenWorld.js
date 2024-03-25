@@ -103,7 +103,7 @@ Matter.Events.on(world, 'collisionStart', (event) => {
   for (let i = 0; i < pairs.length; i++) {
     const pair = pairs[i];
     if (pair.bodyA === player || pair.bodyB === player) {
-      if (transitionZones.includes(pair.bodyA) || transitionZones.includes(pair.bodyB)) {
+      if (transitionSensors.includes(pair.bodyA) || transitionSensors.includes(pair.bodyB)) {
         // Player collided with a transition zone
         console.log('Collision detected with transition sensor');
         // Perform actions or scene transitions here
