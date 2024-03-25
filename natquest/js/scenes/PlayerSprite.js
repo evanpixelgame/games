@@ -1,32 +1,34 @@
 export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, texture) {
         super(scene.matter.world, x, y, texture);
-        scene.add.existing(this);
-        this.scene = scene;
 
-        // Call the initialization method
+        // Initialize the player sprite
         this.init();
-     this.body = this.body;
-    this.gameObject = this;
+
+        // Add the player sprite to the scene
+        scene.add.existing(this);
+        this.body = this.body;
+        this.gameObject = this;
     }
 
     init() {
-        // Set up the body type based on the actual shape of the sprite
+        // Set up the player's physics body
+        const playerWidth = this.width;
+        const playerHeight = this.height;
         this.setBody({
-            type: 'rectangle', // Adjust this based on the shape of your sprite
-            width: this.width,
-            height: this.height,
-            isStatic: false, // Adjust this based on whether the sprite should be movable by physics
+            type: 'rectangle',
+            width: playerWidth / 2,
+            height: playerHeight / 2,
+            isStatic: false,
             restitution: 0,
             friction: 0.1,
             frictionAir: 0.02,
         });
 
+        // Set the player's scale and size
         this.setScale(0.5);
-
-        // Resize the physics body if needed
-        const scaledWidth = this.width * 0.5;
-        const scaledHeight = this.height * 0.5;
+        const scaledWidth = playerWidth * 0.5;
+        const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
     }
 }
