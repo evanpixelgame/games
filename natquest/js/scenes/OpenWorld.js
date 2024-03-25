@@ -91,9 +91,7 @@ for (let i = 0; i < map.layers.length; i++) {
     
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-    const transitionLayer = map.getObjectLayer('Object Layer 2');
-    
- //    this.collisionObjects2 = createCollisionObjectsLayer2(this, map);
+     this.collisionObjects2 = createCollisionObjectsLayer2(this, map);
 
 
 
@@ -104,57 +102,36 @@ for (let i = 0; i < map.layers.length; i++) {
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
-
-
-  Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
-    event.pairs.forEach((pair) => {
-        // Collision with Object Layer 1
-        if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
-            (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
-            handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
-        }
-    });
-});
-
-                    
-
-         const transitionZones = [];
-transitionLayer.objects.forEach(object => {
-  const shape = object.gid ? this.getTileShape(object) : this.getObjectShape(object); // Get shape based on tile or object data
-  const transitionZoneBody = Matter.Bodies.fromVertices(object.x, object.y, shape, { isSensor: true });
-  Matter.World.add(world, transitionZoneBody);
-  transitionZones.push(transitionZoneBody);
-});
-     
     
-    Matter.World.on(this.matter.world, 'collisionStart', (event) => {
-    const pairs = event.pairs;
-
-    for (let i = 0; i < pairs.length; i++) {
-        const pair = pairs[i];
-        if (pair.bodyA === player || pair.bodyB === player) {
-            // Check collision with a transition zone
-            if (transitionZones.includes(pair.bodyA) || transitionZones.includes(pair.bodyB)) {
-                this.handleSceneTransition();
-            }
-        }
-    }
-});
-
-          
   } // <==== create func end tag    
 
 //*****************************************************END OF CREATE FUNC ABOVE*******************************************************
-getObjectShape(object) {
-  // Assuming rectangle objects
-  return Matter.Bodies.rectangle(object.width, object.height);
-}
 
   //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
   
   
 update(time, delta) {
-
+    // Handle collisions with Object Layer 1 and Object Layer 2
+    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+        event.pairs.forEach((pair) => {
+            // Collision with Object Layer 1
+            if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
+                (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
+                handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+            }
+            // Collision with Object Layer 2
+            else if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
+                (this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB))) {
+                // Call the handler function to transition to the InsideRoom scene
+                console.log('should be transitioning scenes msg coming from open world scene');
+                ObjectLayer2Handler(this, this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+            }
+        });
+    });
 }
+
+
+
+  
 }
 window.OpenWorld = OpenWorld;
