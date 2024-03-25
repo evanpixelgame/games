@@ -93,16 +93,6 @@ export function createTransitionSensors(scene, map) {
 
     // Log all transition sensors
     console.log(transitionSensors);
-    try {
-    console.log(player.body);
-} catch (error) {
-    console.error('Error accessing player body:', error);
-}
-try {
-    console.log(this.player.body);
-} catch (error) {
-    console.error('Error accessing player body:', error);
-}
     return transitionSensors;
 }
 
