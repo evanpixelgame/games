@@ -10,7 +10,8 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         
         // Set the world property to the scene's matter world
         this.world = scene.matter.world;
-        
+        this.body = this.body;
+        this.gameObject = this;
         // Access the body property of the sprite itself
         // No need for this.player.body
         console.log('Player Body World:', this.body.world);
