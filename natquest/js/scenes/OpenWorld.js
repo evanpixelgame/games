@@ -111,21 +111,22 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
   }
 
   // Move TransitionSensorHandler inside the class
-    TransitionSensorHandler(player, transitionSensors) {
-        // Listen for collisionstart event on the world property of the class
-        this.world.on('collisionstart', (eventData) => {
-            const { bodyA, bodyB } = eventData;
-            
-            // Check if player (bodyA) collides with a transition sensor (bodyB)
-            if (bodyA === player.body && transitionSensors.includes(bodyB)) {
-                // Perform scene transition
-                this.scene.start('InsideRoom');
-            } else if (bodyB === player.body && transitionSensors.includes(bodyA)) {
-                // Perform scene transition (handle the case where player is bodyB)
-                this.scene.start('InsideRoom');
-            }
-        });
-    }
+TransitionSensorHandler(player, transitionSensors) {
+    // Listen for collisionstart event on the world property of the scene where the player is created
+    this.player.scene.matter.world.on('collisionstart', (eventData) => {
+        const { bodyA, bodyB } = eventData;
+        
+        // Check if player (bodyA) collides with a transition sensor (bodyB)
+        if (bodyA === player.body && transitionSensors.includes(bodyB)) {
+            // Perform scene transition
+            this.player.scene.start('InsideRoom');
+        } else if (bodyB === player.body && transitionSensors.includes(bodyA)) {
+            // Perform scene transition (handle the case where player is bodyB)
+            this.player.scene.start('InsideRoom');
+        }
+    });
+}
+
         
   update(time, delta) {
     // Update method code here
