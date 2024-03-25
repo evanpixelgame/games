@@ -103,6 +103,22 @@ for (let i = 0; i < map.layers.length; i++) {
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
 
+
+      transitionSensors.forEach(sensor => {
+        scene.matterCollision.addOnCollideStart({
+            objectA: player,
+            objectB: sensor,
+            callback: () => {
+                // Debug statement to check if the collision callback is triggered
+                console.log('Collision detected with transition sensor');
+
+                // Optionally, perform any actions or scene transitions upon collision
+                // For example, transition to a new scene upon collision
+                scene.scene.start('InsideRoom');
+            }
+        });
+    });
+
 /*
     // Handle collisions with Object Layer 1 and Object Layer 2
     Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
