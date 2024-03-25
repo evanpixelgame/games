@@ -74,7 +74,7 @@ export default class OpenWorld extends Phaser.Scene {
 
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-    this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
+   this.transitionSensors = createTransitionSensors(this, map, this.player);
 
     // Use TransitionSensorHandler to handle collision events with transition sensors
     TransitionSensorHandler(this, this.player, this.transitionSensors);
