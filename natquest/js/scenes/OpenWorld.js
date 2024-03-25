@@ -97,7 +97,7 @@ for (let i = 0; i < map.layers.length; i++) {
      //this.collisionObjects2 = createTransitionSensors(this, map);
      this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
    
-Matter.World.on(world, 'collisionStart', (event) => {
+Matter.Events.on(world, 'collisionStart', (event) => {
   const pairs = event.pairs;
 
   for (let i = 0; i < pairs.length; i++) {
