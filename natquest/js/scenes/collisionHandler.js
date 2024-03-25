@@ -61,7 +61,7 @@ function calculateCentroid(vertices) {
 
 
 export function createCollisionObjectsLayer2(scene, map) {
-    const collisionObjects = [];
+    const collisionObjects2 = [];
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
@@ -86,22 +86,22 @@ export function createCollisionObjectsLayer2(scene, map) {
                 };
             });
 
-            const collisionObject = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
-            collisionObjects.push(collisionObject);
+            const collisionObject2 = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isStatic: true });
+            collisionObjects2.push(collisionObject2);
         } else if (object.ellipse) {
             // Handle circles
             const radiusX = object.width / 2;
             const radiusY = object.height / 2;
-            const collisionObject = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isStatic: true });
-            collisionObjects.push(collisionObject);
+            const collisionObject2 = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isStatic: true });
+            collisionObjects2.push(collisionObject2);
         } else {
             // Handle rectangles
-            const collisionObject = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
-            collisionObjects.push(collisionObject);
+            const collisionObject2 = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isStatic: true });
+            collisionObjects2.push(collisionObject2);
         }
     });
 
-    return collisionObjects;
+    return collisionObjects2;
 }
 
 export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects) {
