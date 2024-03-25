@@ -92,7 +92,7 @@ export default class OpenWorld extends Phaser.Scene {
         // Update logic if needed
     }
 
-    handleCollisionWithObjectLayer1(gameObject) {
+    handleCollisionWithObjectLayer1() {
         // Handle collision with Object Layer 1
         // You can call the handleBarrierCollision function or perform any other necessary actions here
                   if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
@@ -101,7 +101,7 @@ export default class OpenWorld extends Phaser.Scene {
             }
     }
 
-    handleCollisionWithObjectLayer2(gameObject) {
+    handleCollisionWithObjectLayer2() {
         // Handle collision with Object Layer 2
         // Transition to the InsideRoom scene or perform any other necessary actions here
         console.log('Transitioning to InsideRoom scene');
