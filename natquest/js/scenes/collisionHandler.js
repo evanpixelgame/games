@@ -1,3 +1,4 @@
+import Matter from 'matter-js';
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
 
@@ -59,7 +60,6 @@ function calculateCentroid(vertices) {
     return { x: centroidX, y: centroidY };
 }
 
-
 export function createTransitionSensors(scene, map) {
     const transitionSensors = [];
 
@@ -82,15 +82,33 @@ export function createTransitionSensors(scene, map) {
                 };
             });
 
-            const transitionSensor = scene.matter.add.fromVertices(centerX, centerY, adjustedVertices, { isSensor: true });
+            const transitionSensor = Matter.Bodies.fromVertices(centerX, centerY, [adjustedVertices], {
+                isSensor: true,
+                collisionFilter: {
+                    category: 0x0001, // Example category for transition sensors
+                    mask: 0x0002      // Example mask to collide with the player
+                }
+            });
             transitionSensors.push(transitionSensor);
         } else if (object.ellipse) {
-            const radiusX = object.width / 2;
-            const radiusY = object.height / 2;
-            const transitionSensor = scene.matter.add.circle(centerX, centerY, Math.max(radiusX, radiusY), { isSensor: true });
+            // Handle ellipse shape
+            const transitionSensor = Matter.Bodies.circle(centerX, centerY, Math.max(object.width, object.height) / 2, {
+                isSensor: true,
+                collisionFilter: {
+                    category: 0x0001, // Example category for transition sensors
+                    mask: 0x0002      // Example mask to collide with the player
+                }
+            });
             transitionSensors.push(transitionSensor);
         } else {
-            const transitionSensor = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, { isSensor: true });
+            // Handle rectangle shape
+            const transitionSensor = Matter.Bodies.rectangle(centerX, centerY, object.width, object.height, {
+                isSensor: true,
+                collisionFilter: {
+                    category: 0x0001, // Example category for transition sensors
+                    mask: 0x0002      // Example mask to collide with the player
+                }
+            });
             transitionSensors.push(transitionSensor);
         }
     });
