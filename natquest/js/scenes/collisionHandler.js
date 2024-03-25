@@ -93,7 +93,7 @@ export function createTransitionSensors(scene, map) {
 
     // Log all transition sensors
     console.log(transitionSensors);
-    console.log(player.body);
+    console.log(this.player.body);
     return transitionSensors;
 }
 
