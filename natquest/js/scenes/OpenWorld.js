@@ -25,7 +25,6 @@ export default class OpenWorld extends Phaser.Scene {
   preload() {
     
   }
-        console.log(world);
         console.log(this.world);
     // Move TransitionSensorHandler inside the class
     TransitionSensorHandler(player, transitionSensors) {
