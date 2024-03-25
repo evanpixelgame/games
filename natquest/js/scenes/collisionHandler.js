@@ -89,6 +89,7 @@ export function createTransitionSensors(scene, map) {
     });
     console.log(sensor);
     console.log(transitionSensors);
+    console.log(player.body); 
     return transitionSensors;
 }
 
