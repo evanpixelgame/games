@@ -84,8 +84,9 @@ console.log('Player GameObject:', this.player.gameObject);
     this.collisionObjects = createCollisionObjects(this, map);
     this.transitionSensors = createTransitionSensors(this, map, this.player); 
 
-    // Use TransitionSensorHandler to handle collision events with transition sensors
-   this.transitionHandler = TransitionSensorHandler(this, this.player, map, this.sensor, this.world);
+  // Use TransitionSensorHandler to handle collision events with transition sensors
+TransitionSensorHandler(this, this.player, map, this.sensor, this.world);
+
 
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
