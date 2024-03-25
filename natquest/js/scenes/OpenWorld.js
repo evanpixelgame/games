@@ -112,10 +112,9 @@ for (let i = 0; i < map.layers.length; i++) {
             if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
                 (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
                 handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
-            }
         }
        });
-       
+       }
                     
 
          const transitionZones = [];
