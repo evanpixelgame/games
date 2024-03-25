@@ -130,7 +130,7 @@ update(time, delta) {
                 if (this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB)) {
                     // Call the handler function to transition to the InsideRoom scene
                   console.log('should be transitioning scenes msg coming from open world scene');
-                    ObjectLayer2Handler(this);
+                    ObjectLayer2Handler(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
                 }
             }
         });
