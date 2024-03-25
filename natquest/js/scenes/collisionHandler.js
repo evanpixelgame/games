@@ -98,21 +98,24 @@ export function createTransitionSensors(scene, map) {
     return transitionSensors;
 }
 
-export function ObjectLayer2Handler(scene, player, objectLayer2CollisionObjects) {
-    // Check for collisions between the player and objects in Object Layer 2
-    objectLayer2CollisionObjects.forEach(object => {
+export function TransitionSensorHandler(scene, player, transitionSensors) {
+    // Check for collisions between the player and transition sensors
+    transitionSensors.forEach(sensor => {
         scene.matterCollision.addOnCollideStart({
             objectA: player,
-            objectB: object,
+            objectB: sensor,
             callback: () => {
                 // Debug statement to check if the collision callback is triggered
-                console.log('Collision detected with object from Object Layer 2');
-                // Transition to a new scene upon collision
+                console.log('Collision detected with transition sensor');
+
+                // Optionally, perform any actions or scene transitions upon collision
+                // For example, transition to a new scene upon collision
                 scene.scene.start('InsideRoom');
             }
         });
     });
 }
+
 
 
 export function handleBarrierCollision(player, barrier) {
