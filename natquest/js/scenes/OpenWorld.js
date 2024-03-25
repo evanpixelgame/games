@@ -1,5 +1,7 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { createCollisionObjects, createTransitionSensors, TransitionSensorHandler, handleBarrierCollision } from './collisionHandler.js';
+import { createCollisionObjects, createTransitionSensors, 
+        //TransitionSensorHandler,
+        handleBarrierCollision } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -24,6 +26,23 @@ export default class OpenWorld extends Phaser.Scene {
     
   }
 
+    // Move TransitionSensorHandler inside the class
+    TransitionSensorHandler(player, transitionSensors) {
+        // Listen for collisionstart event on the world property of the class
+        this.world.on('collisionstart', (eventData) => {
+            const { bodyA, bodyB } = eventData;
+            
+            // Check if player (bodyA) collides with a transition sensor (bodyB)
+            if (bodyA === player.body && transitionSensors.includes(bodyB)) {
+                // Perform scene transition
+                this.scene.start('InsideRoom');
+            } else if (bodyB === player.body && transitionSensors.includes(bodyA)) {
+                // Perform scene transition (handle the case where player is bodyB)
+                this.scene.start('InsideRoom');
+            }
+        });
+    }
+  
   create() {
     // Create Matter.js engine
     this.matterEngine = this.matter.world;
@@ -85,7 +104,7 @@ console.log('Player GameObject:', this.player.gameObject);
     this.transitionSensors = createTransitionSensors(this, map, this.player); 
 
   // Use TransitionSensorHandler to handle collision events with transition sensors
-TransitionSensorHandler(this, this.player, this.transitionSensors, this.world);
+this.TransitionSensorHandler(this.player, this.transitionSensors);
 
 
     // Constrain the camera
