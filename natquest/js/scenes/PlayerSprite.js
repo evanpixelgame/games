@@ -1,17 +1,18 @@
 export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, texture) {
-        super(scene.matter.world, x, y, 'player');
-        scene.add.existing(this);
-        this.scene = scene;
+        super(scene.matter.world, x, y, texture);
 
-        // Call the initialization method
+        // Initialize the player sprite
         this.init();
+
+        // Add the player sprite to the scene
+        scene.add.existing(this);
     }
 
     init() {
+        // Set up the player's physics body
         const playerWidth = this.width;
         const playerHeight = this.height;
-
         this.setBody({
             type: 'rectangle',
             width: playerWidth / 2,
@@ -22,14 +23,10 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
             frictionAir: 0.02,
         });
 
+        // Set the player's scale and size
         this.setScale(0.5);
-
-        const scaledWidth = this.width * 0.5;
-        const scaledHeight = this.height * 0.5;
-
+        const scaledWidth = playerWidth * 0.5;
+        const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
     }
 }
-
-// Avoid exporting variables to the global scope if possible
-// window.player = Player;
