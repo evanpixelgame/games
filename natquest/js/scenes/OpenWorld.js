@@ -60,6 +60,7 @@ export default class OpenWorld extends Phaser.Scene {
     }
 
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
+    console.log(this.player.body);
 
     // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
