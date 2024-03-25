@@ -91,7 +91,9 @@ for (let i = 0; i < map.layers.length; i++) {
 
    this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
-    
+    const this.playerBody = Matter.Bodies.rectangle(this.player.x, this.player.y, this.player.width, this.player.height);
+Matter.World.add(world, this.playerBody); // Add the player body to the world
+
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
      //this.collisionObjects2 = createTransitionSensors(this, map);
