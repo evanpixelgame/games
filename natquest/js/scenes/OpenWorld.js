@@ -1,5 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { createCollisionObjects, createTriggerZones, ObjectLayer2Handler, handleBarrierCollision,  } from './collisionHandler.js';
+import { createCollisionObjects, createCollisionObjectsLayer2, ObjectLayer2Handler, handleBarrierCollision,  } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -65,16 +65,11 @@ tilesetsData.forEach(tilesetData => {
     tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
 });
 
-// Create layers using all tilesets (excluding object layers)
+// Create layers using all tilesets ('Object Layer 1' layer creation is in collisionHanlder.js aka collision barrier layer 
 const layers = [];
 for (let i = 0; i < map.layers.length; i++) {
-    const currentLayer = map.layers[i];
-    // Check if the current layer is not an object layer
-    if (!currentLayer.isObjectLayer) {
-        layers.push(map.createLayer(i, tilesets, 0, 0));
-    }
+    layers.push(map.createLayer(i, tilesets, 0, 0));
 }
-
 
     this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object
 
@@ -96,7 +91,7 @@ for (let i = 0; i < map.layers.length; i++) {
     
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-    this.collisionObjects2 = createTriggerZones(this, map);
+     this.collisionObjects2 = createCollisionObjectsLayer2(this, map);
 
 
 
@@ -107,22 +102,6 @@ for (let i = 0; i < map.layers.length; i++) {
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
-
-/* Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
-    event.pairs.forEach((pair) => {
-        if (
-            (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))
-            &&
-            !(this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB))
-        ) {
-            // Collision involves Object Layer 1 but not Object Layer 2
-            // Handle collision logic for Object Layer 1 here
-             handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
-        }
-    });
-});
-*/
-
     
   } // <==== create func end tag    
 
@@ -132,7 +111,23 @@ for (let i = 0; i < map.layers.length; i++) {
   
   
 update(time, delta) {
-
+    // Handle collisions with Object Layer 1 and Object Layer 2
+    Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
+        event.pairs.forEach((pair) => {
+            // Collision with Object Layer 1
+            if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
+                (this.collisionObjects.includes(pair.bodyA) || this.collisionObjects.includes(pair.bodyB))) {
+                handleBarrierCollision(this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+            }
+            // Collision with Object Layer 2
+            else if ((pair.bodyA === this.player.body || pair.bodyB === this.player.body) &&
+                (this.collisionObjects2.includes(pair.bodyA) || this.collisionObjects2.includes(pair.bodyB))) {
+                // Call the handler function to transition to the InsideRoom scene
+                console.log('should be transitioning scenes msg coming from open world scene');
+                ObjectLayer2Handler(this, this.player, pair.bodyA === this.player.body ? pair.bodyB : pair.bodyA);
+            }
+        });
+    });
 }
 
 
