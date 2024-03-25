@@ -125,19 +125,22 @@ transitionLayer.objects.forEach(object => {
   Matter.World.add(world, transitionZoneBody);
   transitionZones.push(transitionZoneBody);
 });
-         Matter.World.on(world, 'collisionStart', (event) => {
-  const pairs = event.pairs;
+     
+    
+    Matter.World.on(this.matter.world, 'collisionStart', (event) => {
+    const pairs = event.pairs;
 
-  for (let i = 0; i < pairs.length; i++) {
-    const pair = pairs[i];
-    if (pair.bodyA === player || pair.bodyB === player) {
-      // Check collision with a transition zone
-      if (transitionZones.includes(pair.bodyA) || transitionZones.includes(pair.bodyB)) {
-        this.handleSceneTransition();
-      }
+    for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i];
+        if (pair.bodyA === player || pair.bodyB === player) {
+            // Check collision with a transition zone
+            if (transitionZones.includes(pair.bodyA) || transitionZones.includes(pair.bodyB)) {
+                this.handleSceneTransition();
+            }
+        }
     }
-  });
-    });
+});
+
           
   } // <==== create func end tag    
 
