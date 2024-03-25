@@ -111,13 +111,10 @@ export function createTriggerZones(scene, map) {
 
 export function ObjectLayer2Handler(scene, player, triggerZones) {
     // Check for collisions between the player and trigger zones in Object Layer 2
-    triggerZones.forEach(triggerZone => {
-        scene.physics.add.overlap(player, triggerZone, () => {
-            // Trigger the event when the player overlaps with the trigger zone
-            console.log(`Collision detected with trigger zone: ${triggerZone.name}`);
-            scene.scene.start('InsideRoom');
-        });
-    });
+  // Create trigger zones
+this.triggerZones.forEach(triggerZone => {
+    this.physics.add.existing(triggerZones, true); // Enable physics for the trigger zone
+});
 }
 
 
