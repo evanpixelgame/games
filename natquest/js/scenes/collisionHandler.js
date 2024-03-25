@@ -103,7 +103,7 @@ export function TransitionSensorHandler(scene, player, transitionSensors) {
 
     // Create sensor zones for each transition sensor
     transitionSensors.forEach(sensor => {
-        const sensorZone = scene.add.rectangle(sensor.x, sensor.y, sensor.width, sensor.height);
+        const sensorZone = scene.add.rectangle(sensor.position.x, sensor.position.y, sensor.width, sensor.height);
         sensorZones.push(sensorZone);
     });
 
