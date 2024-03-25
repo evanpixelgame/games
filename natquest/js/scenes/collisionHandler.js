@@ -1,4 +1,4 @@
-import Matter from 'matter-js';
+//import Matter from 'matter-js';
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
 
