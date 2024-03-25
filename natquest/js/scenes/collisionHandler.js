@@ -98,7 +98,7 @@ export function createTransitionSensors(scene, map) {
 
 
 
-export function TransitionSensorHandler(scene, player, transitionSensors) {
+export function TransitionSensorHandler(scene, player, transitionSensors, world) {
     // Listen for collisionstart event
     scene.physics.world.on('collisionstart', (eventData) => {
         const { bodyA, bodyB } = eventData;
