@@ -92,8 +92,21 @@ for (let i = 0; i < map.layers.length; i++) {
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
      //this.collisionObjects2 = createTransitionSensors(this, map);
-     this.transitionSensors = createTransitionSensors(this, map);
+     this.transitionSensors = createTransitionSensors(this, map); // Create transition sensors
 
+    // Set up collision events between the player and transition sensors
+    this.transitionSensors.forEach(sensor => {
+        this.matterCollision.addOnCollideStart({
+            objectA: this.player,
+            objectB: sensor,
+            callback: () => {
+                console.log('Collision detected with transition sensor');
+                // Optionally, perform any actions or scene transitions upon collision
+                // For example, transition to a new scene upon collision
+                this.scene.start('InsideRoom');
+            }
+        });
+    });
 
 
     //*****************************************CAMERA CONTROLS****************************************************
@@ -103,22 +116,6 @@ for (let i = 0; i < map.layers.length; i++) {
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
-
-
-      transitionSensors.forEach(sensor => {
-        scene.matterCollision.addOnCollideStart({
-            objectA: player,
-            objectB: sensor,
-            callback: () => {
-                // Debug statement to check if the collision callback is triggered
-                console.log('Collision detected with transition sensor');
-
-                // Optionally, perform any actions or scene transitions upon collision
-                // For example, transition to a new scene upon collision
-                scene.scene.start('InsideRoom');
-            }
-        });
-    });
 
 /*
     // Handle collisions with Object Layer 1 and Object Layer 2
