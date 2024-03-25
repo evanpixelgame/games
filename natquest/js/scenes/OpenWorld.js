@@ -152,5 +152,5 @@ transitionLayer.objects.forEach(object => {
 update(time, delta) {
 
 }
-  
+}
 window.OpenWorld = OpenWorld;
