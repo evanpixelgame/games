@@ -66,14 +66,48 @@ export function createTriggerZones(scene, map) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
-        const triggerZone = scene.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
-        triggerZone.name = object.name; // Optionally, you can set a name for the trigger zone
-        triggerZone.setOrigin(0.5);
-        triggerZones.push(triggerZone);
+        const centerX = object.x + object.width / 2;
+        const centerY = object.y + object.height / 2;
+
+        if (object.polygon) {
+            // Handle polygons
+            const polygonVertices = object.polygon.map(vertex => {
+                return { x: object.x + vertex.x, y: object.y + vertex.y };
+            });
+
+            // Adjust the centroid of the polygon
+            const centroid = calculateCentroid(polygonVertices);
+            const adjustedVertices = polygonVertices.map(vertex => {
+                return {
+                    x: vertex.x - centroid.x + centerX,
+                    y: vertex.y - centroid.y + centerY
+                };
+            });
+
+            const triggerZone = scene.add.polygon(centerX, centerY, adjustedVertices);
+            triggerZone.visible = false; // Make the trigger zone invisible
+            scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
+            triggerZones.push(triggerZone);
+        } else if (object.ellipse) {
+            // Handle circles
+            const radiusX = object.width / 2;
+            const radiusY = object.height / 2;
+            const triggerZone = scene.add.circle(centerX, centerY, Math.max(radiusX, radiusY));
+            triggerZone.visible = false; // Make the trigger zone invisible
+            scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
+            triggerZones.push(triggerZone);
+        } else {
+            // Handle rectangles
+            const triggerZone = scene.add.rectangle(centerX, centerY, object.width, object.height);
+            triggerZone.visible = false; // Make the trigger zone invisible
+            scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
+            triggerZones.push(triggerZone);
+        }
     });
 
     return triggerZones;
 }
+
 
 export function ObjectLayer2Handler(scene, player, triggerZones) {
     // Check for collisions between the player and trigger zones in Object Layer 2
