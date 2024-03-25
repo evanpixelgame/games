@@ -69,7 +69,6 @@ export function createTriggerZones(scene, map) {
         const triggerZone = scene.add.zone(object.x + object.width / 2, object.y + object.height / 2, object.width, object.height);
         triggerZone.name = object.name; // Optionally, you can set a name for the trigger zone
         triggerZone.setOrigin(0.5);
-        scene.physics.add.existing(triggerZone, true); // Enable physics for the trigger zone
         triggerZones.push(triggerZone);
     });
 
