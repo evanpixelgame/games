@@ -14,7 +14,6 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         this.gameObject = this;
         // Access the body property of the sprite itself
         // No need for this.player.body
-        console.log('Player Body World:', this.body.world);
     }
     
     getBodyWorld() {
@@ -40,5 +39,7 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         const scaledWidth = playerWidth * 0.5;
         const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
+
+                console.log('Player Body World:', this.body.world);
     }
 }
