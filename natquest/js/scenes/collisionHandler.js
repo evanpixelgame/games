@@ -95,6 +95,15 @@ export function createTransitionSensors(scene, map) {
 export function TransitionSensorHandler(scene, player, transitionSensors) {
     // Add a single collision event listener to handle collisions between player and sensors
     Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
+    const pairs = event.pairs;
+    for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i];
+        console.log('Collision detected'); // Add this line
+        // Your existing collision handling logic
+    }
+});
+/*
+    Matter.Events.on(scene.matter.world, 'collisionStart', (event) => {
         const pairs = event.pairs;
         for (let i = 0; i < pairs.length; i++) {
             const pair = pairs[i];
@@ -109,6 +118,7 @@ export function TransitionSensorHandler(scene, player, transitionSensors) {
             }
         }
     });
+    */
 }
 
 
