@@ -102,16 +102,8 @@ for (let i = 0; i < map.layers.length; i++) {
 
         const startMenuScene = this.scene.get('StartMenu');
         this.cameras.main.setZoom(2);
-    
-  } // <==== create func end tag    
 
-//*****************************************************END OF CREATE FUNC ABOVE*******************************************************
-
-  //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
-  
-  
-update(time, delta) {
-    // Handle collisions with Object Layer 1 and Object Layer 2
+        // Handle collisions with Object Layer 1 and Object Layer 2
     Matter.Events.on(this.matter.world, 'collisionStart', (event) => {
         event.pairs.forEach((pair) => {
             // Collision with Object Layer 1
@@ -128,6 +120,16 @@ update(time, delta) {
             }
         });
     });
+    
+  } // <==== create func end tag    
+
+//*****************************************************END OF CREATE FUNC ABOVE*******************************************************
+
+  //*****************************************************************END METHODS, START OF UPDATE FUNC**************************************
+  
+  
+update(time, delta) {
+
 }
 
 
