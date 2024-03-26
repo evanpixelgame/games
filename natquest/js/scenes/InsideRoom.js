@@ -1,26 +1,32 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { createCollisionObjects, createTransitionSensors, handleBarrierCollision } from './collisionHandler.js';
 
 export default class InsideRoom extends Phaser.Scene {
   constructor() {
     super({ key: 'InsideRoom' });
-    }
-
-    preload() {
-    }
+  }
 
   init(data) {
     this.mapKey = data.mapKey;
     this.player = data.player;
-    this.camera = data.camera;
     this.speed = data.speed;
-}
+    this.camera = data.camera;
+    this.controls = data.controls; // Include other properties if needed
+ //   this.map = data.map;
+   // this.collisionObjects = data.collisionObjects;
+    //this.transitionSensors = data.transitionSensors;
+    this.engine = data.engine;
+    this.world = data.world;
+  }
 
-    create() {
-        // Create the new map using the loaded tilemap
-        const map = this.make.tilemap({ key: 'insidemap' });
+  preload() {
+    // Preload assets if needed
+  }
 
-         // Load tileset
+  create() {
+    // Create the new map using the loaded tilemap
+    const map = this.make.tilemap({ key: this.mapKey });
+
+    // Load tileset
     const tilesetsData = [
         { name: 'tilesheetInterior', key: 'tilesheetInterior' },
         { name: 'tilesheetWalls', key: 'tilesheetWalls' },
@@ -37,11 +43,25 @@ export default class InsideRoom extends Phaser.Scene {
     for (let i = 0; i < map.layers.length; i++) {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
-    }
 
+    // Initialize player sprite
+    this.player = new PlayerSprite(this, /* specify player position */, 'player');
 
-    update(time, delta) {
-     
-    }
+    // Set world bounds for the player
+    // Adjust boundaryOffset and other settings as needed
+    const boundaryOffset = 2;
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        map.widthInPixels - 2 * boundaryOffset,
+        map.heightInPixels - 2 * boundaryOffset
+    );
+    this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+
+    // Additional setup specific to this scene
+  }
+
+  update(time, delta) {
+    // Update method code here
+  }
 }
-window.InsideRoom = InsideRoom;
