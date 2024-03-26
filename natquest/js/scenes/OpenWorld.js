@@ -109,6 +109,9 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
 
+   console.log('PLEASE PLEASE LOG' + this.world);
+   console.log('PRETTY PLEASE' + this.controls);
+
   }
 
 
