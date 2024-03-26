@@ -9,14 +9,14 @@ export default class OpenWorld extends Phaser.Scene {
     super({ key: 'OpenWorld' });
     
     // Declare controls as a property of the class (should I delete these and put in the init func?
-   // this.controls = null;
+   this.controls = null;
     this.map = null;
     this.player = null;
     this.speed = 2; 
     this.collisionObjects = null; 
     this.transitionSensors = null; // Add transitionSensors property
     this.engine = null;
-  //  this.world = null;
+   this.world = null;
   }
 
   init(data) {
