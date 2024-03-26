@@ -3,8 +3,6 @@ import { PlayerSprite } from './PlayerSprite.js';
 export default class InsideRoom extends Phaser.Scene {
   constructor() {
     super({ key: 'InsideRoom' });
-    this.controls = null;
-    this.world = null;
   }
 
 
@@ -32,18 +30,18 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.player = data.player;
     this.speed = data.speed;
     this.camera = data.camera;
-    this.controls = data.controls;
-    this.engine = data.engine;
-    this.world = data.world;
+   // this.controls = data.controls;
+   // this.engine = data.engine;
+  //  this.world = data.world;
 
     // Debugging: Log initialized properties
     console.log("InsideRoom initialized with:", {
         player: this.player,
         speed: this.speed,
         camera: this.camera,
-        controls: this.controls,
-        engine: this.engine,
-        world: this.world
+     //   controls: this.controls,
+       // engine: this.engine,
+    //    world: this.world
     });
 
     // Check if the necessary data is provided
@@ -65,20 +63,6 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
 }
 
-  /*
-  init(data) {
-    this.mapKey = data.mapKey;
-    this.player = data.player;
-    this.speed = data.speed;
-    this.camera = data.camera;
-    this.controls = data.controls; // Include other properties if needed
- //   this.map = data.map;
-   // this.collisionObjects = data.collisionObjects;
-    //this.transitionSensors = data.transitionSensors;
-    this.engine = data.engine;
-    this.world = data.world;
-  }
-*/
   preload() {
     // Preload assets if needed
   }
@@ -122,11 +106,9 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     );
    // this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
-    // Additional setup specific to this scene
   }
 
   update(time, delta) {
-    // Update method code here
   }
 }
 
