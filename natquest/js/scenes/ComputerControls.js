@@ -54,6 +54,7 @@ update(time, delta) {
         velocityX = -this.speed;
     } else if (this.cursors.right.isDown) {
         velocityX = this.speed;
+      console.log('Right key pressed');
     }
 
     // Normalize velocity to prevent faster movement diagonally
