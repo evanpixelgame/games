@@ -42,8 +42,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
    
-   
-  // this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+  
 
    
  //this.controls = this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
@@ -93,6 +92,8 @@ console.log('Player GameObject:', this.player.gameObject);
   //  console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
 this.controls = null;
    this.controls = this.scene.get('ComputerControls');
+    
+   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 // Set world bounds for the player
 const boundaryOffset = 2; // Adjust this value as needed
 const worldBounds = new Phaser.Geom.Rectangle(
