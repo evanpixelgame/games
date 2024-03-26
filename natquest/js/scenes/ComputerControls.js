@@ -21,9 +21,9 @@ class ComputerControls extends Phaser.Scene {
 
   create() {
 
-        this.openWorldScene = this.scene.get('OpenWorld');
-        this.player = this.openWorldScene.player;
-        this.speed = this.openWorldScene.speed;
+   //     this.openWorldScene = this.scene.get('OpenWorld');
+     //   this.player = this.openWorldScene.player;
+       // this.speed = this.openWorldScene.speed;
 
     
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
