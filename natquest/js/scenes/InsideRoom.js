@@ -8,10 +8,23 @@ export default class InsideRoom extends Phaser.Scene {
 
   init(data) {
     // Check if the necessary data is provided
-    if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
-        console.error("Missing required data for InsideRoom scene initialization.");
-        return;
+   // Check if the necessary data is provided
+if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
+    let missingData = [];
+    if (!data) {
+        missingData.push("data");
+    } else {
+        if (!data.player) missingData.push("player");
+        if (!data.speed) missingData.push("speed");
+        if (!data.camera) missingData.push("camera");
+        if (!data.controls) missingData.push("controls");
+        if (!data.engine) missingData.push("engine");
+        if (!data.world) missingData.push("world");
     }
+    console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
+    return;
+}
+
 
     // Initialize properties
     this.player = data.player;
@@ -30,6 +43,24 @@ export default class InsideRoom extends Phaser.Scene {
         engine: this.engine,
         world: this.world
     });
+
+    // Check if the necessary data is provided
+if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
+    let missingData = [];
+    if (!data) {
+        missingData.push("data");
+    } else {
+        if (!data.player) missingData.push("player");
+        if (!data.speed) missingData.push("speed");
+        if (!data.camera) missingData.push("camera");
+        if (!data.controls) missingData.push("controls");
+        if (!data.engine) missingData.push("engine");
+        if (!data.world) missingData.push("world");
+    }
+    console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
+    return;
+}
+
 }
 
   /*
