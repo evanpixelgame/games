@@ -13,7 +13,8 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         this.body = this.body;
         this.gameObject = this;
        // this.layer = layer;
-         this.setVelocity = this.setVelocity.bind(this); // Bind setVelocity to this instance
+         //this.setVelocity = this.setVelocity.bind(this); // Bind setVelocity to this instance
+        this.player.setVelocity(this.player.body, velocityX, velocityY);
     }
     
     init() {
