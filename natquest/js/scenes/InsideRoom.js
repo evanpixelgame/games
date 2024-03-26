@@ -84,7 +84,7 @@ export default class InsideRoom extends Phaser.Scene {
         map.widthInPixels - 2 * boundaryOffset,
         map.heightInPixels - 2 * boundaryOffset
     );
-    this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+   // this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
     // Additional setup specific to this scene
   }
