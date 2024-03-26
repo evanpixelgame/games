@@ -130,19 +130,17 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
    console.log('youve hit the farming pen');
     
 }
-               if (otherBody.id == 24) {
+            
+             
+             ?*if (otherBody.id == 24) {
    console.log('youve hit the sensor by the door');
-            this.scene.start('InsideRoom', {
-    mapKey: 'insidemap',
-    player: this.player,
-    speed: this.speed,
-    camera: this.cameras.main,
-    controls: this.controls,
-   // map: this.map,
-  //  collisionObjects: this.collisionObjects,
-    //transitionSensors: this.transitionSensors,
-    engine: this.engine,
-    world: this.world
+  this.scene.launch('InsideRoom', {
+  player: this.player,
+  speed: this.speed,
+  camera: this.cameras.main,
+  controls: this.controls, // Passing the controls object here
+  engine: this.matter.world,
+  world: this.engine.world,
 });
 
 }
