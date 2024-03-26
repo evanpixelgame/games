@@ -1,6 +1,4 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import ComputerControls from './ComputerControls.js'; // Adjust the path if needed
-
 
 export default class InsideRoom extends Phaser.Scene {
   constructor() {
@@ -43,8 +41,8 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         player: this.player,
         speed: this.speed,
         camera: this.camera,
-       controls: this.controls,
-        engine: this.engine,
+       //controls: this.controls,
+      //  engine: this.engine,
        world: this.world
     });
 
@@ -72,7 +70,6 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
   }
 
   create() {
-
     // Create the new map using the loaded tilemap
     const map = this.make.tilemap({ key: this.mapKey });
 
@@ -98,19 +95,14 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.player = new PlayerSprite(this, 495, 325, 'player');
     
     this.player.setScale(1); 
-
-    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
-      this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
-    //  this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
     
-  //  this.player.setVelocityX(0); // Set initial X velocity to 0
-  //  this.player.setVelocityY(0); // Set initial Y velocity to 0
+    this.player.setVelocityX(0); // Set initial X velocity to 0
+    this.player.setVelocityY(0); // Set initial Y velocity to 0
     
- //   this.controls = null;
- //  this.controls = this.scene.get('ComputerControls');
+    this.controls = null;
+   this.controls = this.scene.get('ComputerControls');
     
- //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
     
     // Set world bounds for the player
@@ -123,14 +115,6 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     );
    // this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
-       console.log("InsideRoom end of create func status with:", {
-        player: this.player,
-        speed: this.speed,
-        camera: this.camera,
-       controls: this.controls,
-        engine: this.engine,
-       world: this.world
-    });
   }
 
   update(time, delta) {
