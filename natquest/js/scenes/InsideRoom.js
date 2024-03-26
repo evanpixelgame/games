@@ -32,12 +32,11 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
     // Initialize properties
     this.player = data.player;
-    this.speed = data.speed;
+    this.speed = 2;
     this.camera = data.camera;
     this.controls = data.controls;
     this.engine = data.engine;
     this.world = data.world;
-     this.velocity = data.velocity || { velocityX: 0, velocityY: 0 }; // Set defaults if not provided
 
     // Debugging: Log initialized properties
     console.log("InsideRoom initialized with:", {
@@ -101,10 +100,10 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     
     this.player.setScale(1); 
 
-  //  this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
- //     this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
-  //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
-//this.speed = 2;
+    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
+      this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
+this.speed = 2;
     
     // Set world bounds for the player
     const boundaryOffset = 2;
@@ -122,8 +121,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         camera: this.camera,
        controls: this.controls,
         engine: this.engine,
-       world: this.world,
-         velocity: this.velocity,
+       world: this.world
     });
   }
 
