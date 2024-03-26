@@ -24,6 +24,11 @@ export default class ComputerControls extends Phaser.Scene  {
 
   create() {
 
+    this.player.setVelocity(this.velocity.velocityX, this.velocity.velocityY);
+  //  this.plater.speed = this.speed; //my own attempt?
+
+
+    
    //     this.openWorldScene = this.scene.get('OpenWorld');
      //   this.player = this.openWorldScene.player;
        // this.speed = this.openWorldScene.speed;
