@@ -143,7 +143,8 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
   camera: this.cameras.main,
   controls: this.controls, // Passing the controls object here
   engine: this.matter.world,
-  world: this.engine.world,
+ // world: this.engine.world,
+   world: this.world,
 });
 
 }
