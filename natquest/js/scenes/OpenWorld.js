@@ -145,7 +145,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 }
             
              
-             if (otherBody.id == 26) {
+             if (otherBody.id == 25) {
    console.log('youve hit the sensor by the door');
   this.scene.start('InsideRoom', {
   player: this.player,
