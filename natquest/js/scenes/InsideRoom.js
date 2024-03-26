@@ -12,12 +12,12 @@ export default class InsideRoom extends Phaser.Scene {
 
          // Load tileset
     const tilesetsData = [
-        { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
+      //  { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
         { name: 'tilesheetInterior', key: 'tilesheetInterior' },
-        { name: 'tilesheetBuildings', key: 'tilesheetBuildings' },
+     //   { name: 'tilesheetBuildings', key: 'tilesheetBuildings' },
         { name: 'tilesheetWalls', key: 'tilesheetWalls' },
         { name: 'tilesheetObjects', key: 'tilesheetObjects' },
-        { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
+      //  { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
     ];
 
     const tilesets = [];
