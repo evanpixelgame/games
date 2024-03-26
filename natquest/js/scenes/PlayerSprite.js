@@ -15,10 +15,6 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         this.layer = layer;
     }
     
-    getBodyWorld() {
-        return this.body ? this.body.world : null;
-    }
-
     init() {
         // Set up the player's physics body
         const playerWidth = this.width;
@@ -41,11 +37,8 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         
             console.log(this.body);
             console.log(this.world);
-            console.log('Player Body World:', this.body.world);
-         this.once('body-created', () => {
-        // Now the body is fully initialized, you can safely access its properties
-        console.log('Player Body World:', this.body.world);
-    });
+            console.log('Player Body Worldfromplaysprite:', this.body.world);
+       
  
     }
 }
