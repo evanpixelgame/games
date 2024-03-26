@@ -123,6 +123,12 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
+              if (otherBody.id == 19) {
+   console.log('youve hit the farming pen');
+}
+               if (otherBody.id == 24) {
+   console.log('youve hit the sensor by the door');
+}
             }
         });
     });
