@@ -120,9 +120,19 @@ TransitionSensorHandler(player, transitionSensors) {
         eventData.pairs.forEach(pair => {
             const { bodyA, bodyB } = pair;
 
+            // Log information about colliding bodies for debugging
+            console.log('Body A:', bodyA);
+            console.log('Body B:', bodyB);
+            console.log('Object A:', bodyA.gameObject);
+            console.log('Object B:', bodyB.gameObject);
+
             // Check if either bodyA or bodyB has the customId property set to 'transitionSensor'
             const isTransitionSensorA = bodyA.gameObject && bodyA.gameObject.customId === 'transitionSensor';
             const isTransitionSensorB = bodyB.gameObject && bodyB.gameObject.customId === 'transitionSensor';
+
+            // Log whether objects are transition sensors for debugging
+            console.log('Is Transition Sensor A:', isTransitionSensorA);
+            console.log('Is Transition Sensor B:', isTransitionSensorB);
 
             // Check if player collides with a transition sensor
             if ((bodyA === player.body && isTransitionSensorB) || (bodyB === player.body && isTransitionSensorA)) {
@@ -131,6 +141,7 @@ TransitionSensorHandler(player, transitionSensors) {
         });
     });
 }
+
 
 
         
