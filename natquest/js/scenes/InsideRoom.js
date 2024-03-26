@@ -75,6 +75,9 @@ export default class InsideRoom extends Phaser.Scene {
     // Initialize player sprite
     this.player = new PlayerSprite(this, 495, 325, 'player');
 
+    this.player.setVelocityX(0); // Set initial X velocity to 0
+    this.player.setVelocityY(0); // Set initial Y velocity to 0
+
     // Set world bounds for the player
     // Adjust boundaryOffset and other settings as needed
     const boundaryOffset = 2;
