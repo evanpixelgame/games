@@ -65,7 +65,7 @@ class WelcomePlayer extends Phaser.Scene {
     if (orientation.includes('landscape')) {
         // Execute event handler code only in landscape mode
         console.log('Click event in landscape mode2');
-      this.scene.start('OpenWorld');
+      this.scene.start('InsideRoom');
     } else {
         // Ignore the click event in portrait mode
         console.log('Ignoring click event in portrait mode2');
