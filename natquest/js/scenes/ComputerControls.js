@@ -42,6 +42,8 @@ export class ComputerControls extends Phaser.Scene {
             velocityX = this.speed;
         }
 
+
+        //sdfgsdfgsfdgsd
         // Set velocity of the player's physics body
         if (this.player && this.player.body) {
             this.player.body.setVelocity(velocityX, velocityY);
