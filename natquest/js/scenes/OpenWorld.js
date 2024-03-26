@@ -41,9 +41,8 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
-   this.controls = null;
-   this.controls = this.scene.get('ComputerControls');
-    
+ //  this.controls = null;
+   this.controls = this.scene.get('ComputerControls'); 
    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
   
 
