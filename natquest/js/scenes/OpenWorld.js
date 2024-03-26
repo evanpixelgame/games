@@ -86,7 +86,7 @@ console.log('Player GameObject:', this.player.gameObject);
 
     // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
-    const worldBounds = new Phaser.Geom.Rectangle(
+ /*   const worldBounds = new Phaser.Geom.Rectangle(
         boundaryOffset,
         boundaryOffset,
         map.widthInPixels - 2 * boundaryOffset,
@@ -95,7 +95,8 @@ console.log('Player GameObject:', this.player.gameObject);
 
     this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
-
+*/
+          
            console.log(this.world);
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
