@@ -125,6 +125,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
                 console.log('Collision detected with object ID:', otherBody.id);
               if (otherBody.id == 19) {
    console.log('youve hit the farming pen');
+                this.scene.start('WelcomePlayer');
 }
                if (otherBody.id == 24) {
    console.log('youve hit the sensor by the door');
