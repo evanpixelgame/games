@@ -1,5 +1,5 @@
 // InsideRoom.js
-export default class InsideRoom extends Phaser.Scene {
+export default class InsideRoom extends Phaser.Physics.Matter.Matter.Scene {
     constructor() {
         super({ key: 'InsideRoom' });
     }
