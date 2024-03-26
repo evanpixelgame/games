@@ -68,36 +68,34 @@ export function createTransitionSensors(scene, map) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
-        // Log the properties of each object for debugging
-        console.log(object);
+        const centerX = object.x + object.width / 2;
+        const centerY = object.y + object.height / 2;
 
-        // Check if the object has the customId property set to 'transitionSensor'
-        if (object.properties && object.properties.customId === 'transitionSensor') {
-            const centerX = object.x + object.width / 2;
-            const centerY = object.y + object.height / 2;
+        // Check if the object has properties
+        if (object.properties) {
+            // Check each property for the customID property
+            object.properties.forEach(property => {
+                // Check if the property is "customID" and its value is "transitionSensor"
+                if (property.name === "customID" && property.value === "transitionSensor") {
+                    // Create the rectangle sensor body
+                    const sensor = scene.matter.add.rectangle(centerX, centerY, object.width, object.height, {
+                        isSensor: true,
+                        render: {
+                            fillStyle: 'transparent',
+                            strokeStyle: 'red'
+                        }
+                    });
 
-            // Calculate sensor dimensions
-            const width = object.width;
-            const height = object.height;
-
-            // Create the rectangle sensor body
-            const sensor = scene.matter.add.rectangle(centerX, centerY, width, height, {
-                isSensor: true, // Set to true to make it a sensor
-                render: {
-                    fillStyle: 'transparent', // Optional: make the sensor invisible
-                    strokeStyle: 'red' // Optional: set a stroke color for debugging
+                    // Push the sensor to the transitionSensors array
+                    transitionSensors.push(sensor);
                 }
             });
-
-            // Push the sensor to the transitionSensors array
-            transitionSensors.push(sensor);
         }
     });
 
-    // Log all transition sensors
-    console.log(transitionSensors);
     return transitionSensors;
 }
+
 
 
 
