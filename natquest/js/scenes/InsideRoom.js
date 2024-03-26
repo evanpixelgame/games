@@ -32,7 +32,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
     // Initialize properties
     this.player = data.player;
-    this.speed = data.speed;
+    this.speed = 2;
     this.camera = data.camera;
     this.controls = data.controls;
     this.engine = data.engine;
@@ -74,7 +74,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
   create() {
 
     // Create the new map using the loaded tilemap
-    const map = this.make.tilemap({ key: this.mapKey });
+    const map = this.make.tilemap({ key: insidemap });
 
     // Load tileset
     const tilesetsData = [
