@@ -12,7 +12,9 @@ export default class ComputerControls extends Phaser.Scene  {
     // Retrieve player reference and speed from the data object
     this.player = data.player;
     this.speed = data.speed;
+  this.velocity = data.velocity || { velocityX: 0, velocityY: 0 }; // Set defaults if not provided
   console.log("Received player in ComputerControls:", this.player); // Log player reference
+      console.log('LOGGING VELOCITY FROM CC' + this.velocity);
   }
 
   
