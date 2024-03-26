@@ -140,10 +140,6 @@ TransitionSensorHandler(player, transitionSensors) {
     });
 }
 
-}
-
-
-
         
   update(time, delta) {
     // Update method code here
