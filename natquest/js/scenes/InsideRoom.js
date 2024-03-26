@@ -1,4 +1,6 @@
 import { PlayerSprite } from './PlayerSprite.js';
+import ComputerControls from './ComputerControls.js'; // Adjust the path if needed
+
 
 export default class InsideRoom extends Phaser.Scene {
   constructor() {
