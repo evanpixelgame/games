@@ -70,6 +70,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
   }
 
   create() {
+    this.scene.add('ComputerControls', ComputerControls);
     // Create the new map using the loaded tilemap
     const map = this.make.tilemap({ key: this.mapKey });
 
