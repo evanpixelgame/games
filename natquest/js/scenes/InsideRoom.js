@@ -5,6 +5,34 @@ export default class InsideRoom extends Phaser.Scene {
     super({ key: 'InsideRoom' });
   }
 
+
+  init(data) {
+    // Check if the necessary data is provided
+    if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
+        console.error("Missing required data for InsideRoom scene initialization.");
+        return;
+    }
+
+    // Initialize properties
+    this.player = data.player;
+    this.speed = data.speed;
+    this.camera = data.camera;
+    this.controls = data.controls;
+    this.engine = data.engine;
+    this.world = data.world;
+
+    // Debugging: Log initialized properties
+    console.log("InsideRoom initialized with:", {
+        player: this.player,
+        speed: this.speed,
+        camera: this.camera,
+        controls: this.controls,
+        engine: this.engine,
+        world: this.world
+    });
+}
+
+  /*
   init(data) {
     this.mapKey = data.mapKey;
     this.player = data.player;
@@ -17,7 +45,7 @@ export default class InsideRoom extends Phaser.Scene {
     this.engine = data.engine;
     this.world = data.world;
   }
-
+*/
   preload() {
     // Preload assets if needed
   }
