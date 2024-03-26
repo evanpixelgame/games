@@ -45,7 +45,7 @@ export default class InsideRoom extends Phaser.Scene {
     }
 
     // Initialize player sprite
-    this.player = new PlayerSprite(this, /* specify player position */ 'player');
+    this.player = new PlayerSprite(this, /* specify player position */, 'player');
 
     // Set world bounds for the player
     // Adjust boundaryOffset and other settings as needed
@@ -62,12 +62,6 @@ export default class InsideRoom extends Phaser.Scene {
   }
 
   update(time, delta) {
-    if (this.player) {
-        // Set the velocity of the player sprite if it exists
-        this.player.setVelocity(velocityX, velocityY);
-    } else {
-        console.error("Player sprite is not defined.");
-    }
-}
-
+    // Update method code here
+  }
 }
