@@ -16,7 +16,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     if (!data) {
         missingData.push("data");
     } else {
-        if (!data.) missingData.push("");
+        if (!data.player) missingData.push("player");
         if (!data.speed) missingData.push("speed");
         if (!data.camera) missingData.push("camera");
         if (!data.controls) missingData.push("controls");
