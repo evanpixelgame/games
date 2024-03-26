@@ -16,7 +16,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     if (!data) {
         missingData.push("data");
     } else {
-        if (!data.player) missingData.push("player");
+        if (!data.) missingData.push("");
         if (!data.speed) missingData.push("speed");
         if (!data.camera) missingData.push("camera");
         if (!data.controls) missingData.push("controls");
@@ -93,12 +93,19 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
     // Initialize player sprite
     this.player = new PlayerSprite(this, 495, 325, 'player');
-
+    
+    this.player.setScale(1); 
+    
     this.player.setVelocityX(0); // Set initial X velocity to 0
     this.player.setVelocityY(0); // Set initial Y velocity to 0
+    
+    this.controls = null;
+   this.controls = this.scene.get('ComputerControls');
+    
+   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
+    
     // Set world bounds for the player
-    // Adjust boundaryOffset and other settings as needed
     const boundaryOffset = 2;
     const worldBounds = new Phaser.Geom.Rectangle(
         boundaryOffset,
