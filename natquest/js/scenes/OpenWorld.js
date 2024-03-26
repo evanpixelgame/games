@@ -21,8 +21,6 @@ export default class OpenWorld extends Phaser.Scene {
 
   init(data) {
         this.openWorldScene = data.OpenWorld;
-        this.controls = this.scene.get('ComputerControls');
-      this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
   }
       
   preload() {
@@ -54,7 +52,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
 }); */
     this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
     this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
-
+this.controls = null; this.controls = this.scene.get('ComputerControls');
     // Load map
     const map = this.make.tilemap({ key: 'map' });
 
