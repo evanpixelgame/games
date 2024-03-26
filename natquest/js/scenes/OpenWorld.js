@@ -31,7 +31,7 @@ export default class OpenWorld extends Phaser.Scene {
   create() {
     // Create Matter.js engine
     this.matterEngine = Phaser.Physics.Matter.Matter.World;
-    this.engine = Matter.Engine.create();
+    this.engine = this.Matter.Engine.create();
     this.world = this.engine.world;
 
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
@@ -84,18 +84,16 @@ console.log('Player GameObject:', this.player.gameObject);
 
  //   console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
 
-    // Set world bounds for the player
-    const boundaryOffset = 2; // Adjust this value as needed
- /*   const worldBounds = new Phaser.Geom.Rectangle(
-        boundaryOffset,
-        boundaryOffset,
-        map.widthInPixels - 2 * boundaryOffset,
-        map.heightInPixels - 2 * boundaryOffset
-    );
+// Set world bounds for the player
+const boundaryOffset = 2; // Adjust this value as needed
+const worldBounds = new Phaser.Geom.Rectangle(
+    boundaryOffset,
+    boundaryOffset,
+    map.widthInPixels - 2 * boundaryOffset,
+    map.heightInPixels - 2 * boundaryOffset
+);
 
-    this.matterEngine.setBounds(0, 0, worldBounds.width, worldBounds.height);
-
-*/
+this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
           
            console.log(this.world);
     // Create collision objects
