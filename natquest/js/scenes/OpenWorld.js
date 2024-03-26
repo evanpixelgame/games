@@ -119,27 +119,27 @@ TransitionSensorHandler(player, transitionSensors) {
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
         eventData.pairs.forEach(pair => {
             const { bodyA, bodyB } = pair;
+            let isTransitionSensorA = false;
+            let isTransitionSensorB = false;
 
-            // Log information about colliding bodies for debugging
-            console.log('Body A:', bodyA);
-            console.log('Body B:', bodyB);
-            console.log('Object A:', bodyA.gameObject);
-            console.log('Object B:', bodyB.gameObject);
+            // Check if bodyA is a transition sensor with the customID "transitionSensor"
+            if (bodyA.gameObject && bodyA.gameObject.customID === "transitionSensor") {
+                isTransitionSensorA = true;
+            }
 
-            // Check if either bodyA or bodyB has the customId property set to 'transitionSensor'
-            const isTransitionSensorA = bodyA.gameObject && bodyA.gameObject.customId === 'transitionSensor';
-            const isTransitionSensorB = bodyB.gameObject && bodyB.gameObject.customId === 'transitionSensor';
+            // Check if bodyB is a transition sensor with the customID "transitionSensor"
+            if (bodyB.gameObject && bodyB.gameObject.customID === "transitionSensor") {
+                isTransitionSensorB = true;
+            }
 
-            // Log whether objects are transition sensors for debugging
-            console.log('Is Transition Sensor A:', isTransitionSensorA);
-            console.log('Is Transition Sensor B:', isTransitionSensorB);
-
-            // Check if player collides with a transition sensor
-            if ((bodyA === player.body && isTransitionSensorB) || (bodyB === player.body && isTransitionSensorA)) {
-                console.log('Sensor collision detected!'); // Perform scene transition or other actions here
+            // Log if either bodyA or bodyB is a transition sensor
+            if (isTransitionSensorA || isTransitionSensorB) {
+                console.log('Collision detected with a transition sensor.');
             }
         });
     });
+}
+
 }
 
 
