@@ -43,7 +43,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
     }
  //  this.controls = null;
  //  this.controls = this.scene.get('ComputerControls'); 
-   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+ 
   
 
    
@@ -82,6 +82,8 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
   // Listen for the 'created' event on the player sprite
             const playerBodyWorld = this.player.body ? this.player.body.world : null;
         console.log('Player Body World123:', playerBodyWorld);
+
+     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
           
       
     console.log(this.player.body);
