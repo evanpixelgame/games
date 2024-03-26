@@ -31,6 +31,7 @@ export default class OpenWorld extends Phaser.Scene {
   
   create() {
     // Create Matter.js engine
+      // Create Matter.js engine
     this.matterEngine = Phaser.Physics.Matter.Matter.World;
     this.engine = this.matter.world;
     this.world = this.engine.world;
@@ -38,9 +39,10 @@ export default class OpenWorld extends Phaser.Scene {
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
+    // Capture reference to controls when launching ComputerControls scene
+    const computerControlsScene = this.scene.get('ComputerControls');
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
-    this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
-    this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
+    this.controls = computerControlsScene.controls; // Capture controls reference
 
     // Load map
     const map = this.make.tilemap({ key: 'map' });
