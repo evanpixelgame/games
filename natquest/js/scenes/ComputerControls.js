@@ -85,6 +85,8 @@ update(time, delta) {
    this.player.setRotation(0);
  console.log("Scene in ComputerControls:", this.scene);
   console.log("deltaTime in ComputerControls:", delta); // Log deltaTime value
+  console.log("Player in ComputerControls (update):", this.player);
+
 
 }
 }
