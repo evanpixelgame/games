@@ -147,7 +147,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
              
              if (otherBody.id == 25) {
    console.log('youve hit the sensor by the door');
-         //      this.scene.remove('ComputerControls');
+               this.scene.remove('ComputerControls');
   this.scene.start('InsideRoom', {
   player: this.player,
   speed: this.speed,
@@ -156,10 +156,6 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
   engine: this.matter.world,
  // world: this.engine.world,
    world: this.world,
-     velocity: { // New property
-    velocityX: this.player.body.velocity.x, // Get current velocity from player body
-    velocityY: this.player.body.velocity.y,
-  },
 });
 
 }
