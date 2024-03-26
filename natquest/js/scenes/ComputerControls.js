@@ -41,6 +41,10 @@ class ComputerControls extends Phaser.Scene {
   }
 
 update(time, delta) {
+
+      if (!this.player) {
+        return;
+    }
     let velocityX = 0;
     let velocityY = 0;
 
