@@ -156,6 +156,10 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
   engine: this.matter.world,
  // world: this.engine.world,
    world: this.world,
+     velocity: { // New property
+    velocityX: this.player.body.velocity.x, // Get current velocity from player body
+    velocityY: this.player.body.velocity.y,
+  },
 });
 
 }
