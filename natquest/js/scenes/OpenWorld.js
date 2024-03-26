@@ -128,11 +128,17 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 }
                if (otherBody.id == 24) {
    console.log('youve hit the sensor by the door');
-                 this.scene.start('InsideRoom', {
+            this.scene.start('InsideRoom', {
     mapKey: 'insidemap',
     player: this.player,
     speed: this.speed,
-    camera: this.cameras.main
+    camera: this.cameras.main,
+    controls: this.controls,
+   // map: this.map,
+  //  collisionObjects: this.collisionObjects,
+    //transitionSensors: this.transitionSensors,
+    engine: this.engine,
+    world: this.world
 });
 
 }
