@@ -1,7 +1,8 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { createCollisionObjects, createTransitionSensors, 
+import { createCollisionObjects, 
+       // createTransitionSensors, 
         //TransitionSensorHandler,
-        handleBarrierCollision } from './collisionHandler.js';
+     //   handleBarrierCollision } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
