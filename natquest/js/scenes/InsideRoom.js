@@ -3,6 +3,8 @@ import { PlayerSprite } from './PlayerSprite.js';
 export default class InsideRoom extends Phaser.Scene {
   constructor() {
     super({ key: 'InsideRoom' });
+    this.controls = null;
+    this.world = null;
   }
 
 
