@@ -1,5 +1,5 @@
 
-export class ComputerControls extends Phaser.Scene {
+class ComputerControls extends Phaser.Scene {
   constructor() {
     super({ key: 'ComputerControls' });
 
@@ -20,13 +20,11 @@ export class ComputerControls extends Phaser.Scene {
   }
 
   create() {
-    
 
         this.openWorldScene = this.scene.get('OpenWorld');
         this.player = this.openWorldScene.player;
         this.speed = this.openWorldScene.speed;
-    console.log('Player:', this.player);
-    console.log('Speed:', this.speed);
+
     
     // COMPUTER/TV SCREEN SPECIFIC LOGIC 
 
@@ -56,7 +54,6 @@ update(time, delta) {
         velocityX = -this.speed;
     } else if (this.cursors.right.isDown) {
         velocityX = this.speed;
-      console.log('Right key pressed');
     }
 
     // Normalize velocity to prevent faster movement diagonally
@@ -68,7 +65,7 @@ update(time, delta) {
 
     // Set the velocity of the player sprite
     this.player.setVelocity(velocityX, velocityY);
-this.events.emit('velocityChanged', { velocityX, velocityY });
+
     // Play appropriate animation based on movement direction
     if (velocityX !== 0 || velocityY !== 0) {
         if (velocityX > 0) {
