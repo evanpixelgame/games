@@ -66,7 +66,7 @@ update(time, delta) {
 
     // Set the velocity of the player sprite
    this.player.setVelocity(velocityX, velocityY);
-    this.player.body.setVelocity(velocityX, velocityY);
+   // this.player.body.setVelocity(velocityX, velocityY);
   
 
     // Play appropriate animation based on movement direction
