@@ -12,9 +12,7 @@ export default class ComputerControls extends Phaser.Scene  {
     // Retrieve player reference and speed from the data object
     this.player = data.player;
     this.speed = data.speed;
-  this.velocity = data.velocity || { velocityX: 0, velocityY: 0 }; // Set defaults if not provided
   console.log("Received player in ComputerControls:", this.player); // Log player reference
-      console.log('LOGGING VELOCITY FROM CC' + this.velocity);
   }
 
   
@@ -24,11 +22,6 @@ export default class ComputerControls extends Phaser.Scene  {
 
   create() {
 
-    this.player.setVelocity(this.velocity.velocityX, this.velocity.velocityY);
-  //  this.plater.speed = this.speed; //my own attempt?
-
-
-    
    //     this.openWorldScene = this.scene.get('OpenWorld');
      //   this.player = this.openWorldScene.player;
        // this.speed = this.openWorldScene.speed;
