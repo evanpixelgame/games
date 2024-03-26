@@ -83,6 +83,9 @@ update(time, delta) {
         this.player.anims.stop();
     }
    this.player.setRotation(0);
+
+  console.log("deltaTime in ComputerControls:", delta); // Log deltaTime value
+
 }
 }
 window.ComputerControls = ComputerControls;
