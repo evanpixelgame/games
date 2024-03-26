@@ -111,13 +111,33 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 
   }
 
+
+ TransitionSensorHandler(player, transitionSensors) {
+    // Listen for collisionstart event on the world property of the scene where the player is created
+    this.player.scene.matter.world.on('collisionstart', (eventData) => {
+        // Loop through pairs of colliding bodies
+        eventData.pairs.forEach(pair => {
+            // Check if the player is one of the bodies involved in the collision
+            if (pair.bodyA === player.body || pair.bodyB === player.body) {
+                // Get the ID of the other body (the one the player collided with)
+                const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
+                // Log the ID of the other object
+                console.log('Collision detected with object ID:', otherBody.id);
+            }
+        });
+    });
+}
+
+
+ 
+/*
 TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
         console.log('Collision detected!');   
     });
 }
-
+*/
 
         
   update(time, delta) {
