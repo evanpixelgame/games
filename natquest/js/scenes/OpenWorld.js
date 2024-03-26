@@ -31,7 +31,7 @@ export default class OpenWorld extends Phaser.Scene {
   create() {
     // Create Matter.js engine
     this.matterEngine = Phaser.Physics.Matter.Matter.World;
-    this.engine = this.matter.engine.create();
+    this.engine = this.matter.world;
     this.world = this.engine.world;
 
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
