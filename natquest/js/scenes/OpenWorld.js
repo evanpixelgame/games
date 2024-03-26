@@ -24,6 +24,7 @@ export default class OpenWorld extends Phaser.Scene {
   init(data) {
         this.openWorldScene = data.OpenWorld;
         this.controls = this.scene.get('ComputerControls');
+     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
   }
       
   preload() {
@@ -89,14 +90,14 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
           
       
     console.log(this.player.body);
-    console.log('Player World:', this.player.body.world);
+    //console.log('Player World:', this.player.body.world);
     console.log('Player Body:', this.player.body);
 console.log('Player GameObject:', this.player.gameObject);
           console.log('Player Body GameObject:', this.player.body.gameObject);
              console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
 
   //  console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
-   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+ 
 // Set world bounds for the player
 const boundaryOffset = 2; // Adjust this value as needed
 const worldBounds = new Phaser.Geom.Rectangle(
