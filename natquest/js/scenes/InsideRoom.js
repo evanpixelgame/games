@@ -32,8 +32,8 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.player = data.player;
     this.speed = data.speed;
     this.camera = data.camera;
-   // this.controls = data.controls;
-   // this.engine = data.engine;
+    this.controls = data.controls;
+    this.engine = data.engine;
     this.world = data.world;
 
     // Debugging: Log initialized properties
