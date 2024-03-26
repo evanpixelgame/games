@@ -68,33 +68,37 @@ export function createTransitionSensors(scene, map) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
-        const centerX = object.x + object.width / 2;
-        const centerY = object.y + object.height / 2;
+        // Log the properties of each object for debugging
+        console.log(object);
 
-        // Calculate sensor dimensions
-        const width = object.width;
-        const height = object.height;
+        // Check if the object has the customId property set to 'transitionSensor'
+        if (object.properties && object.properties.customId === 'transitionSensor') {
+            const centerX = object.x + object.width / 2;
+            const centerY = object.y + object.height / 2;
 
-        // Create the rectangle sensor body
-        const sensor = scene.matter.add.rectangle(centerX, centerY, width, height, {
-            isSensor: true, // Set to true to make it a sensor
-            render: {
-                fillStyle: 'transparent', // Optional: make the sensor invisible
-                strokeStyle: 'red' // Optional: set a stroke color for debugging
-            }
-        });
+            // Calculate sensor dimensions
+            const width = object.width;
+            const height = object.height;
 
-        // Push the sensor to the transitionSensors array
-        transitionSensors.push(sensor);
+            // Create the rectangle sensor body
+            const sensor = scene.matter.add.rectangle(centerX, centerY, width, height, {
+                isSensor: true, // Set to true to make it a sensor
+                render: {
+                    fillStyle: 'transparent', // Optional: make the sensor invisible
+                    strokeStyle: 'red' // Optional: set a stroke color for debugging
+                }
+            });
 
-        // Log sensor properties
-        console.log(sensor);
+            // Push the sensor to the transitionSensors array
+            transitionSensors.push(sensor);
+        }
     });
 
     // Log all transition sensors
     console.log(transitionSensors);
     return transitionSensors;
 }
+
 
 
 /*
