@@ -94,7 +94,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     for (let i = 0; i < map.layers.length; i++) {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
-
+    this.speed = 2;
     // Initialize player sprite
     this.player = new PlayerSprite(this, 495, 325, 'player');
     
@@ -103,7 +103,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
       this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
-this.speed = 2;
+
     
     // Set world bounds for the player
     const boundaryOffset = 2;
@@ -114,6 +114,9 @@ this.speed = 2;
         map.heightInPixels - 2 * boundaryOffset
     );
    // this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+
+    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 
        console.log("InsideRoom end of create func status with:", {
         player: this.player,
