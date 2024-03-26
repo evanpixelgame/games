@@ -42,3 +42,4 @@ export default class InsideRoom extends Phaser.Scene {
         // Update method code here
     }
 }
+window.InsideRoom = InsideRoom;
