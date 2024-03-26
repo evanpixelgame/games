@@ -17,6 +17,8 @@ export default class OpenWorld extends Phaser.Scene {
     this.transitionSensors = null; // Add transitionSensors property
     this.engine = null;
    this.world = null;
+   this.initialVelocityX = null; //delete these two if this doesnt work
+   this.initialVelocityY = null;
   }
 
   init(data) {
@@ -78,7 +80,9 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object, just took away this.world as 2nd argument
+
+   const player = new PlayerSprite(this, 495, 325, 'player', initialVelocityX, initialVelocityY);
+  //  this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object, just took away this.world as 2nd argument
   // Listen for the 'created' event on the player sprite
             const playerBodyWorld = this.player.body ? this.player.body.world : null;
         console.log('Player Body World123:', playerBodyWorld);
