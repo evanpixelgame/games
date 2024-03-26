@@ -125,6 +125,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 
    console.log('PLEASE PLEASE LOG' + this.world);
    console.log('PRETTY PLEASE' + this.controls);
+   console.log('PRETY PLZ LOG VELOCITY FROM OPENWORLD: ' + this.velocity);
 
   }
 
