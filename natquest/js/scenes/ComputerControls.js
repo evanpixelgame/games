@@ -66,6 +66,7 @@ update(time, delta) {
 
     // Set the velocity of the player sprite
     this.player.setVelocity(velocityX, velocityY);
+  
 
     // Play appropriate animation based on movement direction
     if (velocityX !== 0 || velocityY !== 0) {
@@ -83,11 +84,12 @@ update(time, delta) {
         this.player.anims.stop();
     }
    this.player.setRotation(0);
- console.log("Scene in ComputerControls:", this.scene);
-  console.log("deltaTime in ComputerControls:", delta); // Log deltaTime value
-  console.log("Player in ComputerControls (update):", this.player);
+// console.log("Scene in ComputerControls:", this.scene);
+//  console.log("deltaTime in ComputerControls:", delta); // Log deltaTime value
+//  console.log("Player in ComputerControls (update):", this.player);
 
-
+  console.log("velocityX in ComputerControls:", velocityX);
+  console.log("velocityY in ComputerControls:", velocityY)
 }
 }
 window.ComputerControls = ComputerControls;
