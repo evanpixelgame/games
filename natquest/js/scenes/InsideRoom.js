@@ -7,6 +7,7 @@ export default class InsideRoom extends Phaser.Scene {
 
 
   init(data) {
+      this.controls = data.controls || null;
     // Check if the necessary data is provided
    // Check if the necessary data is provided
 if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
