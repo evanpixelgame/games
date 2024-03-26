@@ -32,7 +32,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
     // Initialize properties
     this.player = data.player;
-    this.speed = 2;
+    this.speed = data.speed;
     this.camera = data.camera;
     this.controls = data.controls;
     this.engine = data.engine;
@@ -74,8 +74,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
   create() {
 
     // Create the new map using the loaded tilemap
-    const map = this.make.tilemap({ key: 'insidemap' });
-    
+    const map = this.make.tilemap({ key: this.mapKey });
 
     // Load tileset
     const tilesetsData = [
@@ -103,7 +102,16 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
       this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
-this.speed = 2;
+    //  this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
+    
+  //  this.player.setVelocityX(0); // Set initial X velocity to 0
+  //  this.player.setVelocityY(0); // Set initial Y velocity to 0
+    
+ //   this.controls = null;
+ //  this.controls = this.scene.get('ComputerControls');
+    
+ //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+
     
     // Set world bounds for the player
     const boundaryOffset = 2;
