@@ -45,7 +45,7 @@ export default class InsideRoom extends Phaser.Scene {
     }
 
     // Initialize player sprite
-    this.player = new PlayerSprite(this, /* specify player position */, 'player');
+    this.player = new PlayerSprite(this, 495, 325, 'player');
 
     // Set world bounds for the player
     // Adjust boundaryOffset and other settings as needed
