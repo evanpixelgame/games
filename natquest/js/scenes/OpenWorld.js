@@ -52,7 +52,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
 }); */
     this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
     this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
-this.controls = null; this.controls = this.scene.get('ComputerControls');
+
     // Load map
     const map = this.make.tilemap({ key: 'map' });
 
@@ -91,7 +91,8 @@ console.log('Player GameObject:', this.player.gameObject);
              console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
 
   //  console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
-
+this.controls = null;
+   this.controls = this.scene.get('ComputerControls');
 // Set world bounds for the player
 const boundaryOffset = 2; // Adjust this value as needed
 const worldBounds = new Phaser.Geom.Rectangle(
