@@ -82,7 +82,7 @@ const playerBodyWorld = this.player.getBodyWorld();
     console.log('Player Body:', this.player.body);
 console.log('Player GameObject:', this.player.gameObject);
 
- //   console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
+    console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
 
 // Set world bounds for the player
 const boundaryOffset = 2; // Adjust this value as needed
@@ -118,6 +118,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
+            console.log('shouldbedoingtransitionsensorthing');
         const { bodyA, bodyB } = eventData;
         
         // Check if player (bodyA) collides with a transition sensor (bodyB)
