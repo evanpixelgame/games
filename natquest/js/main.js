@@ -38,10 +38,11 @@ const config = {
    // Player,
     OpenWorld,
     MobileControls,
-    ComputerControls,
+   // ComputerControls,
     PlayerAnimations,
     CompUI,
     InsideRoom,
+    ComputerControls,
   ],
    interpolation: true,
 };
