@@ -114,8 +114,9 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
-        console.log('Collision detected!');    
-       if (bodyB.gameObject.id === 9) {
+        console.log('Collision detected!');   
+     const { bodyA, bodyB } = eventData;
+       if (bodyA.gameObject.id === 9 || bodyB.gameObject.id === 9) {
                     console.log('Object ID 9 collided!');
                 }
     });
