@@ -37,6 +37,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.controls = data.controls;
     this.engine = data.engine;
     this.world = data.world;
+     this.velocity = data.velocity || { velocityX: 0, velocityY: 0 }; // Set defaults if not provided
 
     // Debugging: Log initialized properties
     console.log("InsideRoom initialized with:", {
