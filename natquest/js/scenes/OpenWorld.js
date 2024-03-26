@@ -41,7 +41,10 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
-   
+   this.controls = null;
+   this.controls = this.scene.get('ComputerControls');
+    
+   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
   
 
    
@@ -90,10 +93,7 @@ console.log('Player GameObject:', this.player.gameObject);
              console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
 
   //  console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
-this.controls = null;
-   this.controls = this.scene.get('ComputerControls');
-    
-   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+
 // Set world bounds for the player
 const boundaryOffset = 2; // Adjust this value as needed
 const worldBounds = new Phaser.Geom.Rectangle(
