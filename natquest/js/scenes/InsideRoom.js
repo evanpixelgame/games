@@ -1,7 +1,6 @@
-// InsideRoom.js
 export default class InsideRoom extends Phaser.Scene {
-    constructor() {
-        super({ key: 'InsideRoom' });
+  constructor() {
+    super({ key: 'InsideRoom' });
     }
 
     preload() {
