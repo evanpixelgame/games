@@ -9,7 +9,7 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         scene.add.existing(this);
         
         // Set the world property to the scene's matter world
-        this.world = scene.matter.world;
+      //  this.world = scene.matter.world;
         this.body = this.body;
         this.gameObject = this;
        // this.layer = layer;
