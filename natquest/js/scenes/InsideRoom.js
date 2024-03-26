@@ -9,6 +9,13 @@ export default class InsideRoom extends Phaser.Scene {
     preload() {
     }
 
+  init(data) {
+    this.mapKey = data.mapKey;
+    this.player = data.player;
+    this.camera = data.camera;
+    this.speed = data.speed;
+}
+
     create() {
         // Create the new map using the loaded tilemap
         const map = this.make.tilemap({ key: 'insidemap' });
