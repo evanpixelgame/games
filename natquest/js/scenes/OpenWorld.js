@@ -114,6 +114,10 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
 
+
+          const playerBodyWorld = this.player.body ? this.player.body.world : null;
+        console.log('Player Body World123:', playerBodyWorld);
+
   }
 
   // Move TransitionSensorHandler inside the class
