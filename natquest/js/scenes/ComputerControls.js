@@ -1,58 +1,88 @@
-// Make sure you have the necessary imports for Matter.js
-import Phaser from 'phaser';
 
-export class ComputerControls extends Phaser.Scene {
-    constructor() {
-        super({ key: 'ComputerControls' });
+class ComputerControls extends Phaser.Scene {
+  constructor() {
+    super({ key: 'ComputerControls' });
 
-        this.player = null; // Initialize player reference
-        this.speed = 0; // Initialize speed
-    }
+    this.player = null; // Initialize player reference
+    this.speed = 0; // Initialize speed
+  }
+
 
     init(data) {
-        // Retrieve player reference and speed from the data object
-        this.player = data.player;
-        this.speed = data.speed;
-        console.log("Received player in ComputerControls:", this.player); // Log player reference
+    // Retrieve player reference and speed from the data object
+    this.player = data.player;
+    this.speed = data.speed;
+  console.log("Received player in ComputerControls:", this.player); // Log player reference
+  }
+
+  
+  preload() {
+
+  }
+
+  create() {
+
+   //     this.openWorldScene = this.scene.get('OpenWorld');
+     //   this.player = this.openWorldScene.player;
+       // this.speed = this.openWorldScene.speed;
+
+    
+    // COMPUTER/TV SCREEN SPECIFIC LOGIC 
+
+  // Create controls for arrow keys and WASD
+  this.cursors = this.input.keyboard.addKeys({
+    up: Phaser.Input.Keyboard.KeyCodes.W,
+    down: Phaser.Input.Keyboard.KeyCodes.S,
+    left: Phaser.Input.Keyboard.KeyCodes.A,
+    right: Phaser.Input.Keyboard.KeyCodes.D,
+  });
+
+
+  }
+
+update(time, delta) {
+    let velocityX = 0;
+    let velocityY = 0;
+
+    // Determine velocity based on key presses
+    if (this.cursors.up.isDown) {
+        velocityY = -this.speed;
+    } else if (this.cursors.down.isDown) {
+        velocityY = this.speed;
     }
 
-    preload() {
-        // Preload assets if needed
+    if (this.cursors.left.isDown) {
+        velocityX = -this.speed;
+    } else if (this.cursors.right.isDown) {
+        velocityX = this.speed;
     }
 
-    create() {
-        // Create keyboard controls
-        this.cursors = this.input.keyboard.createCursorKeys();
+    // Normalize velocity to prevent faster movement diagonally
+    if (velocityX !== 0 && velocityY !== 0) {
+        const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+        velocityX *= this.speed / magnitude;
+        velocityY *= this.speed / magnitude;
     }
 
-    update(time, delta) {
-        let velocityX = 0;
-        let velocityY = 0;
+    // Set the velocity of the player sprite
+    this.player.setVelocity(velocityX, velocityY);
 
-        // Determine velocity based on key presses
-        if (this.cursors.up.isDown) {
-            velocityY = -this.speed;
-        } else if (this.cursors.down.isDown) {
-            velocityY = this.speed;
+    // Play appropriate animation based on movement direction
+    if (velocityX !== 0 || velocityY !== 0) {
+        if (velocityX > 0) {
+            this.player.anims.play('walking-right', true);
+        } else if (velocityX < 0) {
+            this.player.anims.play('walking-left', true);
+        } else if (velocityY < 0) {
+            this.player.anims.play('walking-down', true);
+        } else if (velocityY > 0) {
+            this.player.anims.play('walking-up', true);
         }
-
-        if (this.cursors.left.isDown) {
-            velocityX = -this.speed;
-        } else if (this.cursors.right.isDown) {
-            velocityX = this.speed;
-        }
-
-
-        //sdfgsdfgsfdgsd
-        // Set velocity of the player's physics body
-        if (this.player && this.player.body) {
-          //  this.player.body.setVelocity(velocityX, velocityY);
-            console.log('hi');
-        }
-
-        // Pass velocity to the next scene
-        // Example: this.scene.start('NextScene', { velocityX, velocityY, otherData: 'value' });
+    } else {
+        // Stop animation when no movement
+        this.player.anims.stop();
     }
+   this.player.setRotation(0);
 }
-
+}
 window.ComputerControls = ComputerControls;
