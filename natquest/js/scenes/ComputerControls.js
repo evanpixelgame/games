@@ -1,4 +1,7 @@
-class ComputerControls extends Phaser.Scene {
+// Make sure you have the necessary imports for Matter.js
+import Phaser from 'phaser';
+
+export class ComputerControls extends Phaser.Scene {
     constructor() {
         super({ key: 'ComputerControls' });
 
@@ -40,7 +43,9 @@ class ComputerControls extends Phaser.Scene {
         }
 
         // Set velocity of the player's physics body
-        this.player.body.setVelocity(velocityX, velocityY);
+        if (this.player && this.player.body) {
+            this.player.body.setVelocity(velocityX, velocityY);
+        }
 
         // Pass velocity to the next scene
         // Example: this.scene.start('NextScene', { velocityX, velocityY, otherData: 'value' });
