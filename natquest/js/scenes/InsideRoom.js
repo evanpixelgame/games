@@ -39,9 +39,9 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         player: this.player,
         speed: this.speed,
         camera: this.camera,
-     //   controls: this.controls,
-       // engine: this.engine,
-    //    world: this.world
+       controls: this.controls,
+        engine: this.engine,
+       world: this.world
     });
 
     // Check if the necessary data is provided
