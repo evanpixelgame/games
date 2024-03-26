@@ -13,7 +13,7 @@ export default class InsideRoom extends Phaser.Scene {
       this.engine = data.engine || null;
     // Check if the necessary data is provided
    // Check if the necessary data is provided
-if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
+if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) || !data.velocity {
     let missingData = [];
     if (!data) {
         missingData.push("data");
@@ -24,6 +24,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         if (!data.controls) missingData.push("controls");
         if (!data.engine) missingData.push("engine");
         if (!data.world) missingData.push("world");
+      if (!data.velocity) missingData.push("velocity");
     }
     console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
     return;
@@ -50,7 +51,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     });
 
     // Check if the necessary data is provided
-if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
+if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) || !data.velocity{
     let missingData = [];
     if (!data) {
         missingData.push("data");
@@ -61,6 +62,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         if (!data.controls) missingData.push("controls");
         if (!data.engine) missingData.push("engine");
         if (!data.world) missingData.push("world");
+      if (!data.velocity) missingData.push("velocity");
     }
     console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
     return;
@@ -122,7 +124,8 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         camera: this.camera,
        controls: this.controls,
         engine: this.engine,
-       world: this.world
+       world: this.world,
+         velocity: this.velocity
     });
   }
 
