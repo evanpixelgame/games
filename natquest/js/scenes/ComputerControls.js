@@ -1,5 +1,5 @@
 
-class ComputerControls extends Phaser.Scene {
+export default class ComputerControls extends Phaser.Scene  {
   constructor() {
     super({ key: 'ComputerControls' });
 
