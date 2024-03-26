@@ -111,34 +111,16 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 
   }
 
-
-TransitionSensorHandler(player, transitionSensors) {
-    // Listen for collisionstart event on the world property of the scene where the player is created
-    this.player.scene.matter.world.on('collisionstart', (eventData) => {
-        eventData.pairs.forEach(pair => {
-            const { bodyA, bodyB } = pair;
-
-            // Check if either bodyA or bodyB has the custom ID "transitionSensor"
-            const isTransitionSensorA = bodyA.gameObject.properties && bodyA.gameObject.properties.customID === 'transitionSensor';
-            const isTransitionSensorB = bodyB.gameObject.properties && bodyB.gameObject.properties.customID === 'transitionSensor';
-
-            // If either bodyA or bodyB has the custom ID "transitionSensor," log "sensor detected"
-            if (isTransitionSensorA || isTransitionSensorB) {
-                console.log('Sensor detected!');
-            }
-        });
-    });
-}
-
- 
-/*
 TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
         console.log('Collision detected!');    
+       if (bodyA.gameObject.id === 9 || bodyB.gameObject.id === 9) {
+                    console.log('Object ID 9 collided!');
+                }
     });
 }
-*/
+
 
         
   update(time, delta) {
