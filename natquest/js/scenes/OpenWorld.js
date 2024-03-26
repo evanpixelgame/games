@@ -113,24 +113,29 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 
   }
 
-  // Move TransitionSensorHandler inside the class
 TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
-            console.log('shouldbedoingtransitionsensorthing');
-           console.log(layer.index);
+        console.log('Collision detected!');
         const { bodyA, bodyB } = eventData;
         
-        // Check if player (bodyA) collides with a transition sensor (bodyB)
-        if (bodyA === player.body && transitionSensors.includes(bodyB)) {
-            // Perform scene transition
-                console.log('1');
-            this.player.scene.start('InsideRoom');
-        } else if (bodyB === player.body && transitionSensors.includes(bodyA)) {
-            // Perform scene transition (handle the case where player is bodyB)
-            console.log('1');
+        // Check if both bodies are present and have a gameObject property
+        if (bodyA && bodyB && bodyA.gameObject && bodyB.gameObject) {
+            // Log the object layer index of bodyA
+            console.log('Object layer of bodyA:', bodyA.gameObject.layer.index);
+            // Log the object layer index of bodyB
+            console.log('Object layer of bodyB:', bodyB.gameObject.layer.index);
+
+            // Check if player (bodyA) collides with a transition sensor (bodyB)
+            if (bodyA === player.body && transitionSensors.includes(bodyB)) {
+                // Perform scene transition
+                console.log('Transition sensor detected!');
                 this.player.scene.start('InsideRoom');
-                
+            } else if (bodyB === player.body && transitionSensors.includes(bodyA)) {
+                // Perform scene transition (handle the case where player is bodyB)
+                console.log('Transition sensor detected!');
+                this.player.scene.start('InsideRoom');
+            }
         }
     });
 }
