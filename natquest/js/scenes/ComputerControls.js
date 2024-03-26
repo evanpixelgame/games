@@ -1,97 +1,50 @@
-
 class ComputerControls extends Phaser.Scene {
-  constructor() {
-    super({ key: 'ComputerControls' });
+    constructor() {
+        super({ key: 'ComputerControls' });
 
-    this.player = null; // Initialize player reference
-    this.speed = 0; // Initialize speed
-  }
-
+        this.player = null; // Initialize player reference
+        this.speed = 0; // Initialize speed
+    }
 
     init(data) {
-    // Retrieve player reference and speed from the data object
-    this.player = data.player;
-    this.speed = data.speed;
-  console.log("Received player in ComputerControls:", this.player); // Log player reference
-  }
-
-  
-  preload() {
-
-  }
-
-  create() {
-
-   //     this.openWorldScene = this.scene.get('OpenWorld');
-     //   this.player = this.openWorldScene.player;
-       // this.speed = this.openWorldScene.speed;
-
-    
-    // COMPUTER/TV SCREEN SPECIFIC LOGIC 
-
-  // Create controls for arrow keys and WASD
-  this.cursors = this.input.keyboard.addKeys({
-    up: Phaser.Input.Keyboard.KeyCodes.W,
-    down: Phaser.Input.Keyboard.KeyCodes.S,
-    left: Phaser.Input.Keyboard.KeyCodes.A,
-    right: Phaser.Input.Keyboard.KeyCodes.D,
-  });
-
-
-  }
-
-update(time, delta) {
-    let velocityX = 0;
-    let velocityY = 0;
-
-    // Determine velocity based on key presses
-    if (this.cursors.up.isDown) {
-        velocityY = -this.speed;
-    } else if (this.cursors.down.isDown) {
-        velocityY = this.speed;
+        // Retrieve player reference and speed from the data object
+        this.player = data.player;
+        this.speed = data.speed;
+        console.log("Received player in ComputerControls:", this.player); // Log player reference
     }
 
-    if (this.cursors.left.isDown) {
-        velocityX = -this.speed;
-    } else if (this.cursors.right.isDown) {
-        velocityX = this.speed;
+    preload() {
+        // Preload assets if needed
     }
 
-    // Normalize velocity to prevent faster movement diagonally
-    if (velocityX !== 0 && velocityY !== 0) {
-        const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-        velocityX *= this.speed / magnitude;
-        velocityY *= this.speed / magnitude;
+    create() {
+        // Create keyboard controls
+        this.cursors = this.input.keyboard.createCursorKeys();
     }
 
-    // Set the velocity of the player sprite
-   this.player.setVelocity(velocityX, velocityY);
-   // this.player.body.setVelocity(velocityX, velocityY);
-  
+    update(time, delta) {
+        let velocityX = 0;
+        let velocityY = 0;
 
-    // Play appropriate animation based on movement direction
-    if (velocityX !== 0 || velocityY !== 0) {
-        if (velocityX > 0) {
-            this.player.anims.play('walking-right', true);
-        } else if (velocityX < 0) {
-            this.player.anims.play('walking-left', true);
-        } else if (velocityY < 0) {
-            this.player.anims.play('walking-down', true);
-        } else if (velocityY > 0) {
-            this.player.anims.play('walking-up', true);
+        // Determine velocity based on key presses
+        if (this.cursors.up.isDown) {
+            velocityY = -this.speed;
+        } else if (this.cursors.down.isDown) {
+            velocityY = this.speed;
         }
-    } else {
-        // Stop animation when no movement
-        this.player.anims.stop();
-    }
-   this.player.setRotation(0);
-//  console.log(this.player.body);
-// console.log("Scene in ComputerControls:", this.scene);
-//  console.log("deltaTime in ComputerControls:", delta); // Log deltaTime value
-//  console.log("Player in ComputerControls (update):", this.player);
 
- // console.log("velocityX in ComputerControls:", velocityX);
-//  console.log("velocityY in ComputerControls:", velocityY)
+        if (this.cursors.left.isDown) {
+            velocityX = -this.speed;
+        } else if (this.cursors.right.isDown) {
+            velocityX = this.speed;
+        }
+
+        // Set velocity of the player's physics body
+        this.player.body.setVelocity(velocityX, velocityY);
+
+        // Pass velocity to the next scene
+        // Example: this.scene.start('NextScene', { velocityX, velocityY, otherData: 'value' });
+    }
 }
-}
+
 window.ComputerControls = ComputerControls;
