@@ -99,8 +99,8 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     
     this.player.setScale(1); 
     
-    this.player.setVelocityX(0); // Set initial X velocity to 0
-    this.player.setVelocityY(0); // Set initial Y velocity to 0
+  //  this.player.setVelocityX(0); // Set initial X velocity to 0
+  //  this.player.setVelocityY(0); // Set initial Y velocity to 0
     
  //   this.controls = null;
    this.controls = this.scene.get('ComputerControls');
