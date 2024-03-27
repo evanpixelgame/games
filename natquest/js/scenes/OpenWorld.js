@@ -145,9 +145,11 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
    console.log('youve hit the farming pen');
     
 }            
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody)
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.properties.value)
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB)
+             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody);
+             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.properties.value);
+             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.name);
+             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.name.value);
+             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB);
              
              if (otherBody.id == 25) {
    console.log('youve hit the sensor by the door');
