@@ -31,7 +31,7 @@ export default class ComputerControls extends Phaser.Scene {
 
     // Add the player sprite to the scene
  //   this.add.existing(this.player);
-    this.matter.add.gameObject(this.player);
+//    this.matter.add.gameObject(this.player);
 
     // Set the world property to the scene's matter world
    // this.player.world = this.matter.world; //DO THIS IN OPENWORLD INSTEAD
