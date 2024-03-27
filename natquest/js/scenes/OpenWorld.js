@@ -48,7 +48,7 @@ create() {
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
   const map = this.make.tilemap({ key: 'map' });
-    
+
 
     // Load tileset
     const tilesetsData = [
@@ -68,6 +68,16 @@ create() {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
+  const boundaryOffset = 2; // Adjust this value as needed
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        this.map.widthInPixels - 2 * boundaryOffset,
+        this.map.heightInPixels - 2 * boundaryOffset
+    );
+    this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+    
+ 
  
  this.player = new PlayerSprite(this, 500, 500, 'player'); // Replace x, y, texture with appropriate values
     // Add player to the scene
@@ -84,14 +94,7 @@ create() {
  
 
     // Set world bounds for the player
-    const boundaryOffset = 2; // Adjust this value as needed
-    const worldBounds = new Phaser.Geom.Rectangle(
-        boundaryOffset,
-        boundaryOffset,
-        this.map.widthInPixels - 2 * boundaryOffset,
-        this.map.heightInPixels - 2 * boundaryOffset
-    );
-    this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+   
     console.log('World bounds:', worldBounds);
 
     // Other console logs for testing
