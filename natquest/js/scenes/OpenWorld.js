@@ -43,22 +43,9 @@ create() {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
 
-     console.log("Player object in OpenWorld:", this.player);
+    console.log("Player object in OpenWorld:", this.player);
 
-//this.player = new PlayerSprite(this, 500, 500, 'player'); 
-  
-   // this.controls = new ComputerControls();
-    // Launch ComputerControls scene
-  //  this.scene.add('ComputerControls', ComputerControls);
-  //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
-
-//this.player = new PlayerSprite(this, 500, 500, 'player');
-    // Add player to the scene
-//  this.add.existing(this.player);
-
- 
-  const map = this.make.tilemap({ key: 'map' });
-
+    const map = this.make.tilemap({ key: 'map' });
 
     // Load tileset
     const tilesetsData = [
@@ -81,16 +68,14 @@ create() {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-
-this.player = new PlayerSprite(this, 500, 500, 'player');
-
-       this.controls = new ComputerControls();
+    this.player = new PlayerSprite(this, 500, 500, 'player');
+    // Initialize controls after creating the player sprite
+    this.controls = new ComputerControls();
     // Launch ComputerControls scene
     this.scene.add('ComputerControls', ComputerControls);
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
-  
-  
-   // Define world bounds based on map dimensions
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+
+    // Define world bounds based on map dimensions
     const boundaryOffset = 2; // Adjust this value as needed
     const worldBounds = new Phaser.Geom.Rectangle(
         boundaryOffset,
@@ -98,33 +83,28 @@ this.player = new PlayerSprite(this, 500, 500, 'player');
         map.widthInPixels - 2 * boundaryOffset,
         map.heightInPixels - 2 * boundaryOffset
     );
- 
 
+    this.collisionObjects = createCollisionObjects(this, map);
+    this.transitionSensors = createTransitionSensors(this, map, this.player);
 
-  
-        this.collisionObjects = createCollisionObjects(this, map);
-    this.transitionSensors = createTransitionSensors(this, map, this.player); 
-
-  // Use TransitionSensorHandler to handle collision events with transition sensors
-this.TransitionSensorHandler(this.player, this.transitionSensors);
-     this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+    // Use TransitionSensorHandler to handle collision events with transition sensors
+    this.TransitionSensorHandler(this.player, this.transitionSensors);
+    this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-   this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
- this.cameras.main.setZoom(2);
- 
+    this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+    this.cameras.main.setZoom(2);
+
     console.log('Player:', this.player);
-    console.log('Player body:', this.player.body); // Check player's body property
-    console.log('Player body world:', this.player.body ? this.player.body.world : null); // Check player's body's world property
+    console.log('Player body:', this.player.body);
+    console.log('Player body world:', this.player.body ? this.player.body.world : null);
     console.log('Player GameObject:', this.player.gameObject);
     console.log('Player Body GameObject:', this.player.body.gameObject);
     console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
-   // console.log('World bounds:', worldBounds);
-    // Other console logs for testing
     console.log('Controls:', this.controls);
     console.log('Camera:', this.cameras.main);
     console.log('OpenWorld scene:', this);
-
 }
+
 
 
 
