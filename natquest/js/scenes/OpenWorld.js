@@ -52,14 +52,7 @@ create() {
   //  this.scene.add('ComputerControls', ComputerControls);
   //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
 
- this.player = new PlayerSprite(this, 500, 500, 'player');
-    // Add player to the scene
-//   this.add.existing(this.player);
 
-      this.controls = new ComputerControls();
-    // Launch ComputerControls scene
-    this.scene.add('ComputerControls', ComputerControls);
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
   
   const map = this.make.tilemap({ key: 'map' });
 
@@ -84,7 +77,17 @@ create() {
     for (let i = 0; i < map.layers.length; i++) {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
- 
+
+
+ this.player = new PlayerSprite(this, 500, 500, 'player');
+    // Add player to the scene
+//   this.add.existing(this.player);
+
+      this.controls = new ComputerControls();
+    // Launch ComputerControls scene
+    this.scene.add('ComputerControls', ComputerControls);
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
+  
    // Define world bounds based on map dimensions
     const boundaryOffset = 2; // Adjust this value as needed
     const worldBounds = new Phaser.Geom.Rectangle(
