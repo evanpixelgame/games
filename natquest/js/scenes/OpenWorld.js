@@ -130,7 +130,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
   }
    
              
- TransitionSensorHandler(player, transitionSensors) {
+TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
@@ -141,32 +141,24 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
-              if (otherBody.id == 19) {
-   console.log('youve hit the farming pen');
-    
-}            
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody);
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.properties);
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.name);
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB.gameObject);
-              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB.properties);
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.gameObject.properties);
-              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB.gameObject.properties);
-             
-             if (otherBody.id == 25) {
-   console.log('youve hit the sensor by the door');
-               this.scene.remove('ComputerControls');
-  this.scene.start('InsideRoom', {
-  player: this.player,
-  speed: this.speed,
-  camera: this.cameras.main,
-  controls: this.controls, // Passing the controls object here
-  engine: this.matter.world,
- // world: this.engine.world,
-   world: this.world,
-});
-
-}
+                // Check if the other body has properties and a custom property 'customID'
+                if (otherBody.gameObject && otherBody.gameObject.properties) {
+                    const customIDProperty = otherBody.gameObject.properties.find(prop => prop.name === 'customID');
+                    if (customIDProperty && customIDProperty.value === 'transitionSensor') {
+                        // Handle collision with transition sensor
+                        console.log('Collision detected with transition sensor');
+                        // Start the InsideRoom scene if collision detected with the transition sensor
+                        this.scene.remove('ComputerControls');
+                        this.scene.start('InsideRoom', {
+                            player: this.player,
+                            speed: this.speed,
+                            camera: this.cameras.main,
+                            controls: this.controls, // Passing the controls object here
+                            engine: this.matter.world,
+                            world: this.world,
+                        });
+                    }
+                }
             }
         });
     });
