@@ -154,6 +154,8 @@ create() {
             }
         });
     });
+
+     this.scene.start('InsideRoom');
 }
 
         
