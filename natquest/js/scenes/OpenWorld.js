@@ -91,8 +91,8 @@ create() {
     //this.player.init();
 
     // Add the player sprite to the scene
-//    this.add.existing(this.player);
-//    this.matter.add.gameObject(this.player);
+    this.add.existing(this.player);
+    this.matter.add.gameObject(this.player);
 
     // Set the world property to the scene's matter world
 //    this.player.world = this.matter.world;
