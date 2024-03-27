@@ -150,8 +150,8 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.name);
              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB.gameObject);
               console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB.properties);
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.gameObject);
-              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB.id);
+             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.gameObject.properties);
+              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB.gameObject.properties);
              
              if (otherBody.id == 25) {
    console.log('youve hit the sensor by the door');
