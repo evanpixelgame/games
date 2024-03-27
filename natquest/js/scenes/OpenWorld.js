@@ -121,7 +121,7 @@ create() {
 
 
 
- TransitionSensorHandler(player, transitionSensors) {
+ TransitionSensorHandler(scene, player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
@@ -140,7 +140,7 @@ create() {
              if (otherBody.id == 25) {
    console.log('youve hit the sensor by the door');
              //  this.scene.remove('ComputerControls');
-  this.scene.start('InsideRoom', {
+  scene.scene.start('InsideRoom', {
   player: this.player,
   speed: this.speed,
   camera: this.cameras.main,
