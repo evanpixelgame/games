@@ -146,7 +146,8 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
     
 }            
              
-             if (otherBody.id == 25) {
+           //  if (otherBody.id == 25) {
+              if (otherBody.customID == 'transitionSensor') {
    console.log('youve hit the sensor by the door');
                this.scene.remove('ComputerControls');
   this.scene.start('InsideRoom', {
