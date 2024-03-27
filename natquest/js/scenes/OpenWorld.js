@@ -155,7 +155,15 @@ create() {
         });
     });
 
-     this.scene.start('InsideRoom');
+       this.scene.start('InsideRoom', {
+  player: this.player,
+  speed: this.speed,
+  camera: this.cameras.main,
+  controls: this.controls, // Passing the controls object here
+  engine: this.matter.world,
+ // world: scene.engine.world,
+   world: this.world,
+});
 }
 
         
