@@ -107,6 +107,17 @@ create() {
   //  this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
     this.cameras.main.setZoom(2);
 
+  this.speed = 2;
+       this.scene.start('InsideRoom', {
+  player: this.player,
+  speed: this.speed,
+  camera: this.cameras.main,
+  controls: this.controls, // Passing the controls object here
+  engine: this.matter.world,
+ // world: scene.engine.world,
+   world: this.world,
+});
+
 }
 /*
     console.log('Player:', this.player);
