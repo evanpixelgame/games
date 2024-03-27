@@ -48,8 +48,8 @@ create() {
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
     console.log('Player:', this.player);
-    console.log('Player body:', this.player.body);
-    console.log('Player body world:', this.player.body ? this.player.body.world : null);
+    console.log('Player body:', this.player.body); // Check player's body property
+    console.log('Player body world:', this.player.body ? this.player.body.world : null); // Check player's body's world property
     console.log('Player GameObject:', this.player.gameObject);
     console.log('Player Body GameObject:', this.player.body.gameObject);
     console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
@@ -71,6 +71,7 @@ create() {
 
     console.log('OpenWorld scene:', this);
 }
+
 
 TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
