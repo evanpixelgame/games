@@ -120,7 +120,7 @@ create() {
 
 
 
-
+/*
  TransitionSensorHandler(scene, player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (scene, eventData) => {
@@ -165,6 +165,8 @@ this.speed = 2;
    world: this.world,
 });
 }
+
+  */
 
         
   update(time, delta) {
