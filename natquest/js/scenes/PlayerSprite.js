@@ -1,4 +1,4 @@
-export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
+export default class PlayerSprite extends Phaser.Physics.Matter.Sprite {
     constructor(scene, x, y, texture) {
         super(scene.matter.world, x, y, texture);
 
