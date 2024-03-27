@@ -82,6 +82,7 @@ export default class ComputerControls extends Phaser.Scene {
     }
 
     // Set the velocity of the player's Matter body
-    Matter.Body.setVelocity(this.player.body, velocityX, velocityY);
+   // Matter.Body.setVelocity(this.player.body, velocityX, velocityY);
+        this.player.setVelocity(velocityX, velocityY);
   }
 }
