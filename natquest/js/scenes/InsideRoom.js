@@ -103,8 +103,8 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     
     this.speed = 2;
 
-  const player = this.scene.data.get('player');
-  this.add.existing(player);
+ // const player = this.scene.data.get('player');
+  this.add.existing(this.player);
     
     // Initialize player sprite
     //  this.player = new PlayerSprite(this, 495, 325, 'player');
