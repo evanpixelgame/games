@@ -52,12 +52,12 @@ create() {
 
     // Load tileset
     const tilesetsData = [
+        { name: 'tilesheetTerrain', key: 'tilesheetTerrain' },
         { name: 'tilesheetInterior', key: 'tilesheetInterior' },
+        { name: 'tilesheetBuildings', key: 'tilesheetBuildings' },
         { name: 'tilesheetWalls', key: 'tilesheetWalls' },
-      { name: 'tilesheetWalls', key: 'tilesheetTerrain' },
-      { name: 'tilesheetWalls', key: 'tilesheetFlourishes' },
-      { name: 'tilesheetWalls', key: 'tilesheetBuildings' },
         { name: 'tilesheetObjects', key: 'tilesheetObjects' },
+        { name: 'tilesheetFlourishes', key: 'tilesheetFlourishes' }
     ];
 
     const tilesets = [];
