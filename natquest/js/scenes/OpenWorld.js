@@ -44,6 +44,10 @@ create() {
     }
 
     console.log("Player object in OpenWorld:", this.player);
+    this.controls = new ComputerControls();
+    // Launch ComputerControls scene
+    this.scene.add('ComputerControls', ComputerControls);
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
     const map = this.make.tilemap({ key: 'map' });
 
@@ -68,12 +72,8 @@ create() {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-    this.player = new PlayerSprite(this, 500, 500, 'player');
+  
     // Initialize controls after creating the player sprite
-    this.controls = new ComputerControls();
-    // Launch ComputerControls scene
-    this.scene.add('ComputerControls', ComputerControls);
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
     // Define world bounds based on map dimensions
     const boundaryOffset = 2; // Adjust this value as needed
@@ -83,6 +83,8 @@ create() {
         map.widthInPixels - 2 * boundaryOffset,
         map.heightInPixels - 2 * boundaryOffset
     );
+
+    this.player = new PlayerSprite(this, 500, 500, 'player');
 
     this.collisionObjects = createCollisionObjects(this, map);
     this.transitionSensors = createTransitionSensors(this, map, this.player);
