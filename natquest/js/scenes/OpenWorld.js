@@ -68,16 +68,6 @@ create() {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-  const boundaryOffset = 2; // Adjust this value as needed
-    const worldBounds = new Phaser.Geom.Rectangle(
-        boundaryOffset,
-        boundaryOffset,
-        this.map.widthInPixels - 2 * boundaryOffset,
-        this.map.heightInPixels - 2 * boundaryOffset
-    );
-    this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
-    
- 
  
  this.player = new PlayerSprite(this, 500, 500, 'player'); // Replace x, y, texture with appropriate values
     // Add player to the scene
@@ -102,10 +92,12 @@ create() {
     console.log('Camera:', this.cameras.main);
 
     console.log('OpenWorld scene:', this);
+
+   this.setupWorld();
 }
 
 
-TransitionSensorHandler(player, transitionSensors) {
+/* TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     this.player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
@@ -124,7 +116,24 @@ TransitionSensorHandler(player, transitionSensors) {
         });
     });
 }
+ */
+ 
+setupWorld() {
+    // Set world bounds based on map dimensions
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        this.map.widthInPixels - 2 * boundaryOffset,
+        this.map.heightInPixels - 2 * boundaryOffset
+    );
 
+    this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+
+    // Create collision objects, transition sensors, etc.
+    this.collisionObjects = createCollisionObjects(this, this.map);
+    this.transitionSensors = createTransitionSensors(this, this.map, this.player);
+ 
+}
 
 
  TransitionSensorHandler(player, transitionSensors) {
