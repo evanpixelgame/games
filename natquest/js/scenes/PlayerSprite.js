@@ -9,10 +9,10 @@ export default class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         scene.add.existing(this);
         scene.matter.add.gameObject(this);
         
-        // Set the world property to the scene's matter world
-        this.world = scene.matter.world;
-       // this.player = this.player.body; // Remove this line, it's unnecessary
-       // this.player.body.setVelocity(velocityX, velocityY); // Remove this line, it's unnecessary
+                // Set the world property to the scene's matter world
+      //  this.world = scene.matter.world;
+               // this.player = this.player.body; // Remove this line, it's unnecessary
+               // this.player.body.setVelocity(velocityX, velocityY); // Remove this line, it's unnecessary
         this.gameObject = this;
     }
     
