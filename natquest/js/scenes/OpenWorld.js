@@ -48,7 +48,7 @@ create() {
     this.controls = new ComputerControls();
     // Launch ComputerControls scene
     this.scene.add('ComputerControls', ComputerControls);
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed, scene: this});
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
 
   const map = this.make.tilemap({ key: 'map' });
 
