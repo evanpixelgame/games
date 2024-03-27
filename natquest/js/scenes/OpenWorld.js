@@ -100,14 +100,13 @@ create() {
     console.log('Camera:', this.cameras.main);
 
     console.log('OpenWorld scene:', this);
+     this.matter.world.setBounds(0, 0, this.worldBounds.width, this.worldBounds.height);
 
    this.setupWorld();
 }
 
  
 setupWorld() {
-
-    this.matter.world.setBounds(0, 0, this.worldBounds.width, this.worldBounds.height);
  
     // Create collision objects, transition sensors, etc.
     this.collisionObjects = createCollisionObjects(this, this.map);
