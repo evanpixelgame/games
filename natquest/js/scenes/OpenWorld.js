@@ -1,4 +1,4 @@
-import PlayerSprite from './PlayerSprite.js';
+import { PlayerSprite } from './PlayerSprite.js';
 import ComputerControls from './ComputerControls.js';
 import { createCollisionObjects, createTransitionSensors, handleBarrierCollision } from './collisionHandler.js';
 
