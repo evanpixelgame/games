@@ -32,7 +32,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
     // Initialize properties
     this.player = data.player;
-    this.speed = 2;
+    this.speed = data.speed;
     this.camera = data.camera;
     this.controls = data.controls;
     this.engine = data.engine;
@@ -98,7 +98,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     // Initialize player sprite
   //  this.player = new PlayerSprite(this, 495, 325, 'player');
     
-   this.player.setScale(1); 
+ //  this.player.setScale(1); 
 
     this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
       this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
