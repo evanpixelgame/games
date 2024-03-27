@@ -82,7 +82,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
   // Listen for the 'created' event on the player sprite
             const playerBodyWorld = this.player.body ? this.player.body.world : null;
         console.log('Player Body World123:', playerBodyWorld);
-
+     this.scene.add('ComputerControls', ComputerControls);
      this.scene.launch('ComputerControls', { player: this.player.body, speed: this.speed });
           
       
