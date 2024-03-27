@@ -1,6 +1,6 @@
 import { PlayerSprite } from './PlayerSprite.js';
 import ComputerControls from './ComputerControls.js';
-import { createCollisionObjects, createTransitionSensors, handleBarrierCollision } from './collisionHandler.js';
+import { createCollisionObjects, handleBarrierCollision } from './collisionHandler.js';
 
 
 export default class InsideRoom extends Phaser.Scene {
