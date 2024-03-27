@@ -7,6 +7,7 @@ export default class PlayerSprite extends Phaser.Physics.Matter.Sprite {
 
         // Add the player sprite to the scene
         scene.add.existing(this);
+        scene.matter.add.gameObject(this);
         
         // Set the world property to the scene's matter world
         this.world = scene.matter.world;
