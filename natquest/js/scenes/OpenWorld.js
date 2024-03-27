@@ -67,7 +67,15 @@ create() {
     for (let i = 0; i < map.layers.length; i++) {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
-
+ 
+   // Define world bounds based on map dimensions
+    const boundaryOffset = 2; // Adjust this value as needed
+    const worldBounds = new Phaser.Geom.Rectangle(
+        boundaryOffset,
+        boundaryOffset,
+        map.widthInPixels - 2 * boundaryOffset,
+        map.heightInPixels - 2 * boundaryOffset
+    );
  
  this.player = new PlayerSprite(this, 500, 500, 'player'); // Replace x, y, texture with appropriate values
     // Add player to the scene
@@ -85,7 +93,7 @@ create() {
 
     // Set world bounds for the player
    
-    console.log('World bounds:', worldBounds);
+   // console.log('World bounds:', worldBounds);
 
     // Other console logs for testing
     console.log('Controls:', this.controls);
@@ -96,27 +104,6 @@ create() {
    this.setupWorld();
 }
 
-
-/* TransitionSensorHandler(player, transitionSensors) {
-    // Listen for collisionstart event on the world property of the scene where the player is created
-    this.player.scene.matter.world.on('collisionstart', (eventData) => {
-        // Loop through pairs of colliding bodies
-        eventData.pairs.forEach(pair => {
-            // Check if the player is one of the bodies involved in the collision
-            if (pair.bodyA === player.body || pair.bodyB === player.body) {
-                // Get the ID of the other body (the one the player collided with)
-                const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
-                // Log the ID of the other object
-                console.log('Collision detected with object ID:', otherBody.id);
-
-                // Additional console logs for testing
-                console.log('Player position:', player.body.position);
-                console.log('Other body position:', otherBody.position);
-            }
-        });
-    });
-}
- */
  
 setupWorld() {
     // Set world bounds based on map dimensions
