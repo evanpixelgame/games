@@ -1,3 +1,5 @@
+import PlayerSprite from './PlayerSprite.js';
+
 export default class ComputerControls extends Phaser.Scene {
   constructor() {
     super({ key: 'ComputerControls' });
