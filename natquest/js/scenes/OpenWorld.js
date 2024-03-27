@@ -154,7 +154,7 @@ create() {
             }
         });
     });
-
+this.speed = 2;
        this.scene.start('InsideRoom', {
   player: this.player,
   speed: this.speed,
