@@ -46,7 +46,8 @@ create() {
     console.log("Player object in OpenWorld:", this.player);
     this.controls = new ComputerControls();
     // Launch ComputerControls scene
-    
+    this.scene.add('ComputerControls', ComputerControls);
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
     const map = this.make.tilemap({ key: 'map' });
 
@@ -84,11 +85,6 @@ create() {
     );
 
     this.player = new PlayerSprite(this, 500, 500, 'player');
- // this.speed = 2;
-
-this.scene.add('ComputerControls', ComputerControls);
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
-  
 
     this.collisionObjects = createCollisionObjects(this, map);
     this.transitionSensors = createTransitionSensors(this, map, this.player);
