@@ -167,7 +167,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
             }
         });
     });
-}
+ }
 
         
   update(time, delta) {
