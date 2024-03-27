@@ -109,8 +109,8 @@ create() {
 setupWorld() {
  
     // Create collision objects, transition sensors, etc.
-    this.collisionObjects = createCollisionObjects(this, this.map);
-    this.transitionSensors = createTransitionSensors(this, this.map, this.player);
+ //   this.collisionObjects = createCollisionObjects(this, this.map);
+   // this.transitionSensors = createTransitionSensors(this, this.map, this.player);
  
 }
 
