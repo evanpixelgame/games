@@ -107,6 +107,8 @@ create() {
   //  this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
     this.cameras.main.setZoom(2);
 
+}
+/*
     console.log('Player:', this.player);
     console.log('Player body:', this.player.body);
     console.log('Player body world:', this.player.body ? this.player.body.world : null);
@@ -116,7 +118,7 @@ create() {
     console.log('Controls:', this.controls);
     console.log('Camera:', this.cameras.main);
     console.log('OpenWorld scene:', this);
-}
+    */
 
 
 
