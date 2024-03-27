@@ -39,16 +39,15 @@ create() {
     });
     console.log('Matter.js world:', this.world);
 
+   this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
+    this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
+
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
 
     console.log("Player object in OpenWorld:", this.player);
-    this.controls = new ComputerControls();
-  this.controls.setPlayer(this.player);
-    // Launch ComputerControls scene
-    this.scene.add('ComputerControls', ComputerControls);
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+  
 
     const map = this.make.tilemap({ key: 'map' });
 
@@ -73,8 +72,14 @@ create() {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-  
+   this.player = new PlayerSprite(this, 500, 500, 'player');
     // Initialize controls after creating the player sprite
+
+    this.controls = new ComputerControls();
+  this.controls.setPlayer(this.player);
+    // Launch ComputerControls scene
+    this.scene.add('ComputerControls', ComputerControls);
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
 
     // Define world bounds based on map dimensions
     const boundaryOffset = 2; // Adjust this value as needed
@@ -85,7 +90,7 @@ create() {
         map.heightInPixels - 2 * boundaryOffset
     );
 
-    this.player = new PlayerSprite(this, 500, 500, 'player');
+   
 
     this.collisionObjects = createCollisionObjects(this, map);
     this.transitionSensors = createTransitionSensors(this, map, this.player);
