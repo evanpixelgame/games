@@ -146,7 +146,7 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
     
 }            
              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody)
-             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.properties)
+             console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + otherBody.properties.value)
              console.log('COLLISIONTILE FROM OPENWORLD CUSTOM ID:' + pair.bodyB)
              
              if (otherBody.id == 25) {
