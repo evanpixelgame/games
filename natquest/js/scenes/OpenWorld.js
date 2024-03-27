@@ -81,6 +81,15 @@ create() {
     // Add player to the scene
  //   this.add.existing(this.player);
 
+        this.collisionObjects = createCollisionObjects(this, map);
+    this.transitionSensors = createTransitionSensors(this, map, this.player); 
+
+  // Use TransitionSensorHandler to handle collision events with transition sensors
+this.TransitionSensorHandler(this.player, this.transitionSensors);
+     this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+   this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+ this.cameras.main.setZoom(2);
  
     console.log('Player:', this.player);
     console.log('Player body:', this.player.body); // Check player's body property
@@ -88,35 +97,14 @@ create() {
     console.log('Player GameObject:', this.player.gameObject);
     console.log('Player Body GameObject:', this.player.body.gameObject);
     console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
-
- 
-
-    // Set world bounds for the player
-   
    // console.log('World bounds:', worldBounds);
-
     // Other console logs for testing
     console.log('Controls:', this.controls);
     console.log('Camera:', this.cameras.main);
-
     console.log('OpenWorld scene:', this);
-     this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
-    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-   this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
- this.cameras.main.setZoom(2);
 
-
-   this.setupWorld();
 }
 
- 
-setupWorld() {
- 
-    // Create collision objects, transition sensors, etc.
-   this.collisionObjects = createCollisionObjects(this, this.map);
-   this.transitionSensors = createTransitionSensors(this, this.map, this.player);
- 
-}
 
 
  TransitionSensorHandler(player, transitionSensors) {
