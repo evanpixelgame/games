@@ -260,7 +260,7 @@
                 {
                  "height":30.75,
                  "id":9,
-                 "name":"",
+                 "name":"transitionSensorName",
                  "properties":[
                         {
                          "name":"customID",
