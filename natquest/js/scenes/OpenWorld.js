@@ -88,7 +88,7 @@ create() {
   //    this.player = new PlayerSprite(this, 500, 500, 'player');
 
     // Initialize the player sprite
-    //this.player.init();
+    this.player.init();
 
     // Add the player sprite to the scene
     this.add.existing(this.player);
