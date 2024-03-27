@@ -84,7 +84,7 @@ create() {
     );
 
     this.player = new PlayerSprite(this, 500, 500, 'player');
-  this.speed = 2;
+ // this.speed = 2;
 
 this.scene.add('ComputerControls', ComputerControls);
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
