@@ -54,6 +54,9 @@ create() {
     const tilesetsData = [
         { name: 'tilesheetInterior', key: 'tilesheetInterior' },
         { name: 'tilesheetWalls', key: 'tilesheetWalls' },
+      { name: 'tilesheetWalls', key: 'tilesheetTerrain' },
+      { name: 'tilesheetWalls', key: 'tilesheetFlourishes' },
+      { name: 'tilesheetWalls', key: 'tilesheetBuildings' },
         { name: 'tilesheetObjects', key: 'tilesheetObjects' },
     ];
 
