@@ -52,6 +52,15 @@ create() {
   //  this.scene.add('ComputerControls', ComputerControls);
   //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
 
+ this.player = new PlayerSprite(this, 500, 500, 'player');
+    // Add player to the scene
+//   this.add.existing(this.player);
+
+      this.controls = new ComputerControls();
+    // Launch ComputerControls scene
+    this.scene.add('ComputerControls', ComputerControls);
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
+  
   const map = this.make.tilemap({ key: 'map' });
 
 
@@ -85,14 +94,7 @@ create() {
         map.heightInPixels - 2 * boundaryOffset
     );
  
- this.player = new PlayerSprite(this, 500, 500, 'player');
-    // Add player to the scene
-//   this.add.existing(this.player);
 
-      this.controls = new ComputerControls();
-    // Launch ComputerControls scene
-    this.scene.add('ComputerControls', ComputerControls);
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
 
   
         this.collisionObjects = createCollisionObjects(this, map);
