@@ -47,6 +47,7 @@ update(time, delta) {
     }
     let velocityX = 0;
     let velocityY = 0;
+  Matter.Body.setVelocity(this.player, velocityX, velocityY);
 
     // Determine velocity based on key presses
     if (this.cursors.up.isDown) {
@@ -70,7 +71,7 @@ update(time, delta) {
 
     // Set the velocity of the player sprite
   //  this.player.setVelocity(velocityX, velocityY);
-    Matter.Body.setVelocity(this.player, velocityX, velocityY);
+//    Matter.Body.setVelocity(this.player, velocityX, velocityY);
 
     // Play appropriate animation based on movement direction
     if (velocityX !== 0 || velocityY !== 0) {
