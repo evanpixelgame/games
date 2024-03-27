@@ -45,6 +45,7 @@ create() {
 
     console.log("Player object in OpenWorld:", this.player);
     this.controls = new ComputerControls();
+  this.controls.setPlayer(this.player);
     // Launch ComputerControls scene
     this.scene.add('ComputerControls', ComputerControls);
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
