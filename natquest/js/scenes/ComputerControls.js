@@ -6,6 +6,10 @@ export default class ComputerControls extends Phaser.Scene {
     this.speed = 0; // Initialize speed
   }
 
+    setPlayer(player) {
+        this.player = player;
+    }
+
   init(data) {
     // Retrieve player reference and speed from the data object
     this.player = data.player;
