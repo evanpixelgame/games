@@ -106,16 +106,9 @@ create() {
 
  
 setupWorld() {
-    // Set world bounds based on map dimensions
-    const worldBounds = new Phaser.Geom.Rectangle(
-        boundaryOffset,
-        boundaryOffset,
-        this.map.widthInPixels - 2 * boundaryOffset,
-        this.map.heightInPixels - 2 * boundaryOffset
-    );
 
     this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
-
+ 
     // Create collision objects, transition sensors, etc.
     this.collisionObjects = createCollisionObjects(this, this.map);
     this.transitionSensors = createTransitionSensors(this, this.map, this.player);
