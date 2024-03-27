@@ -22,7 +22,19 @@ export default class ComputerControls extends Phaser.Scene {
   }
 
   create() {
+    this.player = new PlayerSprite(this, 500, 500, 'player');
 
+    // Initialize the player sprite
+    this.player.init();
+
+    // Add the player sprite to the scene
+    this.add.existing(this.player);
+    this.matter.add.gameObject(this.player);
+
+    // Set the world property to the scene's matter world
+   // this.player.world = this.matter.world; //DO THIS IN OPENWORLD INSTEAD
+
+    
     // Create controls for arrow keys and WASD
     this.cursors = this.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
@@ -30,6 +42,8 @@ export default class ComputerControls extends Phaser.Scene {
       left: Phaser.Input.Keyboard.KeyCodes.A,
       right: Phaser.Input.Keyboard.KeyCodes.D,
     });
+
+       console.log("Received player in ComputerControls createfunc:", this.player); // Log player reference
   }
 
   update(time, delta) {
