@@ -46,6 +46,8 @@ export default class ComputerControls extends Phaser.Scene {
     });
 
        console.log("Received player in ComputerControls createfunc:", this.player); // Log player reference
+
+     this.player.setVelocity(0, 0);
   }
 
   update(time, delta) {
@@ -84,5 +86,6 @@ export default class ComputerControls extends Phaser.Scene {
     // Set the velocity of the player's Matter body
    // Matter.Body.setVelocity(this.player.body, velocityX, velocityY);
         this.player.setVelocity(velocityX, velocityY);
+   
   }
 }
