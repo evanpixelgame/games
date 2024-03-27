@@ -40,7 +40,7 @@ create() {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
 
-    this.controls = new Controls();
+    this.controls = new ComputerControls();
     // Launch ComputerControls scene
     this.scene.add('ComputerControls', ComputerControls);
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
