@@ -24,7 +24,7 @@ export default class ComputerControls extends Phaser.Scene {
   }
 
   create() {
-    this.player = new PlayerSprite(this, 500, 500, 'player');
+  //  this.player = new PlayerSprite(this, 500, 500, 'player');
 
     // Initialize the player sprite
     this.player.init();
