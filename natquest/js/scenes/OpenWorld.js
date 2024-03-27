@@ -19,6 +19,9 @@ export default class OpenWorld extends Phaser.Scene {
 
   init(data) {
         this.openWorldScene = data.OpenWorld;
+     this.player = data.player;
+    this.speed = data.speed;
+    console.log("Received player in ComputerControls:", this.player); // 
   }
       
   preload() {
