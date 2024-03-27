@@ -44,6 +44,8 @@ create() {
     }
 
    this.player = new PlayerSprite(this, 495, 325, 'player');
+      this.player.setVelocity(velocityX, velocityY);
+  
   
     console.log("Player object in OpenWorld:", this.player);
     this.controls = new ComputerControls();
