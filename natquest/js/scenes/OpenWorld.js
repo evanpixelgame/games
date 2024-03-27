@@ -46,7 +46,11 @@ create() {
     // Launch ComputerControls scene
     this.scene.add('ComputerControls', ComputerControls);
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+ this.player = new PlayerSprite(this, 500, 500, 'player'); // Replace x, y, texture with appropriate values
+    // Add player to the scene
+    this.add.existing(this.player);
 
+ 
     console.log('Player:', this.player);
     console.log('Player body:', this.player.body); // Check player's body property
     console.log('Player body world:', this.player.body ? this.player.body.world : null); // Check player's body's world property
