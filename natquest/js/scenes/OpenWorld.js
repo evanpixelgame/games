@@ -71,7 +71,7 @@ create() {
  
  this.player = new PlayerSprite(this, 500, 500, 'player'); // Replace x, y, texture with appropriate values
     // Add player to the scene
-    this.add.existing(this.player);
+ //   this.add.existing(this.player);
 
  
     console.log('Player:', this.player);
