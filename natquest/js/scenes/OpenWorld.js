@@ -141,13 +141,13 @@ create() {
    console.log('youve hit the sensor by the door');
              //  this.scene.remove('ComputerControls');
   scene.scene.start('InsideRoom', {
-  player: this.player,
-  speed: this.speed,
-  camera: this.cameras.main,
-  controls: this.controls, // Passing the controls object here
-  engine: this.matter.world,
- // world: this.engine.world,
-   world: this.world,
+  player: scene.player,
+  speed: scene.speed,
+  camera: scene.cameras.main,
+  controls: scene.controls, // Passing the controls object here
+  engine: scene.matter.world,
+ // world: scene.engine.world,
+   world: scene.world,
 });
 
 }
