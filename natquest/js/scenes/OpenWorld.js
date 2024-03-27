@@ -46,6 +46,29 @@ create() {
     // Launch ComputerControls scene
     this.scene.add('ComputerControls', ComputerControls);
     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+
+  const map = this.make.tilemap({ key: 'map' });
+    
+
+    // Load tileset
+    const tilesetsData = [
+        { name: 'tilesheetInterior', key: 'tilesheetInterior' },
+        { name: 'tilesheetWalls', key: 'tilesheetWalls' },
+        { name: 'tilesheetObjects', key: 'tilesheetObjects' },
+    ];
+
+    const tilesets = [];
+    tilesetsData.forEach(tilesetData => {
+        tilesets.push(map.addTilesetImage(tilesetData.name, tilesetData.key));
+    });
+
+    // Create layers using all tilesets
+    const layers = [];
+    for (let i = 0; i < map.layers.length; i++) {
+        layers.push(map.createLayer(i, tilesets, 0, 0));
+    }
+
+ 
  this.player = new PlayerSprite(this, 500, 500, 'player'); // Replace x, y, texture with appropriate values
     // Add player to the scene
     this.add.existing(this.player);
@@ -57,6 +80,8 @@ create() {
     console.log('Player GameObject:', this.player.gameObject);
     console.log('Player Body GameObject:', this.player.body.gameObject);
     console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
+
+ 
 
     // Set world bounds for the player
     const boundaryOffset = 2; // Adjust this value as needed
