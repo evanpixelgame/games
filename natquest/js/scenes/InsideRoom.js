@@ -109,7 +109,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
       //this.player.setPosition(100, 100);
     this.player = new PlayerSprite(this, 495, 325, 'player');
     
-    //this.matter.add.gameObject(this.player);
+    this.matter.add.gameObject(this.player);
 
     
     // Initialize player sprite
