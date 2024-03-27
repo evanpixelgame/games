@@ -43,6 +43,8 @@ create() {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
 
+   this.player = new PlayerSprite(this, 495, 325, 'player');
+  
     console.log("Player object in OpenWorld:", this.player);
     this.controls = new ComputerControls();
   this.controls.setPlayer(this.player);
