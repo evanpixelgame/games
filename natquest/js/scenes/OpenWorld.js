@@ -148,26 +148,39 @@ this.TransitionSensorHandler(this.player, this.transitionSensors);
 }            
              
            //  if (otherBody.id == 25) {
-               if (otherBody.gameObject && otherBody.gameObject.properties) {
+TransitionSensorHandler(player, transitionSensors) {
+    // Listen for collisionstart event on the world property of the scene where the player is created
+    this.player.scene.matter.world.on('collisionstart', (eventData) => {
+        // Loop through pairs of colliding bodies
+        eventData.pairs.forEach(pair => {
+            // Check if the player is one of the bodies involved in the collision
+            if (pair.bodyA === player.body || pair.bodyB === player.body) {
+                // Get the ID of the other body (the one the player collided with)
+                const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
+                
+                // Check if the other body has properties and a custom property 'customID'
+                if (otherBody.gameObject && otherBody.gameObject.properties) {
                     const customIDProperty = otherBody.gameObject.properties.find(prop => prop.name === 'customID');
                     if (customIDProperty && customIDProperty.value === 'transitionSensor') {
-   console.log('youve hit the sensor by the door');
-               this.scene.remove('ComputerControls');
-  this.scene.start('InsideRoom', {
-  player: this.player,
-  speed: this.speed,
-  camera: this.cameras.main,
-  controls: this.controls, // Passing the controls object here
-  engine: this.matter.world,
- // world: this.engine.world,
-   world: this.world,
-});
-
-}
+                        // Handle collision with transition sensor
+                        console.log('Collision detected with transition sensor');
+                        // Start the InsideRoom scene if collision detected with the transition sensor
+                        this.scene.remove('ComputerControls');
+                        this.scene.start('InsideRoom', {
+                            player: this.player,
+                            speed: this.speed,
+                            camera: this.cameras.main,
+                            controls: this.controls, // Passing the controls object here
+                            engine: this.matter.world,
+                            world: this.world,
+                        });
+                    }
+                }
             }
         });
     });
- }
+}
+
 
         
   update(time, delta) {
