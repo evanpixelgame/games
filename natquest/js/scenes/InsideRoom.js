@@ -65,6 +65,11 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     return;
 }
 
+
+this.player.body.velocity.x = 0;
+this.player.body.velocity.y = 0;
+
+    
 }
 
   preload() {
