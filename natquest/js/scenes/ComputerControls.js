@@ -1,6 +1,5 @@
-import PlayerSprite from './PlayerSprite.js';
 
-export default class ComputerControls extends Phaser.Scene {
+export default class ComputerControls extends Phaser.Scene  {
   constructor() {
     super({ key: 'ComputerControls' });
 
@@ -8,84 +7,86 @@ export default class ComputerControls extends Phaser.Scene {
     this.speed = 0; // Initialize speed
   }
 
-    setPlayer(player) {
-        this.player = player;
-    }
 
-  init(data) {
+    init(data) {
     // Retrieve player reference and speed from the data object
     this.player = data.player;
     this.speed = data.speed;
-    console.log("Received player in ComputerControls:", this.player); // Log player reference
+  console.log("Received player in ComputerControls:", this.player); // Log player reference
   }
 
+  
   preload() {
 
   }
 
   create() {
-  //  this.player = new PlayerSprite(this, 500, 500, 'player');
 
-    // Initialize the player sprite
-//    this.player.init();
-
-    // Add the player sprite to the scene
- //   this.add.existing(this.player);
-//    this.matter.add.gameObject(this.player);
-
-    // Set the world property to the scene's matter world
-   // this.player.world = this.matter.world; //DO THIS IN OPENWORLD INSTEAD
+   //     this.openWorldScene = this.scene.get('OpenWorld');
+     //   this.player = this.openWorldScene.player;
+       // this.speed = this.openWorldScene.speed;
 
     
-    // Create controls for arrow keys and WASD
-    this.cursors = this.input.keyboard.addKeys({
-      up: Phaser.Input.Keyboard.KeyCodes.W,
-      down: Phaser.Input.Keyboard.KeyCodes.S,
-      left: Phaser.Input.Keyboard.KeyCodes.A,
-      right: Phaser.Input.Keyboard.KeyCodes.D,
-    });
+    // COMPUTER/TV SCREEN SPECIFIC LOGIC 
 
-       console.log("Received player in ComputerControls createfunc:", this.player); // Log player reference
+  // Create controls for arrow keys and WASD
+  this.cursors = this.input.keyboard.addKeys({
+    up: Phaser.Input.Keyboard.KeyCodes.W,
+    down: Phaser.Input.Keyboard.KeyCodes.S,
+    left: Phaser.Input.Keyboard.KeyCodes.A,
+    right: Phaser.Input.Keyboard.KeyCodes.D,
+  });
 
-     this.player.setVelocity(0, 0);
+
   }
 
-  update(time, delta) {
+update(time, delta) {
 
-    if (!this.player) {
-      return;
+      if (!this.player) {
+        return;
     }
- // this.controls.setPlayer(this.player);
     let velocityX = 0;
     let velocityY = 0;
 
     // Determine velocity based on key presses
     if (this.cursors.up.isDown) {
-      velocityY = -this.speed;
-      console.log('movementkeydetected');
+        velocityY = -this.speed;
     } else if (this.cursors.down.isDown) {
-      velocityY = this.speed;
-       console.log('movementkeydetected');
+        velocityY = this.speed;
     }
 
     if (this.cursors.left.isDown) {
-      velocityX = -this.speed;
-       console.log('movementkeydetected');
+        velocityX = -this.speed;
     } else if (this.cursors.right.isDown) {
-      velocityX = this.speed;
-       console.log('movementkeydetected');
+        velocityX = this.speed;
     }
 
     // Normalize velocity to prevent faster movement diagonally
     if (velocityX !== 0 && velocityY !== 0) {
-      const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-      velocityX *= this.speed / magnitude;
-      velocityY *= this.speed / magnitude;
+        const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+        velocityX *= this.speed / magnitude;
+        velocityY *= this.speed / magnitude;
     }
 
-    // Set the velocity of the player's Matter body
-   // Matter.Body.setVelocity(this.player.body, velocityX, velocityY);
-       // this.player.setVelocity(velocityX, velocityY);
-   
-  }
+    // Set the velocity of the player sprite
+    this.player.setVelocity(velocityX, velocityY);
+
+    // Play appropriate animation based on movement direction
+    if (velocityX !== 0 || velocityY !== 0) {
+        if (velocityX > 0) {
+            this.player.anims.play('walking-right', true);
+        } else if (velocityX < 0) {
+            this.player.anims.play('walking-left', true);
+        } else if (velocityY < 0) {
+            this.player.anims.play('walking-down', true);
+        } else if (velocityY > 0) {
+            this.player.anims.play('walking-up', true);
+        }
+    } else {
+        // Stop animation when no movement
+        this.player.anims.stop();
+    }
+   this.player.setRotation(0);
 }
+}
+window.ComputerControls = ComputerControls;
