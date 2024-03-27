@@ -114,8 +114,12 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         map.widthInPixels - 2 * boundaryOffset,
         map.heightInPixels - 2 * boundaryOffset
     );
-    this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
+   // this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
+      this.collisionObjects = createCollisionObjects(this, map);
+    this.transitionSensors = createTransitionSensors(this, map, this.player); 
+
+    
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 
