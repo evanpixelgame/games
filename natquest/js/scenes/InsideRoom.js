@@ -106,7 +106,11 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
  // const player = this.scene.data.get('player');
   //this.add.existing(this.player);
       //this.player.setPosition(100, 100);
-    this.player = new PlayerSprite(this, 400, 400, 'player');
+    this.player = new PlayerSprite(this, 495, 325, 'player');
+    
+    //this.matter.add.gameObject(this.player);
+
+    
     // Initialize player sprite
     //  this.player = new PlayerSprite(this, 495, 325, 'player');
     //  this.player.setPosition(200, 300);
