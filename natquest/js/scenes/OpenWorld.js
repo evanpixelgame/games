@@ -54,7 +54,7 @@ create() {
 
  this.player = new PlayerSprite(this, 500, 500, 'player');
     // Add player to the scene
-//   this.add.existing(this.player);
+  this.add.existing(this.player);
 
       this.controls = new ComputerControls();
     // Launch ComputerControls scene
