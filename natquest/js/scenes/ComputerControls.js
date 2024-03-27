@@ -53,7 +53,7 @@ export default class ComputerControls extends Phaser.Scene {
     if (!this.player) {
       return;
     }
-  this.controls.setPlayer(this.player);
+ // this.controls.setPlayer(this.player);
     let velocityX = 0;
     let velocityY = 0;
 
