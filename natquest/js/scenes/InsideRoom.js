@@ -1,4 +1,4 @@
-import { PlayerSprite } from './PlayerSprite.js';
+import PlayerSprite from './PlayerSprite.js';
 import ComputerControls from './ComputerControls.js'; // Adjust the path if needed
 
 
