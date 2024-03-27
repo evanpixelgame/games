@@ -100,7 +100,7 @@ create() {
     console.log('Camera:', this.cameras.main);
 
     console.log('OpenWorld scene:', this);
-     this.matter.world.setBounds(0, 0, this.worldBounds.width, this.worldBounds.height);
+     this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
    this.setupWorld();
 }
