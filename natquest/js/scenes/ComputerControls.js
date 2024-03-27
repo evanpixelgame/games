@@ -60,14 +60,18 @@ export default class ComputerControls extends Phaser.Scene {
     // Determine velocity based on key presses
     if (this.cursors.up.isDown) {
       velocityY = -this.speed;
+      console.log('movementkeydetected');
     } else if (this.cursors.down.isDown) {
       velocityY = this.speed;
+       console.log('movementkeydetected');
     }
 
     if (this.cursors.left.isDown) {
       velocityX = -this.speed;
+       console.log('movementkeydetected');
     } else if (this.cursors.right.isDown) {
       velocityX = this.speed;
+       console.log('movementkeydetected');
     }
 
     // Normalize velocity to prevent faster movement diagonally
