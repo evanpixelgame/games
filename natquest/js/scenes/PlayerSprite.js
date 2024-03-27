@@ -9,13 +9,10 @@ export default class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         scene.add.existing(this);
         
         // Set the world property to the scene's matter world
-      //  this.world = scene.matter.world;
-        this.player = this.player.body;
-       // this.player.body.setVelocity(velocityX, velocityY);
+        this.world = scene.matter.world;
+       // this.player = this.player.body; // Remove this line, it's unnecessary
+       // this.player.body.setVelocity(velocityX, velocityY); // Remove this line, it's unnecessary
         this.gameObject = this;
-       // this.layer = layer;
-         //this.setVelocity = this.setVelocity.bind(this); // Bind setVelocity to this instance
-     //   this.player.setVelocity(this.player.body, velocityX, velocityY);
     }
     
     init() {
@@ -37,11 +34,10 @@ export default class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         const scaledWidth = playerWidth * 0.5;
         const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
-           // this.body.setVelocity(velocityX, velocityY);
-            console.log(this.body);
-            console.log(this.world);
-            console.log('Player Body Worldfromplaysprite:', this.body.world);
-       
- 
+        
+        // Log relevant information for debugging
+        console.log(this.body); // Log the physics body
+        console.log(this.world); // Log the Matter world
+        console.log('Player Body World from PlayerSprite:', this.body.world); // Log the world of the physics body
     }
 }
