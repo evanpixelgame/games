@@ -52,9 +52,9 @@ create() {
   //  this.scene.add('ComputerControls', ComputerControls);
   //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed});  // took this away as last argument----   scene: this
 
- this.player = new PlayerSprite(this, 500, 500, 'player');
+//this.player = new PlayerSprite(this, 500, 500, 'player');
     // Add player to the scene
-  this.add.existing(this.player);
+//  this.add.existing(this.player);
 
       this.controls = new ComputerControls();
     // Launch ComputerControls scene
@@ -86,7 +86,7 @@ create() {
     }
 
 
-
+this.player = new PlayerSprite(this, 500, 500, 'player');
   
    // Define world bounds based on map dimensions
     const boundaryOffset = 2; // Adjust this value as needed
