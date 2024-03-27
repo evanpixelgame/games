@@ -45,7 +45,7 @@ create() {
 
      console.log("Player object in OpenWorld:", this.player);
 
-this.player = new PlayerSprite(this, 500, 500, 'player'); 
+//this.player = new PlayerSprite(this, 500, 500, 'player'); 
   
     this.controls = new ComputerControls();
     // Launch ComputerControls scene
@@ -85,9 +85,9 @@ this.player = new PlayerSprite(this, 500, 500, 'player');
         map.heightInPixels - 2 * boundaryOffset
     );
  
-// this.player = new PlayerSprite(this, 500, 500, 'player');
+ this.player = new PlayerSprite(this, 500, 500, 'player');
     // Add player to the scene
- //   this.add.existing(this.player);
+//   this.add.existing(this.player);
 
         this.collisionObjects = createCollisionObjects(this, map);
     this.transitionSensors = createTransitionSensors(this, map, this.player); 
