@@ -101,6 +101,9 @@ export function createTransitionSensors(scene, map) {
 
     // Log all transition sensors
     console.log('Transition Sensors:', transitionSensors);
+    Object.entries(transitionSensors).forEach(([key, value]) => {
+    console.log(`Key: ${key}, Value:`, value);
+});
     return transitionSensors;
 }
 
