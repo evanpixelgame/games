@@ -62,11 +62,12 @@ function calculateCentroid(vertices) {
 
 
 
-export function createTransitionSensors(scene, map, sensorID) {
+export function createTransitionSensors(scene, map, sensorIDs) {
     const transitionSensors = {};
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
     const sensorID = new Map();
+    const sensorIDs = sensorID;
 
     objectLayer2.objects.forEach(object => {
         // Log object properties to check if it has the customID property
@@ -118,7 +119,7 @@ export function createTransitionSensors(scene, map, sensorID) {
 
 
 
-export function TransitionSensorHandler(scene, map, player, transitionSensors, sensorID) {
+export function TransitionSensorHandler(scene, map, player, transitionSensors, sensorIDs) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
