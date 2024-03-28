@@ -107,6 +107,64 @@ export function createTransitionSensors(scene, map) {
     return transitionSensors;
 }
 
+
+
+export function TransitionSensorHandler(scene, map, player, transitionSensors) {
+    const objectLayer2 = map.getObjectLayer('Object Layer 2');
+
+    objectLayer2.objects.forEach(object => {
+        // Log object properties to check if it has the customID property
+        console.log('Object ID:', object.id);
+        const customIDProperty = object.properties.find(prop => prop.name === 'customID');
+        const customID = customIDProperty ? customIDProperty.value : null;
+        console.log('Object Custom IDfromhandler:', customID);
+    });                               
+
+                                 
+    // Listen for collisionstart event on the world property of the scene where the player is created
+    player.scene.matter.world.on('collisionstart', (eventData) => {
+        // Loop through pairs of colliding bodies
+        eventData.pairs.forEach(pair => {
+            // Check if the player is one of the bodies involved in the collision
+            if (pair.bodyA === player.body || pair.bodyB === player.body) {
+                // Get the other body involved in the collision
+                const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
+                // Log the ID of the other object
+                console.log('Collision detected with object ID:', otherBody.id);
+                
+                // Check if the other body has a customID property
+                if (customID) {
+                    // Perform actions based on the customID
+                    switch (customID) {
+                        case 'transitionSensor':
+                            console.log('You hit a transition sensor!');
+                            // Perform actions specific to this customID
+                            console.log('youve hit the sensor by the door');
+                            this.scene.remove('ComputerControls');
+                            this.scene.start('InsideRoom', {
+                                player: this.player,
+                                speed: this.speed,
+                                camera: this.cameras.main,
+                                controls: this.controls, // Passing the controls object here
+                                engine: this.matter.world,
+                                world: this.world,
+                            });
+                            break;
+                        // Add more cases for other customIDs as needed
+                        default:
+                            // Handle other customIDs
+                            break;
+                    }
+                }
+            }
+        });
+    });
+}
+
+
+
+
+/*
 export function TransitionSensorHandler(scene, map, player, transitionSensors) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
@@ -158,7 +216,7 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
         });
     });
 }
-
+*/
 
 
 export function handleBarrierCollision(player, barrier) {
