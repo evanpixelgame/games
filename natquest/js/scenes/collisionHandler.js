@@ -67,7 +67,7 @@ export function createTransitionSensors(scene, map, sensorIDs) {
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
     const sensorID = new Map();
-    const sensorIDs = sensorID;
+    //const sensorIDs = sensorID;
 
     objectLayer2.objects.forEach(object => {
         // Log object properties to check if it has the customID property
