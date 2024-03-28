@@ -101,7 +101,7 @@ export function createTransitionSensors(scene, map) {
 }
 
              
- export function TransitionSensorHandler(map, player, transitionSensors) {
+ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
      const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     const hopeful = objectLayer2.objects.object.properties.name.value;
