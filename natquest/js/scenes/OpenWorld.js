@@ -144,7 +144,8 @@ TransitionSensorHandler(player, transitionSensors) {
                 // Check if the other body has properties and a custom property 'customID'
                 if (otherBody.gameObject && otherBody.gameObject.properties) {
                     const customIDProperty = otherBody.gameObject.properties.find(prop => prop.name === 'roomPlease');
-                    if (customIDProperty && customIDProperty.value === 'transitionSensor') {
+                 console.log('heresa jiggy chance: ' + customIDProperty);
+                    if (customIDProperty) {
                         // Handle collision with transition sensor
                         console.log('Collision detected with transition sensor');
                         // Start the InsideRoom scene if collision detected with the transition sensor
