@@ -106,7 +106,7 @@ export function createTransitionSensors(scene, map) {
 
 export function TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
-    this.player.scene.matter.world.on('collisionstart', (eventData) => {
+    player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
         eventData.pairs.forEach(pair => {
             // Check if the player is one of the bodies involved in the collision
