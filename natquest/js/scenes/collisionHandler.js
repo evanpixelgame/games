@@ -101,7 +101,7 @@ export function createTransitionSensors(scene, map) {
 }
 
              
-export function TransitionSensorHandler(player, transitionSensors) {
+ export function TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
@@ -112,31 +112,29 @@ export function TransitionSensorHandler(player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
-                  const customIDProperty = otherBody.gameObject.properties.find(prop => prop.name === 'roomPlease');
-                 console.log('heresa jiggy chance: ' + customIDProperty);
-                // Check if the other body has properties and a custom property 'customID'
-                if (otherBody.gameObject && otherBody.gameObject.properties) {
-               
-                    if (customIDProperty) {
-                        // Handle collision with transition sensor
-                        console.log('Collision detected with transition sensor');
-                        // Start the InsideRoom scene if collision detected with the transition sensor
-                        this.scene.remove('ComputerControls');
-                        this.scene.start('InsideRoom', {
-                            player: this.player,
-                            speed: this.speed,
-                            camera: this.cameras.main,
-                            controls: this.controls, // Passing the controls object here
-                            engine: this.matter.world,
-                            world: this.world,
-                        });
-                    }
-                }
+              if (otherBody.id == 19) {
+   console.log('youve hit the farming pen');
+    
+}            
+             
+             if (otherBody.id == 25) {
+   console.log('youve hit the sensor by the door');
+               this.scene.remove('ComputerControls');
+  this.scene.start('InsideRoom', {
+  player: this.player,
+  speed: this.speed,
+  camera: this.cameras.main,
+  controls: this.controls, // Passing the controls object here
+  engine: this.matter.world,
+ // world: this.engine.world,
+   world: this.world,
+});
+
+}
             }
         });
     });
 }
-
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
