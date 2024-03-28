@@ -101,7 +101,12 @@ export function createTransitionSensors(scene, map) {
 }
 
              
- export function TransitionSensorHandler(scene, player, transitionSensors) {
+ export function TransitionSensorHandler(player, transitionSensors) {
+     const objectLayer2 = map.getObjectLayer('Object Layer 2');
+
+    const hopeful = objectLayer2.objects.object.properties.name.value;
+     console.log(hopeful);
+     
      console.log('Object Custom ID from transitionFUNC:', transitionSensors.properties.find(prop => prop.name === 'customID')?.value);
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
