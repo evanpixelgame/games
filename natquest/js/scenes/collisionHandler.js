@@ -13,7 +13,7 @@ const sensorID = new Map();
         sensorID.set(key, object);
         
     });
-
+//I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
         
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
