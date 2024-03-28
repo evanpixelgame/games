@@ -1,3 +1,5 @@
+const sensorID = new Map();
+
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
 
@@ -62,11 +64,11 @@ function calculateCentroid(vertices) {
 
 
 
-export function createTransitionSensors(scene, map, sensorID) {
+export function createTransitionSensors(scene, map) {
     const transitionSensors = {};
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
-    const sensorID = new Map();
+
     //const sensorIDs = sensorID;
 
     objectLayer2.objects.forEach(object => {
