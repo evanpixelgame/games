@@ -1,5 +1,15 @@
 const sensorID = new Map();
+ const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
+    objectLayer2.objects.forEach(object => {
+        // Log object properties to check if it has the customID property
+        console.log('Object ID:', object.id);
+        const customIDProperty = object.properties.find(prop => prop.name === 'customID');
+        const customID = customIDProperty ? customIDProperty.value : null;
+        console.log('Object Custom IDfromhandler:', customID);
+    });
+
+        
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
 
