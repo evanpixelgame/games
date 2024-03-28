@@ -63,14 +63,16 @@ function calculateCentroid(vertices) {
 
 
 export function createTransitionSensors(scene, map) {
-    const transitionSensors = [];
+    const transitionSensors = {};
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
         // Log object properties to check if it has the customID property
         console.log('Object ID:', object.id);
-        console.log('Object Custom ID:', object.properties.find(prop => prop.name === 'customID')?.value);
+        const customIDProperty = object.properties.find(prop => prop.name === 'customID');
+        const customID = customIDProperty ? customIDProperty.value : null;
+        console.log('Object Custom ID:', customID);
 
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
@@ -88,8 +90,10 @@ export function createTransitionSensors(scene, map) {
             }
         });
 
-        // Push the sensor to the transitionSensors array
-        transitionSensors.push(sensor);
+        // Add the sensor to the transitionSensors object with the customID as the key
+        if (customID) {
+            transitionSensors[customID] = sensor;
+        }
 
         // Log sensor properties
         console.log('Sensor:', sensor);
@@ -100,7 +104,6 @@ export function createTransitionSensors(scene, map) {
     return transitionSensors;
 }
 
-             
 export function TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
@@ -120,7 +123,7 @@ export function TransitionSensorHandler(player, transitionSensors) {
              if (otherBody.id == 25) {
    console.log('youve hit the sensor by the door');
                this.scene.remove('ComputerControls');
-  this.scene.start('InsideRoom', {
+  scene.start('InsideRoom', {
   player: this.player,
   speed: this.speed,
   camera: this.cameras.main,
@@ -135,7 +138,7 @@ export function TransitionSensorHandler(player, transitionSensors) {
         });
     });
 }
-
+             
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
