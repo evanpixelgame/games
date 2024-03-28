@@ -101,7 +101,7 @@ export function createTransitionSensors(scene, map) {
 }
 
              
- export function TransitionSensorHandler(player, transitionSensors) {
+ export function TransitionSensorHandler(scene, player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
