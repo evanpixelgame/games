@@ -118,7 +118,7 @@ export function TransitionSensorHandler(player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
-                if (otherBody.id) {
+                if (otherBody.name) {
                 console.log('Collision detected with object ID:', otherBody.name);
                 }
                  if (otherBody.customID) {
@@ -150,43 +150,6 @@ export function TransitionSensorHandler(player, transitionSensors) {
 }
 
 
-
-/*
-export function TransitionSensorHandler(player, transitionSensors) {
-    // Listen for collisionstart event on the world property of the scene where the player is created
-    player.scene.matter.world.on('collisionstart', (eventData) => {
-        // Loop through pairs of colliding bodies
-        eventData.pairs.forEach(pair => {
-            // Check if the player is one of the bodies involved in the collision
-            if (pair.bodyA === player.body || pair.bodyB === player.body) {
-                // Get the ID of the other body (the one the player collided with)
-                const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
-                // Log the ID of the other object
-                console.log('Collision detected with object ID:', otherBody.id);
-              if (otherBody.id == 19) {
-   console.log('youve hit the farming pen');
-    
-}            
-             
-             if (otherBody.id == 25) {
-   console.log('youve hit the sensor by the door');
-               this.scene.remove('ComputerControls');
-  scene.start('InsideRoom', {
-  player: this.player,
-  speed: this.speed,
-  camera: this.cameras.main,
-  controls: this.controls, // Passing the controls object here
-  engine: this.matter.world,
- // world: this.engine.world,
-   world: this.world,
-});
-
-}
-            }
-        });
-    });
-}
-*/             
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
