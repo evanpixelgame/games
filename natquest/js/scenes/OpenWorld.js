@@ -141,10 +141,11 @@ TransitionSensorHandler(player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
+                  const customIDProperty = otherBody.gameObject.properties.find(prop => prop.name === 'roomPlease');
+                 console.log('heresa jiggy chance: ' + customIDProperty);
                 // Check if the other body has properties and a custom property 'customID'
                 if (otherBody.gameObject && otherBody.gameObject.properties) {
-                    const customIDProperty = otherBody.gameObject.properties.find(prop => prop.name === 'roomPlease');
-                 console.log('heresa jiggy chance: ' + customIDProperty);
+               
                     if (customIDProperty) {
                         // Handle collision with transition sensor
                         console.log('Collision detected with transition sensor');
