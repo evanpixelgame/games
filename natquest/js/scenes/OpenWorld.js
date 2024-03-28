@@ -109,7 +109,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
            console.log(this.world);
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-    this.transitionSensors = createTransitionSensors(this, map, this.player); 
+    this.transitionSensors = createTransitionSensors(this, map, this.player, this.sensorID); 
 //  console.log('fromopenworldattempt' + transitionSensors[transitionSensor]);
 
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
