@@ -112,7 +112,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
     this.transitionSensors = createTransitionSensors(this, map, this.player); 
 
   // Use TransitionSensorHandler to handle collision events with transition sensors
-this.transitionHandler = TransitionSensorHandler(this.player, this.transitionSensors);
+this.transitionHandler = TransitionSensorHandler(this, map, this.player, this.transitionSensors);
           
 
 
