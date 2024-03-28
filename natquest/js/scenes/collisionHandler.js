@@ -141,12 +141,12 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
                             console.log('youve hit the sensor by the door');
                             scene.scene.remove('ComputerControls');
                             scene.scene.start('InsideRoom', {
-                                player: this.player,
-                                speed: this.speed,
-                                camera: this.cameras.main,
-                                controls: this.controls, // Passing the controls object here
-                                engine: this.matter.world,
-                                world: this.world,
+                                player: player,
+                                speed: speed,
+                                camera: cameras.main,
+                                controls: controls, // Passing the controls object here
+                                engine: matter.world,
+                                world: world,
                             });
                             break;
                         // Add more cases for other customIDs as needed
