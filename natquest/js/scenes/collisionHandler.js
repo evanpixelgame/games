@@ -142,9 +142,9 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
                  console.log(customID);
                 
                 // Check if the other body has a customID property
-                if (customID) {
-                    // Perform actions based on the customID
-                    switch (customID) {
+               if (objectLayer2.name === 'Object Layer 2') {
+
+                    switch (sensorID.get(key)) {
                         case 'transitionSensor':
                             console.log('You hit a transition sensor!');
                             // Perform actions specific to this customID
