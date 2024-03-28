@@ -106,6 +106,45 @@ export function createTransitionSensors(scene, map) {
 
 export function TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
+    this.player.scene.matter.world.on('collisionstart', (eventData) => {
+        // Loop through pairs of colliding bodies
+        eventData.pairs.forEach(pair => {
+            // Check if the player is one of the bodies involved in the collision
+            if (pair.bodyA === player.body || pair.bodyB === player.body) {
+                // Get the other body involved in the collision
+                const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
+                // Log the ID of the other object
+                console.log('Collision detected with object ID:', otherBody.id);
+
+                // Check if the other body has a customID property
+                if (otherBody.customID) {
+                    // Retrieve the sensor associated with the customID
+                    const sensor = transitionSensors[otherBody.customID];
+                    // Check if the sensor exists
+                    if (sensor) {
+                        // Perform actions based on the customID
+                        switch (otherBody.customID) {
+                            case 'transitionSensor':
+                                console.log('You hit a transition sensor!');
+                                // Perform actions specific to this customID
+                                break;
+                            // Add more cases for other customIDs as needed
+                            default:
+                                // Handle other customIDs
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+    });
+}
+
+
+
+/*
+export function TransitionSensorHandler(player, transitionSensors) {
+    // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
         eventData.pairs.forEach(pair => {
@@ -138,7 +177,7 @@ export function TransitionSensorHandler(player, transitionSensors) {
         });
     });
 }
-             
+*/             
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
