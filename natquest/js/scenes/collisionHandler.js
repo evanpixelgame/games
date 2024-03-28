@@ -66,12 +66,21 @@ export function createTransitionSensors(scene, map) {
     const transitionSensors = {};
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
+    const sensorID = new Map();
 
     objectLayer2.objects.forEach(object => {
         // Log object properties to check if it has the customID property
         console.log('Object ID:', object.id);
         const customIDProperty = object.properties.find(prop => prop.name === 'customID');
         const customID = customIDProperty ? customIDProperty.value : null;
+      
+        
+        const key = object.name; // Assuming a 'name' property exists
+          // Add the object to the Map with the extracted key
+        sensorID.set(key, object);
+        
+       
+        
         console.log('Object Custom ID:', customID);
 
         const centerX = object.x + object.width / 2;
@@ -130,6 +139,7 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
+                 console.log(customID);
                 
                 // Check if the other body has a customID property
                 if (customID) {
