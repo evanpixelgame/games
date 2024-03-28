@@ -124,10 +124,7 @@ export function TransitionSensorHandler(player, transitionSensors) {
                  if (otherBody.customID) {
                   console.log('Collision detected with object ID:', otherBody.customID);
                 }
-                if (otherBody.customID.value) {
-                  console.log('Collision detected with object ID:', otherBody.customID.value);
-                }
-
+        
                 // Check if the other body has a customID property
                 if (otherBody.customID) {
                     // Retrieve the sensor associated with the customID
