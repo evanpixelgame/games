@@ -101,13 +101,7 @@ export function createTransitionSensors(scene, map) {
 }
 
              
- export function TransitionSensorHandler(scene, map, player, transitionSensors) {
-     const objectLayer2 = map.getObjectLayer('Object Layer 2');
-
-    const hopeful = objectLayer2.objects.object.properties.name.value;
-     console.log(hopeful);
-     
-     console.log('Object Custom ID from transitionFUNC:', transitionSensors.properties.find(prop => prop.name === 'customID')?.value);
+export function TransitionSensorHandler(player, transitionSensors) {
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
@@ -141,6 +135,7 @@ export function createTransitionSensors(scene, map) {
         });
     });
 }
+
 
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
