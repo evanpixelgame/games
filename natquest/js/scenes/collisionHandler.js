@@ -117,7 +117,7 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
         const customID = customIDProperty ? customIDProperty.value : null;
         console.log('Object Custom IDfromhandler:', customID);
     });                               
-  //  console.log('TESTING123plzdisplayvalue' + transitionSensors[transitionSensor]); 
+
                                  
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
@@ -129,24 +129,23 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
-                if (otherBody.name) {
-                console.log('Collision detected with object ID:', otherBody.name);
-                }
-                 if (otherBody.customID) {
-                  console.log('Collision detected with object ID:', otherBody.customID);
-                }
-        
-                // Check if the other body has a customID property
-                if (otherBody.customID) {
-                    // Retrieve the sensor associated with the customID
-                    const sensor = transitionSensors[otherBody.customID];
-                    // Check if the sensor exists
-                    if (sensor) {
+                
+                   if (customID) {
                         // Perform actions based on the customID
-                        switch (otherBody.customID) {
+                        switch (customID) {
                             case 'transitionSensor':
                                 console.log('You hit a transition sensor!');
                                 // Perform actions specific to this customID
+                                   console.log('youve hit the sensor by the door');
+ this.scene.remove('ComputerControls');
+  this.scene.start('InsideRoom', {
+  player: this.player,
+  speed: this.speed,
+  camera: this.cameras.main,
+  controls: this.controls, // Passing the controls object here
+  engine: this.matter.world,
+   world: this.world,
+      });
                                 break;
                             // Add more cases for other customIDs as needed
                             default:
