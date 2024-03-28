@@ -100,25 +100,42 @@ export function createTransitionSensors(scene, map) {
     return transitionSensors;
 }
 
-
-
-/*
-export function TransitionSensorHandler(scene, player, transitionSensors, world) {
-    // Listen for collisionstart event
-    scene.physics.world.on('collisionstart', (eventData) => {
-        const { bodyA, bodyB } = eventData;
-        
-        // Check if player (bodyA) collides with a transition sensor (bodyB)
-        if (bodyA === player.body && transitionSensors.includes(bodyB)) {
-            // Perform scene transition
-            scene.scene.start('InsideRoom');
-        } else if (bodyB === player.body && transitionSensors.includes(bodyA)) {
-            // Perform scene transition (handle the case where player is bodyB)
-            scene.scene.start('InsideRoom');
-        }
+             
+export function TransitionSensorHandler(player, transitionSensors) {
+    // Listen for collisionstart event on the world property of the scene where the player is created
+    this.player.scene.matter.world.on('collisionstart', (eventData) => {
+        // Loop through pairs of colliding bodies
+        eventData.pairs.forEach(pair => {
+            // Check if the player is one of the bodies involved in the collision
+            if (pair.bodyA === player.body || pair.bodyB === player.body) {
+                // Get the ID of the other body (the one the player collided with)
+                const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
+                // Log the ID of the other object
+                console.log('Collision detected with object ID:', otherBody.id);
+                  const customIDProperty = otherBody.gameObject.properties.find(prop => prop.name === 'roomPlease');
+                 console.log('heresa jiggy chance: ' + customIDProperty);
+                // Check if the other body has properties and a custom property 'customID'
+                if (otherBody.gameObject && otherBody.gameObject.properties) {
+               
+                    if (customIDProperty) {
+                        // Handle collision with transition sensor
+                        console.log('Collision detected with transition sensor');
+                        // Start the InsideRoom scene if collision detected with the transition sensor
+                        this.scene.remove('ComputerControls');
+                        this.scene.start('InsideRoom', {
+                            player: this.player,
+                            speed: this.speed,
+                            camera: this.cameras.main,
+                            controls: this.controls, // Passing the controls object here
+                            engine: this.matter.world,
+                            world: this.world,
+                        });
+                    }
+                }
+            }
+        });
     });
 }
-*/
 
 
 export function handleBarrierCollision(player, barrier) {
@@ -141,20 +158,3 @@ export function handleBarrierCollision(player, barrier) {
         player.y = barrier.y + barrier.height + player.height / 2;
     }
 }
-
-
-
-
-
-/*
-export function TransitionSensorHandler(this, player, map) {
-     console.log('outsidecollisionstartlistener');
- // Check player's proximity to the sensor zone
-this.physics.world.on('overlap', (player, sensor) => {
-    if (sensor.name === 'transitionZone') {
-        // Transition to the new scene
-        this.scene.start('InsideRoom');
-    }
-});
-}
-*/
