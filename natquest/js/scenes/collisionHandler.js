@@ -102,6 +102,7 @@ export function createTransitionSensors(scene, map) {
 
              
  export function TransitionSensorHandler(scene, player, transitionSensors) {
+     console.log('Object Custom ID from transitionFUNC:', object.properties.find(prop => prop.name === 'customID')?.value);
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
