@@ -108,7 +108,17 @@ export function createTransitionSensors(scene, map) {
 }
 
 export function TransitionSensorHandler(player, transitionSensors) {
-    console.log('TESTING123plzdisplayvalue' + transitionSensors[transitionSensor]); 
+    const objectLayer2 = map.getObjectLayer('Object Layer 2');
+
+    objectLayer2.objects.forEach(object => {
+        // Log object properties to check if it has the customID property
+        console.log('Object ID:', object.id);
+        const customIDProperty = object.properties.find(prop => prop.name === 'customID');
+        const customID = customIDProperty ? customIDProperty.value : null;
+        console.log('Object Custom IDfromhandler:', customID);
+    }                               
+  //  console.log('TESTING123plzdisplayvalue' + transitionSensors[transitionSensor]); 
+                                 
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
