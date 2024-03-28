@@ -1,5 +1,20 @@
 const sensorID = new Map();
+ const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
+    objectLayer2.objects.forEach(object => {
+        // Log object properties to check if it has the customID property
+        console.log('Object ID:', object.id);
+        const customIDProperty = object.properties.find(prop => prop.name === 'customID');
+        const customID = customIDProperty ? customIDProperty.value : null;
+        console.log('Object Custom IDfromhandler:', customID);
+          
+        const key = object.name; // Assuming a 'name' property exists
+          // Add the object to the Map with the extracted key
+        sensorID.set(key, object);
+        
+    });
+//I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
+        
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
 
@@ -145,9 +160,9 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors, s
                  console.log(customID);
                 
                 // Check if the other body has a customID property
-               if (objectLayer2.name === 'Object Layer 2') {
+               if (customID) {
 
-                    switch (sensorID.get(key)) {
+                    switch (customID) {
                         case 'transitionSensor':
                             console.log('You hit a transition sensor!');
                             // Perform actions specific to this customID
