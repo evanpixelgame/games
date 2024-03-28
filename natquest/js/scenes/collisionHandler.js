@@ -118,8 +118,7 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
         const customIDProperty = object.properties.find(prop => prop.name === 'customID');
         const customID = customIDProperty ? customIDProperty.value : null;
         console.log('Object Custom IDfromhandler:', customID);
-    });                               
-
+                                 
                                  
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
@@ -159,6 +158,8 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
             }
         });
     });
+         
+    }); 
 }
 
 
