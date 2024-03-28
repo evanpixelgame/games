@@ -1,3 +1,5 @@
+export function sensorMapSet(scene, map) {
+
 const sensorID = new Map();
  const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
@@ -13,6 +15,8 @@ const sensorID = new Map();
         sensorID.set(key, object);
         
     });
+ return sensorID;
+}
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
         
 export function createCollisionObjects(scene, map) {
@@ -79,7 +83,7 @@ function calculateCentroid(vertices) {
 
 
 
-export function createTransitionSensors(scene, map) {
+export function createTransitionSensors(scene, map, ) {
     const transitionSensors = {};
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
