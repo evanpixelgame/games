@@ -139,8 +139,8 @@ export function TransitionSensorHandler(scene, map, player, transitionSensors) {
                             console.log('You hit a transition sensor!');
                             // Perform actions specific to this customID
                             console.log('youve hit the sensor by the door');
-                            this.scene.remove('ComputerControls');
-                            this.scene.start('InsideRoom', {
+                            scene.scene.remove('ComputerControls');
+                            scene.scene.start('InsideRoom', {
                                 player: this.player,
                                 speed: this.speed,
                                 camera: this.cameras.main,
