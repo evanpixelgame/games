@@ -7,6 +7,11 @@ const sensorID = new Map();
         const customIDProperty = object.properties.find(prop => prop.name === 'customID');
         const customID = customIDProperty ? customIDProperty.value : null;
         console.log('Object Custom IDfromhandler:', customID);
+          
+        const key = object.name; // Assuming a 'name' property exists
+          // Add the object to the Map with the extracted key
+        sensorID.set(key, object);
+        
     });
 
         
