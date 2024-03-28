@@ -1,3 +1,8 @@
+export function assignCustomID(scene, map) {
+
+}
+
+
 export function sensorMapSet(scene, map) {
 
 const sensorID = new Map();
@@ -83,7 +88,7 @@ function calculateCentroid(vertices) {
 
 
 
-export function createTransitionSensors(scene, map, ) {
+export function createTransitionSensors(scene, map, sensorID) {
     const transitionSensors = {};
 
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
