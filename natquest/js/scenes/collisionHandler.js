@@ -118,7 +118,7 @@ export function createTransitionSensors(scene, map, sensorID) {
 
 
 
-export function TransitionSensorHandler(scene, map, player, transitionSensors) {
+export function TransitionSensorHandler(scene, map, player, transitionSensors, sensorID) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
