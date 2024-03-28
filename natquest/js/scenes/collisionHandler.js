@@ -118,6 +118,15 @@ export function TransitionSensorHandler(player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
+                if (otherBody.id) {
+                console.log('Collision detected with object ID:', otherBody.name);
+                }
+                 if (otherBody.customID) {
+                  console.log('Collision detected with object ID:', otherBody.customID);
+                }
+                if (otherBody.customID.value) {
+                  console.log('Collision detected with object ID:', otherBody.customID.value);
+                }
 
                 // Check if the other body has a customID property
                 if (otherBody.customID) {
