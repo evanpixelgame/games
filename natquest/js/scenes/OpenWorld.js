@@ -1,8 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { sensorMapSet, createCollisionObjects, 
- createTransitionSensors, 
-      TransitionSensorHandler,
-        handleBarrierCollision } from './collisionHandler.js';
+import { sensorMapSet, createCollisionObjects, sensorHandler, handleBarrierCollision } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -109,12 +106,11 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
            console.log(this.world);
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-    this.transitionSensors = createTransitionSensors(this, map, this.player, this.sensorID); 
+//    this.transitionSensors = createTransitionSensor(this, map, this.player, this.sensorID); 
 //  console.log('fromopenworldattempt' + transitionSensors[transitionSensor]);
-
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
   // Use TransitionSensorHandler to handle collision events with transition sensors
-this.transitionHandler = TransitionSensorHandler(this, map, this.player, this.transitionSensors, this.sensorID);
+this.sensorHandler = TransitionSensorHandler(this, map, this.player, this.sensorID); //used to have this.transitionSensors as an argument
           
 
 
