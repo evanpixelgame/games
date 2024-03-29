@@ -42,10 +42,16 @@ player.scene.matter.world.on('collisionstart', (eventData) => {
             // Get the other body involved in the collision
             const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
             // Check if otherBody has a customID property
-           if (otherBody.properties.name === 'customID') { 
-                const sensorName = otherBody.properties.name;
+            let customID;
+otherBody.properties.forEach(property => {
+    if (property.name === 'customID') {
+        customID = property.value;
+    }
+});
+
+           if (customID) { 
                 // Retrieve the sensor name associated with the customID
-                switch (sensorName) {
+                switch (customID) {
                     case 'transitionSensor':
                         console.log('You hit a transition sensor!');
                         // Perform actions specific to this sensor
