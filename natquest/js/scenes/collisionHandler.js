@@ -32,6 +32,62 @@ export function sensorMapSet(scene, map) {
 
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
 
+
+
+export function sensorHandler(scene, map, player, transitionSensors) {
+        const objectLayer2 = map.getObjectLayer('Object Layer 2');
+        player.scene.matter.world.on('collisionstart', (eventData) => {
+            // Loop through pairs of colliding bodies
+            eventData.pairs.forEach(pair => {
+                // Check if the player is one of the bodies involved in the collision
+                if (pair.bodyA === player.body || pair.bodyB === player.body) {
+                    // Get the other body involved in the collision
+                    const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
+                    // Check if otherBody has a customID property
+                    if (otherBody.properties[0].name === 'customID') {
+                        let customID;
+                        otherBody.properties.forEach(property => {
+                            if (property.name === 'customID') {
+                                customID = otherBody.properties[0].values;
+                            }
+                            if (customID) {
+                                // Retrieve the sensor name associated with the customID
+                                switch (customID) {
+                                    case 'OpenWorldToInsideRoom':
+                                        console.log('You hit a transition sensor!');
+                                        // Perform actions specific to this sensor
+                                        console.log('youve hit the sensor by the door');
+                                        scene.scene.remove('ComputerControls');
+                                        scene.scene.start('InsideRoom', {
+                                            player: scene.player,
+                                            speed: scene.speed,
+                                            camera: scene.cameras.main,
+                                            controls: scene.controls, // Passing the controls object here
+                                            engine: scene.matter.world,
+                                            world: scene.world,
+                                        });
+                                        break;
+                                    // Add more cases for other sensor names as needed
+                                    default:
+                                        console.log(sensorName);
+                                        // Handle other sensor names
+                                        break;
+                                }
+                            } else {
+                                console.log('Collision detected with sensor object ID:', otherBody.id);
+                            }
+                        });
+                    } else {console.log('Collision detected with non-sensor object, ID:', otherBody.id);}
+                }
+            });
+        });
+}
+
+
+
+
+
+/*
 export function sensorHandler(scene, map, player, transitionSensors) {
         const objectLayer2 = map.getObjectLayer('Object Layer 2');
         player.scene.matter.world.on('collisionstart', (eventData) => {
@@ -81,7 +137,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
         });
 }
 
-
+*/
 
 
 export function createCollisionObjects(scene, map) {
