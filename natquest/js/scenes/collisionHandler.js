@@ -32,7 +32,7 @@ export function sensorMapSet(scene, map) {
 
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
 
-
+export function sensorHandler(scene, map, player, transitionSensors) {
  
 player.scene.matter.world.on('collisionstart', (eventData) => {
     // Loop through pairs of colliding bodies
