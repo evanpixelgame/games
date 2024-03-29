@@ -5,6 +5,8 @@ class GameManager {
     this.playerName = '';
     this.health = 100;
     this.stamina = 100;
+
+    this.sensorID = {};
   }
 }
 
