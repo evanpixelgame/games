@@ -70,10 +70,8 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                             break;
                     }
                 } else {
-                    console.log('Collision detected with sensor object ID:', otherBody.id);
+                    console.log('Collision detected with non-sensor object ID:', otherBody.id);
                 }
-            } else {
-                console.log('Collision detected with non-sensor object, ID:', otherBody.id);
             }
         });
     });
