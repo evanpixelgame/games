@@ -1,4 +1,3 @@
-//let gameManager.sensorID = {}; already declared in GameState.js aka gameManager
 import { gameManager } from '../gameState.js';
 
 export function sensorMapSet(scene, map) {
