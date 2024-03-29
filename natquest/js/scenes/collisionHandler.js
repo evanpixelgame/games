@@ -39,41 +39,40 @@ export function sensorHandler(scene, map, player, transitionSensors) { //used to
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
-                 console.log(customID);
-              if (otherBody.properties.name.value == 'customID') {
-                          let sensorname = '';
-                // Check if the other body has a customID property
-                          if (otherBody.properties.name.value == sensorName) {
-                         // const sensorObject = gameManager.sensorID[customID]; // Retrieve the sensor object associated with the customID, is this needed???
-                          switch (sensorName) {
-                        case 'transitionSensor':
-                            console.log('You hit a transition sensor!');
-                            // Perform actions specific to this customID
-                            console.log('youve hit the sensor by the door');
-                            scene.scene.remove('ComputerControls');
-                            scene.scene.start('InsideRoom', {
-                                player: scene.player,
-                                speed: scene.speed,
-                                camera: scene.cameras.main,
-                                controls: scene.controls, // Passing the controls object here
-                                engine: scene.matter.world,
-                                world: scene.world,
-                            });
-                            break;
-                        // Add more cases for other customIDs as needed
-                        default:
-                            console.log(`haven't assigned this bad boy an ID or callback yet, its just: ${otherBody.id}`);
-                            // Handle other customIDs
-                            break;
+                console.log(customID);
+                if (otherBody.properties.name.value == 'customID') {
+                    let sensorname = '';
+                    // Check if the other body has a customID property
+                    if (otherBody.properties.name.value == sensorName) {
+                        // const sensorObject = gameManager.sensorID[customID]; // Retrieve the sensor object associated with the customID, is this needed???
+                        switch (sensorName) {
+                            case 'transitionSensor':
+                                console.log('You hit a transition sensor!');
+                                // Perform actions specific to this customID
+                                console.log('youve hit the sensor by the door');
+                                scene.scene.remove('ComputerControls');
+                                scene.scene.start('InsideRoom', {
+                                    player: scene.player,
+                                    speed: scene.speed,
+                                    camera: scene.cameras.main,
+                                    controls: scene.controls, // Passing the controls object here
+                                    engine: scene.matter.world,
+                                    world: scene.world,
+                                });
+                                break;
+                            // Add more cases for other customIDs as needed
+                            default:
+                                console.log(`haven't assigned this bad boy an ID or callback yet, its just: ${otherBody.id}`);
+                                // Handle other customIDs
+                                break;
+                        }
                     }
                 }
             }
-            }
         });
     });
-         
-    }); 
 }
+
 
 
 
