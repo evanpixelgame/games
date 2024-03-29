@@ -36,7 +36,6 @@ export function sensorMapSet(scene, map) {
 
 export function sensorHandler(scene, map, player, transitionSensors) {
           console.log(`I LOVE NATALY SO MUCH!`, gameManager.sensorID);
-        const objectLayer2 = map.getObjectLayer('Object Layer 2');
         player.scene.matter.world.on('collisionstart', (eventData) => {
             // Loop through pairs of colliding bodies
             eventData.pairs.forEach(pair => {
@@ -44,17 +43,12 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 if (pair.bodyA === player.body || pair.bodyB === player.body) {
                     // Get the other body involved in the collision
                     const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
-       
-                    console.log('NO ONE IS PRETTIER THAN TITI' + otherBody);
-                    if (otherBody.properties[0].name === 'customID') {
-                        let customID;
-                        otherBody.properties.forEach(property => {
-                            if (property.name === 'customID') {
-                                customID = otherBody.properties[0].value;
-                            }
-                            if (customID) {
-                                // Retrieve the sensor name associated with the customID
-                                switch (customID) {
+                    const isCustom = Object.values(gameManager.sensorID).includes(otherBody);
+                    //check if sensorID has a key-value with the object otherBody represents as the value 
+
+                    if (isCustom) {
+                      const customIDName = gameManager.sensorID.value;
+                                switch (customIDName) {
                                     case 'OpenWorldToInsideRoom':
                                         console.log('You hit a transition sensor!');
                                         // Perform actions specific to this sensor
