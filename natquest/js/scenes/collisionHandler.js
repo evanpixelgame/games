@@ -1,4 +1,4 @@
-let gameManager.sensorID = {};
+//let gameManager.sensorID = {}; already declared in GameState.js aka gameManager
 
 export function sensorMapSet(scene, map) {
  const transitionSensors = {};
