@@ -28,17 +28,7 @@ export function sensorMapSet(scene, map) {
 
 
  
-export function sensorHandler(scene, map, player, transitionSensors) { //used to have gameManager.sensorID here
-    const objectLayer2 = map.getObjectLayer('Object Layer 2');
-
-    objectLayer2.objects.forEach(object => {
-        // Log object properties to check if it has the customID property
-        console.log('Object ID:', object.id);
-        const customIDProperty = object.properties.find(prop => prop.name === 'customID');
-        const customID = customIDProperty ? customIDProperty.value : null;
-        console.log('Object Custom IDfromhandler:', customID);
-                                 
-                                 
+export function sensorHandler(scene, map, player, transitionSensors) { //used to have gameManager.sensorID here                                 
     // Listen for collisionstart event on the world property of the scene where the player is created
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
@@ -50,11 +40,12 @@ export function sensorHandler(scene, map, player, transitionSensors) { //used to
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
                  console.log(customID);
-                
+              if (otherBody.properties.name.value == 'customID') {
+                          let sensorname = '';
                 // Check if the other body has a customID property
-                          if (object.properties.name === 'customID') {
+                          if (otherBody.properties.name.value == sensorName) {
                          // const sensorObject = gameManager.sensorID[customID]; // Retrieve the sensor object associated with the customID, is this needed???
-                          switch (customIDProperty) {
+                          switch (sensorName) {
                         case 'transitionSensor':
                             console.log('You hit a transition sensor!');
                             // Perform actions specific to this customID
@@ -71,11 +62,12 @@ export function sensorHandler(scene, map, player, transitionSensors) { //used to
                             break;
                         // Add more cases for other customIDs as needed
                         default:
-                            console.log(`haven't assigned this bad boy an ID or callback yet`);
+                            console.log(`haven't assigned this bad boy an ID or callback yet, its just: ${otherBody.id}`);
                             // Handle other customIDs
                             break;
                     }
                 }
+            }
             }
         });
     });
