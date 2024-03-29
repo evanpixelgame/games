@@ -44,7 +44,8 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 if (pair.bodyA === player.body || pair.bodyB === player.body) {
                     // Get the other body involved in the collision
                     const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
-                    // Check if otherBody has a customID property
+       
+                    console.log('NO ONE IS PRETTIER THAN TITI' + otherBody);
                     if (otherBody.properties[0].name === 'customID') {
                         let customID;
                         otherBody.properties.forEach(property => {
