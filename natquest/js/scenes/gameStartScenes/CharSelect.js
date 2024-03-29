@@ -1,4 +1,4 @@
-import { gameManager } from '.../gameState.js';
+import { gameManager } from '../../gameState.js';
 class CharSelect extends Phaser.Scene {
   constructor() {
     super({ key: 'CharSelect' });
