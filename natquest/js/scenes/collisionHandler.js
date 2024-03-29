@@ -1,3 +1,5 @@
+const sensorID = new Map();
+
 export function assignCustomID(scene, map) {
 
 }
@@ -5,7 +7,7 @@ export function assignCustomID(scene, map) {
 
 export function sensorMapSet(scene, map) {
 
-const sensorID = new Map();
+
  const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
