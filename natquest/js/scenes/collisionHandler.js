@@ -48,7 +48,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                         let customID;
                         otherBody.properties.forEach(property => {
                             if (property.name === 'customID') {
-                                customID = otherBody.properties[0].values;
+                                customID = otherBody.properties[0].value;
                             }
                             if (customID) {
                                 // Retrieve the sensor name associated with the customID
