@@ -62,6 +62,7 @@ player.scene.matter.world.on('collisionstart', (eventData) => {
                         break;
                     // Add more cases for other sensor names as needed
                     default: 
+                        console.log(sensorName);
                         // Handle other sensor names
                         break;
                 }
