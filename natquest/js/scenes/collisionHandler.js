@@ -72,7 +72,7 @@ player.scene.matter.world.on('collisionstart', (eventData) => {
         }
     });
 });
-
+}
 
 
 
