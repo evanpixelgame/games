@@ -35,7 +35,7 @@ export function sensorMapSet(scene, map) {
 
 
  
-export function sensorHandler(scene, map, player, transitionSensors, gameManager.sensorID) {
+export function sensorHandler(scene, map, player, transitionSensors) { //used to have gameManager.sensorID here
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
