@@ -45,8 +45,8 @@ player.scene.matter.world.on('collisionstart', (eventData) => {
             console.log('Collision detected with object ID:', otherBody.id);
             
             // Check if otherBody has a customID property
-            if (otherBody.properties.value && gameManager.sensorID.hasOwnProperty(otherBody.properties.value)) {
-                const sensorName = otherBody.properties.value;
+           if (otherBody.properties && otherBody.properties.customID && gameManager.sensorID.hasOwnProperty(otherBody.properties.customID)) { 
+                const sensorName = otherBody.properties.customID;
                 // Retrieve the sensor name associated with the customID
                 switch (sensorName) {
                     case 'transitionSensor':
