@@ -68,6 +68,8 @@ player.scene.matter.world.on('collisionstart', (eventData) => {
                         // Handle other sensor names
                         break;
                 }
+            } else {
+               console.log(otherBody.id);
             }
         }
     });
