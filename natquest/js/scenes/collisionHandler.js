@@ -75,7 +75,7 @@ otherBody.properties.forEach(property => {
             } else {
                console.log('Collision detected with sensor object ID:', otherBody.id);
             }
-        }
+        });
     });
 });
 } else {
