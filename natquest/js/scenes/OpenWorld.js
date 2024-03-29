@@ -110,7 +110,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 //  console.log('fromopenworldattempt' + transitionSensors[transitionSensor]);
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
   // Use TransitionSensorHandler to handle collision events with transition sensors
-this.sensorHandler = TransitionSensorHandler(this, map, this.player, this.sensorID); //used to have this.transitionSensors as an argument
+this.sensorHandling = sensorHandler(this, map, this.player, this.sensorID); //used to have this.transitionSensors as an argument
           
 
 
