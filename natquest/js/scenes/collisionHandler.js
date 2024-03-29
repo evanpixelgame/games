@@ -33,6 +33,7 @@ export function sensorMapSet(scene, map) {
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
 
 export function sensorHandler(scene, map, player, transitionSensors) {
+    if (otherBody.hasOwnProperty('customID'))
 const objectLayer2 = map.getObjectLayer('Object Layer 2');
 player.scene.matter.world.on('collisionstart', (eventData) => {
     // Loop through pairs of colliding bodies
@@ -46,9 +47,7 @@ player.scene.matter.world.on('collisionstart', (eventData) => {
             let customID;
 otherBody.properties.forEach(property => {
     if (property.name === 'customID') {
-        customID = property.value;
-    }
-});
+        customID = otherBody.properties.values;
             }
            if (customID) { 
                 // Retrieve the sensor name associated with the customID
@@ -74,11 +73,14 @@ otherBody.properties.forEach(property => {
                         break;
                 }
             } else {
-               console.log('Collision detected with object ID:', otherBody.id);
+               console.log('Collision detected with sensor object ID:', otherBody.id);
             }
         }
     });
 });
+} else {
+console.log('Collision detected with non-sensor object, ID:', otherBody.id);
+}
 }
 
 
