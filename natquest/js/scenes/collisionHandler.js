@@ -1,4 +1,4 @@
-let sensorID = {};
+let gameManager.sensorID = {};
 
 export function sensorMapSet(scene, map) {
  const transitionSensors = {};
@@ -14,7 +14,7 @@ export function sensorMapSet(scene, map) {
         const key = object.name; // Assuming a 'name' property exists
           // Add the object to the Map with the extracted key
      if (customID) {
-        sensorID[key] = object;
+        gameManager.sensorID[key] = object;
      }
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
@@ -29,13 +29,13 @@ export function sensorMapSet(scene, map) {
             }
         });   
     });
- return sensorID;
+ return gameManager.sensorID;
 }
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
 
 
  
-export function sensorHandler(scene, map, player, transitionSensors, sensorID) {
+export function sensorHandler(scene, map, player, transitionSensors, gameManager.sensorID) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
@@ -60,7 +60,7 @@ export function sensorHandler(scene, map, player, transitionSensors, sensorID) {
                 
                 // Check if the other body has a customID property
                           if (customID !== null) {
-                         // const sensorObject = sensorID[customID]; // Retrieve the sensor object associated with the customID, is this needed???
+                         // const sensorObject = gameManager.sensorID[customID]; // Retrieve the sensor object associated with the customID, is this needed???
                           switch (customIDProperty) {
                         case 'transitionSensor':
                             console.log('You hit a transition sensor!');
