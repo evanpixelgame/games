@@ -39,10 +39,10 @@ export function sensorHandler(scene, map, player, transitionSensors) { //used to
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
-                if (otherBody.properties.name.value == 'customID') {
-                    let sensorname = '';
+                if (otherBody.properties.name == 'customID') {
+                    let sensorName = '';
                     // Check if the other body has a customID property
-                    if (otherBody.properties.name.value == sensorName) {
+                    if (otherBody.properties.value == sensorName) {
                         // const sensorObject = gameManager.sensorID[customID]; // Retrieve the sensor object associated with the customID, is this needed???
                         switch (sensorName) {
                             case 'transitionSensor':
