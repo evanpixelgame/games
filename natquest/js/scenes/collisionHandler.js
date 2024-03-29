@@ -29,6 +29,7 @@ export function sensorMapSet(scene, map) {
             }
         });   
     });
+ console.log(`NATALY IS THE MOST BEAUTIFUL POPULATE OBJECT` + gameManager.sensorID);
  return gameManager.sensorID;
 }
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
