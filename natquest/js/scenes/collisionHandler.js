@@ -35,6 +35,7 @@ export function sensorMapSet(scene, map) {
 
 
 export function sensorHandler(scene, map, player, transitionSensors) {
+          console.log(`I LOVE NATALY SO MUCH!`, gameManager.sensorID);
         const objectLayer2 = map.getObjectLayer('Object Layer 2');
         player.scene.matter.world.on('collisionstart', (eventData) => {
             // Loop through pairs of colliding bodies
