@@ -1,21 +1,14 @@
 //let gameManager.sensorID = {}; already declared in GameState.js aka gameManager
 
 export function sensorMapSet(scene, map) {
- const transitionSensors = {};
  const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
     objectLayer2.objects.forEach(object => {
         // Log object properties to check if it has the customID property
-        console.log('Object ID:', object.id);
         const customIDProperty = object.properties.find(prop => prop.name === 'customID');
         const customID = customIDProperty ? customIDProperty.value : null;
         console.log('Object Custom IDfromhandler:', customID);
-          
-        const key = object.name; // Assuming a 'name' property exists
-          // Add the object to the Map with the extracted key
-     if (customID) {
-        gameManager.sensorID[key] = object;
-     }
+        gameManager.sensorID[customIDProperty] = customID;
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
         const width = object.width;
@@ -30,7 +23,6 @@ export function sensorMapSet(scene, map) {
         });   
     });
  console.log(`NATALY IS THE MOST BEAUTIFUL POPULATE OBJECT` + gameManager.sensorID);
- return gameManager.sensorID;
 }
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
 
