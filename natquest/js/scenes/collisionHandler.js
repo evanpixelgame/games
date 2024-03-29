@@ -52,7 +52,7 @@ otherBody.properties.forEach(property => {
            if (customID) { 
                 // Retrieve the sensor name associated with the customID
                 switch (customID) {
-                    case 'transitionSensor':
+                    case 'OpenWorldToInsideRoom':
                         console.log('You hit a transition sensor!');
                         // Perform actions specific to this sensor
                         console.log('youve hit the sensor by the door');
