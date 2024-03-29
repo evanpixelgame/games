@@ -60,8 +60,7 @@ export function sensorHandler(scene, map, player, transitionSensors) { //used to
                                 });
                                 break;
                             // Add more cases for other customIDs as needed
-                            default:
-                                console.log(`haven't assigned this bad boy an ID or callback yet, its just: ${otherBody.id}`);
+                            default: 
                                 // Handle other customIDs
                                 break;
                         }
