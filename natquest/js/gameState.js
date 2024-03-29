@@ -1,4 +1,4 @@
-class GameManager {
+export class GameManager {
   constructor() {
     this.selectedCharacter = null;
     this.selectedCharacterIndex = null;
@@ -10,4 +10,4 @@ class GameManager {
   }
 }
 
-const gameManager = new GameManager();
+export const gameManager = new GameManager();
