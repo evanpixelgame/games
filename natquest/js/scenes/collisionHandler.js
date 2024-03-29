@@ -39,7 +39,7 @@ export function sensorHandler(scene, map, player, transitionSensors) { //used to
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 // Log the ID of the other object
                 console.log('Collision detected with object ID:', otherBody.id);
-                if (otherBody.properties.name == 'customID') {
+                if ( otherBody.properties.some(prop => prop.name === 'customID')) {
                     let sensorName = '';
                     // Check if the other body has a customID property
                     if (otherBody.properties.value == sensorName) {
