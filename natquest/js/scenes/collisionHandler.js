@@ -59,9 +59,9 @@ export function sensorHandler(scene, map, player, transitionSensors, sensorID) {
                  console.log(customID);
                 
                 // Check if the other body has a customID property
-                          if (customID) {
+                          if (customIDProperty.value) {
                          // const sensorObject = sensorID[customID]; // Retrieve the sensor object associated with the customID, is this needed???
-                          switch (customID) {
+                          switch (customIDProperty) {
                         case 'transitionSensor':
                             console.log('You hit a transition sensor!');
                             // Perform actions specific to this customID
@@ -78,6 +78,7 @@ export function sensorHandler(scene, map, player, transitionSensors, sensorID) {
                             break;
                         // Add more cases for other customIDs as needed
                         default:
+                            console.log(`haven't assigned this bad boy an ID or callback yet`);
                             // Handle other customIDs
                             break;
                     }
