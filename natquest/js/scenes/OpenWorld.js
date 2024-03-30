@@ -136,8 +136,9 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
 
         
   update(time, delta) {
-    // Update method code here
-  //  Matter.Runner.run(this.engine);
+    if (this.controls) {
+        this.controls.update(time, delta);
+    }
   }
 }
 
