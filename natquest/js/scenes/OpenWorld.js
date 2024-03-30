@@ -149,7 +149,7 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
 
   
   update(time, delta) {
-  if (!this.player) {
+  if (!this.player.body) {
     console.log('player aint here yet');
 return
   }
