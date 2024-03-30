@@ -77,16 +77,11 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object, just took away this.world as 2nd argument
+    this.player = new PlayerSprite(this, 495, 325, 'player', initialVelocityX, initialVelocityY); // Create the player object, just took away this.world as 2nd argument
   // Listen for the 'created' event on the player sprite
             const playerBodyWorld = this.player.body ? this.player.body.world : null;
         console.log('Player Body World123:', playerBodyWorld);
 
-   //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
-  // this.controls =  this.scene.add('ComputerControls', new ComputerControls());
-  //  this.controls = new ComputerControls(this, 0, 0, this.player, this.speed);
-//this.scene.add('ComputerControls', this.controls);
-          
       
     console.log(this.player.body);
     console.log('Player World:', this.player.body.world);
