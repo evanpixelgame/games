@@ -44,6 +44,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 // Get the other body involved in the collision
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
                 const isCustom = Object.keys(otherBody).includes('properties');
+                console.log(isCustom);
                 // Check if sensorID has a key-value with the object otherBody represents as the value 
 
              if (isCustom) {
