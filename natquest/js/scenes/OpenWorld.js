@@ -156,6 +156,8 @@ return
     let velocityX = 0;
     let velocityY = 0;
     
+  this.player.setVelocity(velocityX, velocityY);
+    
      // Handle keyboard input for player movement
     if (this.cursors.left.isDown) {
         this.player.body.setVelocityX(-100);
@@ -172,8 +174,6 @@ return
     } else {
         this.player.body.setVelocityY(0);
     }
-
-  this.player.setVelocity(velocityX, velocityY);
     
   if (velocityX !== 0 || velocityY !== 0) {
       if (velocityX > 0) {
