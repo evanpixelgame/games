@@ -38,6 +38,7 @@ const config = {
    // Player,
     OpenWorld,
     InsideRoom,
+    NextRoom,
     MobileControls,
     ComputerControls,
     PlayerAnimations,
