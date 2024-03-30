@@ -29,7 +29,7 @@ export function sensorMapSet(scene, map) {
         });   
     });
 
-    console.log(`NATALY IS THE MOST BEAUTIFUL POPULATE OBJECT`, gameManager.sensorID);
+ //   console.log(`NATALY IS THE MOST BEAUTIFUL POPULATE OBJECT`, gameManager.sensorID);
 }
 
 //I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
@@ -37,7 +37,7 @@ export function sensorMapSet(scene, map) {
 
 
 export function sensorHandler(scene, map, player, transitionSensors) {
-    console.log(`I LOVE NATALY SO MUCH!`, gameManager.sensorID);
+  //  console.log(`I LOVE NATALY SO MUCH!`, gameManager.sensorID);
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
         eventData.pairs.forEach(pair => {
