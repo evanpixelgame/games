@@ -70,6 +70,11 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 world: scene.world,
             });
             break;
+            
+            case: 'FastZone':
+                console.log('cue sirens, double speed');
+            break;
+            
         // Add more cases for other sensor names as needed
         default:
             console.log(otherBody.customID);
