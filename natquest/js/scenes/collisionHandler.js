@@ -1,8 +1,6 @@
-//import { gameManager } from '../gameState.js';
 
-// NEXT MAP CHANGE switch it out to 'Sensor Layer 1'
 export function sensorMapSet(scene, map) {
-    const objectLayer2 = map.getObjectLayer('Object Layer 2');
+    const objectLayer2 = map.getObjectLayer('Sensor Layer 1');
 
     objectLayer2.objects.forEach(object => {
         // Log object properties to check if it has the customID property
@@ -29,12 +27,7 @@ export function sensorMapSet(scene, map) {
         });   
     });
 
- //   console.log(`NATALY IS THE MOST BEAUTIFUL POPULATE OBJECT`, gameManager.sensorID);
 }
-
-//I want it so the key is the customID (aka, transitionsensor to be renamed openworldtoInsideRoom) and the value to be the matter.js body that the sensor is associated with.
-
-
 
 export function sensorHandler(scene, map, player, transitionSensors) {
   //  console.log(`I LOVE NATALY SO MUCH!`, gameManager.sensorID);
@@ -83,11 +76,10 @@ export function sensorHandler(scene, map, player, transitionSensors) {
     });
 }
 
-// NEXT MAP CHANGE switch it out to 'Collision Layer 1'
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
 
-    const objectLayer = map.getObjectLayer('Object Layer 1');
+    const objectLayer = map.getObjectLayer('Collision Layer 1');
 
     objectLayer.objects.forEach(object => {
         const centerX = object.x + object.width / 2;
@@ -145,7 +137,7 @@ function calculateCentroid(vertices) {
     return { x: centroidX, y: centroidY };
 }
 
-
+/*
 export function handleBarrierCollision(player, barrier) {
     const overlapX = player.x - barrier.x;
     const overlapY = player.y - barrier.y;
@@ -165,4 +157,4 @@ export function handleBarrierCollision(player, barrier) {
         player.body.velocity.y = 0;
         player.y = barrier.y + barrier.height + player.height / 2;
     }
-}
+} */
