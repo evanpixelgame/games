@@ -83,6 +83,21 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 newPosition: newPosition,
             });
             break;
+
+            
+              case 'InsideRoomToNextRoom':
+            console.log('take me back home again daddy');
+            const newPosition = { x: 560, y: 715 };
+             scene.scene.start('NextRoom', {
+                player: scene.player,
+                speed: scene.speed,
+                camera: scene.cameras.main,
+                controls: scene.controls, // Passing the controls object here
+                engine: scene.matter.world,
+                world: scene.world,
+                newPosition: newPosition,
+            });
+            break;
             
         // Add more cases for other sensor names as needed
         default:
