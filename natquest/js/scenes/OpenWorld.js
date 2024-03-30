@@ -155,6 +155,8 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
     console.log('player aint here yet');
 return
   }
+    let velocityX = 0;
+    let velocityY = 0;
     
      // Handle keyboard input for player movement
     if (this.cursors.left.isDown) {
@@ -173,6 +175,8 @@ return
         this.player.body.setVelocityY(0);
     }
 
+  this.player.setVelocity(velocityX, velocityY);
+    
   if (velocityX !== 0 || velocityY !== 0) {
       if (velocityX > 0) {
         this.player.anims.play('walking-right', true);
