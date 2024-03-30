@@ -4,9 +4,7 @@ export default class ComputerControls extends Phaser.Scene  {
     super({ key: 'ComputerControls' });
 
     this.player = null; // Initialize player reference
-    this.speed = null; // Initialize speed
-    this.controls = null;
-    this.setPlayerVelocity = null;
+    this.speed = 0; // Initialize speed
   }
 
 
@@ -14,7 +12,6 @@ export default class ComputerControls extends Phaser.Scene  {
     // Retrieve player reference and speed from the data object
     this.player = data.player;
     this.speed = data.speed;
-    this.setPlayerVelocity = this.player.setVelocity.bind(this.player);
   console.log("Received player in ComputerControls:", this.player); // Log player reference
   }
 
@@ -72,7 +69,7 @@ update(time, delta) {
     }
 
     // Set the velocity of the player sprite
-   this.player.setVelocity(velocityX, velocityY);
+    this.player.setVelocity(velocityX, velocityY);
 
     // Play appropriate animation based on movement direction
     if (velocityX !== 0 || velocityY !== 0) {
