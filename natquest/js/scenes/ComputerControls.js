@@ -2,7 +2,7 @@
 //export class ComputerControls extends Phaser.Scene  {
 export class ComputerControls extends Phaser.Physics.Matter.Sprite {
   constructor() {
-    super({ key: 'ComputerControls' });
+        super(scene.matter.world, velocityX, velocityY);
 
     this.player = null; // Initialize player reference
     this.speed = 0; // Initialize speed
