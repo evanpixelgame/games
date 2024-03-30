@@ -36,7 +36,7 @@ export function sensorMapSet(scene, map) {
 
 }
 
-export function sensorHandler( map, player, transitionSensors ) {
+export function sensorHandler( scene, map, player, transitionSensors ) {
     
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
