@@ -36,10 +36,9 @@ export function sensorMapSet(scene, map) {
 
 }
 
-export function sensorHandler( scene, map, player, transitionSensors ) {
+export function sensorHandler(scene, map, player, transitionSensors) {
     
     player.scene.matter.world.on('collisionstart', (eventData) => {
-       // sensorHandler.call(player.scene, eventData);
         // Loop through pairs of colliding bodies
         eventData.pairs.forEach(pair => {
             // Check if the player is one of the bodies involved in the collision
@@ -56,7 +55,7 @@ export function sensorHandler( scene, map, player, transitionSensors ) {
             console.log('You hit a transition sensor!');
             // Perform actions specific to this sensor
             console.log('youve hit the sensor by the door');
-        //    scene.scene.remove('ComputerControls');
+            scene.scene.remove('ComputerControls');
             scene.scene.start('InsideRoom', {
                 player: scene.player,
                 speed: scene.speed,
