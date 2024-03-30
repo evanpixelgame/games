@@ -85,4 +85,3 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
  
 }
 
-window.OpenWorld = OpenWorld;
