@@ -49,7 +49,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 console.log(isCustom);
                 // Check if sensorID has a key-value with the object otherBody represents as the value 
                 console.log(otherBody);
-                console.log(otherBody.properties);
+                console.log(otherBody.customID);
              if (isCustom) {
     let customIDName = null;
     for (const key in gameManager.sensorID) {
