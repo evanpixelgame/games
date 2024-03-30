@@ -73,7 +73,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 console.log('cue sirens, double speed');
             break;
 
-              case 'InsideRoomToOpenWorld':
+              case 'BackToOpenWorld':
                 console.log('take me back home daddy');
             break;
             
