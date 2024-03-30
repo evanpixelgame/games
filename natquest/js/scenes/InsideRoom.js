@@ -1,6 +1,6 @@
 import { PlayerSprite } from './PlayerSprite.js';
 import ComputerControls from './ComputerControls.js';
-import { createCollisionObjects, handleBarrierCollision } from './collisionHandler.js';
+import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
 
 
 export default class InsideRoom extends Phaser.Scene {
@@ -117,7 +117,8 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
    // this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
       this.collisionObjects = createCollisionObjects(this, map);
-   // this.transitionSensors = createTransitionSensors(this, map, this.player); 
+      this.sensorMapping = sensorMapSet(this, map, this.sensorID);  
+      this.sensorHandling = sensorHandler(this, map, this.player);
 
     
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
