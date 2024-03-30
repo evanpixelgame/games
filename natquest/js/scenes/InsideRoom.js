@@ -30,6 +30,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
 
     // Initialize properties
+    this.scene = data.scene;
     this.player = data.player;
     this.speed = data.speed;
     this.camera = data.camera;
