@@ -71,7 +71,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
             });
             break;
             
-            case: 'FastZone':
+            case 'FastZone':
                 console.log('cue sirens, double speed');
             break;
             
