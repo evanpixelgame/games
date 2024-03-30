@@ -25,7 +25,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         if (!data.engine) missingData.push("engine");
         if (!data.world) missingData.push("world");
     }
-    console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
+    console.error("Missing required data for NextRoom scene initialization: " + missingData.join(", "));
     return;
 }
 
@@ -61,7 +61,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         if (!data.engine) missingData.push("engine");
         if (!data.world) missingData.push("world");
     }
-    console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
+    console.error("Missing required data for NextRoom scene initialization: " + missingData.join(", "));
     return;
 }
 
