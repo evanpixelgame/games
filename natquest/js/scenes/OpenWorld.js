@@ -82,7 +82,10 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
             const playerBodyWorld = this.player.body ? this.player.body.world : null;
         console.log('Player Body World123:', playerBodyWorld);
 
-     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+   //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
+  // this.controls =  this.scene.add('ComputerControls', new ComputerControls());
+    this.controls = new ComputerControls();
+this.scene.add('ComputerControls', this.controls);
           
       
     console.log(this.player.body);
