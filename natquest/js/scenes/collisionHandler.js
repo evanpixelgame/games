@@ -47,9 +47,6 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
               // const isCustom = otherBody.properties.find(prop => prop.name === 'customID') !== undefined;
                const isCustom = otherBody.isSensor == true;
-                
-               // console.log(isCustom);
-            //console.log(otherBody.customID);
           
                 if (isCustom) {            
     switch (otherBody.customID) {
