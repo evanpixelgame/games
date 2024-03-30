@@ -80,7 +80,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 engine: scene.matter.world,
                 world: scene.world,
             });
-            
+             this.player.setPosition(560, 715);
             break;
             
         // Add more cases for other sensor names as needed
