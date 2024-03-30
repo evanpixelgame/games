@@ -62,7 +62,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
             break;
         // Add more cases for other sensor names as needed
         default:
-            console.log(customIDName);
+            console.log(otherBody.customID);
             // Handle other sensor names
             break;
     }
@@ -134,25 +134,3 @@ function calculateCentroid(vertices) {
 
     return { x: centroidX, y: centroidY };
 }
-
-/*
-export function handleBarrierCollision(player, barrier) {
-    const overlapX = player.x - barrier.x;
-    const overlapY = player.y - barrier.y;
-
-    if (player.body.velocity.x > 0 && overlapX < 0) {
-        player.body.velocity.x = 0;
-        player.x = barrier.x - player.width / 2;
-    } else if (player.body.velocity.x < 0 && overlapX > 0) {
-        player.body.velocity.x = 0;
-        player.x = barrier.x + barrier.width + player.width / 2;
-    }
-
-    if (player.body.velocity.y > 0 && overlapY < 0) {
-        player.body.velocity.y = 0;
-        player.y = barrier.y - player.height / 2;
-    } else if (player.body.velocity.y < 0 && overlapY > 0) {
-        player.body.velocity.y = 0;
-        player.y = barrier.y + barrier.height + player.height / 2;
-    }
-} */
