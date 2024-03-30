@@ -29,8 +29,9 @@ export class ComputerControls extends Phaser.Physics.Matter.Sprite {
        // this.speed = this.openWorldScene.speed;
 
     
-    // COMPUTER/TV SCREEN SPECIFIC LOGIC 
+this.input.keyboard.enabled = true;
 
+    
   // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
     up: Phaser.Input.Keyboard.KeyCodes.W,
