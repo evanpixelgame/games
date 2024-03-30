@@ -6,6 +6,7 @@ export class ComputerControls extends Phaser.Physics.Matter.Sprite {
 
     this.player = null; // Initialize player reference
     this.speed = 0; // Initialize speed
+    scene.add.existing(this);
   }
 
 
