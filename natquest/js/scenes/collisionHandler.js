@@ -1,4 +1,4 @@
-import { gameManager } from '../gameState.js';
+//import { gameManager } from '../gameState.js';
 
 // NEXT MAP CHANGE switch it out to 'Sensor Layer 1'
 export function sensorMapSet(scene, map) {
@@ -11,7 +11,7 @@ export function sensorMapSet(scene, map) {
         console.log('Object Custom IDfromhandler:', customID);
 
         // Assign value to gameManager.sensorID using customID as the key
-        gameManager.sensorID[customID] = object; // Assuming you want to store the entire object here
+   //     gameManager.sensorID[customID] = object; // Assuming you want to store the entire object here
 
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
