@@ -48,10 +48,8 @@ export function sensorHandler(scene, map, player, transitionSensors) {
               // const isCustom = otherBody.properties.find(prop => prop.name === 'customID') !== undefined;
                const isCustom = otherBody.isSensor == true;
                 
-                console.log(isCustom);
-                // Check if sensorID has a key-value with the object otherBody represents as the value 
-                console.log(otherBody);
-                console.log(otherBody.customID);
+               // console.log(isCustom);
+            //console.log(otherBody.customID);
           
                 if (isCustom) {            
     switch (otherBody.customID) {
@@ -71,8 +69,12 @@ export function sensorHandler(scene, map, player, transitionSensors) {
             });
             break;
             
-            case 'FastZone':
+            case 'fastZone':
                 console.log('cue sirens, double speed');
+            break;
+
+              case 'InsideRoomToOpenWorld':
+                console.log('take me back home daddy');
             break;
             
         // Add more cases for other sensor names as needed
