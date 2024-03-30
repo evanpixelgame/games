@@ -3,7 +3,7 @@
 export class ComputerControls extends Phaser.Physics.Matter.Sprite {
   constructor(scene, velocityX, velocityY, player, speed) {
     super(scene.matter.world, velocityX, velocityY);
-
+     this.scene = scene; 
     this.player = player; // Set player reference
     this.speed = speed; // Set speed
     scene.add.existing(this);
@@ -23,24 +23,13 @@ export class ComputerControls extends Phaser.Physics.Matter.Sprite {
   }
 
   create() {
-
-   //     this.openWorldScene = this.scene.get('OpenWorld');
-     //   this.player = this.openWorldScene.player;
-       // this.speed = this.openWorldScene.speed;
-
-    
-this.input.keyboard.enabled = true;
-
-    
-  // Create controls for arrow keys and WASD
-  this.cursors = this.input.keyboard.addKeys({
-    up: Phaser.Input.Keyboard.KeyCodes.W,
-    down: Phaser.Input.Keyboard.KeyCodes.S,
-    left: Phaser.Input.Keyboard.KeyCodes.A,
-    right: Phaser.Input.Keyboard.KeyCodes.D,
-  });
-
-
+    // Create controls for arrow keys and WASD
+    this.cursors = this.scene.input.keyboard.addKeys({
+      up: Phaser.Input.Keyboard.KeyCodes.W,
+      down: Phaser.Input.Keyboard.KeyCodes.S,
+      left: Phaser.Input.Keyboard.KeyCodes.A,
+      right: Phaser.Input.Keyboard.KeyCodes.D,
+    });
   }
 
 update(time, delta) {
