@@ -39,7 +39,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.world = data.world;
 
     // Debugging: Log initialized properties
-    console.log("InsideRoom initialized with:", {
+    console.log("NextRoom initialized with:", {
         player: this.player,
         speed: this.speed,
         camera: this.camera,
@@ -96,13 +96,13 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     }
 //    this.speed = 2;
     // Initialize player sprite
-    this.player = new PlayerSprite(this, 970, 664, 'player');
+ //   this.player = new PlayerSprite(this, 970, 664, 'player');
     
-    this.player.setScale(1); 
+ //   this.player.setScale(1); 
 
-    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
-      this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
-   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
+   // this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
+  //    this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
+ //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
 
     
     // Set world bounds for the player
@@ -121,9 +121,9 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
     
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+  // this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 
-       console.log("InsideRoom end of create func status with:", {
+       console.log("NextRoom end of create func status with:", {
         player: this.player,
         speed: this.speed,
         camera: this.camera,
