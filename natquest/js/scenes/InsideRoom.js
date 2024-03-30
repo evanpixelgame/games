@@ -9,8 +9,8 @@ export default class InsideRoom extends Phaser.Scene {
 
 
   init(data) {
-      this.controls = data.controls || null;
-      this.engine = data.engine || null;
+  //    this.controls = data.controls || null;
+    //  this.engine = data.engine || null;
     // Check if the necessary data is provided
 if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
     let missingData = [];
@@ -31,7 +31,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
     // Initialize properties
     this.player = data.player;
-    this.speed = 2;
+    this.speed = data.speed;
     this.camera = data.camera;
     this.controls = data.controls;
     this.engine = data.engine;
@@ -93,7 +93,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     for (let i = 0; i < map.layers.length; i++) {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
-    this.speed = 2;
+   // this.speed = 2;
     // Initialize player sprite
    // this.player = new PlayerSprite(this, 970, 664, 'player');
     
