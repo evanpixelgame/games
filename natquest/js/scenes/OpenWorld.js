@@ -83,7 +83,6 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         console.log('Player Body World123:', playerBodyWorld);
 
      this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
-    // this.setPlayerVelocity(velocityX, velocityY);
           
       
     console.log(this.player.body);
@@ -135,10 +134,7 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
         
   update(time, delta) {
     // Update method code here
-
-        let velocityX = 0;
-    let velocityY = 0;
-       this.player.setVelocity(velocityX, velocityY);
+  //  Matter.Runner.run(this.engine);
   }
 }
 
