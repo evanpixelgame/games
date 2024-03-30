@@ -36,8 +36,8 @@ update(time, delta) {
     console.log("Update method of ComputerControls is being called.");
 
     if (!this.player) {
-        console.log("Player not found.");
-        return;
+      console.log("Player not found.");
+      return;
     }
 
     // Determine velocity based on key presses
@@ -45,26 +45,19 @@ update(time, delta) {
     let velocityY = 0;
 
     if (this.cursors.up.isDown) {
-        console.log("Up key is pressed.");
-        velocityY = -this.speed;
+      console.log("Up key is pressed.");
+      velocityY = -this.speed;
     } else if (this.cursors.down.isDown) {
-        console.log("Down key is pressed.");
-        velocityY = this.speed;
+      console.log("Down key is pressed.");
+      velocityY = this.speed;
     }
 
     if (this.cursors.left.isDown) {
-        console.log("Left key is pressed.");
-        velocityX = -this.speed;
+      console.log("Left key is pressed.");
+      velocityX = -this.speed;
     } else if (this.cursors.right.isDown) {
-        console.log("Right key is pressed.");
-        velocityX = this.speed;
-    }
-
-    // Normalize velocity to prevent faster movement diagonally
-    if (velocityX !== 0 && velocityY !== 0) {
-        const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-        velocityX *= this.speed / magnitude;
-        velocityY *= this.speed / magnitude;
+      console.log("Right key is pressed.");
+      velocityX = this.speed;
     }
 
     // Set the velocity of the player sprite
@@ -72,20 +65,19 @@ update(time, delta) {
 
     // Play appropriate animation based on movement direction
     if (velocityX !== 0 || velocityY !== 0) {
-        if (velocityX > 0) {
-            this.player.anims.play('walking-right', true);
-        } else if (velocityX < 0) {
-            this.player.anims.play('walking-left', true);
-        } else if (velocityY < 0) {
-            this.player.anims.play('walking-down', true);
-        } else if (velocityY > 0) {
-            this.player.anims.play('walking-up', true);
-        }
+      if (velocityX > 0) {
+        this.player.anims.play('walking-right', true);
+      } else if (velocityX < 0) {
+        this.player.anims.play('walking-left', true);
+      } else if (velocityY < 0) {
+        this.player.anims.play('walking-down', true);
+      } else if (velocityY > 0) {
+        this.player.anims.play('walking-up', true);
+      }
     } else {
-        // Stop animation when no movement
-        this.player.anims.stop();
+      // Stop animation when no movement
+      this.player.anims.stop();
     }
     this.player.setRotation(0);
-}
-
+  }
 }
