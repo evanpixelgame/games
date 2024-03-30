@@ -1,4 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
+import ComputerControls from './ComputerControls.js';
 import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
 
 export default class InsideRoom extends Phaser.Scene {
@@ -8,10 +9,10 @@ export default class InsideRoom extends Phaser.Scene {
 
 
   init(data) {
-    this.insideRoomScene = data.InsideRoom;
       this.controls = data.controls || null;
       this.engine = data.engine || null;
     // Check if the necessary data is provided
+   // Check if the necessary data is provided
 if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
     let missingData = [];
     if (!data) {
@@ -30,9 +31,8 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
 
     // Initialize properties
-//    this.scene = data.scene;
     this.player = data.player;
-    this.speed = data.speed;
+    this.speed = 2;
     this.camera = data.camera;
     this.controls = data.controls;
     this.engine = data.engine;
@@ -94,6 +94,16 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     for (let i = 0; i < map.layers.length; i++) {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
+    this.speed = 2;
+    // Initialize player sprite
+    this.player = new PlayerSprite(this, 970, 664, 'player');
+    
+    this.player.setScale(1); 
+
+    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
+      this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
+
     
     // Set world bounds for the player
     const boundaryOffset = 2;
@@ -103,13 +113,15 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         map.widthInPixels - 2 * boundaryOffset,
         map.heightInPixels - 2 * boundaryOffset
     );
+   // this.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
       this.collisionObjects = createCollisionObjects(this, map);
       this.sensorMapping = sensorMapSet(this, map, this.sensorID);  
-      this.sensorHandling = sensorHandler(this, map, this.scene, this.player);
+      this.sensorHandling = sensorHandler(this, map, this.player);
 
+    
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
- //   this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+    this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 
        console.log("InsideRoom end of create func status with:", {
         player: this.player,
