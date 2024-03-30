@@ -1,5 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import ComputerControls from './ComputerControls.js';
+//import ComputerControls from './ComputerControls.js';
 import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
 
 export default class InsideRoom extends Phaser.Scene {
@@ -12,7 +12,6 @@ export default class InsideRoom extends Phaser.Scene {
       this.controls = data.controls || null;
       this.engine = data.engine || null;
     // Check if the necessary data is provided
-   // Check if the necessary data is provided
 if (!data || !data.player || !data.speed || !data.camera || !data.controls || !data.engine || !data.world) {
     let missingData = [];
     if (!data) {
@@ -96,13 +95,13 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     }
     this.speed = 2;
     // Initialize player sprite
-    this.player = new PlayerSprite(this, 970, 664, 'player');
+   // this.player = new PlayerSprite(this, 970, 664, 'player');
     
     this.player.setScale(1); 
 
-    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
-      this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
-    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
+//    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
+  //    this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
+   // this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
 
     
     // Set world bounds for the player
