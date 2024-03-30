@@ -136,9 +136,7 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
 
         
   update(time, delta) {
-    if (this.controls) {
-        this.controls.update(time, delta);
-    }
+ 
   }
 }
 
