@@ -1,3 +1,4 @@
+
 const width = window.innerWidth;
 const height = window.innerHeight;
 //const width = 800;
