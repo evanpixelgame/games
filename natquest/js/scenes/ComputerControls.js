@@ -4,7 +4,8 @@ export default class ComputerControls extends Phaser.Scene  {
     super({ key: 'ComputerControls' });
 
     this.player = null; // Initialize player reference
-    this.speed = 0; // Initialize speed
+    this.speed = null; // Initialize speed
+    this.controls = null;
   }
 
 
