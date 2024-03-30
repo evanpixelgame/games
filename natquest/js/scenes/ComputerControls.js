@@ -1,11 +1,11 @@
 
 //export class ComputerControls extends Phaser.Scene  {
 export class ComputerControls extends Phaser.Physics.Matter.Sprite {
-  constructor(scene, velocityX, velocityY) {
-        super(scene.matter.world, velocityX, velocityY);
+  constructor(scene, velocityX, velocityY, player, speed) {
+    super(scene.matter.world, velocityX, velocityY);
 
-    this.player = null; // Initialize player reference
-    this.speed = 0; // Initialize speed
+    this.player = player; // Set player reference
+    this.speed = speed; // Set speed
     scene.add.existing(this);
   }
 
