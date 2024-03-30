@@ -43,23 +43,30 @@ export class ComputerControls extends Phaser.Physics.Matter.Sprite {
   }
 
 update(time, delta) {
+    console.log("Update method of ComputerControls is being called.");
 
-      if (!this.player) {
+    if (!this.player) {
+        console.log("Player not found.");
         return;
     }
+
+    // Determine velocity based on key presses
     let velocityX = 0;
     let velocityY = 0;
 
-    // Determine velocity based on key presses
     if (this.cursors.up.isDown) {
+        console.log("Up key is pressed.");
         velocityY = -this.speed;
     } else if (this.cursors.down.isDown) {
+        console.log("Down key is pressed.");
         velocityY = this.speed;
     }
 
     if (this.cursors.left.isDown) {
+        console.log("Left key is pressed.");
         velocityX = -this.speed;
     } else if (this.cursors.right.isDown) {
+        console.log("Right key is pressed.");
         velocityX = this.speed;
     }
 
@@ -88,6 +95,7 @@ update(time, delta) {
         // Stop animation when no movement
         this.player.anims.stop();
     }
-   this.player.setRotation(0);
+    this.player.setRotation(0);
 }
+
 }
