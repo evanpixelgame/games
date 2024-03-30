@@ -1,4 +1,4 @@
-
+ 
 //export class ComputerControls extends Phaser.Scene  {
 export class ComputerControls extends Phaser.Physics.Matter.Sprite {
   constructor(scene, velocityX, velocityY, player, speed) {
