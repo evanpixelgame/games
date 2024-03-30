@@ -134,7 +134,9 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
         
   update(time, delta) {
     // Update method code here
-  //  Matter.Runner.run(this.engine);
+
+        let velocityX = 0;
+    let velocityY = 0;
        this.player.setVelocity(velocityX, velocityY);
   }
 }
