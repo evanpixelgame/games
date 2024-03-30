@@ -134,6 +134,16 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
   }
 
   update(time, delta) {
+
+    if (!this.player) {
+    return;
+  }
+
+  let velocityX = 0;
+  let velocityY = 0;
+
+  // Set the velocity of the player sprite
+  this.player.setVelocity(velocityX, velocityY);
   }
 }
 
