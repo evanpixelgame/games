@@ -126,7 +126,7 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
    console.log('PRETY PLZ LOG VELOCITY FROM OPENWORLD: ' + this.velocity);
  console.log('TITI IS SO PRETTY HERES SENSORID OBJECT: ' + gameManager.sensorID.fastZone);
 
-    this.scene.events.once('update', this.createComputerControls, this);
+  this.createComputerControls();
   }
    
 
