@@ -1,5 +1,6 @@
 
-export class ComputerControls extends Phaser.Scene  {
+//export class ComputerControls extends Phaser.Scene  {
+export class ComputerControls extends Phaser.Physics.Matter.Sprite {
   constructor() {
     super({ key: 'ComputerControls' });
 
@@ -89,4 +90,3 @@ update(time, delta) {
    this.player.setRotation(0);
 }
 }
-window.ComputerControls = ComputerControls;
