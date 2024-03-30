@@ -84,8 +84,8 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
 
    //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
   // this.controls =  this.scene.add('ComputerControls', new ComputerControls());
-    this.controls = new ComputerControls();
-this.scene.add('ComputerControls', this.controls);
+    this.controls = new ComputerControls(this, 0, 0,);
+//this.scene.add('ComputerControls', this.controls);
           
       
     console.log(this.player.body);
