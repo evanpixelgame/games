@@ -3,6 +3,12 @@
 //Make sure that all imported maps have their Object layer that deals with collisions is named "Collision Layer 1"
 //Also ensure their Object layer that deals with sensors is named "Sensor Layer 1" and when adding custom properties in Tiled editor, do "customID" for property and then give it a value of whatever label will coorelate with its caused effect 
 
+
+// TRY TO ADD A IF LOGIC TO IT SO THAT IT CAN USE OBJECT PROPERTIES TO DETERMINE WHETHER TO HANDLE THE SENSOR AS ON COLLISION OR OVERLAP
+//expirment with different ways to initiate the callback other than collisionStart and overlap, learn how to use overlap better
+//maybe split up the sensor handling if the switch cases start to get excessive, maybe each scene can get their own sensorhandler if it starts getting excession
+//^^and then this file could just for senor and collision object creation, and then each scene would get its own collision handler function.
+//^^maybe keep the main logic for the sensor handling here and then have the individual sensorhandler file for each scene just handle the different switch cases
 export function sensorMapSet(scene, map) {
     const sensorLayer1 = map.getObjectLayer('Sensor Layer 1');
 
