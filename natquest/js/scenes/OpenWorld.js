@@ -84,7 +84,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
 
    //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
   // this.controls =  this.scene.add('ComputerControls', new ComputerControls());
-    this.controls = new ComputerControls(this, 0, 0, this.player, this.speed);
+  //  this.controls = new ComputerControls(this, 0, 0, this.player, this.speed);
 //this.scene.add('ComputerControls', this.controls);
           
       
@@ -130,9 +130,15 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
    console.log('PRETTY PLEASE' + this.controls);
    console.log('PRETY PLZ LOG VELOCITY FROM OPENWORLD: ' + this.velocity);
  console.log('TITI IS SO PRETTY HERES SENSORID OBJECT: ' + gameManager.sensorID.fastZone);
+
+    this.scene.events.once('update', this.createComputerControls, this);
   }
    
 
+  createComputerControls() {
+    // Create ComputerControls instance
+    this.controls = new ComputerControls(this, 0, 0, this.player, this.speed);
+  }
 
         
   update(time, delta) {
