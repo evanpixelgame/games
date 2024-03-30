@@ -103,17 +103,11 @@ if (this.isMobileDevice() && this.isPortraitMode()) {
     startButton.on('pointerdown', function () {
          const orientation = window.screen.orientation.type;
     // Check if the device is in landscape mode
-    if (orientation.includes('landscape')) {
         // Execute event handler code only in landscape mode
         console.log('Click event in landscape mode');
        window.removeEventListener('orientationchange', this.handleResizeOnReorientation);
-      this.lockScreenOrientation();
+    //  this.lockScreenOrientation();
       this.scene.start('WelcomePlayer');
-    } else {
-        // Ignore the click event in portrait mode
-        console.log('Ignoring click event in portrait mode');
-      alert('please enter landscape mode to continue');
-    } 
       // Transition to the main scene when the button is clicked
     }, this);
 
