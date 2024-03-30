@@ -1,3 +1,4 @@
+import NextRoom from './scenes/NextRoom.js'; 
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -41,7 +42,7 @@ const config = {
     CompUI,
     OpenWorld,
     InsideRoom,
-   // NextRoom,
+    NextRoom,
   ],
    interpolation: true,
 };
