@@ -77,7 +77,8 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-    this.player = new PlayerSprite(this, 495, 325, 'player', initialVelocityX, initialVelocityY); // Create the player object, just took away this.world as 2nd argument
+ //   this.player = new PlayerSprite(this, 495, 325, 'player', initialVelocityX, initialVelocityY); // Create the player object, just took away this.world as 2nd argument
+    this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0);
   // Listen for the 'created' event on the player sprite
             const playerBodyWorld = this.player.body ? this.player.body.world : null;
         console.log('Player Body World123:', playerBodyWorld);
