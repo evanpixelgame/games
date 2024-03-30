@@ -137,8 +137,6 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
 
   createComputerControls() {
     // Inside your create() method or wherever appropriate
-();
-
     // Create ComputerControls instance
     this.controls = new ComputerControls(this, 0, 0, this.player, this.speed);
 
