@@ -1,5 +1,5 @@
 export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
-    constructor(scene, x, y, texture) {
+   constructor(scene, x, y, texture, initialVelocityX, initialVelocityY) {
         super(scene.matter.world, x, y, texture);
 
         // Initialize the player sprite
