@@ -24,7 +24,7 @@ export class ComputerControls extends Phaser.Physics.Matter.Sprite {
 
   create() {
     // Create controls for arrow keys and WASD
-/*    this.cursors = this.scene.input.keyboard.addKeys({
+/*    this.cursors = this.input.keyboard.createCursorKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
       left: Phaser.Input.Keyboard.KeyCodes.A,
