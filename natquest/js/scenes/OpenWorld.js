@@ -129,8 +129,6 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
 
 
   this.createComputerControls();
-
-
     
   }
    
