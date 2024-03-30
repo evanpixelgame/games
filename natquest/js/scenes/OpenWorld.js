@@ -7,7 +7,6 @@ export default class OpenWorld extends Phaser.Scene {
     
     this.map = null;
     this.player = null;
-    this.speed = 2; 
     this.collisionObjects = null; 
     this.transitionSensors = null; // Add transitionSensors property
     this.engine = null;
@@ -23,19 +22,12 @@ export default class OpenWorld extends Phaser.Scene {
   }
        
   create() {
-    // Create Matter.js engine
     this.matterEngine = Phaser.Physics.Matter.Matter.World;
     this.engine = this.matter.world;
-//    this.world = this.engine.world;
      this.world = this.matterEngine.create({
     // your Matter.js world options here
   });
-console.log('HELLO THERE PLEASE LOG ' + this.world);
-    if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
-        this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
-    }
 
-    this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
     this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
 
     // Load map
@@ -62,7 +54,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
- //   this.player = new PlayerSprite(this, 495, 325, 'player', initialVelocityX, initialVelocityY); // Create the player object, just took away this.world as 2nd argument
+ // this.player = new PlayerSprite(this, 495, 325, 'player', initialVelocityX, initialVelocityY); // Create the player object, just took away this.world as 2nd argument
     this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0);
 
 // Set world bounds for the player
@@ -89,7 +81,6 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
     this.cameras.main.setZoom(2);
   }
    
-
   update(time, delta) {
  
 }
