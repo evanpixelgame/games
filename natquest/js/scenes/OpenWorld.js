@@ -151,7 +151,10 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
 
   
   update(time, delta) {
-
+  if (!this.player) {
+    console.log('player aint here yet');
+return
+  }
     
      // Handle keyboard input for player movement
     if (this.cursors.left.isDown) {
