@@ -72,6 +72,15 @@ export function sensorHandler(scene, map, player, transitionSensors) {
 
               case 'BackToOpenWorld':
                 console.log('take me back home daddy');
+             scene.scene.start('OpenWorld', {
+                player: scene.player,
+                speed: scene.speed,
+                camera: scene.cameras.main,
+                controls: scene.controls, // Passing the controls object here
+                engine: scene.matter.world,
+                world: scene.world,
+            });
+            
             break;
             
         // Add more cases for other sensor names as needed
