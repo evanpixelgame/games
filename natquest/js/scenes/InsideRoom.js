@@ -37,7 +37,6 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     this.controls = data.controls;
     this.engine = data.engine;
     this.world = data.world;
-    this.setPlayerVelocity = data.setPlayerVelocity;
 
     // Debugging: Log initialized properties
     console.log("InsideRoom initialized with:", {
@@ -101,9 +100,9 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     
     this.player.setScale(1); 
 
-//    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
-    //  this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
-  //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
+    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
+      this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
+    this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
 
     
     // Set world bounds for the player
