@@ -1,16 +1,13 @@
 
 export function sensorMapSet(scene, map) {
-    const objectLayer2 = map.getObjectLayer('Sensor Layer 1');
+    const sensorLayer1 = map.getObjectLayer('Sensor Layer 1');
 
-    objectLayer2.objects.forEach(object => {
+    sensorLayer1.objects.forEach(object => {
         // Log object properties to check if it has the customID property
         const customIDProperty = object.properties.find(prop => prop.name === 'customID');
         const customID = customIDProperty ? customIDProperty.value : null;
         console.log('Object Custom IDfromhandler:', customID);
-
-        // Assign value to gameManager.sensorID using customID as the key
-   //     gameManager.sensorID[customID] = object; // Assuming you want to store the entire object here
-
+        
         const centerX = object.x + object.width / 2;
         const centerY = object.y + object.height / 2;
         const width = object.width;
@@ -30,7 +27,7 @@ export function sensorMapSet(scene, map) {
 }
 
 export function sensorHandler(scene, map, player, transitionSensors) {
-  //  console.log(`I LOVE NATALY SO MUCH!`, gameManager.sensorID);
+    
     player.scene.matter.world.on('collisionstart', (eventData) => {
         // Loop through pairs of colliding bodies
         eventData.pairs.forEach(pair => {
@@ -40,6 +37,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 const otherBody = pair.bodyA === player.body ? pair.bodyB : pair.bodyA;
               // const isCustom = otherBody.properties.find(prop => prop.name === 'customID') !== undefined;
                const isCustom = otherBody.isSensor == true;
+                
                 console.log(isCustom);
                 // Check if sensorID has a key-value with the object otherBody represents as the value 
                 console.log(otherBody);
