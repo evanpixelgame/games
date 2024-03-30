@@ -148,12 +148,48 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
     });
   }
 
-        
+
+  
   update(time, delta) {
-     if (this.controls) {
-        this.controls.update(time, delta);
+
+    
+     // Handle keyboard input for player movement
+    if (this.cursors.left.isDown) {
+        this.player.body.setVelocityX(-100);
+    } else if (this.cursors.right.isDown) {
+        this.player.body.setVelocityX(100);
+    } else {
+        this.player.body.setVelocityX(0);
     }
+
+    if (this.cursors.up.isDown) {
+        this.player.body.setVelocityY(-100);
+    } else if (this.cursors.down.isDown) {
+        this.player.body.setVelocityY(100);
+    } else {
+        this.player.body.setVelocityY(0);
+    }
+
+  if (velocityX !== 0 || velocityY !== 0) {
+      if (velocityX > 0) {
+        this.player.anims.play('walking-right', true);
+      } else if (velocityX < 0) {
+        this.player.anims.play('walking-left', true);
+      } else if (velocityY < 0) {
+        this.player.anims.play('walking-down', true);
+      } else if (velocityY > 0) {
+        this.player.anims.play('walking-up', true);
+      }
+    } else {
+      // Stop animation when no movement
+      this.player.anims.stop();
+    }
+    this.player.setRotation(0);
+    
   }
+
+  
 }
+
 
 window.OpenWorld = OpenWorld;
