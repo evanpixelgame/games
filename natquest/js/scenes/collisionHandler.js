@@ -1,5 +1,6 @@
 import { gameManager } from '../gameState.js';
 
+// NEXT MAP CHANGE switch it out to 'Sensor Layer 1'
 export function sensorMapSet(scene, map) {
     const objectLayer2 = map.getObjectLayer('Object Layer 2');
 
@@ -82,7 +83,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
     });
 }
 
-
+// NEXT MAP CHANGE switch it out to 'Collision Layer 1'
 export function createCollisionObjects(scene, map) {
     const collisionObjects = [];
 
