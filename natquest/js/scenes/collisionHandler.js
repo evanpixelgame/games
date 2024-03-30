@@ -95,7 +95,7 @@ export function sensorHandler(scene, map, player, transitionSensors) {
                 controls: scene.controls, // Passing the controls object here
                 engine: scene.matter.world,
                 world: scene.world,
-                newPosition: newPosition,
+                //newPosition: newPosition,
             });
             break;
             
