@@ -1,5 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { sensorMapSet, createCollisionObjects, sensorHandler, handleBarrierCollision } from './collisionHandler.js';
+import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
 import { gameManager } from '../gameState.js';
 
 
