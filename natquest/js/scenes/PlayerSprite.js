@@ -4,7 +4,7 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
 
         // Initialize the player sprite
         this.init();
- 
+
         // Add the player sprite to the scene
         scene.add.existing(this);
         
