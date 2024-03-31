@@ -89,6 +89,9 @@ update(time, delta) {
     }
 
     const playerBody = this.player.body;
+   // Get current X and Y coordinates of the player body
+  const currentX = Matter.Body.getX(playerBody);
+  const currentY = Matter.Body.getY(playerBody);
 
     // Handle keyboard input for player movement
     let forceX = 0;
