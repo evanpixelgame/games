@@ -120,7 +120,7 @@ update(time, delta) {
     
 }
    if (playerBody) {
-    Matter.Body.applyForce(playerBody, { x: forceX, y: forceY });
+    Matter.Body.applyForce(playerBody, { x: forceX || 0, y: forceY || 0 });
   }
 
 }
