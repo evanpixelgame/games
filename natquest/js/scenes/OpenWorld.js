@@ -92,7 +92,8 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
     } else if (this.cursors.right.isDown) {
       this.player.body.setVelocityX(100);
     } else {
-      this.player.body.setVelocityX(0);
+      console.log('should be 0');
+    //  this.player.body.setVelocityX(0);
     }
 
     if (this.cursors.up.isDown) {
@@ -100,7 +101,8 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
     } else if (this.cursors.down.isDown) {
       this.player.body.setVelocityY(100);
     } else {
-      this.player.body.setVelocityY(0);
+      console.log('should be 0');
+      //this.player.body.setVelocityY(0);
     }
   }
   
