@@ -90,8 +90,8 @@ update(time, delta) {
 
     const playerBody = this.player.body;
    // Get current X and Y coordinates of the player body
-  const currentX = Matter.Body.getX(playerBody);
-  const currentY = Matter.Body.getY(playerBody);
+  //const currentX = Matter.Body.getX(playerBody);
+  //const currentY = Matter.Body.getY(playerBody);
 
     // Handle keyboard input for player movement
     let forceX = 0;
@@ -124,6 +124,8 @@ update(time, delta) {
 }
    if (playerBody) {
      console.log(playerBody);
+     console.log(playerBody.velocity);
+      console.log(playerBody.velocity.x);
      console.log(playerBody.x, playerBody.y);
     Matter.Body.applyForce(playerBody, { x: forceX || 0, y: forceY || 0 });
   }
