@@ -81,6 +81,11 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
   }
    
   update(time, delta) {
+
+        if (!this.player) {
+        return;
+    }
+    console.log(this.player, this.player.body);
     // Handle keyboard input for player movement
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-100);
