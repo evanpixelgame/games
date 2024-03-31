@@ -5,11 +5,11 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         // Initialize the player sprite
         this.init();
 
-        // Set the initial velocity
-        this.setVelocity(initialVelocityX, initialVelocityY);
-
         // Add the player sprite to the scene
         scene.add.existing(this);
+
+        // Set the initial velocity
+        this.setVelocity(initialVelocityX, initialVelocityY);
     }
     
     init() {
