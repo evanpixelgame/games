@@ -94,11 +94,11 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     for (let i = 0; i < map.layers.length; i++) {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
-//    this.speed = 2;
-    // Initialize player sprite
+    this.speed = 2;
+  // Initialize player sprite
    this.player = new PlayerSprite(this, 970, 664, 'player');
     
- //   this.player.setScale(1); 
+  this.player.setScale(1); 
 
    this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
     this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
