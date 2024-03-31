@@ -139,50 +139,8 @@ update(time, delta) {
 
     // Finally, you may need to adjust the position based on the velocity
 }
-
-
-/*
-update(time, delta) {
-    if (!this.player || !this.player.body) {
-        return;
-    }
-
-    const playerBody = this.player.body;
-
-    // Handle keyboard input for player movement
-    let forceX = 0;
-    let forceY = 0;
-
-    if (this.cursors.left.isDown) {
-        forceX -= 0.01; // Adjust this value as needed
-    } else if (this.cursors.right.isDown) {
-        forceX += 0.01; // Adjust this value as needed
-    }
-
-    if (this.cursors.up.isDown) {
-        forceY -= 0.01; // Adjust this value as needed
-    } else if (this.cursors.down.isDown) {
-        forceY += 0.01; // Adjust this value as needed
-    }
-
-    // Apply force to the player body
- //   Matter.Body.applyForce(playerBody, { x: forceX, y: forceY });
-
-    // Limit the maximum velocity to prevent uncontrollable acceleration
-    const maxVelocity = 5; // Adjust this value as needed
-    const currentVelocity = playerBody.velocity;
-    const currentSpeed = Math.sqrt(currentVelocity.x * currentVelocity.x + currentVelocity.y * currentVelocity.y);
-    if (currentSpeed > maxVelocity) {
-        const scale = maxVelocity / currentSpeed;
-        Matter.Body.setVelocity(playerBody, {
-            x: currentVelocity.x * scale,
-            y: currentVelocity.y * scale
-        });
-    }
-} */
-
-
 }
+  
 }
 
 window.OpenWorld = OpenWorld;
