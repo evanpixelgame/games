@@ -1,7 +1,7 @@
 // import { PlayerSprite } from './PlayerSprite.js';
 // import ComputerControls from './ComputerControls.js';
 import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
-import { ComputerControls } from './ComputerControls.js';
+//import { ComputerControls } from './ComputerControls.js';
 
 
 export default class NextRoom extends Phaser.Scene {
