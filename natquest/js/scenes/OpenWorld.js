@@ -119,38 +119,6 @@ update(time, delta) {
     }
 }
 
-  
-/*  update(time, delta) {
-
-        if (!this.player) {
-        return;
-    }
- const cursors = this.input.keyboard.createCursorKeys();
-
-  // Calculate velocity based on key presses
-  let velocityX = 0;
-  let velocityY = 0;
-
-  if (cursors.up.isDown) {
-    velocityY = -this.speed;
-  } else if (cursors.down.isDown) {
-    velocityY = this.speed;
-  }
-
-  if (cursors.left.isDown) {
-    velocityX = -this.speed;
-  } else if (cursors.right.isDown) {
-    velocityX = this.speed;
-  }
-
-  // Apply force to the Matter JS body
-  const playerBody = this.matter.world.bodies.filter(body => body.label === 'player')[0];
-  if (playerBody) {
-    Matter.Body.applyForce(playerBody, { x: velocityX, y: velocityY });
-  }
-  
-}
-  */
 }
 
 window.OpenWorld = OpenWorld;
