@@ -95,14 +95,18 @@ update(time, delta) {
 
     if (this.cursors.left.isDown) {
         forceX -= 0.01; // Adjust this value as needed
+        console.log('Left key is down');
     } else if (this.cursors.right.isDown) {
         forceX += 0.01; // Adjust this value as needed
+        console.log('Right key is down');
     }
 
     if (this.cursors.up.isDown) {
         forceY -= 0.01; // Adjust this value as needed
+        console.log('Up key is down');
     } else if (this.cursors.down.isDown) {
         forceY += 0.01; // Adjust this value as needed
+        console.log('Down key is down');
     }
 
     // Update velocities using Body.updateVelocities
@@ -120,6 +124,7 @@ update(time, delta) {
 
     // Finally, you may need to adjust the position based on the velocity
 }
+
 
 /*
 update(time, delta) {
