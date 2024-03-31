@@ -93,7 +93,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
       this.player.body.setVelocityX(100);
     } else {
       console.log('should be 0');
-    //  this.player.body.setVelocityX(0);
+      this.player.body.setVelocityX(0);
     }
 
     if (this.cursors.up.isDown) {
@@ -102,7 +102,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
       this.player.body.setVelocityY(100);
     } else {
       console.log('should be 0');
-      //this.player.body.setVelocityY(0);
+      this.player.body.setVelocityY(0);
     }
   }
   
