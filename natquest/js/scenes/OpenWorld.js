@@ -11,6 +11,7 @@ export default class OpenWorld extends Phaser.Scene {
     this.transitionSensors = null; // Add transitionSensors property
     this.engine = null;
    this.world = null;
+   this.cursors = null;
   }
 
   init(data) {
@@ -75,11 +76,29 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
+
+      this.cursors = this.input.keyboard.createCursorKeys();
   }
    
   update(time, delta) {
-    
-}
+    // Handle keyboard input for player movement
+    if (this.cursors.left.isDown) {
+      this.player.body.setVelocityX(-100);
+    } else if (this.cursors.right.isDown) {
+      this.player.body.setVelocityX(100);
+    } else {
+      this.player.body.setVelocityX(0);
+    }
+
+    if (this.cursors.up.isDown) {
+      this.player.body.setVelocityY(-100);
+    } else if (this.cursors.down.isDown) {
+      this.player.body.setVelocityY(100);
+    } else {
+      this.player.body.setVelocityY(0);
+    }
+  }
+  
 }
 
 window.OpenWorld = OpenWorld;
