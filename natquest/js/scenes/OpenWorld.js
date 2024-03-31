@@ -56,7 +56,7 @@ export default class OpenWorld extends Phaser.Scene {
     }
 
   this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0); //last two arguments are initial velocity x, y
-  Matter.World.add(this.engine.world, this.player.body);
+  this.Matter.World.add(this.engine.world, this.player.body);
 
     
 const boundaryOffset = 2; // Adjust this value as needed
