@@ -54,10 +54,8 @@ export default class OpenWorld extends Phaser.Scene {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
- // this.player = new PlayerSprite(this, 495, 325, 'player', initialVelocityX, initialVelocityY); // Create the player object, just took away this.world as 2nd argument
-    this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0);
+    this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0); //initialVelocityX and initialVelocityY are the last 2 arguments
 
-// Set world bounds for the player
 const boundaryOffset = 2; // Adjust this value as needed
 const worldBounds = new Phaser.Geom.Rectangle(
     boundaryOffset,
@@ -68,12 +66,10 @@ const worldBounds = new Phaser.Geom.Rectangle(
 
 this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
-    // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
 //this.sensorHandling = sensorHandler(this, map, this.player); //used to have this.transitionSensors as an argument then it became  this.sensorID
           
-    // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 
@@ -82,7 +78,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
   }
    
   update(time, delta) {
- 
+    
 }
 }
 
