@@ -77,10 +77,50 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
 
-      this.cursors = this.input.keyboard.createCursorKeys();
   }
-   
-  update(time, delta) {
+
+
+
+
+update(time, delta) {
+    if (!this.player) {
+        return;
+    }
+
+    const playerBody = this.player.body;
+
+    // Handle keyboard input for player movement
+    let forceX = 0;
+    let forceY = 0;
+
+    if (this.cursors.left.isDown) {
+        forceX -= 0.01; // Adjust this value as needed
+    } else if (this.cursors.right.isDown) {
+        forceX += 0.01; // Adjust this value as needed
+    }
+
+    if (this.cursors.up.isDown) {
+        forceY -= 0.01; // Adjust this value as needed
+    } else if (this.cursors.down.isDown) {
+        forceY += 0.01; // Adjust this value as needed
+    }
+
+    // Apply force to the player body
+    playerBody.applyForce({ x: forceX, y: forceY });
+
+    // Limit the maximum velocity to prevent uncontrollable acceleration
+    const maxVelocity = 5; // Adjust this value as needed
+    const currentVelocity = playerBody.velocity;
+    const currentSpeed = Math.sqrt(currentVelocity.x * currentVelocity.x + currentVelocity.y * currentVelocity.y);
+    if (currentSpeed > maxVelocity) {
+        const scale = maxVelocity / currentSpeed;
+        playerBody.velocity.x *= scale;
+        playerBody.velocity.y *= scale;
+    }
+}
+
+  
+/*  update(time, delta) {
 
         if (!this.player) {
         return;
@@ -110,6 +150,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
   }
   
 }
+  */
 }
 
 window.OpenWorld = OpenWorld;
