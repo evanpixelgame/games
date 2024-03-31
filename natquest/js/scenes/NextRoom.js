@@ -1,5 +1,5 @@
-// import { PlayerSprite } from './PlayerSprite.js';
-// import ComputerControls from './ComputerControls.js';
+import { PlayerSprite } from './PlayerSprite.js';
+import ComputerControls from './ComputerControls.js';
 import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
 
 export default class NextRoom extends Phaser.Scene {
@@ -25,7 +25,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         if (!data.engine) missingData.push("engine");
         if (!data.world) missingData.push("world");
     }
-    console.error("Missing required data for NextRoom scene initialization: " + missingData.join(", "));
+    console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
     return;
 }
 
@@ -61,7 +61,7 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
         if (!data.engine) missingData.push("engine");
         if (!data.world) missingData.push("world");
     }
-    console.error("Missing required data for NextRoom scene initialization: " + missingData.join(", "));
+    console.error("Missing required data for InsideRoom scene initialization: " + missingData.join(", "));
     return;
 }
 
@@ -96,13 +96,13 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
     }
 //    this.speed = 2;
     // Initialize player sprite
- //   this.player = new PlayerSprite(this, 970, 664, 'player');
+   this.player = new PlayerSprite(this, 970, 664, 'player');
     
  //   this.player.setScale(1); 
 
-   // this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
-  //    this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
- //  this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
+   this.scene.add('ComputerControls', ComputerControls); // Add ComputerControls scene
+    this.controls = this.scene.get('ComputerControls'); // Retrieve controls scene
+   this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }); // Launch ComputerControls scene
 
     
     // Set world bounds for the player
@@ -117,11 +117,11 @@ if (!data || !data.player || !data.speed || !data.camera || !data.controls || !d
 
       this.collisionObjects = createCollisionObjects(this, map);
       this.sensorMapping = sensorMapSet(this, map, this.sensorID);  
-     // this.sensorHandling = sensorHandler(this, map, this.player);
+      this.sensorHandling = sensorHandler(this, map, this.player);
 
     
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-  // this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+    this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
 
        console.log("NextRoom end of create func status with:", {
         player: this.player,
