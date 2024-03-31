@@ -55,7 +55,7 @@ export default class OpenWorld extends Phaser.Scene {
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-    this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0); //initialVelocityX and initialVelocityY are the last 2 arguments
+  this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0); //last two arguments are initial velocity x, y
 
 const boundaryOffset = 2; // Adjust this value as needed
 const worldBounds = new Phaser.Geom.Rectangle(
