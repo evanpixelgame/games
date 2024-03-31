@@ -81,9 +81,46 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
   }
 
+update(time, delta) {
+    if (!this.player) {
+        return;
+    }
 
+    const playerBody = this.player.body;
 
+    // Handle keyboard input for player movement
+    let forceX = 0;
+    let forceY = 0;
 
+    if (this.cursors.left.isDown) {
+        forceX -= 0.01; // Adjust this value as needed
+    } else if (this.cursors.right.isDown) {
+        forceX += 0.01; // Adjust this value as needed
+    }
+
+    if (this.cursors.up.isDown) {
+        forceY -= 0.01; // Adjust this value as needed
+    } else if (this.cursors.down.isDown) {
+        forceY += 0.01; // Adjust this value as needed
+    }
+
+    // Update velocities using Body.updateVelocities
+    Body.updateVelocities(playerBody);
+
+    // Apply forces to the player body
+    playerBody.force.x += forceX;
+    playerBody.force.y += forceY;
+
+    // Apply constraints, such as limiting maximum speed
+
+    // Optionally, you might want to apply other constraints here
+
+    // Ensure the player does not exceed maximum velocity
+
+    // Finally, you may need to adjust the position based on the velocity
+}
+
+/*
 update(time, delta) {
     if (!this.player || !this.player.body) {
         return;
@@ -121,7 +158,7 @@ update(time, delta) {
             y: currentVelocity.y * scale
         });
     }
-}
+} */
 
 
 }
