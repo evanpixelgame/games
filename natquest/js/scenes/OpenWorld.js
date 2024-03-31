@@ -56,7 +56,7 @@ export default class OpenWorld extends Phaser.Scene {
     }
 
   this.player = new PlayerSprite(this, 495, 325, 'player', 0, 0); //last two arguments are initial velocity x, y
-//  this.matter.world.add(this.engine.world, this.player.body);
+  this.matter.world.add(this.engine.world, this.player.body);
 
     
 const boundaryOffset = 2; // Adjust this value as needed
@@ -71,7 +71,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
     this.collisionObjects = createCollisionObjects(this, map);
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
-//this.sensorHandling = sensorHandler(this, map, this.player); //used to have this.transitionSensors as an argument then it became  this.sensorID
+   this.sensorHandling = sensorHandler(this, map, this.player); //used to have this.transitionSensors as an argument then it became  this.sensorID
           
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
