@@ -107,7 +107,10 @@ update(time, delta) {
     }
 
     // Apply force to the player body
-    playerBody.applyForce({ x: forceX, y: forceY });
+   // playerBody.applyForce({ x: forceX, y: forceY });
+    if (playerBody) {
+    Matter.Body.applyForce(playerBody, { x: forceX, y: forceY });
+  }
 
     // Limit the maximum velocity to prevent uncontrollable acceleration
     const maxVelocity = 5; // Adjust this value as needed
