@@ -126,11 +126,8 @@ update(time, delta) {
     playerBody.force.y += forceY;
 
     // Apply constraints, such as limiting maximum speed
-
-    // Optionally, you might want to apply other constraints here
-
-    // Ensure the player does not exceed maximum velocity
-     const maxVelocity = 2; // Adjust this value as needed
+    Matter.Body.setAngularVelocity(playerBody, 0); //ensures player doesnt rotate
+     const maxVelocity = .5; // Adjust this value as needed
     const currentVelocity = playerBody.velocity;
     const currentSpeed = Math.sqrt(currentVelocity.x * currentVelocity.x + currentVelocity.y * currentVelocity.y);
     if (currentSpeed > maxVelocity) {
