@@ -130,6 +130,15 @@ update(time, delta) {
     // Optionally, you might want to apply other constraints here
 
     // Ensure the player does not exceed maximum velocity
+     const maxVelocity = 5; // Adjust this value as needed
+    const currentVelocity = playerBody.velocity;
+    const currentSpeed = Math.sqrt(currentVelocity.x * currentVelocity.x + currentVelocity.y * currentVelocity.y);
+    if (currentSpeed > maxVelocity) {
+        const scale = maxVelocity / currentSpeed;
+        Matter.Body.setVelocity(playerBody, {
+            x: currentVelocity.x * scale,
+            y: currentVelocity.y * scale
+        });
 
     // Finally, you may need to adjust the position based on the velocity
 }
