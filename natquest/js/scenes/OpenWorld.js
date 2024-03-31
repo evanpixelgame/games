@@ -186,5 +186,6 @@ update(time, delta) {
 
 
 }
+}
 
 window.OpenWorld = OpenWorld;
