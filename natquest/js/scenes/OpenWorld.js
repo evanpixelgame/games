@@ -84,14 +84,11 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
 
 update(time, delta) {
-    if (!this.player) {
+    if (!this.player || !this.player.body) {
         return;
     }
 
     const playerBody = this.player.body;
-   // Get current X and Y coordinates of the player body
-  //const currentX = Matter.Body.getX(playerBody);
-  //const currentY = Matter.Body.getY(playerBody);
 
     // Handle keyboard input for player movement
     let forceX = 0;
@@ -110,27 +107,21 @@ update(time, delta) {
     }
 
     // Apply force to the player body
-   // playerBody.applyForce({ x: forceX, y: forceY });
- 
+    Matter.Body.applyForce(playerBody, { x: forceX, y: forceY });
+
     // Limit the maximum velocity to prevent uncontrollable acceleration
     const maxVelocity = 5; // Adjust this value as needed
     const currentVelocity = playerBody.velocity;
     const currentSpeed = Math.sqrt(currentVelocity.x * currentVelocity.x + currentVelocity.y * currentVelocity.y);
     if (currentSpeed > maxVelocity) {
         const scale = maxVelocity / currentSpeed;
-        playerBody.velocity.x *= scale;
-        playerBody.velocity.y *= scale;
-    
+        Matter.Body.setVelocity(playerBody, {
+            x: currentVelocity.x * scale,
+            y: currentVelocity.y * scale
+        });
+    }
 }
-   if (playerBody) {
-     console.log(playerBody);
-     console.log(playerBody.velocity);
-      console.log(playerBody.velocity.x);
-     console.log(playerBody.x, playerBody.y);
-    Matter.Body.applyForce(playerBody, { x: forceX || 0, y: forceY || 0 });
-  }
 
-}
 
 }
 
