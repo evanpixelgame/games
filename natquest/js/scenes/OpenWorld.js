@@ -86,23 +86,19 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
         return;
     }
     console.log(this.player, this.player.body);
+
+     this.player.body.setVelocity(0);
     // Handle keyboard input for player movement
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-100);
     } else if (this.cursors.right.isDown) {
       this.player.body.setVelocityX(100);
-    } else {
-      console.log('should be 0');
-      this.player.body.setVelocityX(0);
     }
 
     if (this.cursors.up.isDown) {
       this.player.body.setVelocityY(-100);
     } else if (this.cursors.down.isDown) {
       this.player.body.setVelocityY(100);
-    } else {
-      console.log('should be 0');
-      this.player.body.setVelocityY(0);
     }
   }
   
