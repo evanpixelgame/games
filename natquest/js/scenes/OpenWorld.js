@@ -85,21 +85,28 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
         if (!this.player) {
         return;
     }
-    console.log(this.player, this.player.body);
+ const cursors = this.input.keyboard.createCursorKeys();
 
-     this.player.body.setVelocity(0);
-    // Handle keyboard input for player movement
-    if (this.cursors.left.isDown) {
-      this.player.body.setVelocityX(-100);
-    } else if (this.cursors.right.isDown) {
-      this.player.body.setVelocityX(100);
-    }
+  // Calculate velocity based on key presses
+  let velocityX = 0;
+  let velocityY = 0;
 
-    if (this.cursors.up.isDown) {
-      this.player.body.setVelocityY(-100);
-    } else if (this.cursors.down.isDown) {
-      this.player.body.setVelocityY(100);
-    }
+  if (cursors.up.isDown) {
+    velocityY = -this.speed;
+  } else if (cursors.down.isDown) {
+    velocityY = this.speed;
+  }
+
+  if (cursors.left.isDown) {
+    velocityX = -this.speed;
+  } else if (cursors.right.isDown) {
+    velocityX = this.speed;
+  }
+
+  // Apply force to the Matter JS body
+  const playerBody = this.matter.world.bodies.filter(body => body.label === 'player')[0];
+  if (playerBody) {
+    Matter.Body.applyForce(playerBody, { x: velocityX, y: velocityY });
   }
   
 }
