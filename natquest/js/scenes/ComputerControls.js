@@ -72,8 +72,10 @@ update(time, delta) {
 
     // Set the velocity of the player sprite
     this.player.setVelocity(velocityX, velocityY);
-  this.player.body.velocity.x = velocityX;
-this.player.body.velocity.y = velocityY;
+//  this.player.body.velocity.x = velocityX;
+//this.player.body.velocity.y = velocityY;
+    //this.player.velocity.x = velocityX;
+//this.player.velocity.y = velocityY;
  
   console.log(this.player);
     console.log(this.player.body);
