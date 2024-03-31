@@ -76,6 +76,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
 
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
+    this.cursors = this.input.keyboard.createCursorKeys();
 
   }
 
