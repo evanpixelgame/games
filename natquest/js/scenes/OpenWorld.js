@@ -95,6 +95,8 @@ update(time, delta) {
     }
 
     const playerBody = this.player.body;
+  console.log(playerBody);
+  console.log(playerBody.velocity);
 
     // Handle keyboard input for player movement
     let forceX = 0;
