@@ -42,22 +42,22 @@ create() {
 
     // Determine velocity based on key presses
     if (this.cursors.up.isDown) {
-        velocityY = -this.speed;
+        velocityY = -this.velocity;
     } else if (this.cursors.down.isDown) {
-        velocityY = this.speed;
+        velocityY = this.velocity;
     }
 
     if (this.cursors.left.isDown) {
-        velocityX = -this.speed;
+        velocityX = -this.velocity;
     } else if (this.cursors.right.isDown) {
-        velocityX = this.speed;
+        velocityX = this.velocity;
     }
 
     // Normalize velocity to prevent faster movement diagonally
     if (velocityX !== 0 && velocityY !== 0) {
         const magnitude = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
-        velocityX *= this.speed / magnitude;
-        velocityY *= this.speed / magnitude;
+        velocityX *= this.velocity / magnitude;
+        velocityY *= this.velocity / magnitude;
     }
 
     // Set the velocity of the player sprite
