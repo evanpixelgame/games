@@ -31,11 +31,10 @@ export default class OpenWorld extends Phaser.Scene {
     // Create Matter.js engine
     this.matterEngine = Phaser.Physics.Matter.Matter.World;
     this.engine = this.matter.world;
-//    this.world = this.engine.world;
      this.world = this.matterEngine.create({
     // your Matter.js world options here
   });
-console.log('HELLO THERE PLEASE LOG ' + this.world);
+
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
