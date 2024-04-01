@@ -8,7 +8,7 @@ export class PlayerControls extends Phaser.Physics.Matter.Sprite {
     }
     
     init() {
- 
+         console.log(this.player);
     }
 
 create() {
