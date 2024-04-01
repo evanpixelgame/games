@@ -41,17 +41,8 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
     if (this.sys.game.device.os.android || this.sys.game.device.os.iOS) {
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
- //  this.controls = null;
- //  this.controls = this.scene.get('ComputerControls'); 
- 
-  
 
-   
- //this.controls = this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
-  /* this.scene.launch('ComputerControls', { player: this.player, speed: this.speed }, (scene) => {
-  this.controls = scene; // Scene instance passed as argument
-}); */
-    this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
+  //  this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
     this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
 
     // Load map
@@ -78,22 +69,11 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         layers.push(map.createLayer(i, tilesets, 0, 0));
     }
 
-    this.player = new PlayerSprite(this, 495, 325, 'player'); // Create the player object, just took away this.world as 2nd argument
-  // Listen for the 'created' event on the player sprite
-            const playerBodyWorld = this.player.body ? this.player.body.world : null;
-        console.log('Player Body World123:', playerBodyWorld);
+    this.player = new PlayerSprite(this, 495, 325, 'player');
 
-     this.scene.launch('ComputerControls', { player: this.player, speed: this.speed });
-          
-      
-    console.log(this.player.body);
-    console.log('Player World:', this.player.body.world);
-    console.log('Player Body:', this.player.body);
-console.log('Player GameObject:', this.player.gameObject);
-          console.log('Player Body GameObject:', this.player.body.gameObject);
-             console.log('Player Body GameObject layer:', this.player.body.gameObject.layer);
-
-  //  console.log('Player Layer Index:', this.player.body.gameObject.layer.index);
+    if (this.player) {
+       this.scene.launch('ComputerControls', { player: this.player, cursors: this.cursors, velocity: this.velocity }); //Computer controls launched here after this.player aka this.player.body has been established
+    }
 
 // Set world bounds for the player
 const boundaryOffset = 2; // Adjust this value as needed
@@ -106,16 +86,11 @@ const worldBounds = new Phaser.Geom.Rectangle(
 
 this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
           
-           console.log(this.world);
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
-//    this.transitionSensors = createTransitionSensor(this, map, this.player, this.sensorID); 
-//  console.log('fromopenworldattempt' + transitionSensors[transitionSensor]);
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
-  // Use TransitionSensorHandler to handle collision events with transition sensors
 this.sensorHandling = sensorHandler(this, map, this.player); //used to have this.transitionSensors as an argument then it became  this.sensorID
           
-
 
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
@@ -123,20 +98,12 @@ this.sensorHandling = sensorHandler(this, map, this.player); //used to have this
 
     const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
-
-   console.log('PLEASE PLEASE LOG' + this.world);
-   console.log('PRETTY PLEASE' + this.controls);
-   console.log('PRETY PLZ LOG VELOCITY FROM OPENWORLD: ' + this.velocity);
- console.log('TITI IS SO PRETTY HERES SENSORID OBJECT: ' + gameManager.sensorID.fastZone);
   }
-   
-
-
-        
+  
+ 
   update(time, delta) {
-    // Update method code here
-  //  Matter.Runner.run(this.engine);
-  }
-}
 
+  }
+  
+}
 window.OpenWorld = OpenWorld;
