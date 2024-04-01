@@ -1,10 +1,10 @@
 export class PlayerControls extends Phaser.Physics.Matter.Sprite {
-    constructor(scene, player, cursors, speed) {
+    constructor(scene, player, cursors, velocity) {
 
         this.player = player; // Reference to the player object
         this.scene = scene; // Reference to the scene object
         this.cursors = this.scene.input.keyboard.createCursorKeys();
-        this.speed = speed;
+        this.velocity = velocity;
     }
     
     init() {
