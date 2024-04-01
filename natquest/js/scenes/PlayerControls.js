@@ -1,10 +1,19 @@
-export class PlayerControls extends Phaser.Physics.Matter.Sprite {
-   constructor(scene, player, velocity, world) {
-   super(scene, 0, 0, 'player'); // Call the parent constructor
-    this.player = player;
-    this.velocity = velocity;
-      this.world = world;
-}
+export class PlayerControls {
+    constructor(scene, player, velocity, world) {
+        // Initialize properties
+        this.scene = scene;
+        this.player = player;
+        this.velocity = velocity;
+        this.world = world;
+
+        // Create keyboard input
+        this.cursors = this.scene.input.keyboard.addKeys({
+            up: Phaser.Input.Keyboard.KeyCodes.W,
+            down: Phaser.Input.Keyboard.KeyCodes.S,
+            left: Phaser.Input.Keyboard.KeyCodes.A,
+            right: Phaser.Input.Keyboard.KeyCodes.D,
+        });
+    }
     
     init() {
          console.log(this.player);
