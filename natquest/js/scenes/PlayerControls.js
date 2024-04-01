@@ -1,9 +1,6 @@
 export class PlayerControls extends Phaser.Physics.Matter.Sprite {
-    constructor(scene, player, velocity) {
-        super(scene.matter.world, 0, 0, 'player');
-        this.scene = scene; // Reference to the scene object
+    constructor(player, velocity) {
         this.player = player; // Reference to the player object
-     //   this.cursors = this.scene.input.keyboard.createCursorKeys();
         this.velocity = velocity;
     }
     
@@ -14,7 +11,7 @@ export class PlayerControls extends Phaser.Physics.Matter.Sprite {
 create() {
 
     // Create controls for arrow keys and WASD
-  this.cursors = this.scene.input.keyboard.addKeys({
+  this.cursors = this.input.keyboard.addKeys({
     up: Phaser.Input.Keyboard.KeyCodes.W,
     down: Phaser.Input.Keyboard.KeyCodes.S,
     left: Phaser.Input.Keyboard.KeyCodes.A,
