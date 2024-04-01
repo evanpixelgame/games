@@ -40,7 +40,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
         this.scene.launch('MobileControls', { player: this.player, speed: this.speed });
     }
 
-  //  this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed });
+  //  this.scene.launch('PlayerAnimations', { player: this.player, speed: this.speed }); // READD ANIMATIONS AFTER CONTROLS HAVE BEEN WORKED OUT
     this.scene.launch('CompUI', { OpenWorld: this, player: this.player, speed: this.speed, map: this.map, camera: this.cameras.main });
 
     // Load map
