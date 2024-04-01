@@ -1,5 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
-import { PlayerControls } from './PlayerSprite.js';
+import { PlayerControls } from './PlayerControls.js';
 import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
@@ -10,7 +10,7 @@ export default class OpenWorld extends Phaser.Scene {
    this.controls = null;
     this.map = null;
     this.player = null;
-    this.speed = 2; 
+    this.velocity = 2; 
     this.collisionObjects = null; 
     this.transitionSensors = null; // Add transitionSensors property
     this.engine = null;
@@ -70,7 +70,7 @@ export default class OpenWorld extends Phaser.Scene {
 
     if (this.player) {
      //  this.scene.launch('ComputerControls', { player: this.player, cursors: this.cursors, speed: this.speed }); // velocity: this.velocity }); //Computer controls launched here after this.player aka this.player.body has been established
-      this.controls = new PlayerControls(this, );
+      this.controls = new PlayerControls(this, player: this.player, velocity: this.velocity );
     }
 
 // Set world bounds for the player
