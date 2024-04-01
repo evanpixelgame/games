@@ -19,6 +19,7 @@ export class PlayerControls {
     }
 
 create() {
+    console.log('is this logging from controls');
 
     // Create controls for arrow keys and WASD
   this.cursors = this.input.keyboard.addKeys({
