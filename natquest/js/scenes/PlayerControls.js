@@ -1,6 +1,6 @@
 export default class PlayerControls {
   constructor(data) {
-    this.scene = scene;
+    this.scene = OpenWorld;
     this.player = player;
     this.velocity = velocity;
     this.world = world;
