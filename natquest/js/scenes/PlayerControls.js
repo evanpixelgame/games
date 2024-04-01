@@ -1,14 +1,10 @@
 export class PlayerControls extends Phaser.Physics.Matter.Sprite {
-    constructor(scene, player, x, y) {
-        super(scene.matter.world, x, y, texture);
+    constructor(scene, player, cursors, speed) {
 
-        // Initialize the player sprite
-        this.init();
-        // Add the player sprite to the scene
-        scene.add.existing(this);
-        this.body = this.body;
-        this.gameObject = this;
-
+        this.player = player; // Reference to the player object
+        this.scene = scene; // Reference to the scene object
+        this.cursors = this.scene.input.keyboard.createCursorKeys();
+        this.speed = speed;
     }
     
     init() {
@@ -17,7 +13,14 @@ export class PlayerControls extends Phaser.Physics.Matter.Sprite {
 
 create() {
 
-  
+    // Create controls for arrow keys and WASD
+  this.cursors = this.input.keyboard.addKeys({
+    up: Phaser.Input.Keyboard.KeyCodes.W,
+    down: Phaser.Input.Keyboard.KeyCodes.S,
+    left: Phaser.Input.Keyboard.KeyCodes.A,
+    right: Phaser.Input.Keyboard.KeyCodes.D,
+  });
+    
 }
 
   
@@ -51,8 +54,8 @@ create() {
 
     // Set the velocity of the player sprite
     this.player.setVelocity(velocityX, velocityY);
- this.player.body.velocity.x = velocityX;
-this.player.body.velocity.y = velocityY;
+     this.player.body.velocity.x = velocityX;
+    this.player.body.velocity.y = velocityY;
 
  
 //  console.log(this.player);
