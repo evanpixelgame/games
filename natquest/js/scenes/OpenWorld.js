@@ -70,7 +70,7 @@ export default class OpenWorld extends Phaser.Scene {
 
     if (this.player) {
      //  this.scene.launch('ComputerControls', { player: this.player, cursors: this.cursors, speed: this.speed }); // velocity: this.velocity }); //Computer controls launched here after this.player aka this.player.body has been established
-      this.controls = new PlayerControls(this.player, this.velocity);
+      this.controls = new PlayerControls(this, this.player, this.velocity, this.player.x, this.player.y, this.player.texture);  //, this.player.frame);
     }
 
 // Set world bounds for the player
