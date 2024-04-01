@@ -15,6 +15,7 @@ export default class OpenWorld extends Phaser.Scene {
     this.transitionSensors = null; // Add transitionSensors property
     this.engine = null;
    this.world = null;
+   // this.scene = scene;
   }
 
   init(data) {
