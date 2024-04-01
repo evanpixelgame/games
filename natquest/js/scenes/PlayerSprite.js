@@ -4,12 +4,8 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
 
         // Initialize the player sprite
         this.init();
-
         // Add the player sprite to the scene
         scene.add.existing(this);
-        this.body = this.body;
-        this.gameObject = this;
-
     }
     
     init() {
@@ -31,11 +27,8 @@ export class PlayerSprite extends Phaser.Physics.Matter.Sprite {
         const scaledWidth = playerWidth * 0.5;
         const scaledHeight = playerHeight * 0.5;
         this.setSize(scaledWidth, scaledHeight);
-           // this.body.setVelocity(velocityX, velocityY);
             console.log(this.body);
             console.log(this.world);
             console.log('Player Body Worldfromplaysprite:', this.body.world);
-       
- 
     }
 }
