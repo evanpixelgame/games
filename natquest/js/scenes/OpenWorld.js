@@ -1,5 +1,5 @@
 import { PlayerSprite } from './PlayerSprite.js';
-//import { PlayerControls } from './PlayerSprite.js';
+import { PlayerControls } from './PlayerSprite.js';
 import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
 
 export default class OpenWorld extends Phaser.Scene {
@@ -69,7 +69,8 @@ export default class OpenWorld extends Phaser.Scene {
     this.player = new PlayerSprite(this, 495, 325, 'player');
 
     if (this.player) {
-       this.scene.launch('ComputerControls', { player: this.player, cursors: this.cursors, speed: this.speed }); // velocity: this.velocity }); //Computer controls launched here after this.player aka this.player.body has been established
+     //  this.scene.launch('ComputerControls', { player: this.player, cursors: this.cursors, speed: this.speed }); // velocity: this.velocity }); //Computer controls launched here after this.player aka this.player.body has been established
+      this.controls = new PlayerControls(this, );
     }
 
 // Set world bounds for the player
@@ -86,7 +87,7 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
     // Create collision objects
     this.collisionObjects = createCollisionObjects(this, map);
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
-this.sensorHandling = sensorHandler(this, map, this.player); //used to have this.transitionSensors as an argument then it became  this.sensorID
+//this.sensorHandling = sensorHandler(this, map, this.player); //used to have this.transitionSensors as an argument then it became  this.sensorID
           
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
