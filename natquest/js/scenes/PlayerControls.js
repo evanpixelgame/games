@@ -1,6 +1,6 @@
 export class PlayerControls extends Phaser.Physics.Matter.Sprite {
    constructor(scene, player, velocity, world) {
-   super(scene, 0, 0, texture); // Call the parent constructor
+   super(scene, 0, 0, 'player'); // Call the parent constructor
     this.player = player;
     this.velocity = velocity;
       this.world = world;
