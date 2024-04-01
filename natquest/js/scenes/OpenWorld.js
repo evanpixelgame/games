@@ -79,6 +79,7 @@ export default class OpenWorld extends Phaser.Scene {
         velocity: this.velocity,
         world: this.world
     });
+      this.controls = this.scene.getScene('PlayerControls');
     }
 
 // Set world bounds for the player
