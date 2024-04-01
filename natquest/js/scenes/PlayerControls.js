@@ -1,9 +1,9 @@
 export default class PlayerControls {
   constructor(scene, player, velocity, world) {
-    this.scene = scene;
-    this.player = player;
-    this.velocity = velocity;
-    this.world = world;
+    this.scene = data.scene;
+    this.player = data.player;
+    this.velocity = data.velocity;
+    this.world = data.world;
 
     this.cursors = this.scene.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
