@@ -1,8 +1,6 @@
 import { PlayerSprite } from './PlayerSprite.js';
 //import { PlayerControls } from './PlayerSprite.js';
 import { sensorMapSet, createCollisionObjects, sensorHandler } from './collisionHandler.js';
-import { gameManager } from '../gameState.js';
-
 
 export default class OpenWorld extends Phaser.Scene {
   constructor() {
@@ -72,7 +70,7 @@ console.log('HELLO THERE PLEASE LOG ' + this.world);
     this.player = new PlayerSprite(this, 495, 325, 'player');
 
     if (this.player) {
-       this.scene.launch('ComputerControls', { player: this.player, cursors: this.cursors, velocity: this.velocity }); //Computer controls launched here after this.player aka this.player.body has been established
+       this.scene.launch('ComputerControls', { player: this.player, cursors: this.cursors, speed: this.speed }); // velocity: this.velocity }); //Computer controls launched here after this.player aka this.player.body has been established
     }
 
 // Set world bounds for the player
@@ -91,12 +89,9 @@ this.matter.world.setBounds(0, 0, worldBounds.width, worldBounds.height);
    this.sensorMapping = sensorMapSet(this, map, this.sensorID);  //this.transitionSensors?
 this.sensorHandling = sensorHandler(this, map, this.player); //used to have this.transitionSensors as an argument then it became  this.sensorID
           
-
     // Constrain the camera
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
-
-    const startMenuScene = this.scene.get('StartMenu');
     this.cameras.main.setZoom(2);
   }
   
